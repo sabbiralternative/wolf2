@@ -1,0 +1,27 @@
+.login-form .form-item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.login-form .form-item .form-label {
+  color: white;
+  font-size: 12px;
+  margin: 5px 0px;
+}
+
+.login-form .form-item .input-container {
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.login-form .form-item .input-container input {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  height: 100%;
+  padding-left: 5px;
+}

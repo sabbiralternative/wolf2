@@ -28,7 +28,7 @@
       "logo": {
         "height": "90px",
         "width": "300px",
-        "format": "png"
+        "format": "svg"
       },
 
       "paymentIntent": false,
