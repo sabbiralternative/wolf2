@@ -47,52 +47,60 @@
 
 @font-face {
   font-family: open_bold;
-  src: url(OpenSans-Bold.c744609a802a3288.eot);
-  src: url(OpenSans-Bold.c744609a802a3288.eot?#iefix)
+  src: url(/src/assets/font/OpenSans-Bold.c744609a802a3288.eot);
+  src: url(/src/assets/font/OpenSans-Bold.c744609a802a3288.eot?#iefix)
       format("embedded-opentype"),
-    url(OpenSans-Bold.b42e8f997302545c.woff2) format("woff2"),
-    url(OpenSans-Bold.64b698d1d2f794fe.woff) format("woff"),
-    url(OpenSans-Bold.b3fe20c65d6b62cf.ttf) format("truetype"),
-    url(OpenSans-Bold.f38a2340fb722694.svg#OpenSans-Bold) format("svg");
+    url(/src/assets/font/OpenSans-Bold.b42e8f997302545c.woff2) format("woff2"),
+    url(/src/assets/font/OpenSans-Bold.64b698d1d2f794fe.woff) format("woff"),
+    url(/src/assets/font/OpenSans-Bold.b3fe20c65d6b62cf.ttf) format("truetype"),
+    url(/src/assets/font/OpenSans-Bold.f38a2340fb722694.svg#OpenSans-Bold)
+      format("svg");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: open_semiBold;
-  src: url(OpenSans-SemiBold.deb5b5413aa8d3ac.eot);
-  src: url(OpenSans-SemiBold.deb5b5413aa8d3ac.eot?#iefix)
+  src: url(/src/assets/font/OpenSans-SemiBold.deb5b5413aa8d3ac.eot);
+  src: url(/src/assets/font/OpenSans-SemiBold.deb5b5413aa8d3ac.eot?#iefix)
       format("embedded-opentype"),
-    url(OpenSans-SemiBold.a6f1c6b1afb3465a.woff2) format("woff2"),
-    url(OpenSans-SemiBold.bb3467e1ab08ad28.woff) format("woff"),
-    url(OpenSans-SemiBold.4f8cd531d5793bcb.ttf) format("truetype"),
-    url(OpenSans-SemiBold.53807d58a1c70bd2.svg#OpenSans-SemiBold) format("svg");
+    url(/src/assets/font/OpenSans-SemiBold.a6f1c6b1afb3465a.woff2)
+      format("woff2"),
+    url(/src/assets/font/OpenSans-SemiBold.bb3467e1ab08ad28.woff) format("woff"),
+    url(/src/assets/font/OpenSans-SemiBold.4f8cd531d5793bcb.ttf)
+      format("truetype"),
+    url(/src/assets/font/OpenSans-SemiBold.53807d58a1c70bd2.svg#OpenSans-SemiBold)
+      format("svg");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: open_regular;
-  src: url(OpenSans-Regular.3384608ec0a1e49b.eot);
-  src: url(OpenSans-Regular.3384608ec0a1e49b.eot?#iefix)
+  src: url(/src/assets/font/OpenSans-Regular.3384608ec0a1e49b.eot);
+  src: url(/src/assets/font/OpenSans-Regular.3384608ec0a1e49b.eot?#iefix)
       format("embedded-opentype"),
-    url(OpenSans-Regular.98f04fd85332c29f.woff2) format("woff2"),
-    url(OpenSans-Regular.bce49be2a274aae7.woff) format("woff"),
-    url(OpenSans-Regular.678fb9cf1b737079.ttf) format("truetype"),
-    url(OpenSans-Regular.9ad98acf6f3e7381.svg#OpenSans-Regular) format("svg");
+    url(/src/assets/font/OpenSans-Regular.98f04fd85332c29f.woff2)
+      format("woff2"),
+    url(/src/assets/font/OpenSans-Regular.bce49be2a274aae7.woff) format("woff"),
+    url(/src/assets/font/OpenSans-Regular.678fb9cf1b737079.ttf)
+      format("truetype"),
+    url(/src/assets/font/OpenSans-Regular.9ad98acf6f3e7381.svg#OpenSans-Regular)
+      format("svg");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: open_light;
-  src: url(OpenSans-Light.eec8d6d88268332f.eot);
-  src: url(OpenSans-Light.eec8d6d88268332f.eot?#iefix)
+  src: url(/src/assets/font/OpenSans-Light.eec8d6d88268332f.eot);
+  src: url(/src/assets/font/OpenSans-Light.eec8d6d88268332f.eot?#iefix)
       format("embedded-opentype"),
-    url(OpenSans-Light.eca1259dc68dc112.woff2) format("woff2"),
-    url(OpenSans-Light.3d40ad4dbf6ff344.woff) format("woff"),
-    url(OpenSans-Light.5262a04f51b93052.ttf) format("truetype"),
-    url(OpenSans-Light.d50201a459c1c184.svg#OpenSans-Light) format("svg");
+    url(/src/assets/font/OpenSans-Light.eca1259dc68dc112.woff2) format("woff2"),
+    url(/src/assets/font/OpenSans-Light.3d40ad4dbf6ff344.woff) format("woff"),
+    url(/src/assets/font/OpenSans-Light.5262a04f51b93052.ttf) format("truetype"),
+    url(/src/assets/font/OpenSans-Light.d50201a459c1c184.svg#OpenSans-Light)
+      format("svg");
   font-weight: 300;
   font-style: normal;
 }
@@ -3184,7 +3192,7 @@ mat-icon.mat-warn {
   margin-bottom: 60px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: auto;
   max-height: 100%;
   height: 100%;
 }
