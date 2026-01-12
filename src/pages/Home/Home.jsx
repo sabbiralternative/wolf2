@@ -202,7 +202,10 @@ const Home = () => {
         <div _nghost-ng-c3950294213 className="ng-star-inserted">
           <div className="main">
             <div className="container">
-              <div className="page-header not-loggedIn">
+              <div
+                className="page-header page-body not-loggedIn"
+                style={{ padding: "0px", background: "transparent" }}
+              >
                 <div _nghost-ng-c2239230737>
                   <div className="header-wrapper top-header">
                     <div className="logo">
@@ -253,10 +256,6 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                <div />
-                <div />
-              </div>
-              <div className="page-body">
                 <div
                   style={{ position: "sticky", top: "0px", zIndex: 9999 }}
                   className="ng-star-inserted"
@@ -501,6 +500,11 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
+                <div />
+                <div />
+              </div>
+              <div className="page-body">
+                {/*  */}
                 <div className="ion-content-wrapper">
                   <div
                     role="main"
@@ -742,14 +746,14 @@ const Home = () => {
                                       </div>
                                       <h3 className="team-title">
                                         <p className="ng-star-inserted">
-                                          <span
+                                          {/* <span
                                             role="img"
                                             className="mat-icon notranslate material-icons favorite mat-ligature-font mat-icon-no-color ng-star-inserted"
                                             aria-hidden="true"
                                             data-mat-icon-type="font"
                                           >
                                             star
-                                          </span>
+                                          </span> */}
                                           <span className="team-name">
                                             mumbai indians w
                                           </span>
@@ -833,14 +837,6 @@ const Home = () => {
                                           </span>
                                         </p>
                                         <p className="ng-star-inserted">
-                                          <span
-                                            role="img"
-                                            className="mat-icon notranslate material-icons favorite mat-ligature-font mat-icon-no-color ng-star-inserted"
-                                            aria-hidden="true"
-                                            data-mat-icon-type="font"
-                                          >
-                                            star
-                                          </span>
                                           <span className="team-name">
                                             mi cape town
                                           </span>
@@ -914,14 +910,6 @@ const Home = () => {
                                       </div>
                                       <h3 className="team-title">
                                         <p className="ng-star-inserted">
-                                          <span
-                                            role="img"
-                                            className="mat-icon notranslate material-icons favorite mat-ligature-font mat-icon-no-color ng-star-inserted"
-                                            aria-hidden="true"
-                                            data-mat-icon-type="font"
-                                          >
-                                            star
-                                          </span>
                                           <span className="team-name">
                                             wellington blaze w
                                           </span>
@@ -987,14 +975,6 @@ const Home = () => {
                                       </div>
                                       <h3 className="team-title">
                                         <p className="ng-star-inserted">
-                                          <span
-                                            role="img"
-                                            className="mat-icon notranslate material-icons favorite mat-ligature-font mat-icon-no-color ng-star-inserted"
-                                            aria-hidden="true"
-                                            data-mat-icon-type="font"
-                                          >
-                                            star
-                                          </span>
                                           <span className="team-name">
                                             sydney sixers
                                           </span>
@@ -1065,14 +1045,6 @@ const Home = () => {
                                           </span>
                                         </p>
                                         <p className="ng-star-inserted">
-                                          <span
-                                            role="img"
-                                            className="mat-icon notranslate material-icons favorite mat-ligature-font mat-icon-no-color ng-star-inserted"
-                                            aria-hidden="true"
-                                            data-mat-icon-type="font"
-                                          >
-                                            star
-                                          </span>
                                           <span className="team-name">
                                             northern brave
                                           </span>
@@ -1212,14 +1184,6 @@ const Home = () => {
                                       </div>
                                       <h3 className="team-title">
                                         <p className="ng-star-inserted">
-                                          <span
-                                            role="img"
-                                            className="mat-icon notranslate material-icons favorite mat-ligature-font mat-icon-no-color ng-star-inserted"
-                                            aria-hidden="true"
-                                            data-mat-icon-type="font"
-                                          >
-                                            star
-                                          </span>
                                           <span className="team-name">
                                             freiburg
                                           </span>
@@ -1293,14 +1257,6 @@ const Home = () => {
                                           </span>
                                         </p>
                                         <p className="ng-star-inserted">
-                                          <span
-                                            role="img"
-                                            className="mat-icon notranslate material-icons favorite mat-ligature-font mat-icon-no-color ng-star-inserted"
-                                            aria-hidden="true"
-                                            data-mat-icon-type="font"
-                                          >
-                                            star
-                                          </span>
                                           <span className="team-name">
                                             fc koln
                                           </span>
@@ -1369,14 +1325,6 @@ const Home = () => {
                                           </span>
                                         </p>
                                         <p className="ng-star-inserted">
-                                          <span
-                                            role="img"
-                                            className="mat-icon notranslate material-icons favorite mat-ligature-font mat-icon-no-color ng-star-inserted"
-                                            aria-hidden="true"
-                                            data-mat-icon-type="font"
-                                          >
-                                            star
-                                          </span>
                                           <span className="team-name">
                                             mainz
                                           </span>
@@ -1440,14 +1388,6 @@ const Home = () => {
                                       </div>
                                       <h3 className="team-title">
                                         <p className="ng-star-inserted">
-                                          <span
-                                            role="img"
-                                            className="mat-icon notranslate material-icons favorite mat-ligature-font mat-icon-no-color ng-star-inserted"
-                                            aria-hidden="true"
-                                            data-mat-icon-type="font"
-                                          >
-                                            star
-                                          </span>
                                           <span className="team-name">
                                             villarreal
                                           </span>
@@ -1559,14 +1499,6 @@ const Home = () => {
                                       </div>
                                       <h3 className="team-title">
                                         <p className="ng-star-inserted">
-                                          <span
-                                            role="img"
-                                            className="mat-icon notranslate material-icons favorite mat-ligature-font mat-icon-no-color ng-star-inserted"
-                                            aria-hidden="true"
-                                            data-mat-icon-type="font"
-                                          >
-                                            star
-                                          </span>
                                           <span className="team-name">
                                             kopriva
                                           </span>
@@ -1620,14 +1552,6 @@ const Home = () => {
                                       </div>
                                       <h3 className="team-title">
                                         <p className="ng-star-inserted">
-                                          <span
-                                            role="img"
-                                            className="mat-icon notranslate material-icons favorite mat-ligature-font mat-icon-no-color ng-star-inserted"
-                                            aria-hidden="true"
-                                            data-mat-icon-type="font"
-                                          >
-                                            star
-                                          </span>
                                           <span className="team-name">
                                             spizzirri
                                           </span>
@@ -1686,14 +1610,6 @@ const Home = () => {
                                           </span>
                                         </p>
                                         <p className="ng-star-inserted">
-                                          <span
-                                            role="img"
-                                            className="mat-icon notranslate material-icons favorite mat-ligature-font mat-icon-no-color ng-star-inserted"
-                                            aria-hidden="true"
-                                            data-mat-icon-type="font"
-                                          >
-                                            star
-                                          </span>
                                           <span className="team-name">
                                             struff
                                           </span>
@@ -1747,14 +1663,6 @@ const Home = () => {
                                           </span>
                                         </p>
                                         <p className="ng-star-inserted">
-                                          <span
-                                            role="img"
-                                            className="mat-icon notranslate material-icons favorite mat-ligature-font mat-icon-no-color ng-star-inserted"
-                                            aria-hidden="true"
-                                            data-mat-icon-type="font"
-                                          >
-                                            star
-                                          </span>
                                           <span className="team-name">
                                             ha medjedovic
                                           </span>
@@ -1803,14 +1711,6 @@ const Home = () => {
                                       </div>
                                       <h3 className="team-title">
                                         <p className="ng-star-inserted">
-                                          <span
-                                            role="img"
-                                            className="mat-icon notranslate material-icons favorite mat-ligature-font mat-icon-no-color ng-star-inserted"
-                                            aria-hidden="true"
-                                            data-mat-icon-type="font"
-                                          >
-                                            star
-                                          </span>
                                           <span className="team-name">
                                             al shevchenko
                                           </span>
