@@ -257,7 +257,10 @@ const Home = () => {
                 <div />
               </div>
               <div className="page-body">
-                <div className="ng-star-inserted">
+                <div
+                  style={{ position: "sticky", top: "0px", zIndex: 9999 }}
+                  className="ng-star-inserted"
+                >
                   <div className="pagetab-wrapper">
                     <div className="forSearchBar">
                       <div _nghost-ng-c3561380397 className="ng-star-inserted">

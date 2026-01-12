@@ -22,8 +22,10 @@ import affiInviteGift from "../img/invite-gift.66579aaa.svg";
 import affiCopy from "../img/affi-copy.6ddf100b.svg";
 import affiBonus1 from "../img/affi-bonus-1.4907c6fe.svg";
 import affiBonus2 from "../img/affi-bonus-2.b3bc4c43.svg";
+import globe from "../img/globe.gif";
 
 export default {
+  globe,
   affiBonus1,
   affiBonus2,
   affiCopy,
