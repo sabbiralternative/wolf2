@@ -3,13 +3,21 @@ import {
   setShowLoginModal,
   setShowRegisterModal,
 } from "../../../redux/features/global/globalSlice";
-import { Fragment } from "react";
+import { Fragment, useMemo } from "react";
 import useWhatsApp from "../../../hooks/whatsapp";
 import { Settings } from "../../../api";
 import { useNavigate } from "react-router-dom";
 import { useLogo } from "../../../context/ApiProvider";
+import { useGroupQuery } from "../../../redux/features/events/events";
 
 const Header = () => {
+  const { data } = useGroupQuery(
+    { sportsType: Number(0) },
+    {
+      pollingInterval: 1000,
+    }
+  );
+
   const { logo } = useLogo();
   const navigate = useNavigate();
   const { data: socialLink } = useWhatsApp();
@@ -20,6 +28,28 @@ const Header = () => {
       window.open(socialLink?.whatsapplink, "_blank");
     }
   };
+
+  const groupedData = useMemo(() => {
+    if (!data) return { cricket: 0, football: 0, tennis: 0 };
+
+    return Object.values(data).reduce(
+      (acc, value) => {
+        if (!value.visible) return acc;
+
+        if (value.eventTypeId === 4) acc.cricket++;
+        if (value.eventTypeId === 2) acc.tennis++;
+        if (value.eventTypeId === 1) acc.football++;
+
+        return acc;
+      },
+      {
+        cricket: 0,
+        football: 0,
+        tennis: 0,
+      }
+    );
+  }, [data]);
+
   return (
     <Fragment>
       <div
@@ -199,7 +229,10 @@ const Header = () => {
                 </div>
                 <div className="tab-label ng-star-inserted">Cricket</div>
                 <div className="badgeWrapper ng-star-inserted">
-                  <div className="badge">2</div>
+                  {groupedData?.cricket > 0 && (
+                    <div className="badge">{groupedData?.cricket}</div>
+                  )}
+
                   <div className="wifi-symbol">
                     <div className="wifi-circle first" />
                     <div className="wifi-circle second" />
@@ -218,7 +251,9 @@ const Header = () => {
                 </div>
                 <div className="tab-label ng-star-inserted">Soccer</div>
                 <div className="badgeWrapper ng-star-inserted">
-                  <div className="badge">5</div>
+                  {groupedData?.football > 0 && (
+                    <div className="badge">{groupedData?.football}</div>
+                  )}
                   <div className="wifi-symbol">
                     <div className="wifi-circle first" />
                     <div className="wifi-circle second" />
@@ -236,6 +271,15 @@ const Header = () => {
                   />
                 </div>
                 <div className="tab-label ng-star-inserted">Tennis</div>
+                <div className="badgeWrapper ng-star-inserted">
+                  {groupedData?.tennis > 0 && (
+                    <div className="badge">{groupedData?.tennis}</div>
+                  )}
+                  <div className="wifi-symbol">
+                    <div className="wifi-circle first" />
+                    <div className="wifi-circle second" />
+                  </div>
+                </div>
               </div>
               <div
                 className="pagetab-item"

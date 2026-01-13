@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useGroupQuery } from "../../../redux/features/events/events";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ScoreInfo from "./ScoreInfo";
 
 const InPlay = () => {
   const { group } = useSelector((state) => state.global);
@@ -102,22 +103,7 @@ const InPlay = () => {
                             className="table-item ng-star-inserted"
                           >
                             <div className="teamlist-info">
-                              {data?.[keys]?.inPlay === 1 ? (
-                                <div className="match-time">
-                                  <span className="inplay ng-star-inserted">
-                                    In-play
-                                  </span>
-                                  <p className="stumps-wrap ng-star-inserted" />
-                                </div>
-                              ) : (
-                                <div className="match-time">
-                                  <p className="ng-star-inserted">
-                                    {/* Tomorrow 5:10am IST */}
-                                    {data?.[keys]?.date}
-                                  </p>
-                                  <p className="stumps-wrap ng-star-inserted" />
-                                </div>
-                              )}
+                              <ScoreInfo data={data} keys={keys} />
 
                               <h3 className="team-title">
                                 <p className="ng-star-inserted">
