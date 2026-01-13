@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../pages/Home/Home";
+import Group from "../pages/Group/Group";
 
 export const router = createBrowserRouter(
   [
@@ -12,6 +13,10 @@ export const router = createBrowserRouter(
         {
           index: true,
           element: <Home />,
+        },
+        {
+          path: "/group/:name/:eventTypeId",
+          element: <Group />,
         },
       ],
     },

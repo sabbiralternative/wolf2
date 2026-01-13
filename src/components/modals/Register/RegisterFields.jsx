@@ -1,49 +1,76 @@
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
-import { useForgotPasswordMutation } from "../../../redux/features/auth/authApi";
+import { useRegisterMutation } from "../../../redux/features/auth/authApi";
 import { useLogo } from "../../../context/ApiProvider";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
 import {
-  setShowForgotPasswordModal,
-  setShowLoginModal,
+  setShowBanner,
+  setShowRegisterModal,
 } from "../../../redux/features/global/globalSlice";
 import { useForm } from "react-hook-form";
 import { Settings } from "../../../api";
 
 import toast from "react-hot-toast";
-const ForgotFields = ({ mobile, order }) => {
-  const [handleForgotPassword] = useForgotPasswordMutation();
+import { setUser } from "../../../redux/features/auth/authSlice";
+const RegisterFields = ({ mobile, order }) => {
+  const referralCode = localStorage.getItem("referralCode");
+  const [handleRegister] = useRegisterMutation();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const { logo } = useLogo();
   const ref = useRef();
   useCloseModalClickOutside(ref, () => {
-    closeForgotPasswordModal();
+    closeModal();
   });
 
   const onSubmit = async (data) => {
-    const forgotPasswordData = {
-      username: mobile,
+    const registerData = {
+      username: "",
       password: data?.password,
       confirmPassword: data?.confirmPassword,
-      otp: data?.otp,
+      mobile: mobile,
+      otp: data.otp,
       isOtpAvailable: Settings.otp,
+      referralCode: referralCode || data?.referralCode,
       orderId: order.orderId,
-      otpMethod: order.otpMethod,
+      orderMethod: order.otpMethod,
     };
 
-    const result = await handleForgotPassword(forgotPasswordData).unwrap();
+    const result = await handleRegister(registerData).unwrap();
+
     if (result.success) {
-      toast.success("Password updated successfully");
-      closeForgotPasswordModal();
-      dispatch(setShowLoginModal(true));
+      if (window?.fbq) {
+        window.fbq("track", "CompleteRegistration", {
+          content_name: "User Signup",
+          status: "success",
+        });
+      }
+      localStorage.removeItem("referralCode");
+      const token = result?.result?.token;
+      const bonusToken = result?.result?.bonusToken;
+      const user = result?.result?.loginName;
+      const memberId = result?.result?.memberId;
+      const game = result?.result?.buttonValue?.game;
+      const banner = result?.result?.banner;
+      dispatch(setUser({ user, token, memberId }));
+      localStorage.setItem("buttonValue", JSON.stringify(game));
+      localStorage.setItem("bonusToken", bonusToken);
+      localStorage.setItem("token", token);
+      if (banner) {
+        localStorage.setItem("banner", banner);
+        dispatch(setShowBanner(true));
+      }
+      if (token && user) {
+        dispatch(setShowRegisterModal(false));
+        toast.success("Register successful");
+      }
     } else {
-      toast.error(result?.error?.loginName?.[0]?.description);
+      toast.error(result?.error?.description);
     }
   };
 
-  const closeForgotPasswordModal = () => {
-    dispatch(setShowForgotPasswordModal(false));
+  const closeModal = () => {
+    dispatch(setShowRegisterModal(false));
   };
 
   return (
@@ -104,7 +131,7 @@ const ForgotFields = ({ mobile, order }) => {
                           </h2>
                         </div>
                         <button
-                          onClick={closeForgotPasswordModal}
+                          onClick={closeModal}
                           color="primary"
                           aria-label="Login Dialog Close Button"
                           className="close-btn mdc-fab mdc-fab--mini mat-mdc-mini-fab mat-primary mat-mdc-button-base"
@@ -165,6 +192,19 @@ const ForgotFields = ({ mobile, order }) => {
                                 />
                               </div>
                             </div>
+                            <div className="form-item">
+                              <p className="form-label">
+                                Referral Code (Optional)
+                              </p>
+                              <div className="input-container">
+                                <input
+                                  readOnly={referralCode}
+                                  {...register("referralCode")}
+                                  type="text"
+                                  placeholder="Enter Referral Code"
+                                />
+                              </div>
+                            </div>
 
                             <div className="form-btn">
                               <div className="otpBTNs">
@@ -172,7 +212,7 @@ const ForgotFields = ({ mobile, order }) => {
                                   type="submit"
                                   className="btn secondary-btn ng-star-inserted"
                                 >
-                                  Change Password
+                                  Register
                                 </button>
                               </div>
                             </div>
@@ -191,4 +231,4 @@ const ForgotFields = ({ mobile, order }) => {
   );
 };
 
-export default ForgotFields;
+export default RegisterFields;

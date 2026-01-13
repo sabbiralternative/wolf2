@@ -6,16 +6,17 @@ import Header from "../components/UI/Header/Header";
 import Login from "../components/modals/Login/Login";
 import { useSelector } from "react-redux";
 import ForgotPassword from "../components/modals/ForgotPassword/ForgotPassword";
+import Register from "../components/modals/Register/Register";
 
 const MainLayout = () => {
-  const { showLoginModal, showForgotPasswordModal } = useSelector(
-    (state) => state.global
-  );
+  const { showLoginModal, showForgotPasswordModal, showRegisterModal } =
+    useSelector((state) => state.global);
 
   return (
     <Fragment>
       {showLoginModal && <Login />}
       {showForgotPasswordModal && <ForgotPassword />}
+      {showRegisterModal && <Register />}
       <div className="translator-wrap" style={{ display: "block !important" }}>
         <img src={images.globe} alt="" />
       </div>

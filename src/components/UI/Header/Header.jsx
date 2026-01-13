@@ -1,10 +1,25 @@
 import { useDispatch } from "react-redux";
-import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
+import {
+  setShowLoginModal,
+  setShowRegisterModal,
+} from "../../../redux/features/global/globalSlice";
 import { Fragment } from "react";
+import useWhatsApp from "../../../hooks/whatsapp";
+import { Settings } from "../../../api";
+import { useNavigate } from "react-router-dom";
+import { useLogo } from "../../../context/ApiProvider";
 
 const Header = () => {
+  const { logo } = useLogo();
+  const navigate = useNavigate();
+  const { data: socialLink } = useWhatsApp();
   const dispatch = useDispatch();
 
+  const openWhatsapp = () => {
+    if (socialLink?.whatsapplink) {
+      window.open(socialLink?.whatsapplink, "_blank");
+    }
+  };
   return (
     <Fragment>
       <div
@@ -23,8 +38,9 @@ const Header = () => {
                 menu
               </span>
               <img
+                onClick={() => navigate("/")}
                 alt="logo"
-                src="https://ss.manage63.com/bmk-wl/wl/wolf365/img/logo.svg"
+                src={logo}
                 className="ng-star-inserted"
               />
             </div>
@@ -35,16 +51,30 @@ const Header = () => {
                   className="btn dark-outlined-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
                 >
                   <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                  <span className="mdc-button__label">Login | Signup</span>
+                  <span className="mdc-button__label">Login</span>
                   <span className="mat-mdc-focus-indicator" />
                   <span className="mat-mdc-button-touch-target" />
                 </button>
-                <button className="btn dark-outlined-btn demo-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base">
+                <button
+                  onClick={() => dispatch(setShowRegisterModal(true))}
+                  className="btn dark-outlined-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
+                >
                   <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                  <span className="mdc-button__label">Demo ID</span>
+                  <span className="mdc-button__label">Register</span>
                   <span className="mat-mdc-focus-indicator" />
                   <span className="mat-mdc-button-touch-target" />
                 </button>
+                {Settings.registrationWhatsapp && socialLink?.whatsapplink && (
+                  <button
+                    onClick={openWhatsapp}
+                    className="btn dark-outlined-btn demo-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
+                  >
+                    <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
+                    <span className="mdc-button__label">Get ID</span>
+                    <span className="mat-mdc-focus-indicator" />
+                    <span className="mat-mdc-button-touch-target" />
+                  </button>
+                )}
               </div>
               <p className="notranslate selected-lang ng-star-inserted">En</p>
             </div>
@@ -157,7 +187,10 @@ const Header = () => {
                 </div>
                 <div className="tab-label ng-star-inserted">Tournaments</div>
               </div>
-              <div className="pagetab-item ng-star-inserted">
+              <div
+                onClick={() => navigate("/group/cricket/4?type=inPlay")}
+                className="pagetab-item ng-star-inserted"
+              >
                 <div className="icon-wrap ng-star-inserted">
                   <img
                     alt="Tab Icon"
@@ -173,7 +206,10 @@ const Header = () => {
                   </div>
                 </div>
               </div>
-              <div className="pagetab-item ng-star-inserted">
+              <div
+                onClick={() => navigate("/group/football/1?type=inPlay")}
+                className="pagetab-item ng-star-inserted"
+              >
                 <div className="icon-wrap ng-star-inserted">
                   <img
                     alt="Tab Icon"
@@ -189,7 +225,10 @@ const Header = () => {
                   </div>
                 </div>
               </div>
-              <div className="pagetab-item ng-star-inserted">
+              <div
+                onClick={() => navigate("/group/tennis/2?type=inPlay")}
+                className="pagetab-item ng-star-inserted"
+              >
                 <div className="icon-wrap ng-star-inserted">
                   <img
                     alt="Tab Icon"
