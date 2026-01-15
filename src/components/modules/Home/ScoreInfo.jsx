@@ -2,7 +2,6 @@ import { Fragment } from "react";
 import { formatDate } from "../../../utils/formateDate";
 
 const ScoreInfo = ({ data, keys }) => {
-  console.log(data);
   return (
     <Fragment>
       {data?.[keys]?.eventTypeId == 4 && (

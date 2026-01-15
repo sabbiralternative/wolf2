@@ -1,16 +1,13 @@
-import { useDispatch } from "react-redux";
-import {
-  setShowLoginModal,
-  setShowRegisterModal,
-} from "../../../redux/features/global/globalSlice";
 import { Fragment, useMemo } from "react";
-import useWhatsApp from "../../../hooks/whatsapp";
-import { Settings } from "../../../api";
 import { useNavigate } from "react-router-dom";
 import { useLogo } from "../../../context/ApiProvider";
 import { useGroupQuery } from "../../../redux/features/events/events";
+import NotLoggedIn from "./NotLoggedIn";
+import { useSelector } from "react-redux";
+import LoggedIn from "./LoggedIn";
 
 const Header = () => {
+  const { token } = useSelector((state) => state.auth);
   const { data } = useGroupQuery(
     { sportsType: Number(0) },
     {
@@ -20,14 +17,6 @@ const Header = () => {
 
   const { logo } = useLogo();
   const navigate = useNavigate();
-  const { data: socialLink } = useWhatsApp();
-  const dispatch = useDispatch();
-
-  const openWhatsapp = () => {
-    if (socialLink?.whatsapplink) {
-      window.open(socialLink?.whatsapplink, "_blank");
-    }
-  };
 
   const groupedData = useMemo(() => {
     if (!data) return { cricket: 0, football: 0, tennis: 0 };
@@ -54,12 +43,17 @@ const Header = () => {
     <Fragment>
       <div
         className="page-header page-body not-loggedIn"
-        style={{ padding: "0px", background: "transparent" }}
+        style={{
+          padding: "0px",
+          background: "transparent",
+          boxShadow: "0 4px 10px #8080804d",
+        }}
       >
         <div>
           <div className="header-wrapper top-header">
             <div className="logo">
               <span
+                style={{ color: "white" }}
                 role="img"
                 className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color ng-star-inserted"
                 aria-hidden="true"
@@ -75,37 +69,8 @@ const Header = () => {
               />
             </div>
             <div className="header-right-cont">
-              <div className="not-loggedIn ng-star-inserted">
-                <button
-                  onClick={() => dispatch(setShowLoginModal(true))}
-                  className="btn dark-outlined-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
-                >
-                  <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                  <span className="mdc-button__label">Login</span>
-                  <span className="mat-mdc-focus-indicator" />
-                  <span className="mat-mdc-button-touch-target" />
-                </button>
-                <button
-                  onClick={() => dispatch(setShowRegisterModal(true))}
-                  className="btn dark-outlined-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
-                >
-                  <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                  <span className="mdc-button__label">Register</span>
-                  <span className="mat-mdc-focus-indicator" />
-                  <span className="mat-mdc-button-touch-target" />
-                </button>
-                {Settings.registrationWhatsapp && socialLink?.whatsapplink && (
-                  <button
-                    onClick={openWhatsapp}
-                    className="btn dark-outlined-btn demo-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
-                  >
-                    <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                    <span className="mdc-button__label">Get ID</span>
-                    <span className="mat-mdc-focus-indicator" />
-                    <span className="mat-mdc-button-touch-target" />
-                  </button>
-                )}
-              </div>
+              {token ? <LoggedIn /> : <NotLoggedIn />}
+
               <p className="notranslate selected-lang ng-star-inserted">En</p>
             </div>
           </div>
