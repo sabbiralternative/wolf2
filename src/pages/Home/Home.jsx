@@ -1,9 +1,7 @@
 import CasinoProviders from "../../components/modules/Home/CasinoProviders";
-import GameShows from "../../components/modules/Home/GameShows";
-import GoCasino from "../../components/modules/Home/GoCasino";
-import GoCrash from "../../components/modules/Home/GoCrash";
+import Casino from "../../components/modules/Home/Casino";
+import CardGames from "../../components/modules/Home/CardGames";
 import InPlay from "../../components/modules/Home/InPlay";
-import InstantGames from "../../components/modules/Home/InstantGames";
 import LiveCasino from "../../components/modules/Home/LiveCasino";
 import SocialLinks from "../../components/modules/Home/SocialLinks";
 
@@ -23,11 +21,9 @@ const Home = () => {
             <div className="pagetab-content">
               <CasinoProviders />
               <InPlay />
-              <GoCrash />
-              <InstantGames />
-              <GameShows />
-              <GoCasino />
+              <CardGames />
               <LiveCasino />
+              <Casino />
             </div>
           </div>
         </div>

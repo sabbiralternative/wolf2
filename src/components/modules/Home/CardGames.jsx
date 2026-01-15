@@ -1,11 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useLiveCasinoWolfQuery } from "../../../hooks/liveCasinoWolf";
+import { useMac88Query } from "../../../hooks/mac88";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 
-const LiveCasino = () => {
+const CardGames = () => {
   const dispatch = useDispatch();
-  const { data } = useLiveCasinoWolfQuery({
+  const { data } = useMac88Query({
     gameList: "All",
     product: "All",
     isHome: true,
@@ -13,7 +13,7 @@ const LiveCasino = () => {
   const { token } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
-  const handleNavigate = (code, name) => {
+  const handleCasino = (code, name) => {
     if (token) {
       navigate(`/casino/${name.replace(/ /g, "")}/${code}`);
     } else {
@@ -22,9 +22,9 @@ const LiveCasino = () => {
   };
 
   return (
-    <div className="casino-section live-casino game-play mt-2 mb-3 ng-star-inserted">
+    <div className="casino-section go-casino game-play mt-2 mb-3 ng-star-inserted">
       <div className="game-play-heading">
-        <h2>Live Casino</h2>
+        <h2>Card Games</h2>
         <a className="view-all-link ng-star-inserted">
           All
           <span
@@ -42,12 +42,12 @@ const LiveCasino = () => {
           {data?.data?.map((item) => {
             return (
               <li
-                onClick={() => handleNavigate(item?.id, item?.game_name)}
-                key={item?.id}
+                onClick={() => handleCasino(item?.game_id, item?.game_name)}
+                key={item?.game_id}
                 className="ng-star-inserted"
               >
                 <a className="active">
-                  <img alt="" src={item?.url_thumb} />
+                  <img alt="" src={item?.img} />
                 </a>
                 {/* <p className="total-players">
                   <span
@@ -58,10 +58,10 @@ const LiveCasino = () => {
                   >
                     group
                   </span>
-                  901
+                  1331
                 </p> */}
                 <div className="game-detail">
-                  <p className="company-type">{item?.product}</p>
+                  {/* <p className="company-type">SPRIBE</p> */}
                   <p className="game-name">{item?.game_name}</p>
                 </div>
               </li>
@@ -73,4 +73,4 @@ const LiveCasino = () => {
   );
 };
 
-export default LiveCasino;
+export default CardGames;

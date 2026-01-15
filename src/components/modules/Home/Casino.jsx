@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useLiveCasinoWolfQuery } from "../../../hooks/liveCasinoWolf";
+import { useSlotWolfQuery } from "../../../hooks/slotWolf";
 import { useNavigate } from "react-router-dom";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 
-const LiveCasino = () => {
+const Casino = () => {
   const dispatch = useDispatch();
-  const { data } = useLiveCasinoWolfQuery({
+  const { data } = useSlotWolfQuery({
     gameList: "All",
     product: "All",
     isHome: true,
@@ -22,9 +22,9 @@ const LiveCasino = () => {
   };
 
   return (
-    <div className="casino-section live-casino game-play mt-2 mb-3 ng-star-inserted">
+    <div className="casino-section go-casino game-play mt-2 mb-3 ng-star-inserted">
       <div className="game-play-heading">
-        <h2>Live Casino</h2>
+        <h2>Go Casino</h2>
         <a className="view-all-link ng-star-inserted">
           All
           <span
@@ -46,9 +46,6 @@ const LiveCasino = () => {
                 key={item?.id}
                 className="ng-star-inserted"
               >
-                <a className="active">
-                  <img alt="" src={item?.url_thumb} />
-                </a>
                 {/* <p className="total-players">
                   <span
                     role="img"
@@ -58,8 +55,11 @@ const LiveCasino = () => {
                   >
                     group
                   </span>
-                  901
+                  2383
                 </p> */}
+                <a className="active">
+                  <img alt="" src={item?.url_thumb} />
+                </a>
                 <div className="game-detail">
                   <p className="company-type">{item?.product}</p>
                   <p className="game-name">{item?.game_name}</p>
@@ -73,4 +73,4 @@ const LiveCasino = () => {
   );
 };
 
-export default LiveCasino;
+export default Casino;

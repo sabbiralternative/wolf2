@@ -9,6 +9,7 @@ import useWhatsApp from "./hooks/whatsapp";
 import { setWindowWidth } from "./redux/features/global/globalSlice";
 
 function App() {
+  const { pathname } = useLocation();
   const { data } = useWhatsApp();
   const disabledDevtool = Settings.disabledDevtool;
   const navigate = useNavigate();
@@ -83,6 +84,10 @@ function App() {
       };
     }
   }, [data?.pixel]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return <MainLayout />;
 }

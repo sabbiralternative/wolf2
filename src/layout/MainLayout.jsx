@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import images from "../assets/images";
 import Footer from "../components/UI/Footer/Footer";
 import Header from "../components/UI/Header/Header";
@@ -7,8 +7,10 @@ import Login from "../components/modals/Login/Login";
 import { useSelector } from "react-redux";
 import ForgotPassword from "../components/modals/ForgotPassword/ForgotPassword";
 import Register from "../components/modals/Register/Register";
+import LeftSidebar from "../components/UI/LeftSidebar/LeftSidebar";
 
 const MainLayout = () => {
+  const { pathname } = useLocation();
   const { showLoginModal, showForgotPasswordModal, showRegisterModal } =
     useSelector((state) => state.global);
 
@@ -17,11 +19,12 @@ const MainLayout = () => {
       {showLoginModal && <Login />}
       {showForgotPasswordModal && <ForgotPassword />}
       {showRegisterModal && <Register />}
+
       <div className="translator-wrap" style={{ display: "block !important" }}>
         <img src={images.globe} alt="" />
       </div>
 
-      <div className="mat-drawer-container mat-sidenav-container sidenav-container">
+      {/* <div className="mat-drawer-container mat-sidenav-container sidenav-container">
         <div className="mat-drawer-backdrop ng-star-inserted" />
         <div
           tabIndex={0}
@@ -32,7 +35,7 @@ const MainLayout = () => {
           tabIndex={-1}
           mode="over"
           className="mat-drawer mat-sidenav left-sidemenu ng-tns-c3816625663-0 ng-trigger ng-trigger-transform mat-drawer-over ng-star-inserted"
-          style={{ boxShadow: "none", visibility: "hidden" }}
+          style={{ transform: "none", visibility: "visible" }}
         >
           <div className="mat-drawer-inner-container ng-tns-c3816625663-0">
             <div className="sidemenu-wrapper ng-tns-c3816625663-0">
@@ -209,7 +212,12 @@ const MainLayout = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+      <LeftSidebar>
+        <Header />
+        <Outlet />
+        {!pathname.includes("/casino/") && <Footer />}
+      </LeftSidebar>
     </Fragment>
   );
 };
