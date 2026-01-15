@@ -487,3 +487,10 @@ html * {
     transform: rotate(360deg);
   }
 }
+
+.position-fixed {
+  position: fixed;
+}
+.overflow-hidden {
+  overflow: hidden;
+}

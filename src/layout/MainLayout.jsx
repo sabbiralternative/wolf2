@@ -216,7 +216,8 @@ const MainLayout = () => {
       <LeftSidebar>
         <Header />
         <Outlet />
-        {!pathname.includes("/casino/") && <Footer />}
+        {!pathname.includes("/casino/") &&
+          !pathname.includes("/event-details") && <Footer />}
       </LeftSidebar>
     </Fragment>
   );

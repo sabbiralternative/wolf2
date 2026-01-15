@@ -3,6 +3,7 @@ import App from "../App";
 import Home from "../pages/Home/Home";
 import Group from "../pages/Group/Group";
 import IFrame from "../pages/IFrame/IFrame";
+import EventDetails from "../pages/EventDetails/EventDetails";
 
 export const router = createBrowserRouter(
   [
@@ -22,6 +23,10 @@ export const router = createBrowserRouter(
         {
           path: "casino/:name/:id",
           element: <IFrame />,
+        },
+        {
+          path: "/event-details/:eventTypeId/:eventId",
+          element: <EventDetails />,
         },
       ],
     },
