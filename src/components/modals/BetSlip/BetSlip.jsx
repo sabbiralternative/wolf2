@@ -20,13 +20,14 @@ import toast from "react-hot-toast";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 
 const BetSlip = () => {
+  const closePopupForForever = localStorage.getItem("closePopupForForever");
   const { pathname } = useLocation();
   const [isCashOut, setIsCashOut] = useState(false);
   const [profit, setProfit] = useState(0);
   const { eventId, eventTypeId } = useParams();
   const dispatch = useDispatch();
   const { price, stake, placeBetValues, predictOdd } = useSelector(
-    (state) => state.event
+    (state) => state.event,
   );
   const { data: socialLink } = useWhatsApp();
   const { refetch: refetchBalance } = useBalance();
@@ -39,10 +40,10 @@ const BetSlip = () => {
     {
       pollingInterval: 1000,
       skip: !pathname.includes("/event-details"),
-    }
+    },
   );
   const currentPlaceBetEvent = eventData?.result?.find(
-    (item) => item?.id === placeBetValues?.marketId
+    (item) => item?.id === placeBetValues?.marketId,
   );
 
   const buttonValues = localStorage.getItem("buttonValue");
@@ -57,8 +58,8 @@ const BetSlip = () => {
       setStake(
         placeBetValues?.totalSize > 0
           ? placeBetValues?.totalSize.toFixed(2)
-          : null
-      )
+          : null,
+      ),
     );
 
     setIsCashOut(placeBetValues?.cashout || false);
@@ -119,6 +120,7 @@ const BetSlip = () => {
         site: Settings.siteUrl,
         nounce: uuidv4(),
         isbetDelay: socialLink?.bet_delay,
+        apk: closePopupForForever ? true : false,
       },
     ];
     setLoading(true);
@@ -159,7 +161,7 @@ const BetSlip = () => {
       } else {
         setLoading(false);
         toast.error(
-          data?.error?.status?.[0]?.description || data?.error?.errorMessage
+          data?.error?.status?.[0]?.description || data?.error?.errorMessage,
         );
         setBetDelay(null);
       }
@@ -215,7 +217,7 @@ const BetSlip = () => {
   };
 
   const selectedEvent = predictOdd?.find(
-    (odd) => odd?.id === placeBetValues?.selectionId
+    (odd) => odd?.id === placeBetValues?.selectionId,
   );
   return (
     <div>

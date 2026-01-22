@@ -16,6 +16,7 @@ import { Settings } from "../../../api";
 import { setUser } from "../../../redux/features/auth/authSlice";
 import toast from "react-hot-toast";
 const Login = () => {
+  const closePopupForForever = localStorage.getItem("closePopupForForever");
   const navigate = useNavigate();
   const { logo } = useLogo();
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ const Login = () => {
       username: username,
       password: password,
       b2c: Settings.b2c,
+      apk: closePopupForForever ? true : false,
     };
     const result = await handleLogin(loginData).unwrap();
 
@@ -73,6 +75,7 @@ const Login = () => {
       username: "demo",
       password: "",
       b2c: Settings.b2c,
+      apk: closePopupForForever ? true : false,
     };
     const result = await handleLogin(loginData).unwrap();
 

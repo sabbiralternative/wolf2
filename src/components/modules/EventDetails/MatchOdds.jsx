@@ -104,7 +104,7 @@ const MatchOdds = ({ data, order }) => {
     exposureB,
     runner1,
     runner2,
-    gameId
+    gameId,
   ) => {
     let runner,
       largerExposure,
@@ -132,7 +132,7 @@ const MatchOdds = ({ data, order }) => {
       lowerExposure = exposureA;
     }
     if (exposureA > 0 && exposureB > 0) {
-      const difference = exposureA - exposureB;
+      const difference = Math.abs(exposureA - exposureB);
       if (difference <= 10) {
         speedCashOut = true;
       }
@@ -185,10 +185,10 @@ const MatchOdds = ({ data, order }) => {
           const runner1 = runners[0];
           const runner2 = runners[1];
           const pnl1 = pnlBySelection?.find(
-            (pnl) => pnl?.RunnerId === runner1?.id
+            (pnl) => pnl?.RunnerId === runner1?.id,
           )?.pnl;
           const pnl2 = pnlBySelection?.find(
-            (pnl) => pnl?.RunnerId === runner2?.id
+            (pnl) => pnl?.RunnerId === runner2?.id,
           )?.pnl;
 
           if (pnl1 && pnl2 && runner1 && runner2) {
@@ -197,7 +197,7 @@ const MatchOdds = ({ data, order }) => {
               pnl2,
               runner1,
               runner2,
-              game?.id
+              game?.id,
             );
             results.push(result);
           }
@@ -222,10 +222,10 @@ const MatchOdds = ({ data, order }) => {
         data?.map((game) => {
           const teamProfitForGame = teamProfit?.find(
             (profit) =>
-              profit?.gameId === game?.id && profit?.isOnePositiveExposure
+              profit?.gameId === game?.id && profit?.isOnePositiveExposure,
           );
           const speedCashOut = teamProfit?.find(
-            (profit) => profit?.gameId === game?.id && profit?.speedCashOut
+            (profit) => profit?.gameId === game?.id && profit?.speedCashOut,
           );
           return (
             <div key={game?.id} className={`f-order-${order} ng-star-inserted`}>
@@ -262,10 +262,10 @@ const MatchOdds = ({ data, order }) => {
                     <div className="card-body">
                       {game?.runners?.map((runner) => {
                         const pnl = pnlBySelection?.find(
-                          (pnl) => pnl?.RunnerId === runner?.id
+                          (pnl) => pnl?.RunnerId === runner?.id,
                         );
                         const predictOddValues = predictOdd?.find(
-                          (val) => val?.id === runner?.id
+                          (val) => val?.id === runner?.id,
                         );
                         return (
                           <div
@@ -283,7 +283,7 @@ const MatchOdds = ({ data, order }) => {
                                       "back",
                                       game,
                                       runner,
-                                      runner?.back?.[0]?.price
+                                      runner?.back?.[0]?.price,
                                     )
                                   }
                                   className="mdc-button mdc-button--unelevated mat-mdc-unelevated-button back-count count-value mat-unthemed mat-mdc-button-base"
@@ -306,7 +306,7 @@ const MatchOdds = ({ data, order }) => {
                                       "lay",
                                       game,
                                       runner,
-                                      runner?.lay?.[0]?.price
+                                      runner?.lay?.[0]?.price,
                                     )
                                   }
                                   className="mdc-button mdc-button--unelevated mat-mdc-unelevated-button count-value lay-count mat-unthemed mat-mdc-button-base ng-star-inserted"
