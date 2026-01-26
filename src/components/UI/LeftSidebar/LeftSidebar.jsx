@@ -25,7 +25,10 @@ const LeftSidebar = ({ children }) => {
   };
 
   return (
-    <div className="mat-drawer-container mat-sidenav-container sidenav-container mat-drawer-transition mat-drawer-container-has-open">
+    <div
+      className="mat-drawer-container mat-sidenav-container sidenav-container mat-drawer-transition mat-drawer-container-has-open"
+      style={{ height: "100%" }}
+    >
       {showSidebar && (
         <Fragment>
           {" "}
@@ -303,7 +306,7 @@ const LeftSidebar = ({ children }) => {
         aria-hidden="true"
       />
       <div className="mat-drawer-content mat-sidenav-content">
-        <div className="ng-star-inserted">
+        <div className="ng-star-inserted" style={{ height: "100%" }}>
           <div className="main">
             <div className="container">{children}</div>
           </div>

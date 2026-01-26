@@ -5,9 +5,13 @@ import { useGroupQuery } from "../../../redux/features/events/events";
 import NotLoggedIn from "./NotLoggedIn";
 import { useDispatch, useSelector } from "react-redux";
 import LoggedIn from "./LoggedIn";
-import { setShowSidebar } from "../../../redux/features/global/globalSlice";
+import {
+  setShowLoginModal,
+  setShowSidebar,
+} from "../../../redux/features/global/globalSlice";
 import { IoArrowBack } from "react-icons/io5";
 import images from "../../../assets/images";
+import LatestEvent from "./LatestEvent";
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -43,6 +47,14 @@ const Header = () => {
       },
     );
   }, [data]);
+
+  const handleNavigateToIFrame = (code, name) => {
+    if (token) {
+      navigate(`/casino/${name.replace(/ /g, "")}/${code}`);
+    } else {
+      dispatch(setShowLoginModal(true));
+    }
+  };
 
   return (
     <Fragment>
@@ -159,56 +171,13 @@ const Header = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="latest-events ng-star-inserted">
-                    <div className="le-item ng-star-inserted">
-                      <h2 className="ng-star-inserted">
-                        <span className="blink-it">
-                          Mumbai Indians W v Delhi Capitals W
-                        </span>
-                      </h2>
-                    </div>
-                    <div className="le-item ng-star-inserted">
-                      <h2 className="ng-star-inserted">
-                        <span className="blink-it">
-                          Joburg Super Kings v Mi Cape Town
-                        </span>
-                      </h2>
-                    </div>
-                    <div className="le-item ng-star-inserted">
-                      <h2 className="ng-star-inserted">
-                        <span className="blink-it">
-                          Sydney Sixers v Hobart Hurricanes
-                        </span>
-                      </h2>
-                    </div>
-                    <div className="le-item ng-star-inserted">
-                      <h2 className="ng-star-inserted">
-                        <span className="blink-it">
-                          Wellington Firebirds v Northern Brave
-                        </span>
-                      </h2>
-                    </div>
-                    <div className="le-item ng-star-inserted">
-                      <h2 className="ng-star-inserted">
-                        <span className="blink-it">India v New Zealand</span>
-                      </h2>
-                    </div>
-                    <div className="le-item ng-star-inserted">
-                      <h2 className="ng-star-inserted">
-                        <span className="blink-it">
-                          Adelaide Strikers v Perth Scorchers
-                        </span>
-                      </h2>
-                    </div>
-                    <div className="le-item ng-star-inserted">
-                      <h2 className="ng-star-inserted">
-                        <span className="blink-it">Sri Lanka v Pakistan</span>
-                      </h2>
-                    </div>
-                  </div>
+                  <LatestEvent />
                 </div>
                 <div className="pagetab-header">
-                  <div className="pagetab-item highLightedGame">
+                  <div
+                    onClick={() => handleNavigateToIFrame(204109, "jetx")}
+                    className="pagetab-item highLightedGame"
+                  >
                     <div className="highlighted-game ng-star-inserted">
                       <div className="icon-wrap jetx-icon">
                         <img
@@ -233,7 +202,7 @@ const Header = () => {
                   </div>
                   <div
                     onClick={() => navigate("/group/cricket/4?type=inPlay")}
-                    className="pagetab-item ng-star-inserted"
+                    className={`pagetab-item ng-star-inserted ${pathname === "/group/cricket/4" ? "active-link" : ""}`}
                   >
                     <div className="icon-wrap ng-star-inserted">
                       <img
@@ -255,7 +224,7 @@ const Header = () => {
                   </div>
                   <div
                     onClick={() => navigate("/group/football/1?type=inPlay")}
-                    className="pagetab-item ng-star-inserted"
+                    className={`pagetab-item ng-star-inserted ${pathname === "/group/football/1" ? "active-link" : ""}`}
                   >
                     <div className="icon-wrap ng-star-inserted">
                       <img
@@ -276,7 +245,7 @@ const Header = () => {
                   </div>
                   <div
                     onClick={() => navigate("/group/tennis/2?type=inPlay")}
-                    className="pagetab-item ng-star-inserted"
+                    className={`pagetab-item ng-star-inserted ${pathname === "/group/tennis/2" ? "active-link" : ""}`}
                   >
                     <div className="icon-wrap ng-star-inserted">
                       <img
@@ -330,7 +299,10 @@ const Header = () => {
                     </div>
                     <div className="tab-label">Go Crash</div>
                   </div>
-                  <div className="pagetab-item ng-star-inserted">
+                  <div
+                    onClick={() => navigate("/casino-games")}
+                    className={`pagetab-item ng-star-inserted ${pathname === "/casino-games" ? "active-link" : ""}`}
+                  >
                     <div className="icon-wrap">
                       <img
                         alt="Tab Icon"

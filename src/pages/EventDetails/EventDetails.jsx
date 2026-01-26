@@ -22,7 +22,7 @@ const EventDetails = () => {
     { eventTypeId, eventId },
     {
       pollingInterval: 1000,
-    }
+    },
   );
 
   useEffect(() => {
@@ -117,20 +117,20 @@ const EventDetails = () => {
     (game) =>
       game.btype === "MATCH_ODDS" &&
       game?.visible == true &&
-      game?.name !== "tied match"
+      game?.name !== "tied match",
   );
   const bookmaker = data?.result?.filter(
     (game) =>
       game.btype === "BOOKMAKER" &&
       game?.visible == true &&
-      game?.name !== "tied match"
+      game?.name !== "tied match",
   );
 
   const tiedMatch = data?.result?.filter(
     (game) =>
       (game.btype === "MATCH_ODDS" || game.btype === "BOOKMAKER") &&
       game?.visible == true &&
-      game?.name === "tied match"
+      game?.name === "tied match",
   );
 
   return (
@@ -158,7 +158,10 @@ const EventDetails = () => {
                 >
                   <div className="tab-body sports-tab ng-star-inserted">
                     <LiveMatchScreen score={data?.score} />
-                    <ScoreBoard />
+                    {eventTypeId == 4 && data?.iscore && (
+                      <ScoreBoard iscore={data?.iscore} />
+                    )}
+
                     <div
                       className="mkt-tab-section"
                       style={{ paddingBottom: "0px" }}

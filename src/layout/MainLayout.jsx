@@ -217,6 +217,7 @@ const MainLayout = () => {
               pathname.includes("/event-details")
                 ? "43px"
                 : "160px",
+            height: "100%",
           }}
         >
           <Outlet />

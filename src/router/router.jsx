@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import Group from "../pages/Group/Group";
 import IFrame from "../pages/IFrame/IFrame";
 import EventDetails from "../pages/EventDetails/EventDetails";
+import CasinoGames from "../pages/CasinoGames/CasinoGames";
 
 export const router = createBrowserRouter(
   [
@@ -28,10 +29,14 @@ export const router = createBrowserRouter(
           path: "/event-details/:eventTypeId/:eventId",
           element: <EventDetails />,
         },
+        {
+          path: "/casino-games",
+          element: <CasinoGames />,
+        },
       ],
     },
   ],
   {
     basename: import.meta.env.BASE_URL ?? "/",
-  }
+  },
 );
