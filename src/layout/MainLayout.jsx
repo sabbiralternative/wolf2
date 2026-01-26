@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import images from "../assets/images";
 import Footer from "../components/UI/Footer/Footer";
 import Header from "../components/UI/Header/Header";
 import Login from "../components/modals/Login/Login";
@@ -19,10 +18,6 @@ const MainLayout = () => {
       {showLoginModal && <Login />}
       {showForgotPasswordModal && <ForgotPassword />}
       {showRegisterModal && <Register />}
-
-      <div className="translator-wrap" style={{ display: "block !important" }}>
-        <img src={images.globe} alt="" />
-      </div>
 
       {/* <div className="mat-drawer-container mat-sidenav-container sidenav-container">
         <div className="mat-drawer-backdrop ng-star-inserted" />
@@ -215,7 +210,17 @@ const MainLayout = () => {
       </div> */}
       <LeftSidebar>
         <Header />
-        <Outlet />
+        <div
+          style={{
+            paddingTop:
+              pathname.includes("/casino/") ||
+              pathname.includes("/event-details")
+                ? "43px"
+                : "160px",
+          }}
+        >
+          <Outlet />
+        </div>
         {!pathname.includes("/casino/") &&
           !pathname.includes("/event-details") && <Footer />}
       </LeftSidebar>

@@ -6,6 +6,8 @@ import NotLoggedIn from "./NotLoggedIn";
 import { useDispatch, useSelector } from "react-redux";
 import LoggedIn from "./LoggedIn";
 import { setShowSidebar } from "../../../redux/features/global/globalSlice";
+import { IoArrowBack } from "react-icons/io5";
+import images from "../../../assets/images";
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -15,7 +17,7 @@ const Header = () => {
     { sportsType: Number(0) },
     {
       pollingInterval: 1000,
-    }
+    },
   );
 
   const { logo } = useLogo();
@@ -38,7 +40,7 @@ const Header = () => {
         cricket: 0,
         football: 0,
         tennis: 0,
-      }
+      },
     );
   }, [data]);
 
@@ -50,22 +52,43 @@ const Header = () => {
           minHeight: "42px",
           padding: "0px",
           background: "transparent",
-          boxShadow: "0 4px 10px #8080804d",
+          // boxShadow: "0 4px 10px #8080804d",
+          position: "fixed",
+          left: "50%",
+          transform: "translate(-50%)",
+          width: "100%",
+          maxWidth: "768px",
+          zIndex: "9999999",
+          height: "100%",
+          maxHeight: "fit-content",
         }}
       >
         <div>
           <div className="header-wrapper top-header">
             <div className="logo">
-              <span
-                onClick={() => dispatch(setShowSidebar(true))}
-                style={{ color: "white" }}
-                role="img"
-                className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color ng-star-inserted"
-                aria-hidden="true"
-                data-mat-icon-type="font"
-              >
-                menu
-              </span>
+              {location?.pathname === "/" ? (
+                <span
+                  onClick={() => dispatch(setShowSidebar(true))}
+                  style={{ color: "white" }}
+                  role="img"
+                  className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color ng-star-inserted"
+                  aria-hidden="true"
+                  data-mat-icon-type="font"
+                >
+                  menu
+                </span>
+              ) : (
+                <IoArrowBack
+                  size={25}
+                  color="#fff"
+                  style={{ cursor: "pointer" }}
+                  /* Navigate back */
+                  onClick={() => {
+                    navigate(-1);
+                  }}
+                />
+              )}
+
               <img
                 onClick={() => navigate("/")}
                 alt="logo"
@@ -75,8 +98,25 @@ const Header = () => {
             </div>
             <div className="header-right-cont">
               {token ? <LoggedIn /> : <NotLoggedIn />}
-
-              <p className="notranslate selected-lang ng-star-inserted">En</p>
+              {/* <div
+                className="translator-wrap"
+                style={{ display: "block !important" }}
+              ></div> */}
+              <p
+                style={{
+                  top: "5px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "3px",
+                  right: "10px",
+                }}
+                className="notranslate selected-lang ng-star-inserted"
+              >
+                <img style={{ height: "20px" }} src={images.globe} alt="" />
+                <span>En</span>
+              </p>
             </div>
           </div>
         </div>

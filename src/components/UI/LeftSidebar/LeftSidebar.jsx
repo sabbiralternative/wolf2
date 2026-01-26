@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import images from "../../../assets/images";
 import { Fragment, useEffect } from "react";
 import { setShowSidebar } from "../../../redux/features/global/globalSlice";
 import { logout } from "../../../redux/features/auth/authSlice";
 import ModalWrapper from "../../modals/ModalWrapper/ModalWrapper";
+import useWhatsApp from "../../../hooks/whatsapp";
 
 const LeftSidebar = ({ children }) => {
+  const { data: socialLink } = useWhatsApp();
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const { showSidebar } = useSelector((state) => state.global);
@@ -17,6 +18,11 @@ const LeftSidebar = ({ children }) => {
       document.body.classList.remove("overflow-hidden");
     }
   }, [showSidebar]);
+
+  const handleNavigateSocialLink = (link) => {
+    window.open(link, "_blank");
+    dispatch(setShowSidebar(false));
+  };
 
   return (
     <div className="mat-drawer-container mat-sidenav-container sidenav-container mat-drawer-transition mat-drawer-container-has-open">
@@ -88,10 +94,10 @@ const LeftSidebar = ({ children }) => {
                     </div>
                     {user}
                   </p>
-                  <p className="notranslate user-number ng-star-inserted">
+                  {/* <p className="notranslate user-number ng-star-inserted">
                     <img alt="Flag" src={images.flag} />
                     +91-8850976901
-                  </p>
+                  </p> */}
                 </div>
               </div>
               <div className="sidemenu-list">
@@ -230,29 +236,47 @@ const LeftSidebar = ({ children }) => {
                   </li>
                 </ul>
                 <ul className="smenu-wrap bottom">
-                  <li className="smenu-item social-links-wrap ng-star-inserted">
-                    <label>Join us Now</label>
-                    <div className="social-links">
-                      <a className="ng-star-inserted">
-                        <img
-                          alt=""
-                          src="https://ss.manage63.com/bmk-wl/commonAssets/icon_dark_facebook.svg"
-                        />
-                      </a>
-                      <a className="ng-star-inserted">
-                        <img
-                          alt=""
-                          src="https://ss.manage63.com/bmk-wl/commonAssets/icon_dark_instagram.svg"
-                        />
-                      </a>
-                      <a className="ng-star-inserted">
-                        <img
-                          alt=""
-                          src="https://ss.manage63.com/bmk-wl/commonAssets/icon_dark_telegram.svg"
-                        />
-                      </a>
-                    </div>
-                  </li>
+                  {(socialLink?.instagramLink || socialLink?.telegramLink) && (
+                    <li className="smenu-item social-links-wrap ng-star-inserted">
+                      <label>Join us Now</label>
+                      <div className="social-links">
+                        {/* <a className="ng-star-inserted">
+                          <img
+                            alt=""
+                            src="https://ss.manage63.com/bmk-wl/commonAssets/icon_dark_facebook.svg"
+                          />
+                        </a> */}
+                        {socialLink?.instagramLink && (
+                          <a
+                            onClick={() =>
+                              handleNavigateSocialLink(
+                                socialLink?.instagramLink,
+                              )
+                            }
+                            className="ng-star-inserted"
+                          >
+                            <img
+                              alt=""
+                              src="https://ss.manage63.com/bmk-wl/commonAssets/icon_dark_instagram.svg"
+                            />
+                          </a>
+                        )}
+                        {socialLink?.telegramLink && (
+                          <a
+                            onClick={() =>
+                              handleNavigateSocialLink(socialLink?.telegramLink)
+                            }
+                            className="ng-star-inserted"
+                          >
+                            <img
+                              alt=""
+                              src="https://ss.manage63.com/bmk-wl/commonAssets/icon_dark_telegram.svg"
+                            />
+                          </a>
+                        )}
+                      </div>
+                    </li>
+                  )}
 
                   <li className="smenu-item">
                     <div className="action-btn ng-star-inserted" style={{}}>

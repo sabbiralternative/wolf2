@@ -3,6 +3,8 @@ import { useGroupQuery } from "../../../redux/features/events/events";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ScoreInfo from "./ScoreInfo";
+import { MdOutlineSmartDisplay } from "react-icons/md";
+import { GoClock } from "react-icons/go";
 
 const InPlay = () => {
   const { group } = useSelector((state) => state.global);
@@ -10,7 +12,7 @@ const InPlay = () => {
     { sportsType: group },
     {
       pollingInterval: 1000,
-    }
+    },
   );
 
   const [categories, setCategories] = useState([]);
@@ -26,8 +28,8 @@ const InPlay = () => {
         new Set(
           Object.values(data)
             .filter((item) => item.visible)
-            .map((item) => item.eventTypeId)
-        )
+            .map((item) => item.eventTypeId),
+        ),
       );
       const sortedCategories = categories.sort((a, b) => {
         const order = { 4: 0, 1: 1, 2: 2 };
@@ -42,7 +44,7 @@ const InPlay = () => {
         const filteredData = Object.entries(data)
           .filter(
             ([, value]) =>
-              value.eventTypeId === category && value.visible === true
+              value.eventTypeId === category && value.visible === true,
           )
           .reduce((obj, [key, value]) => {
             obj[key] = value;
@@ -71,19 +73,13 @@ const InPlay = () => {
               <div className="sports-table notranslate ng-star-inserted">
                 <div className="table-header">
                   <h3 className="card-title">
-                    <span
-                      role="img"
-                      className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
-                      aria-hidden="true"
-                      data-mat-icon-type="font"
-                    >
-                      schedule
-                    </span>
+                    <GoClock style={{ marginLeft: "20px" }} />
+
                     <span>Teams</span>
                   </h3>
                   <div className="lay-back-wrap">
-                    <h3 className="back-bg">Back</h3>
-                    <h3 className="lay-bg">Lay</h3>
+                    <h3 className="">Back</h3>
+                    <h3 className="">Lay</h3>
                   </div>
                 </div>
                 <div className="table-body">
@@ -141,14 +137,10 @@ const InPlay = () => {
                                   />
                                 </span>
                                 {data?.[keys]?.inPlay === 1 && (
-                                  <span
-                                    role="img"
-                                    className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color ng-star-inserted"
-                                    aria-hidden="true"
-                                    data-mat-icon-type="font"
-                                  >
-                                    play_arrow
-                                  </span>
+                                  <MdOutlineSmartDisplay
+                                    size={15}
+                                    color="var(--green-color)"
+                                  />
                                 )}
                               </div>
                             </div>

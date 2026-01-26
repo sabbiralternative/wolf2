@@ -30,7 +30,12 @@ const TabHeader = () => {
               <span className="mdc-tab__ripple" />
               <div className="mat-ripple mat-mdc-tab-ripple" />
               <span className="mdc-tab__content">
-                <span className="mdc-tab__text-label">Market</span>
+                <span
+                  className="mdc-tab__text-label"
+                  style={{ fontSize: "10px" }}
+                >
+                  Market
+                </span>
               </span>
               <span className="mdc-tab-indicator">
                 <span className="mdc-tab-indicator__content mdc-tab-indicator__content--underline" />
@@ -51,7 +56,12 @@ const TabHeader = () => {
               <div className="mat-ripple mat-mdc-tab-ripple" />
               <span className="mdc-tab__content">
                 <span className="mdc-tab__text-label">
-                  <span className="ng-star-inserted">Open Bets (0)</span>
+                  <span
+                    className="ng-star-inserted"
+                    style={{ fontSize: "10px" }}
+                  >
+                    Open Bets (0)
+                  </span>
                 </span>
               </span>
               <span className="mdc-tab-indicator">
