@@ -19149,7 +19149,7 @@ p.report-issue .link-text {
   .providers-section .providers-list ul.sRowScroll:has(li:nth-child(1)),
   .providers-section .providers-list ul.sRowScroll:has(li:nth-child(2)),
   .providers-section .providers-list ul.sRowScroll:has(li:nth-child(3)) {
-    grid-auto-columns: calc(21% - 14px);
+    grid-auto-columns: calc(18% - 14px);
   }
 
   .page-body .casino-section .game-type-list ul.sRowScroll:has(li:nth-child(4)),

@@ -158,6 +158,23 @@ const EventDetails = () => {
                 >
                   <div className="tab-body sports-tab ng-star-inserted">
                     <LiveMatchScreen score={data?.score} />
+                    {data?.score?.tracker && (
+                      <div
+                        style={{
+                          height: "125px",
+                          width: "100%",
+                          overflow: "hidden",
+                        }}
+                      >
+                        <iframe
+                          style={{
+                            width: "100%",
+                            border: "0px",
+                          }}
+                          src={data?.score?.tracker}
+                        ></iframe>
+                      </div>
+                    )}
                     {eventTypeId == 4 && data?.iscore && (
                       <ScoreBoard iscore={data?.iscore} />
                     )}

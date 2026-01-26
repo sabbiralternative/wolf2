@@ -15,7 +15,7 @@ const Group = () => {
     { sportsType: Number(eventTypeId) },
     {
       pollingInterval: 1000,
-    }
+    },
   );
 
   const todayMoment = moment().startOf("day");
@@ -39,7 +39,7 @@ const Group = () => {
 
         return acc;
       },
-      { inPlay: {}, today: {}, upcoming: {} }
+      { inPlay: {}, today: {}, upcoming: {} },
     );
   }, [data]);
 
@@ -47,11 +47,12 @@ const Group = () => {
     type === "inPlay"
       ? groupedData.inPlay
       : type === "today"
-      ? groupedData.today
-      : groupedData.upcoming;
+        ? groupedData.today
+        : groupedData.upcoming;
   const navigateGameList = (keys) => {
     navigate(`/event-details/${data[keys]?.eventTypeId}/${keys}`);
   };
+
   return (
     <div className="page-body">
       <div className="inplay-page-wrap ng-star-inserted">

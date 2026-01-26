@@ -14,6 +14,7 @@ const LatestEvent = () => {
           onClick={() => navigateGameList(item)}
           key={index}
           className="le-item ng-star-inserted"
+          style={{ width: "auto" }}
         >
           <h2 className="ng-star-inserted">
             <span className="blink-it">{item?.eventName}</span>

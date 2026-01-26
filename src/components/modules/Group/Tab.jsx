@@ -1,8 +1,31 @@
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const Tab = ({ type, groupedData }) => {
   const { name, eventTypeId } = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (
+      Object.entries(groupedData.inPlay).length === 0 &&
+      Object.entries(groupedData.today).length === 0 &&
+      Object.entries(groupedData.upcoming).length === 0
+    )
+      return;
+    if (
+      Object.entries(groupedData.inPlay).length === 0 &&
+      Object.entries(groupedData.today).length > 0
+    ) {
+      navigate("/group/cricket/4?type=today");
+    }
+
+    if (
+      Object.entries(groupedData.inPlay).length === 0 &&
+      Object.entries(groupedData.today).length === 0
+    ) {
+      navigate("/group/cricket/4?type=upcoming");
+    }
+  }, [groupedData, navigate]);
 
   return (
     <div
@@ -26,7 +49,6 @@ const Tab = ({ type, groupedData }) => {
           <div className="mat-mdc-tab-labels">
             {Object.entries(groupedData.inPlay).length > 0 && (
               <div
-                style={{ fontSize: type === "inPlay" ? "10px" : "14px" }}
                 onClick={() =>
                   navigate(`/group/${name}/${eventTypeId}?type=inPlay`)
                 }
@@ -49,7 +71,7 @@ const Tab = ({ type, groupedData }) => {
                 <span className="mdc-tab__content">
                   <span
                     className="mdc-tab__text-label"
-                    style={{ color: "white" }}
+                    style={{ color: "white", fontSize: "10px" }}
                   >
                     Inplay{" "}
                     <span className="badge inplay-badge ng-star-inserted">
@@ -67,7 +89,6 @@ const Tab = ({ type, groupedData }) => {
             )}
             {Object.entries(groupedData.today).length > 0 && (
               <div
-                style={{ fontSize: type === "today" ? "10px" : "14px" }}
                 onClick={() =>
                   navigate(`/group/${name}/${eventTypeId}?type=today`)
                 }
@@ -90,7 +111,7 @@ const Tab = ({ type, groupedData }) => {
                 <span className="mdc-tab__content">
                   <span
                     className="mdc-tab__text-label"
-                    style={{ color: "white" }}
+                    style={{ color: "white", fontSize: "10px" }}
                   >
                     Today{" "}
                     <span className="badge inplay-badge ng-star-inserted">
@@ -110,7 +131,6 @@ const Tab = ({ type, groupedData }) => {
 
             {Object.entries(groupedData.upcoming).length > 0 && (
               <div
-                style={{ fontSize: type === "upcoming" ? "10px" : "14px" }}
                 onClick={() =>
                   navigate(`/group/${name}/${eventTypeId}?type=upcoming`)
                 }
@@ -133,7 +153,7 @@ const Tab = ({ type, groupedData }) => {
                 <span className="mdc-tab__content">
                   <span
                     className="mdc-tab__text-label"
-                    style={{ color: "white" }}
+                    style={{ color: "white", fontSize: "10px" }}
                   >
                     Upcoming{" "}
                     <span className="badge inplay-badge ng-star-inserted">
