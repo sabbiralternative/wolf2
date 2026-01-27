@@ -1,14 +1,14 @@
-import { useMutation } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { API } from "../api";
 import { AxiosSecure } from "../lib/AxiosSecure";
 
-const useDepositBreakdown = () => {
-  return useMutation({
-    mutationKey: ["deposit-breakdown"],
-    mutationFn: async (payload) => {
+export const useDepositBreakdownQuery = () => {
+  return useQuery({
+    queryKey: ["deposit-breakdown"],
+    queryFn: async (payload) => {
       const { data } = await AxiosSecure.post(
         `${API.depositBreakdown}`,
-        payload
+        payload,
       );
 
       if (data.success) {
@@ -17,5 +17,3 @@ const useDepositBreakdown = () => {
     },
   });
 };
-
-export default useDepositBreakdown;

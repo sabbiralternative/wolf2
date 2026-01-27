@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { AxiosSecure } from "../lib/AxiosSecure";
 import { API } from "../api";
 
-export const useBankAccount = (payload) => {
+export const useBankAccountQuery = (payload) => {
   return useQuery({
     queryKey: ["bankAccount", payload],
 

@@ -4,8 +4,10 @@ import { setShowSidebar } from "../../../redux/features/global/globalSlice";
 import { logout } from "../../../redux/features/auth/authSlice";
 import ModalWrapper from "../../modals/ModalWrapper/ModalWrapper";
 import useWhatsApp from "../../../hooks/whatsapp";
+import { useNavigate } from "react-router-dom";
 
 const LeftSidebar = ({ children }) => {
+  const navigate = useNavigate();
   const { data: socialLink } = useWhatsApp();
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -21,6 +23,11 @@ const LeftSidebar = ({ children }) => {
 
   const handleNavigateSocialLink = (link) => {
     window.open(link, "_blank");
+    dispatch(setShowSidebar(false));
+  };
+
+  const handleNavigate = (link) => {
+    navigate(link);
     dispatch(setShowSidebar(false));
   };
 
@@ -153,7 +160,10 @@ const LeftSidebar = ({ children }) => {
                     </div>
                   </li>
                   <li className="smenu-item" tabIndex={0}>
-                    <a className="smenu-link">
+                    <a
+                      onClick={() => handleNavigate("/profile")}
+                      className="smenu-link"
+                    >
                       <img
                         alt="Menu Icon"
                         src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_profile.svg"
