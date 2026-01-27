@@ -15,6 +15,7 @@ const initialState = {
   windowWidth: window.innerWidth,
   showDepositModal: false,
   showDepositSuccessModal: false,
+  showEditStakeModal: false,
 };
 
 const stateSlice = createSlice({
@@ -63,6 +64,9 @@ const stateSlice = createSlice({
     setShowDepositSuccessModal: (state, action) => {
       state.showDepositSuccessModal = action.payload;
     },
+    setShowEditStakeModal: (state, action) => {
+      state.showEditStakeModal = action.payload;
+    },
   },
 });
 
@@ -81,6 +85,7 @@ export const {
   setShowSidebar,
   setShowDepositModal,
   setShowDepositSuccessModal,
+  setShowEditStakeModal,
 } = stateSlice.actions;
 
 export default stateSlice.reducer;

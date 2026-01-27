@@ -10,6 +10,9 @@ import LeftSidebar from "../components/UI/LeftSidebar/LeftSidebar";
 
 import Deposit from "../components/modals/Deposit/Deposit";
 import DepositSuccessMessage from "../components/modals/Deposit/DepositSuccessMessage";
+import { removeHeaderPaths } from "../static/removeHeaderPaths";
+import EditStake from "../components/modals/EditStake/EditStake";
+import AddBankAccount from "../components/modals/AddBankAccount/AddBankAccount";
 
 const MainLayout = () => {
   const { pathname } = useLocation();
@@ -19,7 +22,13 @@ const MainLayout = () => {
     showRegisterModal,
     showDepositModal,
     showDepositSuccessModal,
+    showEditStakeModal,
+    addBank,
   } = useSelector((state) => state.global);
+
+  const shouldHideHeader = removeHeaderPaths.some((path) =>
+    pathname.startsWith(path),
+  );
 
   return (
     <Fragment>
@@ -28,16 +37,14 @@ const MainLayout = () => {
       {showRegisterModal && <Register />}
       {showDepositModal && <Deposit />}
       {showDepositSuccessModal && <DepositSuccessMessage />}
+      {showEditStakeModal && <EditStake />}
+      {addBank && <AddBankAccount />}
 
       <LeftSidebar>
         <Header />
         <div
           style={{
-            paddingTop:
-              pathname.includes("/casino/") ||
-              pathname.includes("/event-details")
-                ? "43px"
-                : "160px",
+            paddingTop: shouldHideHeader ? "43px" : "160px",
             height: "100%",
           }}
         >

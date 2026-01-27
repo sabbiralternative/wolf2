@@ -1,6 +1,28 @@
+import { useDispatch } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import { logout } from "../../../redux/features/auth/authSlice";
+
 const Footer = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
   return (
     <div className="page-footer">
+      {pathname === "/profile" && (
+        <div className="action-btns ng-star-inserted">
+          <button
+            onClick={() => {
+              dispatch(logout());
+              navigate("/");
+            }}
+            type="button"
+            className="btn secondary-btn w-100"
+          >
+            Logout
+          </button>
+        </div>
+      )}
+
       <div>
         <div className="tab-navigation">
           <button

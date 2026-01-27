@@ -1,7 +1,8 @@
 @font-face {
   font-family: uIcons;
   src: url(/src/assets/font/uIcons.c0fc999d1f554215.eot?zib236);
-  src: url(/src/assets/font/uIcons.c0fc999d1f554215.eot?zib236#iefix)
+  src:
+    url(/src/assets/font/uIcons.c0fc999d1f554215.eot?zib236#iefix)
       format("embedded-opentype"),
     url(/src/assets/font/uIcons.ab75fbe14992f284.woff2?zib236) format("woff2"),
     url(/src/assets/font/uIcons.4c887f412c2ff3b2.ttf?zib236) format("truetype"),
@@ -175,7 +176,9 @@
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
-  transition: opacity, transform 0ms cubic-bezier(0, 0, 0.2, 1);
+  transition:
+    opacity,
+    transform 0ms cubic-bezier(0, 0, 0.2, 1);
   transform: scale3d(0, 0, 0);
 }
 
@@ -261,7 +264,9 @@
 }
 
 .cdk-overlay-transparent-backdrop {
-  transition: visibility 1ms linear, opacity 1ms linear;
+  transition:
+    visibility 1ms linear,
+    opacity 1ms linear;
   visibility: hidden;
   opacity: 1;
 }
@@ -1489,7 +1494,8 @@ body[color-theme="vipyellow"] {
 @font-face {
   font-family: open_bold;
   src: url(/src/assets/font/OpenSans-Bold.c744609a802a3288.eot);
-  src: url(/src/assets/font/OpenSans-Bold.c744609a802a3288.eot?#iefix)
+  src:
+    url(/src/assets/font/OpenSans-Bold.c744609a802a3288.eot?#iefix)
       format("embedded-opentype"),
     url(/src/assets/font/OpenSans-Bold.b42e8f997302545c.woff2) format("woff2"),
     url(/src/assets/font/OpenSans-Bold.64b698d1d2f794fe.woff) format("woff"),
@@ -1503,7 +1509,8 @@ body[color-theme="vipyellow"] {
 @font-face {
   font-family: open_semiBold;
   src: url(/src/assets/font/OpenSans-SemiBold.deb5b5413aa8d3ac.eot);
-  src: url(/src/assets/font/OpenSans-SemiBold.deb5b5413aa8d3ac.eot?#iefix)
+  src:
+    url(/src/assets/font/OpenSans-SemiBold.deb5b5413aa8d3ac.eot?#iefix)
       format("embedded-opentype"),
     url(/src/assets/font/OpenSans-SemiBold.a6f1c6b1afb3465a.woff2)
       format("woff2"),
@@ -1519,7 +1526,8 @@ body[color-theme="vipyellow"] {
 @font-face {
   font-family: open_regular;
   src: url(/src/assets/font/OpenSans-Regular.3384608ec0a1e49b.eot);
-  src: url(/src/assets/font/OpenSans-Regular.3384608ec0a1e49b.eot?#iefix)
+  src:
+    url(/src/assets/font/OpenSans-Regular.3384608ec0a1e49b.eot?#iefix)
       format("embedded-opentype"),
     url(/src/assets/font/OpenSans-Regular.98f04fd85332c29f.woff2)
       format("woff2"),
@@ -1535,7 +1543,8 @@ body[color-theme="vipyellow"] {
 @font-face {
   font-family: open_light;
   src: url(/src/assets/font/OpenSans-Light.eec8d6d88268332f.eot);
-  src: url(/src/assets/font/OpenSans-Light.eec8d6d88268332f.eot?#iefix)
+  src:
+    url(/src/assets/font/OpenSans-Light.eec8d6d88268332f.eot?#iefix)
       format("embedded-opentype"),
     url(/src/assets/font/OpenSans-Light.eca1259dc68dc112.woff2) format("woff2"),
     url(/src/assets/font/OpenSans-Light.3d40ad4dbf6ff344.woff) format("woff"),
@@ -1549,7 +1558,8 @@ body[color-theme="vipyellow"] {
 @font-face {
   font-family: appicon;
   src: url(/src/assets/font/appicon.4b24a700cc27073b.eot);
-  src: url(/src/assets/font/appicon.4b24a700cc27073b.eot?#iefix)
+  src:
+    url(/src/assets/font/appicon.4b24a700cc27073b.eot?#iefix)
       format("embedded-opentype") format("woff2"),
     url(/src/assets/font/appicon.0f05bb4ac06b3a0f.woff) format("woff"),
     url(/src/assets/font/appicon.117ff2b8407e828b.ttf) format("truetype"),
@@ -1684,17 +1694,17 @@ body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
   content: "\e90d";
 }
 
-ion-content {
+.ion-content {
   --background: transparent;
   min-height: calc(var(--vh, 1vh) * 100 - 90px);
 }
 
-ion-content ion-refresher {
+.ion-content ion-refresher {
   z-index: 1;
   background: transparent;
 }
 
-ion-content ion-refresher .refresher-pulling-icon ion-icon {
+.ion-content ion-refresher .refresher-pulling-icon ion-icon {
   color: var(--primary-color);
 }
 
@@ -1970,7 +1980,7 @@ mat-form-field input[type="number"] {
 .page-body {
   background: var(--grey-00);
   height: calc(100% - 60px);
-  padding: 0px;
+  padding: 0px 10px;
 }
 
 .page-body .title-bar {
@@ -3084,7 +3094,7 @@ mat-form-field input[type="number"] {
   width: 100%;
 }
 
-.market-dialog ion-content {
+.market-dialog .ion-content {
   min-height: calc(var(--vh, 1vh) * 50 - 90px);
 }
 
@@ -3454,26 +3464,26 @@ div.match-panel.mat-mdc-select-panel .mat-pseudo-checkbox {
   display: none;
 }
 
-mat-tab-header {
+.mat-tab-header {
   background: var(--primary-color);
 }
 
-mat-tab-header .mat-mdc-tab-header-pagination-chevron {
+.mat-tab-header .mat-mdc-tab-header-pagination-chevron {
   border-color: var(--primary-color-contrast);
 }
 
-mat-tab-header
+.mat-tab-header
   .mat-mdc-tab-label-container
   .mat-mdc-tab.mdc-tab--active:hover
   .mdc-tab-indicator__content--underline,
-mat-tab-header
+.mat-tab-header
   .mat-mdc-tab-label-container
   .mat-mdc-tab.mdc-tab--active:focus
   .mdc-tab-indicator__content--underline {
   border-color: var(--highlight-color);
 }
 
-mat-tab-header .mat-mdc-tab-label-container .mat-mdc-tab {
+.mat-tab-header .mat-mdc-tab-label-container .mat-mdc-tab {
   height: 40px;
   font-size: 10px;
   font-family: open_semibold;
@@ -3481,25 +3491,25 @@ mat-tab-header .mat-mdc-tab-label-container .mat-mdc-tab {
   text-transform: uppercase;
 }
 
-mat-tab-header .mat-mdc-tab-label-container .mat-mdc-tab.mat-mdc-tab-disabled {
+.mat-tab-header .mat-mdc-tab-label-container .mat-mdc-tab.mat-mdc-tab-disabled {
   opacity: 1;
 }
 
-mat-tab-header
+.mat-tab-header
   .mat-mdc-tab-label-container
   .mat-mdc-tab.mat-mdc-tab-disabled
   .mdc-tab__content {
   opacity: 0.4;
 }
 
-mat-tab-header
+.mat-tab-header
   .mat-mdc-tab-label-container
   .mat-mdc-tab.mat-mdc-tab-disabled.forAction-btns
   .mdc-tab__content {
   opacity: 1;
 }
 
-mat-tab-header .mat-mdc-tab-label-container .mat-mdc-tab:after {
+.mat-tab-header .mat-mdc-tab-label-container .mat-mdc-tab:after {
   position: absolute;
   content: "";
   width: 1px;
@@ -3512,22 +3522,22 @@ mat-tab-header .mat-mdc-tab-label-container .mat-mdc-tab:after {
   opacity: 1;
 }
 
-mat-tab-header .mat-mdc-tab-label-container .mat-mdc-tab:last-child {
+.mat-tab-header .mat-mdc-tab-label-container .mat-mdc-tab:last-child {
   border: none;
 }
 
-mat-tab-header .mat-mdc-tab-label-container .mat-mdc-tab:last-child:after {
+.mat-tab-header .mat-mdc-tab-label-container .mat-mdc-tab:last-child:after {
   display: none;
 }
 
-mat-tab-header
+.mat-tab-header
   .mat-mdc-tab-label-container
   .mat-mdc-tab.mdc-tab-indicator--active
   .mdc-tab-indicator__content--underline {
   opacity: 1;
 }
 
-mat-tab-header
+.mat-tab-header
   .mat-mdc-tab-label-container
   .mat-mdc-tab
   .mdc-tab-indicator__content--underline {

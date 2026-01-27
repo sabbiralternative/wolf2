@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 const CasinoProviders = () => {
   return (
     <div className="providers-section ng-star-inserted">
       <div className="game-play-heading" tabIndex={0}>
         <h2>Casino Providers</h2>
-        <a className="view-all-link">
+        <Link to="/casino-providers" className="view-all-link">
           All
           <span
             role="img"
@@ -13,7 +15,7 @@ const CasinoProviders = () => {
           >
             chevron_right
           </span>
-        </a>
+        </Link>
       </div>
       <div className="providers-list">
         <ul>

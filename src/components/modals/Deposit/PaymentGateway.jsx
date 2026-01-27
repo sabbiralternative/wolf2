@@ -21,7 +21,7 @@ const DepositPaymentGateway = ({
   const handleVisibleBankMethod = async (method) => {
     setMethodType(method?.type);
     setPaymentId(method?.paymentId);
-    console.log(method);
+
     if (
       method?.type === "upigateway" ||
       method?.type === "toitgateway" ||
@@ -97,6 +97,7 @@ const DepositPaymentGateway = ({
           >
             <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
             <div
+              style={{ color: "white" }}
               role="img"
               className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
               aria-hidden="true"

@@ -12,6 +12,7 @@ import {
 import { IoArrowBack } from "react-icons/io5";
 import images from "../../../assets/images";
 import LatestEvent from "./LatestEvent";
+import { removeHeaderPaths } from "../../../static/removeHeaderPaths";
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -55,6 +56,10 @@ const Header = () => {
       dispatch(setShowLoginModal(true));
     }
   };
+
+  const shouldHideHeader = removeHeaderPaths.some((path) =>
+    pathname.startsWith(path),
+  );
 
   return (
     <Fragment>
@@ -132,225 +137,237 @@ const Header = () => {
             </div>
           </div>
         </div>
-        {!pathname.includes("/casino/") &&
-          !pathname.includes("/event-details/") && (
-            <div
-              style={{ position: "sticky", top: "0px", zIndex: 9999 }}
-              className="ng-star-inserted"
-            >
-              <div className="pagetab-wrapper">
-                <div className="forSearchBar">
-                  <div className="ng-star-inserted">
-                    <div className="forSearchBar-internal">
-                      <div className="ng-star-inserted">
-                        <div className="search-wrapper">
-                          <div className="search-field">
-                            <span
-                              role="img"
-                              className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
-                              aria-hidden="true"
-                              data-mat-icon-type="font"
-                            >
-                              search
-                            </span>
-                            <input
-                              type="text"
-                              placeholder="Search Matches / Casino Games"
-                              className="ng-untouched ng-pristine ng-valid"
-                            />
-                          </div>
+        {!shouldHideHeader && (
+          <div
+            style={{ position: "sticky", top: "0px", zIndex: 9999 }}
+            className="ng-star-inserted"
+          >
+            <div className="pagetab-wrapper">
+              <div className="forSearchBar">
+                <div className="ng-star-inserted">
+                  <div className="forSearchBar-internal">
+                    <div className="ng-star-inserted">
+                      <div className="search-wrapper">
+                        <div className="search-field">
                           <span
                             role="img"
-                            className="mat-icon notranslate material-icons search-btn mat-ligature-font mat-icon-no-color"
+                            className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
                             aria-hidden="true"
                             data-mat-icon-type="font"
                           >
                             search
                           </span>
+                          <input
+                            type="text"
+                            placeholder="Search Matches / Casino Games"
+                            className="ng-untouched ng-pristine ng-valid"
+                          />
                         </div>
+                        <span
+                          role="img"
+                          className="mat-icon notranslate material-icons search-btn mat-ligature-font mat-icon-no-color"
+                          aria-hidden="true"
+                          data-mat-icon-type="font"
+                        >
+                          search
+                        </span>
                       </div>
                     </div>
                   </div>
-                  <LatestEvent />
                 </div>
-                <div className="pagetab-header">
-                  <div
-                    onClick={() => handleNavigateToIFrame(204109, "jetx")}
-                    className="pagetab-item highLightedGame"
-                  >
-                    <div className="highlighted-game ng-star-inserted">
-                      <div className="icon-wrap jetx-icon">
-                        <img
-                          src="https://ss.manage63.com/bmk-wl/commonAssets/jetx.png"
-                          alt="JetX"
-                          className="blink-it"
-                        />
-                      </div>
-                      <div className="tab-label">JetX</div>
-                    </div>
-                  </div>
-                  <div className="pagetab-item ng-star-inserted">
-                    <div className="icon-wrap ng-star-inserted">
+                <LatestEvent />
+              </div>
+              <div className="pagetab-header">
+                <div
+                  onClick={() => handleNavigateToIFrame(204109, "jetx")}
+                  className="pagetab-item highLightedGame"
+                >
+                  <div className="highlighted-game ng-star-inserted">
+                    <div className="icon-wrap jetx-icon">
                       <img
-                        alt="Tab Icon"
-                        src="https://cdnimg.manage63.com/cricflags/trophy.svg"
+                        src="https://ss.manage63.com/bmk-wl/commonAssets/jetx.png"
+                        alt="JetX"
+                        className="blink-it"
                       />
                     </div>
-                    <div className="tab-label ng-star-inserted">
-                      Tournaments
-                    </div>
+                    <div className="tab-label">JetX</div>
                   </div>
-                  <div
-                    onClick={() => navigate("/group/cricket/4?type=inPlay")}
-                    className={`pagetab-item ng-star-inserted ${pathname === "/group/cricket/4" ? "active-link" : ""}`}
-                  >
-                    <div className="icon-wrap ng-star-inserted">
-                      <img
-                        alt="Tab Icon"
-                        src="https://cdnimg.manage63.com/games_icon/ball.svg"
-                      />
-                    </div>
-                    <div className="tab-label ng-star-inserted">Cricket</div>
-                    <div className="badgeWrapper ng-star-inserted">
-                      {groupedData?.cricket > 0 && (
-                        <div className="badge">{groupedData?.cricket}</div>
-                      )}
+                </div>
+                <div
+                  onClick={() => navigate("/tournament")}
+                  className={`pagetab-item ng-star-inserted ${pathname === "/tournament" ? "active-link" : ""}`}
+                >
+                  <div className="icon-wrap ng-star-inserted">
+                    <img
+                      alt="Tab Icon"
+                      src="https://cdnimg.manage63.com/cricflags/trophy.svg"
+                    />
+                  </div>
+                  <div className="tab-label ng-star-inserted">Tournaments</div>
+                </div>
+                <div
+                  onClick={() => navigate("/group/cricket/4?type=inPlay")}
+                  className={`pagetab-item ng-star-inserted ${pathname === "/group/cricket/4" ? "active-link" : ""}`}
+                >
+                  <div className="icon-wrap ng-star-inserted">
+                    <img
+                      alt="Tab Icon"
+                      src="https://cdnimg.manage63.com/games_icon/ball.svg"
+                    />
+                  </div>
+                  <div className="tab-label ng-star-inserted">Cricket</div>
+                  <div className="badgeWrapper ng-star-inserted">
+                    {groupedData?.cricket > 0 && (
+                      <div className="badge">{groupedData?.cricket}</div>
+                    )}
 
-                      <div className="wifi-symbol">
-                        <div className="wifi-circle first" />
-                        <div className="wifi-circle second" />
-                      </div>
+                    <div className="wifi-symbol">
+                      <div className="wifi-circle first" />
+                      <div className="wifi-circle second" />
                     </div>
                   </div>
-                  <div
-                    onClick={() => navigate("/group/football/1?type=inPlay")}
-                    className={`pagetab-item ng-star-inserted ${pathname === "/group/football/1" ? "active-link" : ""}`}
-                  >
-                    <div className="icon-wrap ng-star-inserted">
-                      <img
-                        alt="Tab Icon"
-                        src="https://cdnimg.manage63.com/games_icon/soccer.svg"
-                      />
-                    </div>
-                    <div className="tab-label ng-star-inserted">Soccer</div>
-                    <div className="badgeWrapper ng-star-inserted">
-                      {groupedData?.football > 0 && (
-                        <div className="badge">{groupedData?.football}</div>
-                      )}
-                      <div className="wifi-symbol">
-                        <div className="wifi-circle first" />
-                        <div className="wifi-circle second" />
-                      </div>
+                </div>
+                <div
+                  onClick={() => navigate("/group/football/1?type=inPlay")}
+                  className={`pagetab-item ng-star-inserted ${pathname === "/group/football/1" ? "active-link" : ""}`}
+                >
+                  <div className="icon-wrap ng-star-inserted">
+                    <img
+                      alt="Tab Icon"
+                      src="https://cdnimg.manage63.com/games_icon/soccer.svg"
+                    />
+                  </div>
+                  <div className="tab-label ng-star-inserted">Soccer</div>
+                  <div className="badgeWrapper ng-star-inserted">
+                    {groupedData?.football > 0 && (
+                      <div className="badge">{groupedData?.football}</div>
+                    )}
+                    <div className="wifi-symbol">
+                      <div className="wifi-circle first" />
+                      <div className="wifi-circle second" />
                     </div>
                   </div>
-                  <div
-                    onClick={() => navigate("/group/tennis/2?type=inPlay")}
-                    className={`pagetab-item ng-star-inserted ${pathname === "/group/tennis/2" ? "active-link" : ""}`}
-                  >
-                    <div className="icon-wrap ng-star-inserted">
-                      <img
-                        alt="Tab Icon"
-                        src="https://cdnimg.manage63.com/games_icon/tennis.svg"
-                      />
-                    </div>
-                    <div className="tab-label ng-star-inserted">Tennis</div>
-                    <div className="badgeWrapper ng-star-inserted">
-                      {groupedData?.tennis > 0 && (
-                        <div className="badge">{groupedData?.tennis}</div>
-                      )}
-                      <div className="wifi-symbol">
-                        <div className="wifi-circle first" />
-                        <div className="wifi-circle second" />
-                      </div>
+                </div>
+                <div
+                  onClick={() => navigate("/group/tennis/2?type=inPlay")}
+                  className={`pagetab-item ng-star-inserted ${pathname === "/group/tennis/2" ? "active-link" : ""}`}
+                >
+                  <div className="icon-wrap ng-star-inserted">
+                    <img
+                      alt="Tab Icon"
+                      src="https://cdnimg.manage63.com/games_icon/tennis.svg"
+                    />
+                  </div>
+                  <div className="tab-label ng-star-inserted">Tennis</div>
+                  <div className="badgeWrapper ng-star-inserted">
+                    {groupedData?.tennis > 0 && (
+                      <div className="badge">{groupedData?.tennis}</div>
+                    )}
+                    <div className="wifi-symbol">
+                      <div className="wifi-circle first" />
+                      <div className="wifi-circle second" />
                     </div>
                   </div>
-                  <div
-                    className="pagetab-item"
-                    style={{ display: "none" }}
-                    tabIndex={0}
-                  >
-                    <div className="icon-wrap crash-icon">
-                      <img
-                        alt="Tab Icon"
-                        src="https://ss.manage63.com/bmk-wl/commonAssets/horse-icon.svg"
-                      />
-                    </div>
-                    <div className="tab-label">Horse</div>
+                </div>
+                <div
+                  className="pagetab-item"
+                  style={{ display: "none" }}
+                  tabIndex={0}
+                >
+                  <div className="icon-wrap crash-icon">
+                    <img
+                      alt="Tab Icon"
+                      src="https://ss.manage63.com/bmk-wl/commonAssets/horse-icon.svg"
+                    />
                   </div>
-                  <div
-                    className="pagetab-item"
-                    style={{ display: "none" }}
-                    tabIndex={0}
-                  >
-                    <div className="icon-wrap crash-icon">
-                      <img
-                        alt="Tab Icon"
-                        src="https://ss.manage63.com/bmk-wl/commonAssets/greyhound-icon.svg"
-                      />
-                    </div>
-                    <div className="tab-label">Greyhound</div>
+                  <div className="tab-label">Horse</div>
+                </div>
+                <div
+                  className="pagetab-item"
+                  style={{ display: "none" }}
+                  tabIndex={0}
+                >
+                  <div className="icon-wrap crash-icon">
+                    <img
+                      alt="Tab Icon"
+                      src="https://ss.manage63.com/bmk-wl/commonAssets/greyhound-icon.svg"
+                    />
                   </div>
-                  <div className="pagetab-item ng-star-inserted">
-                    <div className="icon-wrap crash-icon">
-                      <img
-                        alt="Tab Icon"
-                        src="https://ss.manage63.com/bmk-wl/commonAssets/go-crash-icon.svg"
-                      />
-                    </div>
-                    <div className="tab-label">Go Crash</div>
+                  <div className="tab-label">Greyhound</div>
+                </div>
+                <div className="pagetab-item ng-star-inserted">
+                  <div className="icon-wrap crash-icon">
+                    <img
+                      alt="Tab Icon"
+                      src="https://ss.manage63.com/bmk-wl/commonAssets/go-crash-icon.svg"
+                    />
                   </div>
-                  <div
-                    onClick={() => navigate("/casino-games")}
-                    className={`pagetab-item ng-star-inserted ${pathname === "/casino-games" ? "active-link" : ""}`}
-                  >
-                    <div className="icon-wrap">
-                      <img
-                        alt="Tab Icon"
-                        src="https://ss.manage63.com/bmk-wl/commonAssets/instant_game.svg"
-                      />
-                    </div>
-                    <div className="tab-label">Instant Games</div>
+                  <div className="tab-label">Go Crash</div>
+                </div>
+                <div
+                  onClick={() => navigate("/instant-games")}
+                  className={`pagetab-item ng-star-inserted ${pathname === "/instant-games" ? "active-link" : ""}`}
+                >
+                  <div className="icon-wrap">
+                    <img
+                      alt="Tab Icon"
+                      src="https://ss.manage63.com/bmk-wl/commonAssets/instant_game.svg"
+                    />
                   </div>
-                  <div className="pagetab-item ng-star-inserted">
-                    <div className="icon-wrap">
-                      <img
-                        alt="Tab Icon"
-                        src="https://ss.manage63.com/bmk-wl/commonAssets/gaming_show.svg"
-                      />
-                    </div>
-                    <div className="tab-label">Game Shows</div>
+                  <div className="tab-label">Instant Games</div>
+                </div>
+                <div
+                  onClick={() => navigate("/game-shows")}
+                  className={`pagetab-item ng-star-inserted ${pathname === "/game-shows" ? "active-link" : ""}`}
+                >
+                  <div className="icon-wrap">
+                    <img
+                      alt="Tab Icon"
+                      src="https://ss.manage63.com/bmk-wl/commonAssets/gaming_show.svg"
+                    />
                   </div>
-                  <div className="pagetab-item ng-star-inserted">
-                    <div className="icon-wrap">
-                      <img
-                        alt="Tab Icon"
-                        src="https://ss.manage63.com/bmk-wl/commonAssets/go-casino-icon.svg"
-                      />
-                    </div>
-                    <div className="tab-label">Go Casino</div>
+                  <div className="tab-label">Game Shows</div>
+                </div>
+                <div
+                  onClick={() => navigate("/indian-cards")}
+                  className={`pagetab-item ng-star-inserted ${pathname === "/indian-cards" ? "active-link" : ""}`}
+                >
+                  <div className="icon-wrap">
+                    <img
+                      alt="Tab Icon"
+                      src="https://ss.manage63.com/bmk-wl/commonAssets/go-casino-icon.svg"
+                    />
                   </div>
-                  <div className="pagetab-item ng-star-inserted">
-                    <div className="icon-wrap">
-                      <img
-                        alt="Tab Icon"
-                        src="https://ss.manage63.com/bmk-wl/commonAssets/chips-header-icon.svg"
-                      />
-                    </div>
-                    <div className="tab-label">Live Casino</div>
+                  <div className="tab-label">Indian Cards</div>
+                </div>
+                <div
+                  onClick={() => navigate("/live-casino")}
+                  className={`pagetab-item ng-star-inserted ${pathname === "/live-casino" ? "active-link" : ""}`}
+                >
+                  <div className="icon-wrap">
+                    <img
+                      alt="Tab Icon"
+                      src="https://ss.manage63.com/bmk-wl/commonAssets/chips-header-icon.svg"
+                    />
                   </div>
-                  <div className="pagetab-item ng-star-inserted">
-                    <div className="icon-wrap">
-                      <img
-                        alt="Tab Icon"
-                        src="https://ss.manage63.com/bmk-wl/commonAssets/casino-icon.svg"
-                      />
-                    </div>
-                    <div className="tab-label">Slots</div>
+                  <div className="tab-label">Live Casino</div>
+                </div>
+                <div
+                  onClick={() => navigate("/slots")}
+                  className={`pagetab-item ng-star-inserted ${pathname === "/slots" ? "active-link" : ""}`}
+                >
+                  <div className="icon-wrap">
+                    <img
+                      alt="Tab Icon"
+                      src="https://ss.manage63.com/bmk-wl/commonAssets/casino-icon.svg"
+                    />
                   </div>
+                  <div className="tab-label">Slots</div>
                 </div>
               </div>
             </div>
-          )}
+          </div>
+        )}
       </div>
     </Fragment>
   );

@@ -428,14 +428,16 @@ html * {
 }
 
 .shadow-passwordRulesBox {
-  --tw-shadow: -4px -9px 63px 3px rgba(0, 0, 0, 0.1),
-    0px 8px 10px -6px rgba(0, 0, 0, 0.1);
-  --tw-shadow-colored: -4px -9px 63px 3px var(--tw-shadow-color),
+  --tw-shadow:
+    -4px -9px 63px 3px rgba(0, 0, 0, 0.1), 0px 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored:
+    -4px -9px 63px 3px var(--tw-shadow-color),
     0px 8px 10px -6px var(--tw-shadow-color);
 }
 .shadow-passwordRulesBox {
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow:
+    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+    var(--tw-shadow);
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -493,4 +495,61 @@ html * {
 }
 .overflow-hidden {
   overflow: hidden;
+}
+
+.rules-page-wrap {
+  padding: 0;
+}
+
+.rules-page-wrap .content-setting {
+  background: var(--white-color);
+  padding: 10px 5px;
+  border-radius: 0;
+}
+
+.rules-page-wrap p {
+  font-size: 12px;
+  margin: 0 0 10px;
+  text-align: justify;
+}
+
+.rules-page-wrap ul {
+  padding-left: 15px;
+  text-align: justify;
+}
+
+.rules-page-wrap ul li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  line-height: normal;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.rules-page-wrap ul li:last-child {
+  margin-bottom: 0;
+}
+
+.rules-page-wrap ul li:before {
+  content: "\2022";
+  font-weight: 700;
+  display: inline-block;
+  width: auto;
+  margin-left: -1.5em;
+  margin-right: 0.5rem;
+}
+.page-body .banking-page-wrap .banking-tabs-group .mat-tab-header {
+  background: var(--primary-color-shade);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+.mat-tab-header .mat-mdc-tab-label-container .mat-mdc-tab {
+  height: 40px;
+  font-size: 10px;
+  font-family: open_semibold;
+  color: var(--primary-color-contrast);
+  text-transform: uppercase;
 }

@@ -48,7 +48,8 @@
 @font-face {
   font-family: open_bold;
   src: url(/src/assets/font/OpenSans-Bold.c744609a802a3288.eot);
-  src: url(/src/assets/font/OpenSans-Bold.c744609a802a3288.eot?#iefix)
+  src:
+    url(/src/assets/font/OpenSans-Bold.c744609a802a3288.eot?#iefix)
       format("embedded-opentype"),
     url(/src/assets/font/OpenSans-Bold.b42e8f997302545c.woff2) format("woff2"),
     url(/src/assets/font/OpenSans-Bold.64b698d1d2f794fe.woff) format("woff"),
@@ -62,7 +63,8 @@
 @font-face {
   font-family: open_semiBold;
   src: url(/src/assets/font/OpenSans-SemiBold.deb5b5413aa8d3ac.eot);
-  src: url(/src/assets/font/OpenSans-SemiBold.deb5b5413aa8d3ac.eot?#iefix)
+  src:
+    url(/src/assets/font/OpenSans-SemiBold.deb5b5413aa8d3ac.eot?#iefix)
       format("embedded-opentype"),
     url(/src/assets/font/OpenSans-SemiBold.a6f1c6b1afb3465a.woff2)
       format("woff2"),
@@ -78,7 +80,8 @@
 @font-face {
   font-family: open_regular;
   src: url(/src/assets/font/OpenSans-Regular.3384608ec0a1e49b.eot);
-  src: url(/src/assets/font/OpenSans-Regular.3384608ec0a1e49b.eot?#iefix)
+  src:
+    url(/src/assets/font/OpenSans-Regular.3384608ec0a1e49b.eot?#iefix)
       format("embedded-opentype"),
     url(/src/assets/font/OpenSans-Regular.98f04fd85332c29f.woff2)
       format("woff2"),
@@ -94,7 +97,8 @@
 @font-face {
   font-family: open_light;
   src: url(/src/assets/font/OpenSans-Light.eec8d6d88268332f.eot);
-  src: url(/src/assets/font/OpenSans-Light.eec8d6d88268332f.eot?#iefix)
+  src:
+    url(/src/assets/font/OpenSans-Light.eec8d6d88268332f.eot?#iefix)
       format("embedded-opentype"),
     url(/src/assets/font/OpenSans-Light.eca1259dc68dc112.woff2) format("woff2"),
     url(/src/assets/font/OpenSans-Light.3d40ad4dbf6ff344.woff) format("woff"),
@@ -182,15 +186,15 @@ body {
   --swal2-html-container-padding: 1em 1.6em 0.3em;
   --swal2-input-border: 1px solid #d9d9d9;
   --swal2-input-border-radius: 0.1875em;
-  --swal2-input-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06),
-    0 0 0 3px transparent;
+  --swal2-input-box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.06), 0 0 0 3px transparent;
   --swal2-input-background: transparent;
   --swal2-input-transition: border-color 0.2s, box-shadow 0.2s;
-  --swal2-input-hover-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06),
-    0 0 0 3px transparent;
+  --swal2-input-hover-box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.06), 0 0 0 3px transparent;
   --swal2-input-focus-border: 1px solid #b4dbed;
-  --swal2-input-focus-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06),
-    0 0 0 3px rgba(100, 150, 200, 0.5);
+  --swal2-input-focus-box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.06), 0 0 0 3px rgba(100, 150, 200, 0.5);
   --swal2-progress-step-background: #add8e6;
   --swal2-validation-message-background: #f0f0f0;
   --swal2-validation-message-color: #666;
@@ -231,9 +235,10 @@ body {
   --swal2-toast-show-animation: swal2-toast-show 0.5s;
   --swal2-toast-hide-animation: swal2-toast-hide 0.1s forwards;
   --swal2-toast-border: none;
-  --swal2-toast-box-shadow: 0 0 1px hsl(0deg 0% 0% / 0.075),
-    0 1px 2px hsl(0deg 0% 0% / 0.075), 1px 2px 4px hsl(0deg 0% 0% / 0.075),
-    1px 3px 8px hsl(0deg 0% 0% / 0.075), 2px 4px 16px hsl(0deg 0% 0% / 0.075);
+  --swal2-toast-box-shadow:
+    0 0 1px hsl(0deg 0% 0% / 0.075), 0 1px 2px hsl(0deg 0% 0% / 0.075),
+    1px 2px 4px hsl(0deg 0% 0% / 0.075), 1px 3px 8px hsl(0deg 0% 0% / 0.075),
+    2px 4px 16px hsl(0deg 0% 0% / 0.075);
 }
 
 [data-swal2-theme="dark"] {
@@ -377,10 +382,9 @@ div:where(.swal2-container) {
   inset: 0;
   box-sizing: border-box;
   grid-template-areas: "top-start     top            top-end" "center-start  center         center-end" "bottom-start  bottom-center  bottom-end";
-  grid-template-rows: minmax(min-content, auto) minmax(min-content, auto) minmax(
-      min-content,
-      auto
-    );
+  grid-template-rows:
+    minmax(min-content, auto) minmax(min-content, auto)
+    minmax(min-content, auto);
   height: 100%;
   padding: var(--swal2-container-padding);
   overflow-x: hidden;
@@ -2380,8 +2384,10 @@ div:where(.swal2-icon).swal2-success
 }
 
 .mat-drawer {
-  box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2),
-    0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0px 8px 10px -5px rgba(0, 0, 0, 0.2),
+    0px 16px 24px 2px rgba(0, 0, 0, 0.14),
+    0px 6px 30px 5px rgba(0, 0, 0, 0.12);
   position: relative;
   z-index: 4;
   --mat-sidenav-container-shape: 0;
@@ -2516,8 +2522,10 @@ div:where(.swal2-icon).swal2-success
   -moz-appearance: none;
   -webkit-appearance: none;
   overflow: visible;
-  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 15ms linear 30ms, transform 270ms 0ms cubic-bezier(0, 0, 0.2, 1);
+  transition:
+    box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 15ms linear 30ms,
+    transform 270ms 0ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 .mdc-fab .mdc-elevation-overlay {
@@ -2537,14 +2545,18 @@ div:where(.swal2-icon).swal2-success
 }
 
 .mdc-fab:hover {
-  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
-    0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0px 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
 .mdc-fab.mdc-ripple-upgraded--background-focused,
 .mdc-fab:not(.mdc-ripple-upgraded):focus {
-  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
-    0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0px 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
 .mdc-fab .mdc-fab__focus-ring {
@@ -2595,8 +2607,10 @@ div:where(.swal2-icon).swal2-success
 
 .mdc-fab:active,
 .mdc-fab:focus:active {
-  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),
-    0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0px 7px 8px -4px rgba(0, 0, 0, 0.2),
+    0px 12px 17px 2px rgba(0, 0, 0, 0.14),
+    0px 5px 22px 4px rgba(0, 0, 0, 0.12);
 }
 
 .mdc-fab:active,
@@ -2720,7 +2734,8 @@ div:where(.swal2-icon).swal2-success
 .mdc-fab--exited {
   transform: scale(0);
   opacity: 0;
-  transition: opacity 15ms linear 150ms,
+  transition:
+    opacity 15ms linear 150ms,
     transform 180ms 0ms cubic-bezier(0.4, 0, 1, 1);
 }
 
@@ -2768,8 +2783,10 @@ div:where(.swal2-icon).swal2-success
 .mat-mdc-fab,
 .mat-mdc-mini-fab {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 18px 0px rgba(0, 0, 0, 0.12);
   color: var(--mat-mdc-fab-color, inherit);
   flex-shrink: 0;
 }
@@ -2845,24 +2862,30 @@ div:where(.swal2-icon).swal2-success
 .mat-mdc-fab:focus,
 .mat-mdc-mini-fab:hover,
 .mat-mdc-mini-fab:focus {
-  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
-    0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0px 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
 .mat-mdc-fab:active,
 .mat-mdc-fab:focus:active,
 .mat-mdc-mini-fab:active,
 .mat-mdc-mini-fab:focus:active {
-  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),
-    0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0px 7px 8px -4px rgba(0, 0, 0, 0.2),
+    0px 12px 17px 2px rgba(0, 0, 0, 0.14),
+    0px 5px 22px 4px rgba(0, 0, 0, 0.12);
 }
 
 .mat-mdc-fab[disabled],
 .mat-mdc-mini-fab[disabled] {
   cursor: default;
   pointer-events: none;
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2),
-    0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0px 0px 0px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 0px 0px rgba(0, 0, 0, 0.14),
+    0px 0px 0px 0px rgba(0, 0, 0, 0.12);
 }
 
 .mat-mdc-fab:not(.mdc-ripple-upgraded):focus::before,
@@ -3267,7 +3290,9 @@ div:where(.swal2-icon).swal2-success
   ul
   li {
   flex-shrink: 0;
-  transition: transform 0.75s ease, opacity 0.75s ease;
+  transition:
+    transform 0.75s ease,
+    opacity 0.75s ease;
   padding: 0 3px;
 }
 
@@ -5274,21 +5299,21 @@ div:where(.swal2-icon).swal2-success
   line-height: 1;
 }
 
-ion-content {
+.ion-content {
   --background: transparent;
   min-height: 100%;
 }
 
-ion-content ion-refresher {
+.ion-content .ion-refresher {
   z-index: 1;
   background: transparent;
 }
 
-ion-content ion-refresher .refresher-pulling-icon ion-icon {
+.ion-content .ion-refresher .refresher-pulling-icon ion-icon {
   color: var(--primary-color);
 }
 
-ion-content ion-refresher .refresher-refreshing-icon ion-spinner {
+.ion-content .ion-refresher .refresher-refreshing-icon ion-spinner {
   color: var(--primary-color);
 }
 
@@ -7564,8 +7589,10 @@ app-homepage-sports:not(:has(.inplay-cont)) .nodata-wrap {
 .tab-navigation button.active-link span.uIcons {
   color: var(--primary-color-contrast);
   scale: 1.2;
-  text-shadow: -1px -1px 0 var(--secondary-color),
-    1px -1px 0 var(--secondary-color), -1px 1px 0 var(--secondary-color),
+  text-shadow:
+    -1px -1px 0 var(--secondary-color),
+    1px -1px 0 var(--secondary-color),
+    -1px 1px 0 var(--secondary-color),
     1px 1px 0 var(--secondary-color);
 }
 
@@ -8221,7 +8248,7 @@ svg.mdc-button__icon {
 }
 
 .mat-mdc-button > .mat-icon {
-  margin-left: 0;
+  margin-left: 5px;
   margin-right: 8px;
   display: inline-block;
   position: relative;
@@ -9558,7 +9585,9 @@ svg.mdc-button__icon {
 
 .le-item {
   flex-shrink: 0;
-  transition: transform 0.75s ease, opacity 0.75s ease;
+  transition:
+    transform 0.75s ease,
+    opacity 0.75s ease;
 }
 
 .latest-events:has(.le-item:nth-child(1):last-child) .le-item {
@@ -9765,7 +9794,9 @@ svg.mdc-button__icon {
   gap: 5px;
   width: 0;
   transform: translate(-100%);
-  transition: width 0.75s ease, transform 0.75s ease;
+  transition:
+    width 0.75s ease,
+    transform 0.75s ease;
   overflow: hidden;
 }
 
@@ -10168,8 +10199,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   width: 50px;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(farthest-side, #1e64ce 94%, #0000) top/8px 8px
-      no-repeat,
+  background:
+    radial-gradient(farthest-side, #1e64ce 94%, #0000) top/8px 8px no-repeat,
     conic-gradient(#0000 30%, #1e64ce);
   -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
   animation: l13 1s infinite linear;
@@ -10185,8 +10216,18 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   margin-top: 16px;
   color: #1e1e1e;
   font-size: 14px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
 }
 
 @font-face {
@@ -10197,8 +10238,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F,
-    U+FE2E-FE2F;
+  unicode-range:
+    U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 
 @font-face {
@@ -10231,8 +10272,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1,
-    U+03A3-03FF;
+  unicode-range:
+    U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
 }
 
 @font-face {
@@ -10243,8 +10284,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC,
-    U+FB1D-FB4F;
+  unicode-range:
+    U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
 }
 
 @font-face {
@@ -10255,9 +10296,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTVOmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315,
-    U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A,
-    U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6,
+  unicode-range:
+    U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A,
+    U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346,
+    U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6,
     U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043,
     U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C,
     U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121,
@@ -10277,26 +10319,28 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTUGmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4,
+  unicode-range:
+    U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4,
     U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3,
     U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF,
     U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF,
     U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0,
     U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F,
-    U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C,
-    U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F,
-    U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE,
-    U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415,
-    U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449,
-    U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9,
-    U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6,
-    U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B,
-    U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F,
-    U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA,
-    U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3,
-    U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859,
-    U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B,
-    U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C,
+    U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315,
+    U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382,
+    U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6,
+    U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7,
+    U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444,
+    U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0,
+    U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA,
+    U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB,
+    U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513,
+    U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D,
+    U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC,
+    U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC,
+    U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887,
+    U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B,
+    U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C,
     U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8,
     U+1FB00-1FBFF;
 }
@@ -10309,7 +10353,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
+  unicode-range:
+    U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
     U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329,
     U+1EA0-1EF9, U+20AB;
 }
@@ -10322,9 +10367,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
@@ -10335,9 +10381,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2)
     format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -10348,8 +10395,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F,
-    U+FE2E-FE2F;
+  unicode-range:
+    U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 
 @font-face {
@@ -10382,8 +10429,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1,
-    U+03A3-03FF;
+  unicode-range:
+    U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
 }
 
 @font-face {
@@ -10394,8 +10441,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC,
-    U+FB1D-FB4F;
+  unicode-range:
+    U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
 }
 
 @font-face {
@@ -10406,9 +10453,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTVOmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315,
-    U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A,
-    U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6,
+  unicode-range:
+    U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A,
+    U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346,
+    U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6,
     U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043,
     U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C,
     U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121,
@@ -10428,26 +10476,28 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTUGmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4,
+  unicode-range:
+    U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4,
     U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3,
     U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF,
     U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF,
     U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0,
     U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F,
-    U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C,
-    U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F,
-    U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE,
-    U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415,
-    U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449,
-    U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9,
-    U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6,
-    U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B,
-    U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F,
-    U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA,
-    U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3,
-    U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859,
-    U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B,
-    U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C,
+    U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315,
+    U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382,
+    U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6,
+    U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7,
+    U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444,
+    U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0,
+    U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA,
+    U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB,
+    U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513,
+    U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D,
+    U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC,
+    U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC,
+    U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887,
+    U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B,
+    U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C,
     U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8,
     U+1FB00-1FBFF;
 }
@@ -10460,7 +10510,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
+  unicode-range:
+    U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
     U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329,
     U+1EA0-1EF9, U+20AB;
 }
@@ -10473,9 +10524,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
@@ -10486,9 +10538,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2)
     format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -10499,8 +10552,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F,
-    U+FE2E-FE2F;
+  unicode-range:
+    U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 
 @font-face {
@@ -10533,8 +10586,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1,
-    U+03A3-03FF;
+  unicode-range:
+    U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
 }
 
 @font-face {
@@ -10545,8 +10598,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC,
-    U+FB1D-FB4F;
+  unicode-range:
+    U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
 }
 
 @font-face {
@@ -10557,9 +10610,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTVOmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315,
-    U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A,
-    U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6,
+  unicode-range:
+    U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A,
+    U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346,
+    U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6,
     U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043,
     U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C,
     U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121,
@@ -10579,26 +10633,28 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTUGmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4,
+  unicode-range:
+    U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4,
     U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3,
     U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF,
     U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF,
     U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0,
     U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F,
-    U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C,
-    U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F,
-    U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE,
-    U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415,
-    U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449,
-    U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9,
-    U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6,
-    U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B,
-    U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F,
-    U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA,
-    U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3,
-    U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859,
-    U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B,
-    U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C,
+    U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315,
+    U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382,
+    U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6,
+    U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7,
+    U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444,
+    U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0,
+    U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA,
+    U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB,
+    U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513,
+    U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D,
+    U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC,
+    U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC,
+    U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887,
+    U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B,
+    U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C,
     U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8,
     U+1FB00-1FBFF;
 }
@@ -10611,7 +10667,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
+  unicode-range:
+    U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
     U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329,
     U+1EA0-1EF9, U+20AB;
 }
@@ -10624,9 +10681,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
@@ -10637,9 +10695,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2)
     format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -10650,8 +10709,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F,
-    U+FE2E-FE2F;
+  unicode-range:
+    U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 
 @font-face {
@@ -10684,8 +10743,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1,
-    U+03A3-03FF;
+  unicode-range:
+    U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
 }
 
 @font-face {
@@ -10696,8 +10755,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC,
-    U+FB1D-FB4F;
+  unicode-range:
+    U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
 }
 
 @font-face {
@@ -10708,9 +10767,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTVOmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315,
-    U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A,
-    U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6,
+  unicode-range:
+    U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A,
+    U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346,
+    U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6,
     U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043,
     U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C,
     U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121,
@@ -10730,26 +10790,28 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTUGmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4,
+  unicode-range:
+    U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4,
     U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3,
     U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF,
     U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF,
     U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0,
     U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F,
-    U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C,
-    U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F,
-    U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE,
-    U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415,
-    U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449,
-    U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9,
-    U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6,
-    U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B,
-    U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F,
-    U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA,
-    U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3,
-    U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859,
-    U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B,
-    U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C,
+    U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315,
+    U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382,
+    U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6,
+    U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7,
+    U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444,
+    U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0,
+    U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA,
+    U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB,
+    U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513,
+    U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D,
+    U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC,
+    U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC,
+    U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887,
+    U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B,
+    U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C,
     U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8,
     U+1FB00-1FBFF;
 }
@@ -10762,7 +10824,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
+  unicode-range:
+    U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
     U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329,
     U+1EA0-1EF9, U+20AB;
 }
@@ -10775,9 +10838,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
@@ -10788,9 +10852,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2)
     format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -10801,8 +10866,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F,
-    U+FE2E-FE2F;
+  unicode-range:
+    U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 
 @font-face {
@@ -10835,8 +10900,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1,
-    U+03A3-03FF;
+  unicode-range:
+    U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
 }
 
 @font-face {
@@ -10847,8 +10912,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC,
-    U+FB1D-FB4F;
+  unicode-range:
+    U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
 }
 
 @font-face {
@@ -10859,9 +10924,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTVOmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315,
-    U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A,
-    U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6,
+  unicode-range:
+    U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A,
+    U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346,
+    U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6,
     U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043,
     U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C,
     U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121,
@@ -10881,26 +10947,28 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTUGmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4,
+  unicode-range:
+    U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4,
     U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3,
     U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF,
     U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF,
     U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0,
     U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F,
-    U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C,
-    U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F,
-    U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE,
-    U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415,
-    U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449,
-    U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9,
-    U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6,
-    U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B,
-    U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F,
-    U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA,
-    U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3,
-    U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859,
-    U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B,
-    U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C,
+    U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315,
+    U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382,
+    U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6,
+    U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7,
+    U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444,
+    U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0,
+    U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA,
+    U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB,
+    U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513,
+    U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D,
+    U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC,
+    U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC,
+    U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887,
+    U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B,
+    U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C,
     U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8,
     U+1FB00-1FBFF;
 }
@@ -10913,7 +10981,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
+  unicode-range:
+    U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
     U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329,
     U+1EA0-1EF9, U+20AB;
 }
@@ -10926,9 +10995,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
@@ -10939,9 +11009,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2)
     format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -10952,8 +11023,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F,
-    U+FE2E-FE2F;
+  unicode-range:
+    U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 
 @font-face {
@@ -10986,8 +11057,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1,
-    U+03A3-03FF;
+  unicode-range:
+    U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
 }
 
 @font-face {
@@ -10998,8 +11069,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC,
-    U+FB1D-FB4F;
+  unicode-range:
+    U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
 }
 
 @font-face {
@@ -11010,9 +11081,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTVOmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315,
-    U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A,
-    U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6,
+  unicode-range:
+    U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A,
+    U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346,
+    U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6,
     U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043,
     U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C,
     U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121,
@@ -11032,26 +11104,28 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTUGmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4,
+  unicode-range:
+    U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4,
     U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3,
     U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF,
     U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF,
     U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0,
     U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F,
-    U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C,
-    U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F,
-    U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE,
-    U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415,
-    U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449,
-    U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9,
-    U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6,
-    U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B,
-    U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F,
-    U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA,
-    U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3,
-    U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859,
-    U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B,
-    U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C,
+    U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315,
+    U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382,
+    U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6,
+    U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7,
+    U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444,
+    U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0,
+    U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA,
+    U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB,
+    U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513,
+    U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D,
+    U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC,
+    U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC,
+    U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887,
+    U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B,
+    U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C,
     U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8,
     U+1FB00-1FBFF;
 }
@@ -11064,7 +11138,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
+  unicode-range:
+    U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
     U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329,
     U+1EA0-1EF9, U+20AB;
 }
@@ -11077,9 +11152,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu0SC55K5gw.woff2)
     format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
@@ -11090,9 +11166,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2)
     format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -11127,8 +11204,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBHMdazTgWw.woff2)
     format("woff2");
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F,
-    U+FE2E-FE2F;
+  unicode-range:
+    U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 
 @font-face {
@@ -11161,8 +11238,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBHMdazTgWw.woff2)
     format("woff2");
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1,
-    U+03A3-03FF;
+  unicode-range:
+    U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
 }
 
 @font-face {
@@ -11173,9 +11250,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBHMdazTgWw.woff2)
     format("woff2");
-  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315,
-    U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A,
-    U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6,
+  unicode-range:
+    U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A,
+    U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346,
+    U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6,
     U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043,
     U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C,
     U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121,
@@ -11195,26 +11273,28 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBHMdazTgWw.woff2)
     format("woff2");
-  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4,
+  unicode-range:
+    U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4,
     U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3,
     U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF,
     U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF,
     U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0,
     U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F,
-    U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C,
-    U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F,
-    U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE,
-    U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415,
-    U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449,
-    U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9,
-    U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6,
-    U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B,
-    U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F,
-    U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA,
-    U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3,
-    U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859,
-    U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B,
-    U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C,
+    U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315,
+    U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382,
+    U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6,
+    U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7,
+    U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444,
+    U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0,
+    U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA,
+    U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB,
+    U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513,
+    U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D,
+    U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC,
+    U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC,
+    U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887,
+    U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B,
+    U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C,
     U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8,
     U+1FB00-1FBFF;
 }
@@ -11227,7 +11307,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBHMdazTgWw.woff2)
     format("woff2");
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
+  unicode-range:
+    U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
     U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329,
     U+1EA0-1EF9, U+20AB;
 }
@@ -11240,9 +11321,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBHMdazTgWw.woff2)
     format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
@@ -11253,9 +11335,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2)
     format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -11266,8 +11349,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBHMdazTgWw.woff2)
     format("woff2");
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F,
-    U+FE2E-FE2F;
+  unicode-range:
+    U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 
 @font-face {
@@ -11300,8 +11383,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBHMdazTgWw.woff2)
     format("woff2");
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1,
-    U+03A3-03FF;
+  unicode-range:
+    U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
 }
 
 @font-face {
@@ -11312,9 +11395,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBHMdazTgWw.woff2)
     format("woff2");
-  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315,
-    U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A,
-    U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6,
+  unicode-range:
+    U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A,
+    U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346,
+    U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6,
     U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043,
     U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C,
     U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121,
@@ -11334,26 +11418,28 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBHMdazTgWw.woff2)
     format("woff2");
-  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4,
+  unicode-range:
+    U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4,
     U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3,
     U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF,
     U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF,
     U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0,
     U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F,
-    U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C,
-    U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F,
-    U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE,
-    U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415,
-    U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449,
-    U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9,
-    U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6,
-    U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B,
-    U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F,
-    U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA,
-    U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3,
-    U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859,
-    U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B,
-    U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C,
+    U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315,
+    U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382,
+    U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6,
+    U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7,
+    U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444,
+    U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0,
+    U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA,
+    U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB,
+    U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513,
+    U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D,
+    U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC,
+    U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC,
+    U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887,
+    U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B,
+    U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C,
     U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8,
     U+1FB00-1FBFF;
 }
@@ -11366,7 +11452,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBHMdazTgWw.woff2)
     format("woff2");
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
+  unicode-range:
+    U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
     U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329,
     U+1EA0-1EF9, U+20AB;
 }
@@ -11379,9 +11466,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBHMdazTgWw.woff2)
     format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
@@ -11392,9 +11480,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2)
     format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -11405,8 +11494,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBHMdazTgWw.woff2)
     format("woff2");
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F,
-    U+FE2E-FE2F;
+  unicode-range:
+    U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 
 @font-face {
@@ -11439,8 +11528,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBHMdazTgWw.woff2)
     format("woff2");
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1,
-    U+03A3-03FF;
+  unicode-range:
+    U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
 }
 
 @font-face {
@@ -11451,9 +11540,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBHMdazTgWw.woff2)
     format("woff2");
-  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315,
-    U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A,
-    U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6,
+  unicode-range:
+    U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A,
+    U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346,
+    U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6,
     U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043,
     U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C,
     U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121,
@@ -11473,26 +11563,28 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBHMdazTgWw.woff2)
     format("woff2");
-  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4,
+  unicode-range:
+    U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4,
     U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3,
     U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF,
     U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF,
     U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0,
     U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F,
-    U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C,
-    U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F,
-    U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE,
-    U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415,
-    U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449,
-    U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9,
-    U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6,
-    U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B,
-    U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F,
-    U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA,
-    U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3,
-    U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859,
-    U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B,
-    U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C,
+    U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315,
+    U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382,
+    U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6,
+    U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7,
+    U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444,
+    U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0,
+    U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA,
+    U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB,
+    U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513,
+    U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D,
+    U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC,
+    U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC,
+    U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887,
+    U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B,
+    U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C,
     U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8,
     U+1FB00-1FBFF;
 }
@@ -11505,7 +11597,8 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBHMdazTgWw.woff2)
     format("woff2");
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
+  unicode-range:
+    U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
     U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329,
     U+1EA0-1EF9, U+20AB;
 }
@@ -11518,9 +11611,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBHMdazTgWw.woff2)
     format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
@@ -11531,9 +11625,10 @@ ion-refresher.refresher-native .refresher-refreshing-icon {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/roboto/v50/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2)
     format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
 slot-fb {
@@ -11544,104 +11639,104 @@ slot-fb[hidden] {
   display: none;
 }
 
-ion-accordion,
-ion-accordion-group,
-ion-action-sheet,
-ion-alert,
-ion-app,
-ion-avatar,
-ion-back-button,
-ion-backdrop,
-ion-badge,
-ion-breadcrumb,
-ion-breadcrumbs,
-ion-button,
-ion-buttons,
-ion-card,
-ion-card-content,
-ion-card-header,
-ion-card-subtitle,
-ion-card-title,
-ion-checkbox,
-ion-chip,
-ion-col,
-ion-content,
-ion-datetime,
-ion-datetime-button,
-ion-fab,
-ion-fab-button,
-ion-fab-list,
-ion-footer,
-ion-grid,
-ion-header,
-ion-icon,
-ion-img,
-ion-infinite-scroll,
-ion-infinite-scroll-content,
-ion-input,
-ion-input-otp,
-ion-input-password-toggle,
-ion-item,
-ion-item-divider,
-ion-item-group,
-ion-item-option,
-ion-item-options,
-ion-item-sliding,
-ion-label,
-ion-list,
-ion-list-header,
-ion-loading,
-ion-menu,
-ion-menu-button,
-ion-menu-toggle,
-ion-modal,
-ion-nav,
-ion-nav-link,
-ion-note,
-ion-picker,
-ion-picker-column,
-ion-picker-column-option,
-ion-picker-legacy,
-ion-picker-legacy-column,
-ion-popover,
-ion-progress-bar,
-ion-radio,
-ion-radio-group,
-ion-range,
-ion-refresher,
-ion-refresher-content,
-ion-reorder,
-ion-reorder-group,
-ion-ripple-effect,
-ion-route,
-ion-route-redirect,
-ion-router,
-ion-router-link,
-ion-router-outlet,
-ion-row,
-ion-searchbar,
-ion-segment,
-ion-segment-button,
-ion-segment-content,
-ion-segment-view,
-ion-select,
-ion-select-modal,
-ion-select-option,
-ion-select-popover,
-ion-skeleton-text,
-ion-spinner,
-ion-split-pane,
-ion-tab,
-ion-tab-bar,
-ion-tab-button,
-ion-tabs,
-ion-text,
-ion-textarea,
-ion-thumbnail,
-ion-title,
-ion-toast,
-ion-toggle,
-ion-toolbar {
+.ion-accordion,
+.ion-accordion-group,
+.ion-action-sheet,
+.ion-alert,
+.ion-app,
+.ion-avatar,
+.ion-back-button,
+.ion-backdrop,
+.ion-badge,
+.ion-breadcrumb,
+.ion-breadcrumbs,
+.ion-button,
+.ion-buttons,
+.ion-card,
+.ion-card-content,
+.ion-card-header,
+.ion-card-subtitle,
+.ion-card-title,
+.ion-checkbox,
+.ion-chip,
+.ion-col,
+.ion-content,
+.ion-datetime,
+.ion-datetime-button,
+.ion-fab,
+.ion-fab-button,
+.ion-fab-list,
+.ion-footer,
+.ion-grid,
+.ion-header,
+.ion-icon,
+.ion-img,
+.ion-infinite-scroll,
+.ion-infinite-scroll-content,
+.ion-input,
+.ion-input-otp,
+.ion-input-password-toggle,
+.ion-item,
+.ion-item-divider,
+.ion-item-group,
+.ion-item-option,
+.ion-item-options,
+.ion-item-sliding,
+.ion-label,
+.ion-list,
+.ion-list-header,
+.ion-loading,
+.ion-menu,
+.ion-menu-button,
+.ion-menu-toggle,
+.ion-modal,
+.ion-nav,
+.ion-nav-link,
+.ion-note,
+.ion-picker,
+.ion-picker-column,
+.ion-picker-column-option,
+.ion-picker-legacy,
+.ion-picker-legacy-column,
+.ion-popover,
+.ion-progress-bar,
+.ion-radio,
+.ion-radio-group,
+.ion-range,
+.ion-refresher,
+.ion-refresher-content,
+.ion-reorder,
+.ion-reorder-group,
+.ion-ripple-effect,
+.ion-route,
+.ion-route-redirect,
+.ion-router,
+.ion-router-link,
+.ion-router-outlet,
+.ion-row,
+.ion-searchbar,
+.ion-segment,
+.ion-segment-button,
+.ion-segment-content,
+.ion-segment-view,
+.ion-select,
+.ion-select-modal,
+.ion-select-option,
+.ion-select-popover,
+.ion-skeleton-text,
+.ion-spinner,
+.ion-split-pane,
+.ion-tab,
+.ion-tab-bar,
+.ion-tab-button,
+.ion-tabs,
+.ion-text,
+.ion-textarea,
+.ion-thumbnail,
+.ion-title,
+.ion-toast,
+.ion-toggle,
+.ion-toolbar {
   visibility: hidden;
 }
 
@@ -11658,4 +11753,43 @@ body[unresolved] {
   display: block;
   overflow: hidden;
   position: relative;
+}
+
+.forSearchBar-internal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--primary-color);
+  color: var(--primary-color-contrast);
+  width: 100%;
+  z-index: 1001;
+  position: relative;
+}
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0 5px 5px;
+  gap: 6px;
+}
+.forSearchBar-internal .announcements {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 36px;
+  border-left: 0;
+  overflow: hidden;
+  padding: 0 5px;
+  overflow-x: auto;
+}
+.forSearchBar-internal .announcements .ann-wrap {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  overflow: auto;
+  width: 100%;
+  background: var(--primary-color-tint);
+  border-radius: 4px;
+  padding: 0 5px;
+  min-height: 26px;
 }

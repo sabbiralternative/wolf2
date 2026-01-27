@@ -1,14 +1,23 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import AmountSection from "./AmountSection";
 import DepositPaymentGateway from "./PaymentGateway";
 import DepositPaymentProof from "./PaymentProof";
+import useCloseModalClickOutside from "../../../hooks/closeModal";
+import { useDispatch } from "react-redux";
+import { setShowDepositModal } from "../../../redux/features/global/globalSlice";
 
 const Deposit = () => {
+  const dispatch = useDispatch();
+  const ref = useRef();
   const [depositTab, setDepositTab] = useState("amount");
   const [amount, setAmount] = useState("");
   const [depositData, setDepositData] = useState({});
   const [paymentId, setPaymentId] = useState(null);
   const [methodType, setMethodType] = useState(null);
+
+  useCloseModalClickOutside(ref, () => {
+    dispatch(setShowDepositModal(false));
+  });
 
   return (
     <div className="cdk-overlay-container">
@@ -19,6 +28,7 @@ const Deposit = () => {
         style={{ justifyContent: "center", alignItems: "flex-end" }}
       >
         <div
+          ref={ref}
           id="cdk-overlay-2"
           className="cdk-overlay-pane dw-dialog"
           style={{

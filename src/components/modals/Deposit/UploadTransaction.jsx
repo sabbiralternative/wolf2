@@ -11,6 +11,7 @@ import {
   setShowDepositModal,
   setShowDepositSuccessModal,
 } from "../../../redux/features/global/globalSlice";
+import { GrCopy } from "react-icons/gr";
 
 const UploadTransaction = ({ paymentId, amount, methodType }) => {
   const [imageUploadMessage, setImageUploadMessage] = useState(null);
@@ -155,7 +156,7 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
               value={utr !== null ? utr : null}
             />
             <span className="paste-icon ng-star-inserted">
-              <span className="appico-paste" /> Paste
+              <GrCopy style={{ marginRight: "5px" }} /> Paste
             </span>
           </div>
         </div>

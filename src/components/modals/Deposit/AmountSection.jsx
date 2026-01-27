@@ -49,6 +49,7 @@ const AmountSection = ({ amount, setAmount, setDepositTab }) => {
           >
             <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
             <div
+              style={{ color: "white" }}
               role="img"
               className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
               aria-hidden="true"

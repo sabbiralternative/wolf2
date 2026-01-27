@@ -19,5 +19,6 @@ export const useGetIndex = (payload) => {
       const { data } = await AxiosSecure.post(`${API.index}`, payload);
       return data;
     },
+    gcTime: 0,
   });
 };

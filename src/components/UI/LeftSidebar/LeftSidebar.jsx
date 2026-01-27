@@ -1,6 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Fragment, useEffect } from "react";
-import { setShowSidebar } from "../../../redux/features/global/globalSlice";
+import {
+  setShowEditStakeModal,
+  setShowSidebar,
+} from "../../../redux/features/global/globalSlice";
 import { logout } from "../../../redux/features/auth/authSlice";
 import ModalWrapper from "../../modals/ModalWrapper/ModalWrapper";
 import useWhatsApp from "../../../hooks/whatsapp";
@@ -28,6 +31,11 @@ const LeftSidebar = ({ children }) => {
 
   const handleNavigate = (link) => {
     navigate(link);
+    dispatch(setShowSidebar(false));
+  };
+
+  const handleOpenModal = (setModal) => {
+    dispatch(setModal(true));
     dispatch(setShowSidebar(false));
   };
 
@@ -200,7 +208,10 @@ const LeftSidebar = ({ children }) => {
                     </a>
                   </li>
                   <li className="smenu-item ng-star-inserted" style={{}}>
-                    <a className="smenu-link">
+                    <a
+                      onClick={() => handleOpenModal(setShowEditStakeModal)}
+                      className="smenu-link"
+                    >
                       <img
                         alt="Menu Icon"
                         src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_edit.svg"
@@ -249,16 +260,30 @@ const LeftSidebar = ({ children }) => {
                   </li>
                 </ul>
                 <ul className="smenu-wrap bottom">
-                  {(socialLink?.instagramLink || socialLink?.telegramLink) && (
+                  {(socialLink?.instagramLink ||
+                    socialLink?.telegramLink ||
+                    socialLink?.whatsapplink ||
+                    socialLink?.branchWhatsapplink) && (
                     <li className="smenu-item social-links-wrap ng-star-inserted">
                       <label>Join us Now</label>
                       <div className="social-links">
-                        {/* <a className="ng-star-inserted">
-                          <img
-                            alt=""
-                            src="https://ss.manage63.com/bmk-wl/commonAssets/icon_dark_facebook.svg"
-                          />
-                        </a> */}
+                        {(socialLink?.whatsapplink ||
+                          socialLink?.branchWhatsapplink) && (
+                          <a
+                            onClick={() =>
+                              handleNavigateSocialLink(
+                                socialLink?.branchWhatsapplink ||
+                                  socialLink?.whatsapplink,
+                              )
+                            }
+                            className="ng-star-inserted"
+                          >
+                            <img
+                              alt=""
+                              src="https://ss.manage63.com/bmk-wl/commonAssets/icon_dark_facebook.svg"
+                            />
+                          </a>
+                        )}
                         {socialLink?.instagramLink && (
                           <a
                             onClick={() =>
