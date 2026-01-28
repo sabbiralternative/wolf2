@@ -1,5 +1,6 @@
 import { GrCopy } from "react-icons/gr";
 import { handleCopyToClipBoard } from "../../../utils/handleCopyToClipBoard";
+import images from "../../../assets/images";
 
 const USDTDetails = ({ data }) => {
   return (
@@ -7,7 +8,7 @@ const USDTDetails = ({ data }) => {
       <div className="card-title">
         <h4>
           <div className="img-wrap bank-img">
-            <img src="/src/assets/img/bank-transfer-icon.svg" />
+            <img src={images.bankTransfer} />
           </div>{" "}
           Bank Details
         </h4>

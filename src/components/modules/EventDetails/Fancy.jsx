@@ -8,13 +8,15 @@ import {
   setRunnerId,
 } from "../../../redux/features/events/eventSlice";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
+import images from "../../../assets/images";
+import Ladder from "../../UI/Ladder/Ladder";
 
 const Fancy = ({ data }) => {
   const fancyData = data?.filter(
     (fancy) =>
       fancy.btype === "FANCY" &&
       fancy.tabGroupName === "Normal" &&
-      fancy?.visible == true
+      fancy?.visible == true,
   );
   const [marketName, setMarketName] = useState("");
   const [ladderData, setLadderData] = useState([]);
@@ -22,7 +24,7 @@ const Fancy = ({ data }) => {
 
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
-  const { runnerId } = useSelector((state) => state.event);
+  // const { runnerId } = useSelector((state) => state.event);
   const { data: exposure } = useExposure(eventId);
   const [getLadder] = useGetLadderMutation();
 
@@ -62,7 +64,7 @@ const Fancy = ({ data }) => {
         eventTypeId = games?.marketId;
         games?.runners?.forEach((runner) => {
           const pnl = pnlBySelection?.find(
-            (p) => p?.RunnerId === runner?.selectionId
+            (p) => p?.RunnerId === runner?.selectionId,
           );
           if (pnl) {
             updatedPnl.push(pnl?.pnl);
@@ -113,17 +115,23 @@ const Fancy = ({ data }) => {
     pnlBySelection = Object?.values(obj);
   }
 
-  const handleGetLadder = async (pnl, marketName) => {
-    if (!pnl?.MarketId) {
-      return;
-    }
-    setMarketName(marketName);
-    const res = await getLadder({ marketId: pnl?.MarketId }).unwrap();
+  const handleGetLadder = async (pnl, name) => {
+    if (name === marketName) {
+      setMarketName(null);
+      setLadderData([]);
+    } else {
+      if (!pnl?.MarketId) {
+        return;
+      }
+      setMarketName(name);
+      const res = await getLadder({ marketId: pnl?.MarketId }).unwrap();
 
-    if (res.success) {
-      setLadderData(res.result);
+      if (res.success) {
+        setLadderData(res.result);
+      }
     }
   };
+
   return (
     <Fragment>
       {fancyData?.length > 0 && (
@@ -156,6 +164,28 @@ const Fancy = ({ data }) => {
                       <p></p>
                     </h3>
                   </div>
+                  {pnl?.pnl && (
+                    <button
+                      onClick={() => handleGetLadder(pnl, game?.name)}
+                      className="bar-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted"
+                    >
+                      <span className="mat-mdc-button-persistent-ripple mdc-button__ripple"></span>
+                      <span className="mdc-button__label">
+                        <img
+                          alt=""
+                          className="ladder-img"
+                          src={images.ladder}
+                        />
+                      </span>
+                      <span className="mat-mdc-focus-indicator"></span>
+                      <span className="mat-mdc-button-touch-target"></span>
+                      <span className="mat-ripple mat-mdc-button-ripple"></span>
+                    </button>
+                  )}
+                  {pnl?.pnl && ladderData?.length > 0 && (
+                    <Ladder ladderData={ladderData} marketName={marketName} />
+                  )}
+
                   <div className="ladder-datawrap dropdown-content">
                     <p className="fancy-head"> 15.3 Over PRS</p>
                     <div className="ld-header">
@@ -173,6 +203,9 @@ const Fancy = ({ data }) => {
                     {/* <div className="ball-running ng-star-inserted" style={{}}>
                       <h4>Ball Running</h4>
                     </div> */}
+                    {/* <div className="suspended-wrap ng-star-inserted">
+                      <h4>Suspended</h4>
+                    </div> */}
                     <div className="count-v-wrap ng-star-inserted">
                       <button
                         onClick={() =>
@@ -181,7 +214,7 @@ const Fancy = ({ data }) => {
                             game,
                             game?.runners?.[0],
                             game?.runners?.[0]?.lay?.[0]?.line,
-                            game?.runners?.[0]?.lay?.[0]?.price
+                            game?.runners?.[0]?.lay?.[0]?.price,
                           )
                         }
                         className="mdc-button mdc-button--unelevated mat-mdc-unelevated-button count-value lay-count mat-unthemed mat-mdc-button-base"
@@ -206,7 +239,7 @@ const Fancy = ({ data }) => {
                             game,
                             game?.runners?.[0],
                             game?.runners?.[0]?.back?.[0]?.line,
-                            game?.runners?.[0]?.back?.[0]?.price
+                            game?.runners?.[0]?.back?.[0]?.price,
                           )
                         }
                         className="mdc-button mdc-button--unelevated mat-mdc-unelevated-button back-count count-value mat-unthemed mat-mdc-button-base"
@@ -230,62 +263,6 @@ const Fancy = ({ data }) => {
                 </div>
               );
             })}
-
-            {/* <div className="data-wrap ng-star-inserted" id="16.3OverPRS">
-              <div className="teamlist-info">
-                <h3 className="team-title">
-                  {" "}
-                  16.3 Over PRS
-                  <p></p>
-                </h3>
-              </div>
-              <div className="ladder-datawrap dropdown-content">
-                <p className="fancy-head"> 16.3 Over PRS</p>
-                <div className="ld-header">
-                  <div className="ld-data">
-                    <h3>Figure</h3>
-                    <h3>Win/Loss</h3>
-                  </div>
-                </div>
-                <div className="ld-body" />
-                <div className="fancy-loader ng-star-inserted">
-                  <div className="loader" />
-                </div>
-              </div>
-              <div className="flex-row-right rt-wrap">
-                <div className="suspended-wrap ng-star-inserted">
-                  <h4>Suspended</h4>
-                </div>
-                <div className="count-v-wrap ng-star-inserted">
-                  <button className="mdc-button mdc-button--unelevated mat-mdc-unelevated-button count-value lay-count mat-unthemed mat-mdc-button-base">
-                    <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                    <span className="mdc-button__label">
-                      <h4 className="ng-star-inserted" style={{}}>
-                        185
-                      </h4>
-                      <p className="ng-star-inserted" style={{}}>
-                        100
-                      </p>
-                    </span>
-                    <span className="mat-mdc-focus-indicator" />
-                    <span className="mat-mdc-button-touch-target" />
-                  </button>
-                  <button className="mdc-button mdc-button--unelevated mat-mdc-unelevated-button back-count count-value mat-unthemed mat-mdc-button-base">
-                    <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                    <span className="mdc-button__label">
-                      <h4 className="ng-star-inserted" style={{}}>
-                        186
-                      </h4>
-                      <p className="ng-star-inserted" style={{}}>
-                        100
-                      </p>
-                    </span>
-                    <span className="mat-mdc-focus-indicator" />
-                    <span className="mat-mdc-button-touch-target" />
-                  </button>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
       )}

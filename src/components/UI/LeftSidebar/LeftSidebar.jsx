@@ -180,7 +180,10 @@ const LeftSidebar = ({ children }) => {
                     </a>
                   </li>
                   <li className="smenu-item ng-star-inserted">
-                    <a className="smenu-link">
+                    <a
+                      onClick={() => handleNavigate("/banking")}
+                      className="smenu-link"
+                    >
                       <img
                         alt="Menu Icon"
                         src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_bank.svg"

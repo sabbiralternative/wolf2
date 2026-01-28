@@ -12509,7 +12509,7 @@ div.mat-mdc-select-panel {
 
 .ladder-datawrap {
   position: relative;
-  min-height: 200px;
+  min-height: fit-content;
   max-width: 140px;
   background: var(--grey-100);
 }
@@ -14012,11 +14012,11 @@ div.container {
 
 .page-header .header-right-cont .bal-cont .bal-amount {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .page-header .header-right-cont .bal-cont .bal-amount.show-bal {
-  padding-right: 6px;
+  padding-right: 0px;
 }
 
 .page-header .header-right-cont .bal-cont .bal-amount.exp-bal {
@@ -14038,7 +14038,7 @@ div.container {
 
 .page-header .header-right-cont .bal-cont .bal-amount mat-label,
 .page-header .header-right-cont .bal-cont .bal-amount p {
-  font-size: 12px;
+  font-size: 10px;
   color: var(--white-color);
   text-align: right;
   margin: 0;
@@ -14322,7 +14322,7 @@ div.container {
   overflow: hidden;
   text-overflow: ellipsis;
   filter: grayscale(1);
-  opacity: 0.5;
+
   transition:
     opacity 0.25s ease,
     filter 0.25s ease;
@@ -22020,8 +22020,8 @@ ion-content ion-refresher .refresher-refreshing-icon ion-spinner {
 }
 
 .page-body {
-  padding: 0 5px;
-  max-height: calc(100% - 75px);
+  /* padding: 0 5px;
+  max-height: calc(100% - 75px); */
   overflow-y: auto;
   border-radius: 5px;
   height: auto;

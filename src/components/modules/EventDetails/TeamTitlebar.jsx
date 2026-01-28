@@ -1,7 +1,10 @@
 const TeamTitlebar = ({ data }) => {
   return (
     <div className="pagetop-bar" style={{ top: "0px" }}>
-      <div className="team-play-bar title-bar" style={{ margin: "0px" }}>
+      <div
+        className="team-play-bar title-bar"
+        style={{ margin: "0px", flexDirection: "row" }}
+      >
         <div className="playing-teams">
           <button className="mat-mdc-tooltip-trigger mdc-icon-button mat-mdc-icon-button mat-unthemed mat-mdc-button-base">
             <span className="mat-mdc-button-persistent-ripple mdc-icon-button__ripple" />

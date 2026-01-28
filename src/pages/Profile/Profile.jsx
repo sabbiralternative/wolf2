@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { Fragment, useState } from "react";
 import ChangePassword from "../../components/modals/ChangePassword/ChangePassword";
 import Withdraw from "../../components/modals/Withdraw/Withdraw";
+import images from "../../assets/images";
+import Notification from "../../components/UI/Notification/Notification";
 
 const Profile = () => {
   const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
@@ -58,27 +60,7 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-            <div className="latest-events announcements ng-star-inserted">
-              <div className="ann-wrap">
-                <div
-                  role="img"
-                  className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
-                  aria-hidden="true"
-                  data-mat-icon-type="font"
-                >
-                  campaign
-                </div>
-                <marquee
-                  width="100%"
-                  direction="left"
-                  height="auto"
-                  className="ng-star-inserted"
-                >
-                  You are playing on India’s most trending and trusted sports
-                  and casino website! Happy Punting!
-                </marquee>
-              </div>
-            </div>
+            <Notification />
           </div>
         </div>
         <div className="user-details-wrap">
@@ -86,7 +68,7 @@ const Profile = () => {
             <div className="contact-info">
               <p className="notranslate" />
               <p className="notranslate ng-star-inserted">
-                <img alt="Flag" src="/src/assets/img/India.svg" /> {user}
+                <img alt="Flag" src={images.india} /> {user}
               </p>
             </div>
             <div className="actions-wrap">

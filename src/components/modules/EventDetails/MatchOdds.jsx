@@ -84,6 +84,7 @@ const MatchOdds = ({ data, order }) => {
         marketName: games?.name,
         eventId: games?.eventId,
         totalSize: 0,
+        cashout: false,
       };
       if (games?.btype == "FANCY") {
         dispatch(setRunnerId(games?.id));
@@ -237,7 +238,7 @@ const MatchOdds = ({ data, order }) => {
                         {game?.name?.toUpperCase()}
                       </h2>
                       <div className="btn-wrap">
-                        <button
+                        {/* <button
                           className="mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base ng-star-inserted"
                           disabled="true"
                         >
@@ -245,6 +246,14 @@ const MatchOdds = ({ data, order }) => {
                           <span className="mdc-button__label">Cashout</span>
                           <span className="mat-mdc-focus-indicator" />
                           <span className="mat-mdc-button-touch-target" />
+                        </button> */}
+
+                        <button className="mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base ng-star-inserted">
+                          <span className="mat-mdc-button-persistent-ripple mdc-button_ripple"></span>
+                          <span className="mdc-button_label">Cashout</span>
+                          <span className="mat-mdc-focus-indicator"></span>
+                          <span className="mat-mdc-button-touch-target"></span>
+                          <span className="mat-ripple mat-mdc-button-ripple"></span>
                         </button>
                       </div>
                     </div>
@@ -264,9 +273,9 @@ const MatchOdds = ({ data, order }) => {
                         const pnl = pnlBySelection?.find(
                           (pnl) => pnl?.RunnerId === runner?.id,
                         );
-                        const predictOddValues = predictOdd?.find(
-                          (val) => val?.id === runner?.id,
-                        );
+                        // const predictOddValues = predictOdd?.find(
+                        //   (val) => val?.id === runner?.id,
+                        // );
                         return (
                           <div
                             key={runner?.id}
@@ -274,6 +283,17 @@ const MatchOdds = ({ data, order }) => {
                           >
                             <div className="teamlist-info flex-row-left">
                               <h3 className="team-title">{runner?.name}</h3>
+                              {pnl && (
+                                <p
+                                  className={`${
+                                    pnl?.pnl > 0
+                                      ? "text-success"
+                                      : "text-danger"
+                                  } ng-star-inserted`}
+                                >
+                                  {pnl?.pnl}
+                                </p>
+                              )}
                             </div>
                             <div className="flex-row-right rt-wrap">
                               <div className="count-v-wrap ng-star-inserted">

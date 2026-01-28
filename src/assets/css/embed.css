@@ -4158,11 +4158,17 @@ div:where(.swal2-icon).swal2-success
   .match-time
   .inplay {
   font-size: 8px;
-  color: var(--green-color);
+  background: var(--green-color);
   padding: 1px 4px;
   border-radius: 2px;
-
+  color: var(--white-color);
   text-align: center;
+  min-width: 52px;
+  max-width: 52px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .page-body

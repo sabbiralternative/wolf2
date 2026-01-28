@@ -1,3 +1,5 @@
+import images from "../../../assets/images";
+
 const ScoreBoard = ({ iscore }) => {
   return (
     <div className="live-score-section oldScoreBoard ng-star-inserted">
@@ -9,7 +11,7 @@ const ScoreBoard = ({ iscore }) => {
 
       <div className="score-wrap">
         <div className="batting-team">
-          <img src="/src/assets/img/batting-icon.svg" />
+          <img src={images.battingIcon} />
           <div className="team-infowrap">
             <small>{iscore?.teamName}</small>
             <p>

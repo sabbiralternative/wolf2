@@ -1,11 +1,9 @@
 import logo from "../img/logo.png";
-import india from "../img/in.svg";
 import defaultNotification from "../img/default_notification.svg";
 import warning from "../img/warning-yellow.svg";
 import gamblingCommission from "../img/gamblingCommission.svg";
 import cograE from "../img/cograE.svg";
 import BeGambleAware from "../img/BeGambleAware.svg";
-import bankTransfer from "../img/bankTransfer.svg";
 import upiIcon from "../img/upiIcon.svg";
 import cc from "../img/gaming-1.webp";
 import instagram from "../img/instagram.png";
@@ -23,8 +21,16 @@ import affiCopy from "../img/affi-copy.6ddf100b.svg";
 import affiBonus1 from "../img/affi-bonus-1.4907c6fe.svg";
 import affiBonus2 from "../img/affi-bonus-2.b3bc4c43.svg";
 import globe from "../img/globe.gif";
+import bankTransfer from "../img/bank-transfer-icon.svg";
+import battingIcon from "../img/batting-icon.svg";
+import bowlingIcon from "../img/bowling-icon.svg";
+import india from "../img/India.svg";
+import ladder from "../img/ladder.svg";
 
 export default {
+  ladder,
+  battingIcon,
+  bowlingIcon,
   globe,
   affiBonus1,
   affiBonus2,

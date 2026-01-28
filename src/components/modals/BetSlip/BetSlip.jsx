@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
 import useWhatsApp from "../../../hooks/whatsapp";
@@ -15,11 +15,11 @@ import {
 import { API, Settings } from "../../../api";
 import { v4 as uuidv4 } from "uuid";
 import { AxiosJSEncrypt } from "../../../lib/AxiosJSEncrypt";
-import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import toast from "react-hot-toast";
-import ModalWrapper from "../ModalWrapper/ModalWrapper";
+import useCloseModalClickOutside from "../../../hooks/closeModal";
 
 const BetSlip = () => {
+  const ref = useRef();
   const closePopupForForever = localStorage.getItem("closePopupForForever");
   const { pathname } = useLocation();
   const [isCashOut, setIsCashOut] = useState(false);
@@ -153,7 +153,6 @@ const BetSlip = () => {
         refetchExposure();
         refetchBalance();
         refetchCurrentBets();
-        dispatch(setShowLoginModal(false));
         setBetDelay("");
         toast.success(data?.result?.result?.placed?.[0]?.message);
         dispatch(setPlaceBetValues(null));
@@ -219,32 +218,52 @@ const BetSlip = () => {
   const selectedEvent = predictOdd?.find(
     (odd) => odd?.id === placeBetValues?.selectionId,
   );
+
+  const closeModal = () => {
+    dispatch(setPredictOdd([]));
+    dispatch(setPlaceBetValues(null));
+    dispatch(setStake(null));
+  };
+
+  useCloseModalClickOutside(ref, () => {
+    closeModal();
+  });
+
   return (
-    <div>
-      <div className="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing" />
-      <div
-        className="cdk-global-overlay-wrapper"
-        dir="ltr"
-        style={{ justifyContent: "center", alignItems: "center" }}
-      >
+    <Fragment>
+      {loading && (
+        <div className="page-loader-wrap ng-star-inserted">
+          <div className="pageloader"></div>
+        </div>
+      )}
+
+      <div>
+        <div className="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing" />
+
         <div
-          id="cdk-overlay-1"
-          className="cdk-overlay-pane betslip-dialog"
-          style={{
-            width: "100%",
-            maxWidth: "400px",
-            position: "fixed",
-            bottom: "0px",
-            marginBottom: "10px",
-          }}
+          className="cdk-global-overlay-wrapper"
+          dir="ltr"
+          style={{ justifyContent: "center", alignItems: "center" }}
         >
           <div
-            tabIndex={0}
-            className="cdk-visually-hidden cdk-focus-trap-anchor"
-            aria-hidden="true"
-          />
-          <ModalWrapper setModal={setPlaceBetValues} redux={true}>
+            id="cdk-overlay-1"
+            className="cdk-overlay-pane betslip-dialog"
+            style={{
+              width: "100%",
+              maxWidth: "400px",
+              position: "fixed",
+              bottom: "0px",
+              marginBottom: "10px",
+            }}
+          >
             <div
+              tabIndex={0}
+              className="cdk-visually-hidden cdk-focus-trap-anchor"
+              aria-hidden="true"
+            />
+
+            <div
+              ref={ref}
               tabIndex={-1}
               className="mat-mdc-dialog-container mdc-dialog cdk-dialog-container mdc-dialog--open"
               id="mat-mdc-dialog-1"
@@ -264,10 +283,7 @@ const BetSlip = () => {
                         <h2 />
                         <h2 />
                         <h2> Place Bet | {placeBetValues?.marketName}</h2>
-                        <div
-                          onClick={() => dispatch(setPlaceBetValues(false))}
-                          className="action-btns"
-                        >
+                        <div onClick={closeModal} className="action-btns">
                           <div className="change-position">
                             <button className="positon-icon mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted">
                               <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
@@ -415,8 +431,7 @@ const BetSlip = () => {
                                         }`}
                                       >
                                         {" "}
-                                        {predictOdd?.exposure !== 0 &&
-                                          predictOdd?.exposure}
+                                        {predictOdd?.exposure}
                                       </span>
                                       <span
                                         className={`${
@@ -440,10 +455,10 @@ const BetSlip = () => {
                 </div>
               </div>
             </div>
-          </ModalWrapper>
+          </div>
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 

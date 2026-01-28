@@ -11,9 +11,15 @@ import MatchOdds from "../../components/modules/EventDetails/MatchOdds";
 import Bookmaker from "../../components/modules/EventDetails/Bookmaker";
 import Fancy from "../../components/modules/EventDetails/Fancy";
 import BetSlip from "../../components/modals/BetSlip/BetSlip";
+import OpenBets from "../../components/modules/EventDetails/OpenBets";
+import { useCurrentBets } from "../../hooks/currentBets";
 
 const EventDetails = () => {
+  const [eventTab, setEventTab] = useState("market");
+  const [showLiveMatch, setShowLiveMatch] = useState(true);
+  const [showScore, setShowScore] = useState(true);
   const { eventTypeId, eventId } = useParams();
+  const { data: currentBets } = useCurrentBets(eventId);
   const [profit, setProfit] = useState(0);
   const dispatch = useDispatch();
   const { placeBetValues, price, stake } = useSelector((state) => state.event);
@@ -66,7 +72,7 @@ const EventDetails = () => {
               updatedExposure: stake
                 ? exp?.isBettingOnThisRunner
                   ? formatNumber(exp?.exposure + total)
-                  : formatNumber(1 * exp?.exposure + 1 * stake)
+                  : formatNumber(exp?.exposure + -1 * stake)
                 : null,
               id: exp?.id,
               isBettingOnThisRunner: exp?.isBettingOnThisRunner,
@@ -143,7 +149,15 @@ const EventDetails = () => {
             className="mat-mdc-tab-group mat-primary mat-mdc-tab-group-stretch-tabs mat-tab-group"
             style={{ "--mat-tab-animation-duration": "500ms" }}
           >
-            <TabHeader />
+            <TabHeader
+              setShowLiveMatch={setShowLiveMatch}
+              setShowScore={setShowScore}
+              showLiveMatch={showLiveMatch}
+              showScore={showScore}
+              eventTab={eventTab}
+              setEventTab={setEventTab}
+              currentBets={currentBets}
+            />
             <div className="mat-mdc-tab-body-wrapper">
               <div
                 role="tabpanel"
@@ -152,50 +166,59 @@ const EventDetails = () => {
                 aria-labelledby="mat-tab-label-0-0"
                 aria-hidden="false"
               >
-                <div
-                  className="mat-mdc-tab-body-content ng-tns-c737557735-1 ng-trigger ng-trigger-translateTab"
-                  style={{ transform: "none" }}
-                >
-                  <div className="tab-body sports-tab ng-star-inserted">
-                    <LiveMatchScreen score={data?.score} />
-                    {data?.score?.tracker && (
-                      <div
-                        style={{
-                          height: "125px",
-                          width: "100%",
-                          overflow: "hidden",
-                        }}
-                      >
-                        <iframe
-                          style={{
-                            width: "100%",
-                            border: "0px",
-                          }}
-                          src={data?.score?.tracker}
-                        ></iframe>
-                      </div>
-                    )}
-                    {eventTypeId == 4 && data?.iscore && (
-                      <ScoreBoard iscore={data?.iscore} />
-                    )}
+                {eventTab === "market" && (
+                  <div
+                    className="mat-mdc-tab-body-content ng-tns-c737557735-1 ng-trigger ng-trigger-translateTab"
+                    style={{ transform: "none" }}
+                  >
+                    <div className="tab-body sports-tab ng-star-inserted">
+                      {showLiveMatch && <LiveMatchScreen score={data?.score} />}
 
-                    <div
-                      className="mkt-tab-section"
-                      style={{ paddingBottom: "0px" }}
-                    >
-                      {matchOdds?.length > 0 && (
-                        <MatchOdds order="3" data={matchOdds} />
+                      {data?.score?.tracker && (
+                        <div
+                          style={{
+                            height: "125px",
+                            width: "100%",
+                            overflow: "hidden",
+                          }}
+                        >
+                          <iframe
+                            style={{
+                              width: "100%",
+                              border: "0px",
+                            }}
+                            src={data?.score?.tracker}
+                          ></iframe>
+                        </div>
                       )}
-                      {bookmaker?.length > 0 && <Bookmaker data={bookmaker} />}
-                      {data?.result?.length > 0 && (
-                        <Fancy data={data?.result} />
+                      {eventTypeId == 4 && data?.iscore && showScore && (
+                        <ScoreBoard iscore={data?.iscore} />
                       )}
-                      {tiedMatch?.length > 0 && (
-                        <MatchOdds order="12" data={tiedMatch} />
-                      )}
+
+                      <div
+                        className="mkt-tab-section"
+                        style={{ paddingBottom: "0px" }}
+                      >
+                        {matchOdds?.length > 0 && (
+                          <MatchOdds order="3" data={matchOdds} />
+                        )}
+                        {bookmaker?.length > 0 && (
+                          <Bookmaker data={bookmaker} />
+                        )}
+                        {data?.result?.length > 0 && (
+                          <Fancy data={data?.result} />
+                        )}
+                        {tiedMatch?.length > 0 && (
+                          <MatchOdds order="12" data={tiedMatch} />
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
+
+                {eventTab === "open_bets" && (
+                  <OpenBets currentBets={currentBets} />
+                )}
               </div>
             </div>
           </div>

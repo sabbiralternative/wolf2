@@ -1,16 +1,37 @@
-import { useDispatch } from "react-redux";
-import { setShowDepositSuccessModal } from "../../../redux/features/global/globalSlice";
 import { useRef } from "react";
-import useCloseModalClickOutside from "../../../hooks/closeModal";
 import images from "../../../assets/images";
+import { useBankAccountMutation } from "../../../hooks/bankAccount";
+import toast from "react-hot-toast";
+import useCloseModalClickOutside from "../../../hooks/closeModal";
 
-const DepositSuccessMessage = () => {
+const DeleteBank = ({ setDeleteBankId, deleteBankId, refetchBankAccounts }) => {
+  const closeModal = () => {
+    setDeleteBankId(null);
+  };
+
+  const { mutate } = useBankAccountMutation();
   const ref = useRef();
-  const dispatch = useDispatch();
-
   useCloseModalClickOutside(ref, () => {
-    dispatch(setShowDepositSuccessModal(false));
+    closeModal();
   });
+
+  const handleDeleteBank = async () => {
+    const bankData = {
+      type: "deleteBankAccount",
+      bankId: deleteBankId,
+    };
+    mutate(bankData, {
+      onSuccess: (data) => {
+        if (data?.success) {
+          closeModal();
+          toast.success(data?.result?.message);
+          refetchBankAccounts();
+        } else {
+          toast.error(data?.error?.errorMessage);
+        }
+      },
+    });
+  };
   return (
     <div
       className="swal2-container swal2-bottom swal2-backdrop-show"
@@ -21,7 +42,7 @@ const DepositSuccessMessage = () => {
         ref={ref}
         aria-labelledby="swal2-title"
         aria-describedby="swal2-html-container"
-        className="swal2-popup swal2-modal warning-alert alert-dialog"
+        className="swal2-popup swal2-modal success-alert alert-dialog"
         tabIndex={-1}
         role="dialog"
         aria-live="assertive"
@@ -40,7 +61,7 @@ const DepositSuccessMessage = () => {
         <div className="swal2-icon swal2-icon-show" style={{ display: "flex" }}>
           <div className="swal2-icon-content">
             <img src={images.warning} />
-            <p>Success</p>
+            <p>Delete</p>
           </div>
         </div>
         <img className="swal2-image" style={{ display: "none" }} />
@@ -54,7 +75,7 @@ const DepositSuccessMessage = () => {
           id="swal2-html-container"
           style={{ display: "block" }}
         >
-          Deposit Submitted
+          Are you sure you want to delete this?
         </div>
         <input
           id="swal2-input"
@@ -90,17 +111,17 @@ const DepositSuccessMessage = () => {
         <div className="swal2-actions" style={{ display: "flex" }}>
           <div className="swal2-loader" />
           <button
-            onClick={() => dispatch(setShowDepositSuccessModal(false))}
+            onClick={handleDeleteBank}
             type="button"
             className="swal2-confirm swal2-styled"
             aria-label
             style={{
               display: "inline-block",
-              "--swal2-action-button-focus-box-shadow":
+              "-swal2ActionButtonFocusBoxShadow":
                 "0 0 0 3px rgba(112, 102, 224, 0.5)",
             }}
           >
-            OK
+            Yes, Delete
           </button>
           <button
             type="button"
@@ -108,19 +129,20 @@ const DepositSuccessMessage = () => {
             aria-label
             style={{
               display: "none",
-              "--swal2-action-button-focus-box-shadow":
+              "-swal2ActionButtonFocusBoxShadow":
                 "0 0 0 3px rgba(220, 55, 65, 0.5)",
             }}
           >
             No
           </button>
           <button
+            onClick={closeModal}
             type="button"
             className="swal2-cancel swal2-styled"
             aria-label
             style={{
-              display: "none",
-              "--swal2-action-button-focus-box-shadow":
+              display: "inline-block",
+              "-swal2ActionButtonFocusBoxShadow":
                 "0 0 0 3px rgba(110, 120, 129, 0.5)",
             }}
           >
@@ -139,4 +161,4 @@ const DepositSuccessMessage = () => {
   );
 };
 
-export default DepositSuccessMessage;
+export default DeleteBank;

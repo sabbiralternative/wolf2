@@ -1,7 +1,15 @@
-const TabHeader = () => {
+const TabHeader = ({
+  setShowLiveMatch,
+  setShowScore,
+  showLiveMatch,
+  showScore,
+  eventTab,
+  setEventTab,
+  currentBets,
+}) => {
   return (
     <div
-      className="mat-mdc-tab-header"
+      className="mat-mdc-tab-header mat-tab-header"
       style={{ top: "0px", background: "black", color: "white" }}
     >
       <button
@@ -17,8 +25,9 @@ const TabHeader = () => {
         <div role="tablist" className="mat-mdc-tab-list">
           <div className="mat-mdc-tab-labels">
             <div
+              onClick={() => setEventTab("market")}
               role="tab"
-              className="mdc-tab mat-mdc-tab mat-mdc-focus-indicator mdc-tab--active ng-star-inserted mdc-tab-indicator--active"
+              className={`mdc-tab mat-mdc-tab mat-mdc-focus-indicator  ng-star-inserted ${eventTab === "market" ? "mdc-tab-indicator--active mdc-tab--active" : ""}`}
               id="mat-tab-label-0-0"
               tabIndex={0}
               aria-posinset={1}
@@ -41,9 +50,11 @@ const TabHeader = () => {
                 <span className="mdc-tab-indicator__content mdc-tab-indicator__content--underline" />
               </span>
             </div>
+
             <div
+              onClick={() => setEventTab("open_bets")}
               role="tab"
-              className="mdc-tab mat-mdc-tab mat-mdc-focus-indicator mat-mdc-tab-disabled ng-star-inserted"
+              className={`mdc-tab mat-mdc-tab mat-mdc-focus-indicator  ng-star-inserted ${eventTab === "open_bets" ? "mdc-tab-indicator--active mdc-tab--active" : ""}`}
               id="mat-tab-label-0-1"
               tabIndex={-1}
               aria-posinset={2}
@@ -60,7 +71,7 @@ const TabHeader = () => {
                     className="ng-star-inserted"
                     style={{ fontSize: "10px" }}
                   >
-                    Open Bets (0)
+                    Open Bets ({currentBets?.length})
                   </span>
                 </span>
               </span>
@@ -84,14 +95,20 @@ const TabHeader = () => {
               <span className="mdc-tab__content">
                 <span className="mdc-tab__text-label">
                   <div className="livetv-tab ng-star-inserted">
-                    <button className="livetv-btn rounded mdc-button mdc-button--unelevated mat-mdc-unelevated-button active mat-unthemed mat-mdc-button-base ng-star-inserted">
+                    <button
+                      onClick={() => setShowLiveMatch((prev) => !prev)}
+                      className={`livetv-btn rounded mdc-button mdc-button--unelevated mat-mdc-unelevated-button  mat-unthemed mat-mdc-button-base ng-star-inserted  ${showLiveMatch ? "active" : ""}`}
+                    >
                       <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
                       <span className="material-icons">live_tv</span>
                       <span className="mdc-button__label" />
                       <span className="mat-mdc-focus-indicator" />
                       <span className="mat-mdc-button-touch-target" />
                     </button>
-                    <button className="livetv-btn rounded mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted">
+                    <button
+                      onClick={() => setShowScore((prev) => !prev)}
+                      className={`livetv-btn rounded mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted ${showScore ? "active" : ""}`}
+                    >
                       <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
                       <span className="material-icons">sports_score</span>
                       <span className="mdc-button__label" />

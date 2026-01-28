@@ -2,26 +2,37 @@ import { useState } from "react";
 import { useBankAccountQuery } from "../../hooks/bankAccount";
 import { useDispatch, useSelector } from "react-redux";
 import { setAddBank } from "../../redux/features/global/globalSlice";
+import images from "../../assets/images";
+import DeleteBank from "../../components/modals/DeleteBank/DeleteBank";
+import Notification from "../../components/UI/Notification/Notification";
 
 const Banking = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-  const [bankId, setBankId] = useState(null);
+  const [deleteBankId, setDeleteBankId] = useState(null);
+  const [showBankInfoId, setShowBankInfoId] = useState(null);
   const [activeTab, setActiveTab] = useState(1);
-  const { data: bankAccount } = useBankAccountQuery({
+  const { data: bankAccount, refetch } = useBankAccountQuery({
     type: "getBankAccounts",
     status: activeTab,
   });
 
   const handleToggleVisible = (id) => {
-    if (bankId === id) {
-      setBankId(null);
+    if (showBankInfoId === id) {
+      setShowBankInfoId(null);
     } else {
-      setBankId(id);
+      setShowBankInfoId(id);
     }
   };
   return (
     <div className="page-body">
+      {deleteBankId && (
+        <DeleteBank
+          setDeleteBankId={setDeleteBankId}
+          deleteBankId={deleteBankId}
+          refetchBankAccounts={refetch}
+        />
+      )}
       <div
         role="main"
         className="ion-content md content-ltr hydrated"
@@ -91,27 +102,7 @@ const Banking = () => {
                   </div>
                 </div>
               </div>
-              <div className="latest-events announcements ng-star-inserted">
-                <div className="ann-wrap">
-                  <div
-                    role="img"
-                    className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
-                    aria-hidden="true"
-                    data-mat-icon-type="font"
-                  >
-                    campaign
-                  </div>
-                  <marquee
-                    width="100%"
-                    direction="left"
-                    height="auto"
-                    className="ng-star-inserted"
-                  >
-                    You are playing on India’s most trending and trusted sports
-                    and casino website! Happy Punting!
-                  </marquee>
-                </div>
-              </div>
+              <Notification />
             </div>
           </div>
           <div
@@ -207,7 +198,7 @@ const Banking = () => {
                   <div className="user-details ng-star-inserted" style={{}}>
                     <p className="notranslate"></p>
                     <p className="notranslate">
-                      <img alt="Flag" src="/src/assets/img/India.svg" />
+                      <img alt="Flag" src={images.india} />
                       {user}
                     </p>
                   </div>
@@ -234,7 +225,10 @@ const Banking = () => {
                           className="mat-accordion ng-star-inserted"
                         >
                           {activeTab === 1 && (
-                            <div className="del-wrap ng-star-inserted">
+                            <div
+                              onClick={() => setDeleteBankId(account?.bankId)}
+                              className="del-wrap ng-star-inserted"
+                            >
                               <div
                                 role="img"
                                 className="mat-icon notranslate material-symbols delete-icon material-icons mat-ligature-font mat-icon-no-color"
@@ -296,7 +290,9 @@ const Banking = () => {
                               aria-labelledby="mat-expansion-panel-header-14"
                               style={{
                                 display:
-                                  account?.bankId === bankId ? "block" : "none",
+                                  account?.bankId === showBankInfoId
+                                    ? "block"
+                                    : "none",
                               }}
                             >
                               <div className="mat-expansion-panel-body ng-tns-c1859850774-54">

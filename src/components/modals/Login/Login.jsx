@@ -139,7 +139,6 @@ const Login = () => {
             minHeight: "320px",
             maxWidth: "500px",
             position: "static",
-            marginBottom: "20px",
           }}
         >
           <div
@@ -154,10 +153,17 @@ const Login = () => {
             id="LoginComponent"
             role="dialog"
             aria-modal="true"
-            style={{ "--mat-dialog-transition-duration": "150ms" }}
+            style={{
+              "--mat-dialog-transition-duration": "150ms",
+            }}
           >
             <div className="mdc-dialog__container">
-              <div className="mat-mdc-dialog-surface mdc-dialog__surface">
+              <div
+                className="mat-mdc-dialog-surface mdc-dialog__surface"
+                style={{
+                  paddingBottom: "20px",
+                }}
+              >
                 <div className="ng-star-inserted">
                   <div className="main">
                     <div
