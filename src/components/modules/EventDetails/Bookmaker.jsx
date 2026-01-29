@@ -7,13 +7,15 @@ import {
   setRunnerId,
 } from "../../../redux/features/events/eventSlice";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
+import isOddSuspended from "../../../utils/isOddSuspended";
+import { Settings } from "../../../api";
+import { handleCashOutPlaceBet } from "../../../utils/handleCashoutPlaceBet";
 
 const Bookmaker = ({ data }) => {
   const [speedCashOut, setSpeedCashOut] = useState(null);
   const { eventId } = useParams();
   const [teamProfit, setTeamProfit] = useState([]);
   const dispatch = useDispatch();
-  const { runnerId, stake, predictOdd } = useSelector((state) => state.event);
   const { token } = useSelector((state) => state.auth);
   const { data: exposure } = useExposure(eventId);
 
@@ -239,23 +241,37 @@ const Bookmaker = ({ data }) => {
                         {game?.name?.toUpperCase()}
                       </h2>
                       <div className="btn-wrap">
-                        {/* <button
-                          className="mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base ng-star-inserted"
-                          disabled="true"
-                        >
-                          <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                          <span className="mdc-button__label">Cashout</span>
-                          <span className="mat-mdc-focus-indicator" />
-                          <span className="mat-mdc-button-touch-target" />
-                        </button> */}
-
-                        <button className="mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base ng-star-inserted">
-                          <span className="mat-mdc-button-persistent-ripple mdc-button_ripple"></span>
-                          <span className="mdc-button_label">Cashout</span>
-                          <span className="mat-mdc-focus-indicator"></span>
-                          <span className="mat-mdc-button-touch-target"></span>
-                          <span className="mat-ripple mat-mdc-button-ripple"></span>
-                        </button>
+                        {Settings.betFairCashOut &&
+                          game?.runners?.length !== 3 &&
+                          game?.status === "OPEN" &&
+                          game?.name !== "toss" &&
+                          !speedCashOut && (
+                            <button
+                              onClick={() =>
+                                handleCashOutPlaceBet(
+                                  game,
+                                  "lay",
+                                  dispatch,
+                                  pnlBySelection,
+                                  token,
+                                  teamProfitForGame,
+                                )
+                              }
+                              disabled={!teamProfitForGame}
+                              className="mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base ng-star-inserted"
+                            >
+                              <span className="mat-mdc-button-persistent-ripple mdc-button_ripple"></span>
+                              <span className="mdc-button_label">
+                                {" "}
+                                Cashout{" "}
+                                {teamProfitForGame?.profit &&
+                                  `(${teamProfitForGame.profit.toFixed(2)})`}
+                              </span>
+                              <span className="mat-mdc-focus-indicator"></span>
+                              <span className="mat-mdc-button-touch-target"></span>
+                              <span className="mat-ripple mat-mdc-button-ripple"></span>
+                            </button>
+                          )}
                       </div>
                     </div>
                     <div className="card-header">
@@ -297,6 +313,11 @@ const Bookmaker = ({ data }) => {
                               )}
                             </div>
                             <div className="flex-row-right rt-wrap">
+                              {isOddSuspended(runner) && (
+                                <div className="suspended-wrap ng-star-inserted">
+                                  <h4>Suspended</h4>
+                                </div>
+                              )}
                               <div className="count-v-wrap ng-star-inserted">
                                 <button
                                   onClick={() =>

@@ -8,8 +8,12 @@ import ChangePassword from "../../components/modals/ChangePassword/ChangePasswor
 import Withdraw from "../../components/modals/Withdraw/Withdraw";
 import images from "../../assets/images";
 import Notification from "../../components/UI/Notification/Notification";
+import { useLanguage } from "../../context/LanguageProvider";
+import { languageValue } from "../../utils/language";
+import { LanguageKey } from "../../const";
 
 const Profile = () => {
+  const { valueByLanguage } = useLanguage();
   const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
   const [showWithdrawModal, setShowWithdrawModal] = useState(false);
   const { data: socialLink } = useWhatsApp();
@@ -77,7 +81,9 @@ const Profile = () => {
                 className="chng-psw-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted"
               >
                 <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                <span className="mdc-button__label">Change Password</span>
+                <span className="mdc-button__label">
+                  {languageValue(valueByLanguage, LanguageKey.CHANGE_PASSWORD)}
+                </span>
                 <span className="mat-mdc-focus-indicator" />
                 <span className="mat-mdc-button-touch-target" />
                 <span className="mat-ripple mat-mdc-button-ripple" />
@@ -88,7 +94,10 @@ const Profile = () => {
             <div className="card-wrapper">
               <div className="bal-cont">
                 <div className="avl-bal show-bal">
-                  <span>Balance</span>
+                  <span>
+                    {" "}
+                    {languageValue(valueByLanguage, LanguageKey.BALANCE)}
+                  </span>
                   <p>{balance?.availBalance}</p>
                 </div>
               </div>
@@ -98,7 +107,10 @@ const Profile = () => {
                   className="notranslate mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
                 >
                   <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                  <span className="mdc-button__label">Deposit</span>
+                  <span className="mdc-button__label">
+                    {" "}
+                    {languageValue(valueByLanguage, LanguageKey.DEPOSIT)}
+                  </span>
                   <span className="mat-mdc-focus-indicator" />
                   <span className="mat-mdc-button-touch-target" />
                   <span className="mat-ripple mat-mdc-button-ripple" />
@@ -108,7 +120,10 @@ const Profile = () => {
                   className="notranslate mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
                 >
                   <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                  <span className="mdc-button__label">Withdraw</span>
+                  <span className="mdc-button__label">
+                    {" "}
+                    {languageValue(valueByLanguage, LanguageKey.WITHDRAW)}
+                  </span>
                   <span className="mat-mdc-focus-indicator" />
                   <span className="mat-mdc-button-touch-target" />
                   <span className="mat-ripple mat-mdc-button-ripple" />
@@ -126,7 +141,10 @@ const Profile = () => {
                     alt="Menu Icon"
                     src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_activebets.svg"
                   />
-                  <span>Active Bets</span>
+                  <span>
+                    {" "}
+                    {languageValue(valueByLanguage, LanguageKey.ACTIVE_BETS)}
+                  </span>
                 </div>
               </a>
             </li>
@@ -159,7 +177,10 @@ const Profile = () => {
                     alt="Menu Icon"
                     src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_rules.svg"
                   />
-                  <span>Rules</span>
+                  <span>
+                    {" "}
+                    {languageValue(valueByLanguage, LanguageKey.RULES)}
+                  </span>
                 </div>
               </Link>
             </li>

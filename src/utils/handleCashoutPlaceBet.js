@@ -11,7 +11,7 @@ export const handleCashOutPlaceBet = (
   dispatch,
   pnlBySelection,
   token,
-  team
+  team,
 ) => {
   if (token) {
     if (games?.status === "OPEN" && team?.runner?.status === "OPEN") {
@@ -63,7 +63,7 @@ export const handleCashOutPlaceBet = (
           eventId: games?.eventId,
           totalSize: team?.newStakeValue,
           cashout: true,
-        })
+        }),
       );
       dispatch(setRunnerId(team?.runner?.id));
     }

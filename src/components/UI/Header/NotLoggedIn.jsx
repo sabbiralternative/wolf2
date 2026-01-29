@@ -5,8 +5,14 @@ import {
 } from "../../../redux/features/global/globalSlice";
 import useWhatsApp from "../../../hooks/whatsapp";
 import { Settings } from "../../../api";
+import images from "../../../assets/images";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
-const NotLoggedIn = () => {
+const NotLoggedIn = ({ setShowLanguage }) => {
+  const { valueByLanguage } = useLanguage();
+  const language = localStorage.getItem("language");
   const { data: socialLink } = useWhatsApp();
   const dispatch = useDispatch();
 
@@ -23,7 +29,10 @@ const NotLoggedIn = () => {
         className="btn dark-outlined-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
       >
         <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-        <span className="mdc-button__label">Login</span>
+        <span className="mdc-button__label">
+          {" "}
+          {languageValue(valueByLanguage, LanguageKey.LOGIN)}
+        </span>
         <span className="mat-mdc-focus-indicator" />
         <span className="mat-mdc-button-touch-target" />
       </button>
@@ -32,7 +41,10 @@ const NotLoggedIn = () => {
         className="btn dark-outlined-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
       >
         <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-        <span className="mdc-button__label">Register</span>
+        <span className="mdc-button__label">
+          {" "}
+          {languageValue(valueByLanguage, LanguageKey.REGISTER)}
+        </span>
         <span className="mat-mdc-focus-indicator" />
         <span className="mat-mdc-button-touch-target" />
       </button>
@@ -46,6 +58,25 @@ const NotLoggedIn = () => {
           <span className="mat-mdc-focus-indicator" />
           <span className="mat-mdc-button-touch-target" />
         </button>
+      )}
+
+      {Settings.language && (
+        <div
+          onClick={() => setShowLanguage((prev) => !prev)}
+          style={{
+            position: "static",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "3px",
+            cursor: "pointer",
+          }}
+          className="notranslate selected-lang ng-star-inserted"
+        >
+          <img style={{ height: "20px" }} src={images.globe} alt="" />
+          <span> {language || "EN"}</span>
+        </div>
       )}
     </div>
   );

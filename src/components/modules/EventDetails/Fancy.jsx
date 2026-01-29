@@ -10,6 +10,7 @@ import {
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import images from "../../../assets/images";
 import Ladder from "../../UI/Ladder/Ladder";
+import isOddSuspended from "../../../utils/isOddSuspended";
 
 const Fancy = ({ data }) => {
   const fancyData = data?.filter(
@@ -203,9 +204,12 @@ const Fancy = ({ data }) => {
                     {/* <div className="ball-running ng-star-inserted" style={{}}>
                       <h4>Ball Running</h4>
                     </div> */}
-                    {/* <div className="suspended-wrap ng-star-inserted">
-                      <h4>Suspended</h4>
-                    </div> */}
+                    {isOddSuspended(game) && (
+                      <div className="suspended-wrap ng-star-inserted">
+                        <h4>Suspended</h4>
+                      </div>
+                    )}
+
                     <div className="count-v-wrap ng-star-inserted">
                       <button
                         onClick={() =>

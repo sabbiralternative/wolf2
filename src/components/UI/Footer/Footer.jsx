@@ -2,8 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { logout } from "../../../redux/features/auth/authSlice";
 import { Fragment } from "react";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const Footer = () => {
+  const { valueByLanguage } = useLanguage();
   const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -20,7 +24,7 @@ const Footer = () => {
             type="button"
             className="btn secondary-btn w-100"
           >
-            Logout
+            {languageValue(valueByLanguage, LanguageKey.LOGOUT)}
           </button>
         </div>
       )}
@@ -34,7 +38,10 @@ const Footer = () => {
             <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
             <span className="mdc-button__label">
               <span className="uIcons uIcons_home_2" />
-              <p className="notranslate">Home</p>{" "}
+              <p className="notranslate">
+                {" "}
+                {languageValue(valueByLanguage, LanguageKey.HOME)}
+              </p>{" "}
             </span>
             <span className="mat-mdc-focus-indicator" />
             <span className="mat-mdc-button-touch-target" />

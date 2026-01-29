@@ -7,9 +7,11 @@ import {
 import { logout } from "../../../redux/features/auth/authSlice";
 import ModalWrapper from "../../modals/ModalWrapper/ModalWrapper";
 import useWhatsApp from "../../../hooks/whatsapp";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import SocialLinks from "../../modules/Home/SocialLinks";
 
 const LeftSidebar = ({ children }) => {
+  const { pathname } = useLocation();
   const navigate = useNavigate();
   const { data: socialLink } = useWhatsApp();
   const { user } = useSelector((state) => state.auth);
@@ -346,7 +348,10 @@ const LeftSidebar = ({ children }) => {
       <div className="mat-drawer-content mat-sidenav-content">
         <div className="ng-star-inserted" style={{ height: "100%" }}>
           <div className="main">
-            <div className="container">{children}</div>
+            <div className="container">
+              {children}
+              {pathname === "/" && <SocialLinks />}
+            </div>
           </div>
         </div>
       </div>

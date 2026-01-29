@@ -4,7 +4,7 @@ import { useGetIndex } from "../../hooks";
 const Slots = () => {
   const { data } = useGetIndex({
     type: "wolf_casino",
-    category: "live_casino",
+    category: "slots",
     provider: "all",
   });
 

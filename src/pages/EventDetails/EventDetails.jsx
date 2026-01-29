@@ -140,7 +140,15 @@ const EventDetails = () => {
   );
 
   return (
-    <div className="page-body" style={{ marginBottom: "0px" }}>
+    <div
+      className="page-body"
+      style={{
+        marginBottom: "0px",
+        height: "100%",
+        maxHeight: "100%",
+        overflowY: "hidden",
+      }}
+    >
       {placeBetValues && <BetSlip />}
       <div className="placebetpage-wrap">
         <div className="game-tab ng-star-inserted">

@@ -3,7 +3,6 @@ import Casino from "../../components/modules/Home/Casino";
 import CardGames from "../../components/modules/Home/CardGames";
 import InPlay from "../../components/modules/Home/InPlay";
 import LiveCasino from "../../components/modules/Home/LiveCasino";
-import SocialLinks from "../../components/modules/Home/SocialLinks";
 
 const Home = () => {
   return (
@@ -28,7 +27,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <SocialLinks />
     </div>
   );
 };

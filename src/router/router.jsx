@@ -14,6 +14,7 @@ import GameShows from "../pages/GameShows/GameShows";
 import IndianCards from "../pages/IndianCards/IndianCards";
 import LiveCasino from "../pages/LiveCasino/LiveCasino";
 import Slots from "../pages/Slots/Slots";
+import CrashGames from "../pages/CrashGames/CarshGames";
 
 export const router = createBrowserRouter(
   [
@@ -53,6 +54,10 @@ export const router = createBrowserRouter(
         {
           path: "/live-casino",
           element: <LiveCasino />,
+        },
+        {
+          path: "/crash-games",
+          element: <CrashGames />,
         },
         {
           path: "/slots",

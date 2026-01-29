@@ -2,8 +2,11 @@ import { Fragment } from "react";
 import useBalance from "../../../hooks/balance";
 import { useDispatch } from "react-redux";
 import { setShowDepositModal } from "../../../redux/features/global/globalSlice";
+import { Settings } from "../../../api";
+import images from "../../../assets/images";
 
-const LoggedIn = () => {
+const LoggedIn = ({ setShowLanguage }) => {
+  const language = localStorage.getItem("language");
   const dispatch = useDispatch();
   const { data } = useBalance();
 
@@ -29,6 +32,24 @@ const LoggedIn = () => {
           <span className="mat-mdc-focus-indicator"></span>
           <span className="mat-mdc-button-touch-target"></span>
         </button>
+        {Settings.language && (
+          <div
+            onClick={() => setShowLanguage((prev) => !prev)}
+            style={{
+              position: "static",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "3px",
+              cursor: "pointer",
+            }}
+            className="notranslate selected-lang ng-star-inserted"
+          >
+            <img style={{ height: "20px" }} src={images.globe} alt="" />
+            <span> {language || "EN"}</span>
+          </div>
+        )}
       </div>
     </Fragment>
   );

@@ -1,4 +1,4 @@
-import { Fragment, useMemo } from "react";
+import { Fragment, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLogo } from "../../../context/ApiProvider";
 import { useGroupQuery } from "../../../redux/features/events/events";
@@ -10,11 +10,12 @@ import {
   setShowSidebar,
 } from "../../../redux/features/global/globalSlice";
 import { IoArrowBack } from "react-icons/io5";
-import images from "../../../assets/images";
 import LatestEvent from "./LatestEvent";
 import { removeHeaderPaths } from "../../../static/removeHeaderPaths";
+import Language from "../../modals/Language/Language";
 
 const Header = () => {
+  const [showLanguage, setShowLanguage] = useState(false);
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
@@ -63,19 +64,19 @@ const Header = () => {
 
   return (
     <Fragment>
+      {showLanguage && <Language setShowLanguage={setShowLanguage} />}
       <div
         className="page-header page-body not-loggedIn"
         style={{
           minHeight: "42px",
           padding: "0px",
           background: "transparent",
-          // boxShadow: "0 4px 10px #8080804d",
           position: "fixed",
           left: "50%",
           transform: "translate(-50%)",
           width: "100%",
           maxWidth: "768px",
-          zIndex: "9999999",
+          zIndex: "9999",
           height: "100%",
           maxHeight: "fit-content",
         }}
@@ -113,27 +114,12 @@ const Header = () => {
                 className="ng-star-inserted"
               />
             </div>
-            <div className="header-right-cont">
-              {token ? <LoggedIn /> : <NotLoggedIn />}
-              {/* <div
-                className="translator-wrap"
-                style={{ display: "block !important" }}
-              ></div> */}
-              <p
-                style={{
-                  top: "5px",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "3px",
-                  right: "10px",
-                }}
-                className="notranslate selected-lang ng-star-inserted"
-              >
-                <img style={{ height: "20px" }} src={images.globe} alt="" />
-                <span>En</span>
-              </p>
+            <div className="header-right-cont" style={{ marginRight: "0px" }}>
+              {token ? (
+                <LoggedIn setShowLanguage={setShowLanguage} />
+              ) : (
+                <NotLoggedIn setShowLanguage={setShowLanguage} />
+              )}
             </div>
           </div>
         </div>
@@ -295,7 +281,10 @@ const Header = () => {
                   </div>
                   <div className="tab-label">Greyhound</div>
                 </div>
-                <div className="pagetab-item ng-star-inserted">
+                <div
+                  onClick={() => navigate("/crash-games")}
+                  className={`pagetab-item ng-star-inserted ${pathname === "/crash-games" ? "active-link" : ""}`}
+                >
                   <div className="icon-wrap crash-icon">
                     <img
                       alt="Tab Icon"

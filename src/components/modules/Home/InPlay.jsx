@@ -5,8 +5,12 @@ import { useNavigate } from "react-router-dom";
 import ScoreInfo from "./ScoreInfo";
 import { MdOutlineSmartDisplay } from "react-icons/md";
 import { GoClock } from "react-icons/go";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const InPlay = () => {
+  const { valueByLanguage } = useLanguage();
   const { group } = useSelector((state) => state.global);
   const { data } = useGroupQuery(
     { sportsType: group },
@@ -16,7 +20,12 @@ const InPlay = () => {
   );
 
   const [categories, setCategories] = useState([]);
-  const eventName = { 4: "Cricket", 2: "Tennis", 1: "Football" };
+  const eventName = {
+    1: languageValue(valueByLanguage, LanguageKey.FOOTBALL),
+    2: languageValue(valueByLanguage, LanguageKey.TENNIS),
+    4: languageValue(valueByLanguage, LanguageKey.CRICKET),
+    5: languageValue(valueByLanguage, LanguageKey.KABADDI),
+  };
   const navigate = useNavigate();
   const navigateGameList = (keys) => {
     navigate(`/event-details/${data[keys]?.eventTypeId}/${keys}`);

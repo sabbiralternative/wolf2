@@ -1,0 +1,1946 @@
+body[color-theme="default"],
+.main[color-theme="default"] {
+  --secondary-color: #ffc629;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffc629;
+}
+
+body[color-theme="water-blue"] {
+  --secondary-color: #1e64ce;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #1e64ce;
+  --primary-color-shade: #1f6ee7;
+  --primary-color-tint: #2081e7;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #2081e7;
+}
+
+body[color-theme="sunglow"] {
+  --secondary-color: #ffc629;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffc629;
+}
+
+body[color-theme="raspberry-pink"] {
+  --secondary-color: #db469a;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #db469a;
+}
+
+body[color-theme="bright-gold"] {
+  --secondary-color: #ffcb00;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffcb00;
+}
+
+body[color-theme="saffron"] {
+  --secondary-color: #ff671f;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ff671f;
+}
+
+body[color-theme="firebush"] {
+  --secondary-color: #ff8e2a;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ff8e2a;
+}
+
+body[color-theme="darkorange"] {
+  --secondary-color: #f78a02;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f78a02;
+}
+
+body[color-theme="brightorange"] {
+  --secondary-color: #ff6600;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ff6600;
+}
+
+body[color-theme="rubyred"] {
+  --secondary-color: #e82127;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #e82127;
+}
+
+body[color-theme="ferrarired"] {
+  --secondary-color: #ff2800;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ff2800;
+}
+
+body[color-theme="brickred"] {
+  --secondary-color: #c32034;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #c32034;
+}
+
+body[color-theme="dustyred"] {
+  --secondary-color: #c14646;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #c14646;
+}
+
+body[color-theme="lavared"] {
+  --secondary-color: #d72c0a;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #d72c0a;
+}
+
+body[color-theme="orangyred"] {
+  --secondary-color: #b01d0b;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #b01d0b;
+}
+
+body[color-theme="supernova"] {
+  --secondary-color: #fdcf13;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #fdcf13;
+}
+
+body[color-theme="orangeyellow"] {
+  --secondary-color: #feba0d;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #feba0d;
+}
+
+body[color-theme="amberyellow"] {
+  --secondary-color: #ffb80c;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffb80c;
+}
+
+body[color-theme="sunshade"] {
+  --secondary-color: #ff9934;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ff9934;
+}
+
+body[color-theme="deepsaffron"] {
+  --secondary-color: #f79333;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f79333;
+}
+
+body[color-theme="cadmiumorange"] {
+  --secondary-color: #ea9624;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ea9624;
+}
+
+body[color-theme="fadedorange"] {
+  --secondary-color: #f88651;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f88651;
+}
+
+body[color-theme="granolagold"] {
+  --secondary-color: #ba9445;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ba9445;
+}
+
+body[color-theme="eucalyptusgreen"] {
+  --secondary-color: #159365;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #159365;
+}
+
+body[color-theme="venomgreen"] {
+  --secondary-color: #659910;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #659910;
+}
+
+body[color-theme="peagreen"] {
+  --secondary-color: #a6ce39;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #a6ce39;
+}
+
+body[color-theme="vibrantgreen"] {
+  --secondary-color: #00bc00;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #00bc00;
+}
+
+body[color-theme="pinegreen"] {
+  --secondary-color: #14795a;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #14795a;
+}
+
+body[color-theme="fountainblue"] {
+  --secondary-color: #5dade2;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #5dade2;
+}
+
+body[color-theme="crystalblue"] {
+  --secondary-color: #3bc6f3;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #3bc6f3;
+}
+
+body[color-theme="darkcyan"] {
+  --secondary-color: #149897;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #149897;
+}
+
+body[color-theme="frenchblue"] {
+  --secondary-color: #0075db;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #0075db;
+}
+
+body[color-theme="silkblue"] {
+  --secondary-color: #3f77d9;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #3f77d9;
+}
+
+body[color-theme="veniceblue"] {
+  --secondary-color: #005b96;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #005b96;
+}
+
+body[color-theme="midnightblue"] {
+  --secondary-color: #0285c8;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #0285c8;
+}
+
+body[color-theme="mineralgreen"] {
+  --secondary-color: #3d5566;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #3d5566;
+}
+
+body[color-theme="warmpurple"] {
+  --secondary-color: #7e1fac;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #7e1fac;
+}
+
+body[color-theme="cobaltblue"] {
+  --secondary-color: #1a3da6;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #1a3da6;
+}
+
+body[color-theme="pacificblue"] {
+  --secondary-color: #04a1a6;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #04a1a6;
+}
+
+body[color-theme="fuelyellow"] {
+  --secondary-color: #f6ae2d;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f6ae2d;
+}
+
+body[color-theme="brightyellow"] {
+  --secondary-color: #f3e819;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f3e819;
+}
+
+body[color-theme="osgbook"] {
+  --secondary-color: #1a3da6;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #1a3da6;
+  --primary-color-shade: #0f2462;
+  --primary-color-tint: #0f2462;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #2081e7;
+}
+
+body[color-theme="tuliporange"] {
+  --secondary-color: #f6a237;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f6a237;
+}
+
+body[color-theme="winered"] {
+  --secondary-color: #a00000;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #a00000;
+}
+
+body[color-theme="cranberry"] {
+  --secondary-color: #d84396;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #d84396;
+}
+
+body[color-theme="marine"] {
+  --secondary-color: #0b2972;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #0b2972;
+}
+
+body[color-theme="candlelight"] {
+  --secondary-color: #ffe001;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffe001;
+}
+
+body[color-theme="beeyellow"] {
+  --secondary-color: #ebb023;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ebb023;
+}
+
+body[color-theme="orangepeel"] {
+  --secondary-color: #ffa800;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffa800;
+}
+
+body[color-theme="azureblue"] {
+  --secondary-color: #007acc;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #007acc;
+}
+
+body[color-theme="chromeorange"] {
+  --secondary-color: #ff9600;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ff9600;
+}
+
+body[color-theme="vibrantyellow"] {
+  --secondary-color: #f8ff13;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f8ff13;
+}
+
+body[color-theme="shyam365"],
+body[color-theme="newlotus"],
+body[color-theme="lotus365s"],
+body[color-theme="gamblerid365"] {
+  --secondary-color: #ffe001;
+  --secondary-color-contrast: #000000;
+  --primary-color: #1e8067;
+  --primary-color-shade: #1a715b;
+  --primary-color-tint: #358d76;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffe001;
+}
+
+body[color-theme="driftwood"] {
+  --secondary-color: #b4833e;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #b4833e;
+}
+
+body[color-theme="darkpink"] {
+  --secondary-color: #b6277b;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #b6277b;
+}
+
+body[color-theme="cherryred"] {
+  --secondary-color: #c10930;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #c10930;
+}
+
+body[color-theme="electricblue"] {
+  --secondary-color: #0088cc;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #0088cc;
+}
+
+body[color-theme="matchpari"] {
+  --secondary-color: #ffc629;
+  --secondary-color-contrast: #000000;
+  --primary-color: #8000ff;
+  --primary-color-shade: #7100e0;
+  --primary-color-tint: #8d1aff;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffc629;
+}
+
+body[color-theme="dustyorange"] {
+  --secondary-color: #ee8c31;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ee8c31;
+}
+
+body[color-theme="artyred"] {
+  --secondary-color: #fd0000;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #fd0000;
+}
+
+body[color-theme="goldenbell"] {
+  --secondary-color: #ed8929;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ed8929;
+}
+
+body[color-theme="brightaqua"] {
+  --secondary-color: #00fffc;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #00fffc;
+}
+
+body[color-theme="sandyellow"] {
+  --secondary-color: #e9c869;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #e9c869;
+}
+
+body[color-theme="darkblue"] {
+  --secondary-color: #183787;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #183787;
+}
+
+body[color-theme="funbuzz"] {
+  --secondary-color: #ffcc00;
+  --secondary-color-contrast: #000000;
+  --primary-color: #184438;
+  --primary-color-shade: #153c31;
+  --primary-color-tint: #2f574c;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffcc00;
+}
+
+body[color-theme="tiger11"] {
+  --secondary-color: #ff9700;
+  --secondary-color-contrast: #000000;
+  --primary-color: #205685;
+  --primary-color-shade: #1c4c75;
+  --primary-color-tint: #366791;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ff9700;
+}
+
+body[color-theme="brightblue"] {
+  --secondary-color: #0052ed;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #0052ed;
+}
+
+body[color-theme="brightgreen"] {
+  --secondary-color: #55fe43;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #55fe43;
+}
+
+body[color-theme="yaleblue"] {
+  --secondary-color: #17459a;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #17459a;
+}
+
+body[color-theme="hukumid"] {
+  --secondary-color: #17459a;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #1e8067;
+  --primary-color-shade: #1a715b;
+  --primary-color-tint: #358d76;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #17459a;
+}
+
+body[color-theme="vividpurple"] {
+  --secondary-color: #8000ff;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #8000ff;
+}
+
+body[color-theme="lightyellow"] {
+  --secondary-color: #f7c528;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f7c528;
+}
+
+body[color-theme="dodgerblue"] {
+  --secondary-color: #1a88f3;
+  --secondary-color-contrast: #000000;
+  --primary-color: #090f1e;
+  --primary-color-shade: #080d1a;
+  --primary-color-tint: #222735;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #1a88f3;
+}
+
+body[color-theme="neonblue"] {
+  --secondary-color: #00ccff;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #00ccff;
+}
+
+body[color-theme="charminar365"] {
+  --secondary-color: #ba9445;
+  --secondary-color-contrast: #000000;
+  --primary-color: #021432;
+  --primary-color-shade: #02122c;
+  --primary-color-tint: #1b2c47;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ba9445;
+}
+
+body[color-theme="neonyellow"] {
+  --secondary-color: #fef200;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #fef200;
+}
+
+body[color-theme="golddrop"] {
+  --secondary-color: #ff8a00;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ff8a00;
+}
+
+body[color-theme="lotus11"] {
+  --secondary-color: #f9dc1c;
+  --secondary-color-contrast: #000000;
+  --primary-color: #027b5b;
+  --primary-color-shade: #026c50;
+  --primary-color-tint: #1b886b;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f9dc1c;
+}
+
+body[color-theme="clearblue"] {
+  --secondary-color: #1a73e8;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #1a73e8;
+}
+
+body[color-theme="reddy"] {
+  --secondary-color: linear-gradient(
+    94deg,
+    rgb(182, 132, 45),
+    #ebda8d 55%,
+    #b7862f
+  );
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #b7862f;
+}
+
+body[color-theme="water-blue-dark"] {
+  --secondary-color: #1e64ce;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #2081e7;
+}
+
+body[color-theme="tenCric"] {
+  --secondary-color: #fdc600;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #fdc600;
+}
+
+body[color-theme="sd777"] {
+  --secondary-color: linear-gradient(-180deg, #b7862f, #ebda8d 90%);
+  --secondary-color-contrast: #000000;
+  --primary-color: #005b96;
+  --primary-color-shade: #005084;
+  --primary-color-tint: #1a6ba1;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #b7862f;
+}
+
+body[color-theme="trusted"] {
+  --secondary-color: linear-gradient(
+    0deg,
+    #b78628 0%,
+    #e8c025 50%,
+    #d28d0d 100%
+  );
+  --secondary-color-contrast: #000000;
+  --primary-color: #1a73e8;
+  --primary-color-shade: #1765cc;
+  --primary-color-tint: #3181ea;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #b78628;
+}
+
+body[color-theme="liongold"] {
+  --secondary-color: #ffd677;
+  --secondary-color-contrast: #000000;
+  --primary-color: #013e2b;
+  --primary-color-shade: #013726;
+  --primary-color-tint: #1a5140;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffd677;
+}
+
+body[color-theme="yobook"] {
+  --secondary-color: #000000;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #fed917;
+  --primary-color-shade: #ffdf36;
+  --primary-color-tint: #fedd2e;
+  --primary-color-contrast: #000000;
+  --highlight-color: #000000;
+}
+
+body[color-theme="11xblue"] {
+  --secondary-color: #14a0ff;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #14a0ff;
+}
+
+body[color-theme="1exbet"] {
+  --secondary-color: #14a0ff;
+  --secondary-color-contrast: #000000;
+  --primary-color: #195685;
+  --primary-color-shade: #164c75;
+  --primary-color-tint: #306791;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #14a0ff;
+}
+
+body[color-theme="jsryellow"] {
+  --secondary-color: #ffca00;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffca00;
+}
+
+body[color-theme="dafa777"] {
+  --secondary-color: #f9e530;
+  --secondary-color-contrast: #000000;
+  --primary-color: #ae0001;
+  --primary-color-shade: #990001;
+  --primary-color-tint: #b61a1a;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f9e530;
+}
+
+body[color-theme="yobookyellow"] {
+  --secondary-color: #fed917;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #fed917;
+}
+
+body[color-theme="vinayakyellow"] {
+  --secondary-color: #fec529;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #fec529;
+}
+
+body[color-theme="cric999"] {
+  --secondary-color: linear-gradient(-180deg, #ff991b, #ff811b 90%);
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ff811b;
+}
+
+body[color-theme="futureplayYellow"] {
+  --secondary-color: #f68b1f;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f68b1f;
+}
+
+body[color-theme="cmorange"] {
+  --secondary-color: #f88903;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f88903;
+}
+
+body[color-theme="vipyellow"] {
+  --secondary-color: #ffd901;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffd901;
+}
+body[color-theme="default"],
+.main[color-theme="default"] {
+  --secondary-color: #ffc629;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffc629;
+}
+
+body[color-theme="water-blue"] {
+  --secondary-color: #1e64ce;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #1e64ce;
+  --primary-color-shade: #1f6ee7;
+  --primary-color-tint: #2081e7;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #2081e7;
+}
+
+body[color-theme="sunglow"] {
+  --secondary-color: #ffc629;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffc629;
+}
+
+body[color-theme="raspberry-pink"] {
+  --secondary-color: #db469a;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #db469a;
+}
+
+body[color-theme="bright-gold"] {
+  --secondary-color: #ffcb00;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffcb00;
+}
+
+body[color-theme="saffron"] {
+  --secondary-color: #ff671f;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ff671f;
+}
+
+body[color-theme="firebush"] {
+  --secondary-color: #ff8e2a;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ff8e2a;
+}
+
+body[color-theme="darkorange"] {
+  --secondary-color: #f78a02;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f78a02;
+}
+
+body[color-theme="brightorange"] {
+  --secondary-color: #ff6600;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ff6600;
+}
+
+body[color-theme="rubyred"] {
+  --secondary-color: #e82127;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #e82127;
+}
+
+body[color-theme="ferrarired"] {
+  --secondary-color: #ff2800;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ff2800;
+}
+
+body[color-theme="brickred"] {
+  --secondary-color: #c32034;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #c32034;
+}
+
+body[color-theme="dustyred"] {
+  --secondary-color: #c14646;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #c14646;
+}
+
+body[color-theme="lavared"] {
+  --secondary-color: #d72c0a;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #d72c0a;
+}
+
+body[color-theme="orangyred"] {
+  --secondary-color: #b01d0b;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #b01d0b;
+}
+
+body[color-theme="supernova"] {
+  --secondary-color: #fdcf13;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #fdcf13;
+}
+
+body[color-theme="orangeyellow"] {
+  --secondary-color: #feba0d;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #feba0d;
+}
+
+body[color-theme="amberyellow"] {
+  --secondary-color: #ffb80c;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffb80c;
+}
+
+body[color-theme="sunshade"] {
+  --secondary-color: #ff9934;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ff9934;
+}
+
+body[color-theme="deepsaffron"] {
+  --secondary-color: #f79333;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f79333;
+}
+
+body[color-theme="cadmiumorange"] {
+  --secondary-color: #ea9624;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ea9624;
+}
+
+body[color-theme="fadedorange"] {
+  --secondary-color: #f88651;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f88651;
+}
+
+body[color-theme="granolagold"] {
+  --secondary-color: #ba9445;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ba9445;
+}
+
+body[color-theme="eucalyptusgreen"] {
+  --secondary-color: #159365;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #159365;
+}
+
+body[color-theme="venomgreen"] {
+  --secondary-color: #659910;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #659910;
+}
+
+body[color-theme="peagreen"] {
+  --secondary-color: #a6ce39;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #a6ce39;
+}
+
+body[color-theme="vibrantgreen"] {
+  --secondary-color: #00bc00;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #00bc00;
+}
+
+body[color-theme="pinegreen"] {
+  --secondary-color: #14795a;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #14795a;
+}
+
+body[color-theme="fountainblue"] {
+  --secondary-color: #5dade2;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #5dade2;
+}
+
+body[color-theme="crystalblue"] {
+  --secondary-color: #3bc6f3;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #3bc6f3;
+}
+
+body[color-theme="darkcyan"] {
+  --secondary-color: #149897;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #149897;
+}
+
+body[color-theme="frenchblue"] {
+  --secondary-color: #0075db;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #0075db;
+}
+
+body[color-theme="silkblue"] {
+  --secondary-color: #3f77d9;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #3f77d9;
+}
+
+body[color-theme="veniceblue"] {
+  --secondary-color: #005b96;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #005b96;
+}
+
+body[color-theme="midnightblue"] {
+  --secondary-color: #0285c8;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #0285c8;
+}
+
+body[color-theme="mineralgreen"] {
+  --secondary-color: #3d5566;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #3d5566;
+}
+
+body[color-theme="warmpurple"] {
+  --secondary-color: #7e1fac;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #7e1fac;
+}
+
+body[color-theme="cobaltblue"] {
+  --secondary-color: #1a3da6;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #1a3da6;
+}
+
+body[color-theme="pacificblue"] {
+  --secondary-color: #04a1a6;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #04a1a6;
+}
+
+body[color-theme="fuelyellow"] {
+  --secondary-color: #f6ae2d;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f6ae2d;
+}
+
+body[color-theme="brightyellow"] {
+  --secondary-color: #f3e819;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f3e819;
+}
+
+body[color-theme="osgbook"] {
+  --secondary-color: #1a3da6;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #1a3da6;
+  --primary-color-shade: #0f2462;
+  --primary-color-tint: #0f2462;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #2081e7;
+}
+
+body[color-theme="tuliporange"] {
+  --secondary-color: #f6a237;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f6a237;
+}
+
+body[color-theme="winered"] {
+  --secondary-color: #a00000;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #a00000;
+}
+
+body[color-theme="cranberry"] {
+  --secondary-color: #d84396;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #d84396;
+}
+
+body[color-theme="marine"] {
+  --secondary-color: #0b2972;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #0b2972;
+}
+
+body[color-theme="candlelight"] {
+  --secondary-color: #ffe001;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffe001;
+}
+
+body[color-theme="beeyellow"] {
+  --secondary-color: #ebb023;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ebb023;
+}
+
+body[color-theme="orangepeel"] {
+  --secondary-color: #ffa800;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffa800;
+}
+
+body[color-theme="azureblue"] {
+  --secondary-color: #007acc;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #007acc;
+}
+
+body[color-theme="chromeorange"] {
+  --secondary-color: #ff9600;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ff9600;
+}
+
+body[color-theme="vibrantyellow"] {
+  --secondary-color: #f8ff13;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f8ff13;
+}
+
+body[color-theme="shyam365"],
+body[color-theme="newlotus"],
+body[color-theme="lotus365s"],
+body[color-theme="gamblerid365"] {
+  --secondary-color: #ffe001;
+  --secondary-color-contrast: #000000;
+  --primary-color: #1e8067;
+  --primary-color-shade: #1a715b;
+  --primary-color-tint: #358d76;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffe001;
+}
+
+body[color-theme="driftwood"] {
+  --secondary-color: #b4833e;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #b4833e;
+}
+
+body[color-theme="darkpink"] {
+  --secondary-color: #b6277b;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #b6277b;
+}
+
+body[color-theme="cherryred"] {
+  --secondary-color: #c10930;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #c10930;
+}
+
+body[color-theme="electricblue"] {
+  --secondary-color: #0088cc;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #0088cc;
+}
+
+body[color-theme="matchpari"] {
+  --secondary-color: #ffc629;
+  --secondary-color-contrast: #000000;
+  --primary-color: #8000ff;
+  --primary-color-shade: #7100e0;
+  --primary-color-tint: #8d1aff;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffc629;
+}
+
+body[color-theme="dustyorange"] {
+  --secondary-color: #ee8c31;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ee8c31;
+}
+
+body[color-theme="artyred"] {
+  --secondary-color: #fd0000;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #fd0000;
+}
+
+body[color-theme="goldenbell"] {
+  --secondary-color: #ed8929;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ed8929;
+}
+
+body[color-theme="brightaqua"] {
+  --secondary-color: #00fffc;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #00fffc;
+}
+
+body[color-theme="sandyellow"] {
+  --secondary-color: #e9c869;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #e9c869;
+}
+
+body[color-theme="darkblue"] {
+  --secondary-color: #183787;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #183787;
+}
+
+body[color-theme="funbuzz"] {
+  --secondary-color: #ffcc00;
+  --secondary-color-contrast: #000000;
+  --primary-color: #184438;
+  --primary-color-shade: #153c31;
+  --primary-color-tint: #2f574c;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffcc00;
+}
+
+body[color-theme="tiger11"] {
+  --secondary-color: #ff9700;
+  --secondary-color-contrast: #000000;
+  --primary-color: #205685;
+  --primary-color-shade: #1c4c75;
+  --primary-color-tint: #366791;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ff9700;
+}
+
+body[color-theme="brightblue"] {
+  --secondary-color: #0052ed;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #0052ed;
+}
+
+body[color-theme="brightgreen"] {
+  --secondary-color: #55fe43;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #55fe43;
+}
+
+body[color-theme="yaleblue"] {
+  --secondary-color: #17459a;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #17459a;
+}
+
+body[color-theme="hukumid"] {
+  --secondary-color: #17459a;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #1e8067;
+  --primary-color-shade: #1a715b;
+  --primary-color-tint: #358d76;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #17459a;
+}
+
+body[color-theme="vividpurple"] {
+  --secondary-color: #8000ff;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #8000ff;
+}
+
+body[color-theme="lightyellow"] {
+  --secondary-color: #f7c528;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f7c528;
+}
+
+body[color-theme="dodgerblue"] {
+  --secondary-color: #1a88f3;
+  --secondary-color-contrast: #000000;
+  --primary-color: #090f1e;
+  --primary-color-shade: #080d1a;
+  --primary-color-tint: #222735;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #1a88f3;
+}
+
+body[color-theme="neonblue"] {
+  --secondary-color: #00ccff;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #00ccff;
+}
+
+body[color-theme="charminar365"] {
+  --secondary-color: #ba9445;
+  --secondary-color-contrast: #000000;
+  --primary-color: #021432;
+  --primary-color-shade: #02122c;
+  --primary-color-tint: #1b2c47;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ba9445;
+}
+
+body[color-theme="neonyellow"] {
+  --secondary-color: #fef200;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #fef200;
+}
+
+body[color-theme="golddrop"] {
+  --secondary-color: #ff8a00;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ff8a00;
+}
+
+body[color-theme="lotus11"] {
+  --secondary-color: #f9dc1c;
+  --secondary-color-contrast: #000000;
+  --primary-color: #027b5b;
+  --primary-color-shade: #026c50;
+  --primary-color-tint: #1b886b;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f9dc1c;
+}
+
+body[color-theme="clearblue"] {
+  --secondary-color: #1a73e8;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #1a73e8;
+}
+
+body[color-theme="reddy"] {
+  --secondary-color: linear-gradient(
+    94deg,
+    rgb(182, 132, 45),
+    #ebda8d 55%,
+    #b7862f
+  );
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #b7862f;
+}
+
+body[color-theme="water-blue-dark"] {
+  --secondary-color: #1e64ce;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #2081e7;
+}
+
+body[color-theme="tenCric"] {
+  --secondary-color: #fdc600;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #fdc600;
+}
+
+body[color-theme="sd777"] {
+  --secondary-color: linear-gradient(-180deg, #b7862f, #ebda8d 90%);
+  --secondary-color-contrast: #000000;
+  --primary-color: #005b96;
+  --primary-color-shade: #005084;
+  --primary-color-tint: #1a6ba1;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #b7862f;
+}
+
+body[color-theme="trusted"] {
+  --secondary-color: linear-gradient(
+    0deg,
+    #b78628 0%,
+    #e8c025 50%,
+    #d28d0d 100%
+  );
+  --secondary-color-contrast: #000000;
+  --primary-color: #1a73e8;
+  --primary-color-shade: #1765cc;
+  --primary-color-tint: #3181ea;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #b78628;
+}
+
+body[color-theme="liongold"] {
+  --secondary-color: #ffd677;
+  --secondary-color-contrast: #000000;
+  --primary-color: #013e2b;
+  --primary-color-shade: #013726;
+  --primary-color-tint: #1a5140;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffd677;
+}
+
+body[color-theme="yobook"] {
+  --secondary-color: #000000;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #fed917;
+  --primary-color-shade: #ffdf36;
+  --primary-color-tint: #fedd2e;
+  --primary-color-contrast: #000000;
+  --highlight-color: #000000;
+}
+
+body[color-theme="11xblue"] {
+  --secondary-color: #14a0ff;
+  --secondary-color-contrast: #ffffff;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #14a0ff;
+}
+
+body[color-theme="1exbet"] {
+  --secondary-color: #14a0ff;
+  --secondary-color-contrast: #000000;
+  --primary-color: #195685;
+  --primary-color-shade: #164c75;
+  --primary-color-tint: #306791;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #14a0ff;
+}
+
+body[color-theme="jsryellow"] {
+  --secondary-color: #ffca00;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffca00;
+}
+
+body[color-theme="dafa777"] {
+  --secondary-color: #f9e530;
+  --secondary-color-contrast: #000000;
+  --primary-color: #ae0001;
+  --primary-color-shade: #990001;
+  --primary-color-tint: #b61a1a;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f9e530;
+}
+
+body[color-theme="yobookyellow"] {
+  --secondary-color: #fed917;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #fed917;
+}
+
+body[color-theme="vinayakyellow"] {
+  --secondary-color: #fec529;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #fec529;
+}
+
+body[color-theme="cric999"] {
+  --secondary-color: linear-gradient(-180deg, #ff991b, #ff811b 90%);
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ff811b;
+}
+
+body[color-theme="futureplayYellow"] {
+  --secondary-color: #f68b1f;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f68b1f;
+}
+
+body[color-theme="cmorange"] {
+  --secondary-color: #f88903;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #f88903;
+}
+
+body[color-theme="vipyellow"] {
+  --secondary-color: #ffd901;
+  --secondary-color-contrast: #000000;
+  --primary-color: #000000;
+  --primary-color-shade: #141414;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #ffd901;
+}

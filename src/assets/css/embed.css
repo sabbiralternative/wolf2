@@ -13,10 +13,6 @@
   --dark-grey: #474747;
   --header-dark-color: #181e25;
   --footer-grey-color: #d9d9d9;
-  --primary-color: #ffffff;
-  --primary-color-shade: #ffffff;
-  --primary-color-tint: #ffffff;
-  --primary-color-contrast: #ffffff;
   --black-color: #000;
   --bg-grey: #f7f9f9;
   --red-color: #c44141;
@@ -40,7 +36,6 @@
   --blue-color-100: #4086f5;
   --dark-blue-color: #1f6ee7;
   --purple-color: #7059c5;
-  --tabIcon-filter: invert(1);
   --red-light-color: #ff7171;
   --dark-text: #323232;
 }

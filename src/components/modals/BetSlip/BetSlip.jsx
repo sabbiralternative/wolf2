@@ -425,7 +425,7 @@ const BetSlip = () => {
                                       <span
                                         className={`${
                                           predictOdd?.exposure &&
-                                          placeBetValues?.exposure > 0
+                                          predictOdd?.exposure > 0
                                             ? "text-success"
                                             : "text-danger"
                                         }`}

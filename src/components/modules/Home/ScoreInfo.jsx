@@ -93,6 +93,7 @@ const ScoreInfo = ({ data, keys }) => {
             <div className="match-time">
               <span className="inplay ng-star-inserted">
                 {" "}
+                In-play
                 {/* <span style={{ display: "flex", gap: "5px" }}>
                   {" "}
                   <span> {data[keys]?.score?.totalSet1}</span>

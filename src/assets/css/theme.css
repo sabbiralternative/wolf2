@@ -1,0 +1,9 @@
+:root {
+  --primary-color: #000000;
+  --secondary-color: #db469a;
+  --secondary-color-contrast: #ffffff;
+  --primary-color-shade: #000;
+  --primary-color-tint: #222222;
+  --primary-color-contrast: #ffffff;
+  --highlight-color: #db469a;
+}
