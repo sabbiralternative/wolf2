@@ -65,14 +65,13 @@ const CasinoGames = ({ data }) => {
                   </div>
                   <div className="game-type-list ng-star-inserted">
                     <ul
-                      style={{
-                        gridAutoColumns: "115px",
-                      }}
+                      style={{ gridAutoColumns: "130px" }}
                       className="sRowScroll"
                     >
                       {data?.gameList[gameTitle].map((item) => {
                         return (
                           <li
+                            style={{ height: "190px", width: "130px" }}
                             onClick={() =>
                               handleNavigateToIFrame(
                                 item?.game_id,
@@ -82,8 +81,17 @@ const CasinoGames = ({ data }) => {
                             key={item?.game_id}
                             className="ng-star-inserted"
                           >
-                            <a className="active">
-                              <img alt="" src={item?.url_thumb} />
+                            <a style={{ height: "100%" }} className="active">
+                              <img
+                                style={{
+                                  aspectRatio: "3/4",
+                                  borderRadius: "10px",
+                                  height: "100%",
+                                  maxHeight: "100%",
+                                }}
+                                alt=""
+                                src={item?.url_thumb}
+                              />
                             </a>
                             <p style={{}} className="total-players">
                               <div

@@ -38,11 +38,11 @@ const Casino = () => {
         </a>
       </div>
       <div className="game-type-list ng-star-inserted">
-        <ul style={{ gridAutoColumns: "128px" }} className="sRowScroll">
+        <ul style={{ gridAutoColumns: "130px" }} className="sRowScroll">
           {data?.data?.map((item) => {
             return (
               <li
-                style={{ height: "170px", width: "128px" }}
+                style={{ height: "190px", width: "130px" }}
                 onClick={() => handleNavigate(item?.id, item?.game_name)}
                 key={item?.id}
                 className="ng-star-inserted"
