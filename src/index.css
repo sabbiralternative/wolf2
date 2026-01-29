@@ -571,23 +571,31 @@ html * {
 .crash_games_container {
   grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
 }
+
 @media (max-width: 350px) {
   .crash_games_container {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
-@media (min-width: 350px) {
+
+@media (min-width: 351px) {
   .crash_games_container {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
 }
-@media (min-width: 500px) {
+@media (min-width: 550px) {
   .crash_games_container {
     grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .crash_games_container {
-    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+}
+@media (min-width: 700px) {
+  .crash_games_container {
+    grid-auto-columns: 100px;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
   }
 }

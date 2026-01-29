@@ -71,24 +71,25 @@ const CrashGames = () => {
                   </div> */}
             <div className="game-type-list ng-star-inserted">
               <ul
-                style={{
-                  display: "grid",
-
-                  padding: "0px 10px",
-                }}
+                style={{ display: "grid", padding: "0px 10px" }}
                 className="crash_games_container"
               >
                 {data?.result?.game_list.map((item) => {
                   return (
                     <li
+                      style={{ height: "190px" }}
                       onClick={() =>
                         handleNavigateToIFrame(item?.game_id, item?.game_name)
                       }
                       key={item?.game_id}
                       className="ng-star-inserted"
                     >
-                      <a className="active">
-                        <img alt="" src={item?.url_thumb} />
+                      <a style={{ height: "100%" }} className="active">
+                        <img
+                          style={{ height: "100%", maxHeight: "100%" }}
+                          alt=""
+                          src={item?.url_thumb}
+                        />
                       </a>
                       <p className="total-players">
                         <div

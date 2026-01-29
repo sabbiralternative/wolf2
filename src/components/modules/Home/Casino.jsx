@@ -38,7 +38,7 @@ const Casino = () => {
         </a>
       </div>
       <div className="game-type-list ng-star-inserted">
-        <ul className="sRowScroll">
+        <ul style={{ gridAutoColumns: "115px" }} className="sRowScroll">
           {data?.data?.map((item) => {
             return (
               <li
@@ -58,12 +58,16 @@ const Casino = () => {
                   2383
                 </p> */}
                 <a className="active">
-                  <img alt="" src={item?.url_thumb} />
+                  <img
+                    style={{ aspectRatio: "3/4", borderRadius: "10px" }}
+                    alt=""
+                    src={item?.url_thumb}
+                  />
                 </a>
-                <div className="game-detail">
+                {/* <div className="game-detail">
                   <p className="company-type">{item?.product}</p>
                   <p className="game-name">{item?.game_name}</p>
-                </div>
+                </div> */}
               </li>
             );
           })}

@@ -64,7 +64,12 @@ const CasinoGames = ({ data }) => {
                     <h2>{gameTitle}</h2>
                   </div>
                   <div className="game-type-list ng-star-inserted">
-                    <ul className="sRowScroll">
+                    <ul
+                      style={{
+                        gridAutoColumns: "115px",
+                      }}
+                      className="sRowScroll"
+                    >
                       {data?.gameList[gameTitle].map((item) => {
                         return (
                           <li

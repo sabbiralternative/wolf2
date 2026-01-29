@@ -5000,9 +5000,9 @@ div:where(.swal2-icon).swal2-success
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: inset 0 0 30px var(--grey-500);
+  /* box-shadow: inset 0 0 30px var(--grey-500); */
   z-index: 100;
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px;
 }
 
 .page-body
@@ -7484,7 +7484,7 @@ app-homepage-sports:not(:has(.inplay-cont)) .nodata-wrap {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: inset 0 0 30px var(--grey-500);
+  /* box-shadow: inset 0 0 30px var(--grey-500); */
   z-index: 100;
   border-radius: 10px 10px 0 0;
 }
