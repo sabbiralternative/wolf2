@@ -38,17 +38,23 @@ const CardGames = () => {
         </a>
       </div>
       <div className="game-type-list ng-star-inserted">
-        <ul style={{ gridAutoColumns: "115px" }} className="sRowScroll">
+        <ul style={{ gridAutoColumns: "128px" }} className="sRowScroll">
           {data?.data?.map((item) => {
             return (
               <li
+                style={{ height: "170px", width: "128px" }}
                 onClick={() => handleCasino(item?.game_id, item?.game_name)}
                 key={item?.game_id}
                 className="ng-star-inserted"
               >
-                <a className="active">
+                <a style={{ height: "100%" }} className="active">
                   <img
-                    style={{ aspectRatio: "3/4", borderRadius: "10px" }}
+                    style={{
+                      aspectRatio: "3/4",
+                      borderRadius: "10px",
+                      height: "100%",
+                      maxHeight: "100%",
+                    }}
                     alt=""
                     src={item?.img}
                   />
