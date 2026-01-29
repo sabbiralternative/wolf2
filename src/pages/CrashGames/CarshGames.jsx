@@ -25,8 +25,6 @@ const CrashGames = () => {
     }
   };
 
-  console.log(data);
-
   return (
     <div className="page-body">
       <div className="providers-section ng-star-inserted">
@@ -94,6 +92,11 @@ const CrashGames = () => {
                       </a>
                       <p className="total-players">
                         <div
+                          style={{
+                            fontSize: "15px",
+                            height: "15px",
+                            width: "15px",
+                          }}
                           role="img"
                           className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
                           aria-hidden="true"

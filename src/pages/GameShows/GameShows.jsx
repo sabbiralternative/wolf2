@@ -7,7 +7,7 @@ const GameShows = () => {
     category: "game_shows",
     provider: "all",
   });
-  console.log(data);
+
   if (!data) {
     return null;
   }

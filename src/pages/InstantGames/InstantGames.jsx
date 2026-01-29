@@ -11,6 +11,7 @@ const InstantGames = () => {
   if (!data) {
     return null;
   }
+
   return <CasinoGames data={data} />;
 };
 

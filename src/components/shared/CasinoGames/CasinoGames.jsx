@@ -80,8 +80,13 @@ const CasinoGames = ({ data }) => {
                             <a className="active">
                               <img alt="" src={item?.url_thumb} />
                             </a>
-                            <p className="total-players">
+                            <p style={{}} className="total-players">
                               <div
+                                style={{
+                                  fontSize: "15px",
+                                  height: "15px",
+                                  width: "15px",
+                                }}
                                 role="img"
                                 className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
                                 aria-hidden="true"
