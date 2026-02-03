@@ -3,7 +3,7 @@ import {
   setShowLoginModal,
   setShowRegisterModal,
 } from "../../../redux/features/global/globalSlice";
-import useWhatsApp from "../../../hooks/whatsapp";
+
 import { Settings } from "../../../api";
 import images from "../../../assets/images";
 import { useLanguage } from "../../../context/LanguageProvider";
@@ -13,12 +13,11 @@ import { LanguageKey } from "../../../const";
 const NotLoggedIn = ({ setShowLanguage }) => {
   const { valueByLanguage } = useLanguage();
   const language = localStorage.getItem("language");
-  const { data: socialLink } = useWhatsApp();
   const dispatch = useDispatch();
 
   const openWhatsapp = () => {
-    if (socialLink?.whatsapplink) {
-      window.open(socialLink?.whatsapplink, "_blank");
+    if (Settings?.whatsapplink) {
+      window.open(Settings?.whatsapplink, "_blank");
     }
   };
 
@@ -48,7 +47,7 @@ const NotLoggedIn = ({ setShowLanguage }) => {
         <span className="mat-mdc-focus-indicator" />
         <span className="mat-mdc-button-touch-target" />
       </button>
-      {Settings.registrationWhatsapp && socialLink?.whatsapplink && (
+      {Settings.registrationWhatsapp && Settings?.whatsapplink && (
         <button
           onClick={openWhatsapp}
           className="btn dark-outlined-btn demo-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"

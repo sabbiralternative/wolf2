@@ -6,14 +6,13 @@ import {
 } from "../../../redux/features/global/globalSlice";
 import { logout } from "../../../redux/features/auth/authSlice";
 import ModalWrapper from "../../modals/ModalWrapper/ModalWrapper";
-import useWhatsApp from "../../../hooks/whatsapp";
 import { useLocation, useNavigate } from "react-router-dom";
 import SocialLinks from "../../modules/Home/SocialLinks";
+import { Settings } from "../../../api";
 
 const LeftSidebar = ({ children }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const { data: socialLink } = useWhatsApp();
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const { showSidebar } = useSelector((state) => state.global);
@@ -265,20 +264,20 @@ const LeftSidebar = ({ children }) => {
                   </li>
                 </ul>
                 <ul className="smenu-wrap bottom">
-                  {(socialLink?.instagramLink ||
-                    socialLink?.telegramLink ||
-                    socialLink?.whatsapplink ||
-                    socialLink?.branchWhatsapplink) && (
+                  {(Settings?.instagramLink ||
+                    Settings?.telegramLink ||
+                    Settings?.whatsapplink ||
+                    Settings?.branchWhatsapplink) && (
                     <li className="smenu-item social-links-wrap ng-star-inserted">
                       <label>Join us Now</label>
                       <div className="social-links">
-                        {(socialLink?.whatsapplink ||
-                          socialLink?.branchWhatsapplink) && (
+                        {(Settings?.whatsapplink ||
+                          Settings?.branchWhatsapplink) && (
                           <a
                             onClick={() =>
                               handleNavigateSocialLink(
-                                socialLink?.branchWhatsapplink ||
-                                  socialLink?.whatsapplink,
+                                Settings?.branchWhatsapplink ||
+                                  Settings?.whatsapplink,
                               )
                             }
                             className="ng-star-inserted"
@@ -289,12 +288,10 @@ const LeftSidebar = ({ children }) => {
                             />
                           </a>
                         )}
-                        {socialLink?.instagramLink && (
+                        {Settings?.instagramLink && (
                           <a
                             onClick={() =>
-                              handleNavigateSocialLink(
-                                socialLink?.instagramLink,
-                              )
+                              handleNavigateSocialLink(Settings?.instagramLink)
                             }
                             className="ng-star-inserted"
                           >
@@ -304,10 +301,10 @@ const LeftSidebar = ({ children }) => {
                             />
                           </a>
                         )}
-                        {socialLink?.telegramLink && (
+                        {Settings?.telegramLink && (
                           <a
                             onClick={() =>
-                              handleNavigateSocialLink(socialLink?.telegramLink)
+                              handleNavigateSocialLink(Settings?.telegramLink)
                             }
                             className="ng-star-inserted"
                           >

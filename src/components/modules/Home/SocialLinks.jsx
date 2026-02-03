@@ -1,21 +1,20 @@
 import { useSelector } from "react-redux";
-import useWhatsApp from "../../../hooks/whatsapp";
+import { Settings } from "../../../api";
 
 const SocialLinks = () => {
   const { token } = useSelector((state) => state.auth);
-  const { data: socialLink } = useWhatsApp();
 
   const navigateWhatsApp = () => {
-    if (token && socialLink?.branchWhatsapplink) {
-      window.open(socialLink?.branchWhatsapplink, "_blank");
+    if (token && Settings?.branchWhatsapplink) {
+      window.open(Settings?.branchWhatsapplink, "_blank");
     } else {
-      window.open(socialLink?.whatsapplink, "_blank");
+      window.open(Settings?.whatsapplink, "_blank");
     }
   };
 
   return (
     <div className="floating-btns">
-      {(socialLink?.branchWhatsapplink || socialLink?.whatsapplink) && (
+      {(Settings?.branchWhatsapplink || Settings?.whatsapplink) && (
         <div
           onClick={navigateWhatsApp}
           className="btn-item ng-star-inserted"

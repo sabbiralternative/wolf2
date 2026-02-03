@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import useBalance from "../../hooks/balance";
 import { setShowDepositModal } from "../../redux/features/global/globalSlice";
-import useWhatsApp from "../../hooks/whatsapp";
 import { Link } from "react-router-dom";
 import { Fragment, useState } from "react";
 import ChangePassword from "../../components/modals/ChangePassword/ChangePassword";
@@ -11,12 +10,13 @@ import Notification from "../../components/UI/Notification/Notification";
 import { useLanguage } from "../../context/LanguageProvider";
 import { languageValue } from "../../utils/language";
 import { LanguageKey } from "../../const";
+import { Settings } from "../../api";
 
 const Profile = () => {
   const { valueByLanguage } = useLanguage();
   const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
   const [showWithdrawModal, setShowWithdrawModal] = useState(false);
-  const { data: socialLink } = useWhatsApp();
+
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const { data: balance } = useBalance();
@@ -207,20 +207,18 @@ const Profile = () => {
               </a>
             </li>
           </ul>
-          {(socialLink?.instagramLink ||
-            socialLink?.telegramLink ||
-            socialLink?.whatsapplink ||
-            socialLink?.branchWhatsapplink) && (
+          {(Settings?.instagramLink ||
+            Settings?.telegramLink ||
+            Settings?.whatsapplink ||
+            Settings?.branchWhatsapplink) && (
             <div className="social-links-wrap ng-star-inserted">
               <label>Join us Now</label>
               <div className="social-links">
-                {(socialLink?.whatsapplink ||
-                  socialLink?.branchWhatsapplink) && (
+                {(Settings?.whatsapplink || Settings?.branchWhatsapplink) && (
                   <a
                     onClick={() =>
                       handleNavigateSocialLink(
-                        socialLink?.branchWhatsapplink ||
-                          socialLink?.whatsapplink,
+                        Settings?.branchWhatsapplink || Settings?.whatsapplink,
                       )
                     }
                     className="ng-star-inserted"
@@ -232,10 +230,10 @@ const Profile = () => {
                   </a>
                 )}
 
-                {socialLink?.instagramLink && (
+                {Settings?.instagramLink && (
                   <a
                     onClick={() =>
-                      handleNavigateSocialLink(socialLink?.instagramLink)
+                      handleNavigateSocialLink(Settings?.instagramLink)
                     }
                     className="ng-star-inserted"
                   >
@@ -246,10 +244,10 @@ const Profile = () => {
                   </a>
                 )}
 
-                {socialLink?.telegramLink && (
+                {Settings?.telegramLink && (
                   <a
                     onClick={() =>
-                      handleNavigateSocialLink(socialLink?.telegramLink)
+                      handleNavigateSocialLink(Settings?.telegramLink)
                     }
                     className="ng-star-inserted"
                   >

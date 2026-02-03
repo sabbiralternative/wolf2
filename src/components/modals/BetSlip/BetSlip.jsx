@@ -1,7 +1,6 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
-import useWhatsApp from "../../../hooks/whatsapp";
 import useBalance from "../../../hooks/balance";
 import { useCurrentBets } from "../../../hooks/currentBets";
 import { useExposure } from "../../../hooks/exposure";
@@ -29,7 +28,7 @@ const BetSlip = () => {
   const { price, stake, placeBetValues, predictOdd } = useSelector(
     (state) => state.event,
   );
-  const { data: socialLink } = useWhatsApp();
+
   const { refetch: refetchBalance } = useBalance();
   const { refetch: refetchCurrentBets } = useCurrentBets(eventId);
   const { refetch: refetchExposure } = useExposure(eventId);
@@ -119,7 +118,7 @@ const BetSlip = () => {
         ...payload,
         site: Settings.siteUrl,
         nounce: uuidv4(),
-        isbetDelay: socialLink?.bet_delay,
+        isbetDelay: Settings?.bet_delay,
         apk: closePopupForForever ? true : false,
       },
     ];
@@ -142,7 +141,7 @@ const BetSlip = () => {
       delay = 9000;
     } else {
       setBetDelay(currentPlaceBetEvent?.betDelay);
-      delay = socialLink?.bet_delay ? currentPlaceBetEvent?.betDelay * 1000 : 0;
+      delay = Settings?.bet_delay ? currentPlaceBetEvent?.betDelay * 1000 : 0;
     }
 
     setTimeout(async () => {
