@@ -13,6 +13,7 @@ import { IoArrowBack } from "react-icons/io5";
 import LatestEvent from "./LatestEvent";
 import { removeHeaderPaths } from "../../../static/removeHeaderPaths";
 import Language from "../../modals/Language/Language";
+import Search from "./Search";
 
 const Header = () => {
   const [showLanguage, setShowLanguage] = useState(false);
@@ -130,37 +131,8 @@ const Header = () => {
           >
             <div className="pagetab-wrapper">
               <div className="forSearchBar">
-                <div className="ng-star-inserted">
-                  <div className="forSearchBar-internal">
-                    <div className="ng-star-inserted">
-                      <div className="search-wrapper">
-                        <div className="search-field">
-                          <span
-                            role="img"
-                            className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
-                            aria-hidden="true"
-                            data-mat-icon-type="font"
-                          >
-                            search
-                          </span>
-                          <input
-                            type="text"
-                            placeholder="Search Matches / Casino Games"
-                            className="ng-untouched ng-pristine ng-valid"
-                          />
-                        </div>
-                        <span
-                          role="img"
-                          className="mat-icon notranslate material-icons search-btn mat-ligature-font mat-icon-no-color"
-                          aria-hidden="true"
-                          data-mat-icon-type="font"
-                        >
-                          search
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <Search />
+
                 <LatestEvent />
               </div>
               <div className="pagetab-header">

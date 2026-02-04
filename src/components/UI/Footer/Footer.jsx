@@ -36,7 +36,7 @@ const Footer = () => {
             </button>
           </div>
         )}
-        {!token && (
+        {!token && pathname === "/profile" && (
           <div className="action-btns ng-star-inserted">
             <button
               onClick={() => {

@@ -26,12 +26,15 @@ export const handleCashOutPlaceBet = (
             exposure: pnl?.pnl,
             id: pnl?.RunnerId,
             isBettingOnThisRunner: rnr?.id === team?.runner?.id,
+            name: rnr?.name,
+            updatedExposure: pnl?.pnl,
           });
         } else {
           updatedPnl.push({
             exposure: 0,
             id: rnr?.id,
             isBettingOnThisRunner: rnr?.id === team?.runner?.id,
+            name: rnr?.name,
           });
         }
       });

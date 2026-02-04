@@ -77,7 +77,7 @@ const CrashGames = () => {
                 {data?.result?.game_list.map((item) => {
                   return (
                     <li
-                      style={{ height: "190px" }}
+                      // style={{ height: "190px" }}
                       onClick={() =>
                         handleNavigateToIFrame(item?.game_id, item?.game_name)
                       }
