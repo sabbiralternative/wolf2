@@ -1,12 +1,11 @@
 import axios from "axios";
 import { API, Settings } from "./index";
+import { settingsAPI } from "../const";
 
 export const getSetApis = async (setNoticeLoaded, baseUrl) => {
   const url = baseUrl ? `${baseUrl}/notice.json` : "/notice.json";
   const { data: settingsResponse } = await axios.get(url);
-  const { data: dataResponse } = await axios.post(
-    "https://api7.live/api/exchange/diamond/settings",
-  );
+  const { data: dataResponse } = await axios.post(settingsAPI);
 
   if (dataResponse?.result) {
     const { endpoint = {}, ...rest } = dataResponse.result;
@@ -15,7 +14,7 @@ export const getSetApis = async (setNoticeLoaded, baseUrl) => {
     Object.keys(endpoint).forEach((key) => {
       API[key] = endpoint[key];
     });
-    console.log(rest);
+
     Settings.whatsapplink = rest.whatsapplink;
     Settings.instagramLink = rest.instagramLink;
     Settings.telegramLink = rest.telegramLink;

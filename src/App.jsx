@@ -2,12 +2,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import { useEffect } from "react";
 import { Settings } from "./api";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import disableDevtool from "disable-devtool";
 import { logout } from "./redux/features/auth/authSlice";
 import { setWindowWidth } from "./redux/features/global/globalSlice";
+import { useSettingsMutation } from "./hooks/settings";
 
 function App() {
+  const { token } = useSelector((state) => state.auth);
+  const { mutate } = useSettingsMutation();
   const { pathname } = useLocation();
   const disabledDevtool = Settings.disabledDevtool;
   const navigate = useNavigate();
@@ -26,16 +29,18 @@ function App() {
   }, [dispatch]);
 
   useEffect(() => {
-    if (disabledDevtool) {
-      disableDevtool({
-        ondevtoolopen: (type) => {
-          const info = "devtool opened!; type =" + type;
-          if (info) {
-            dispatch(logout());
-            window.location.href = "https://www.google.com/";
-          }
-        },
-      });
+    if (window.location.hostname !== "localhost") {
+      if (disabledDevtool) {
+        disableDevtool({
+          ondevtoolopen: (type) => {
+            const info = "devtool opened!; type =" + type;
+            if (info) {
+              dispatch(logout());
+              window.location.href = "https://www.google.com/";
+            }
+          },
+        });
+      }
     }
   }, [navigate, disabledDevtool, dispatch]);
 
@@ -86,6 +91,10 @@ function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  useEffect(() => {
+    mutate();
+  }, [token, mutate]);
 
   return <MainLayout />;
 }

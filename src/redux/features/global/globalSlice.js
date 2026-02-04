@@ -18,6 +18,7 @@ const initialState = {
   showEditStakeModal: false,
   showReferralModal: false,
   showLoginWarning: false,
+  showHelpModal: false,
 };
 
 const stateSlice = createSlice({
@@ -75,6 +76,9 @@ const stateSlice = createSlice({
     setShowLoginWarning: (state, action) => {
       state.showLoginWarning = action.payload;
     },
+    setShowHelpModal: (state, action) => {
+      state.showHelpModal = action.payload;
+    },
   },
 });
 
@@ -96,6 +100,7 @@ export const {
   setShowEditStakeModal,
   setShowReferralModal,
   setShowLoginWarning,
+  setShowHelpModal,
 } = stateSlice.actions;
 
 export default stateSlice.reducer;

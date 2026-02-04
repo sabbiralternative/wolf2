@@ -13,7 +13,7 @@ import {
 } from "../../../redux/features/global/globalSlice";
 import { GrCopy } from "react-icons/gr";
 
-const UploadTransaction = ({ paymentId, amount, methodType }) => {
+const UploadTransaction = ({ paymentId, amount, methodType, methodTitle }) => {
   const [imageUploadMessage, setImageUploadMessage] = useState(null);
   const { mutate: getUTR } = useUTR();
   const { refetch } = useAccountStatement();
@@ -41,7 +41,6 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
         });
         const data = res.data;
         if (data?.success) {
-          console.log(data);
           setImageUploadMessage("Image uploaded, Fetching UTR");
           getUTR(data?.filePath, {
             onSuccess: (data) => {
@@ -125,42 +124,6 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
   return (
     <div className="upload-screenshot-wrap ng-star-inserted">
       <div className="screenshot-wrapper">
-        <div className="utr-wrapper ng-star-inserted">
-          <div className="input-wrap">
-            <label>
-              {methodType === "usdt" || methodType === "usdt_bep20"
-                ? "Hash Code"
-                : " Unique Transaction Reference"}
-              <span className="instant-note">
-                <div
-                  role="img"
-                  className="mat-icon notranslate material-icon material-icons mat-ligature-font mat-icon-no-color"
-                  aria-hidden="true"
-                  data-mat-icon-type="font"
-                >
-                  bolt
-                </div>
-                Instant
-              </span>
-            </label>
-            <input
-              onChange={handleUTRChange}
-              placeholder={
-                methodType === "usdt" || methodType === "usdt_bep20"
-                  ? "Enter Hash code"
-                  : "6 to 23 Digit UTR/RRN Number"
-              }
-              name="utr"
-              type="text"
-              className="ng-untouched ng-pristine ng-valid"
-              value={utr !== null ? utr : null}
-            />
-            <span className="paste-icon ng-star-inserted">
-              <GrCopy style={{ marginRight: "5px" }} /> Paste
-            </span>
-          </div>
-        </div>
-        <p className="seprator ng-star-inserted">Or</p>
         <div className="upload-screenshot">
           <div className="ng-star-inserted">
             <div>
@@ -222,51 +185,77 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
                   <FaSpinner className="animate-spin" size={15} color="black" />
                 </div>
               )}
+
               {filePath && !loading && (
                 <div
-                  style={{
-                    position: "relative",
-                    marginTop: "10px",
-                    marginBottom: "10px",
-                  }}
+                  className="uploaded-img-wrap ng-star-inserted"
+                  style={{ padding: "0px" }}
                 >
-                  <button
-                    style={{
-                      position: "absolute",
-                      top: "0px",
-                      right: "0px",
-                      background: "white",
-                      padding: "0px 5px",
-                      fontWeight: "bold",
-                      borderRadius: "4px",
-                      cursor: "pointer",
-                    }}
-                    onClick={() => {
-                      setFilePath("");
-                      setUploadedImage(null);
-                      setImage(null);
-                    }}
-                  >
-                    X
-                  </button>
-                  <img
-                    style={{
-                      width: "100%",
-                      maxHeight: "400px",
-                      height: "100%",
-                      objectFit: "contain",
-                    }}
-                    src={filePath}
-                    alt="deposit-slip"
-                  />
+                  <h2>Added Screenshots/UTR</h2>
+                  <div className="uploaded-img-list ng-star-inserted">
+                    <div className="left-text ng-star-inserted">
+                      <div className="img-wrap">
+                        <img src={filePath} />
+                      </div>
+                      <p>{methodTitle}</p>
+                    </div>
+                    <a
+                      onClick={() => {
+                        setFilePath("");
+                        setUploadedImage(null);
+                        setImage(null);
+                      }}
+                      className="remove-btn"
+                    >
+                      {" "}
+                      Remove{" "}
+                    </a>
+                  </div>
                 </div>
               )}
             </div>
           </div>
-          <p className="ss-note ng-star-inserted">
+          {/* <p className="ss-note ng-star-inserted">
             * Facing issue uploading screenshot? Paste the UTR above.
-          </p>
+          </p> */}
         </div>
+        <div className="utr-wrapper ng-star-inserted">
+          <div className="input-wrap">
+            <label>
+              {methodType === "usdt" || methodType === "usdt_bep20"
+                ? "Hash Code"
+                : " Unique Transaction Reference"}
+              <span className="instant-note">
+                <div
+                  role="img"
+                  className="mat-icon notranslate material-icon material-icons mat-ligature-font mat-icon-no-color"
+                  aria-hidden="true"
+                  data-mat-icon-type="font"
+                >
+                  bolt
+                </div>
+                Instant
+              </span>
+            </label>
+            <input
+              onChange={handleUTRChange}
+              placeholder={
+                methodType === "usdt" || methodType === "usdt_bep20"
+                  ? "Enter Hash code"
+                  : "6 to 23 Digit UTR/RRN Number"
+              }
+              name="utr"
+              type="text"
+              className="ng-untouched ng-pristine ng-valid"
+              value={utr !== null ? utr : null}
+            />
+            <span className="paste-icon ng-star-inserted">
+              <GrCopy style={{ marginRight: "5px" }} /> Paste
+            </span>
+          </div>
+        </div>
+        {/* <p className="seprator ng-star-inserted">Or</p> */}
+
         <div className="modal-footer ng-star-inserted">
           <button
             disabled={!filePath || !utr}

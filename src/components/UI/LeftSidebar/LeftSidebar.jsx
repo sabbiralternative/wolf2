@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Fragment, useEffect } from "react";
 import {
   setShowEditStakeModal,
+  setShowHelpModal,
   setShowLoginWarning,
   setShowSidebar,
 } from "../../../redux/features/global/globalSlice";
@@ -283,17 +284,21 @@ const LeftSidebar = ({ children }) => {
                       <span>Rules</span>
                     </a>
                   </li>
-                  {token && (
-                    <li className="smenu-item ng-star-inserted">
-                      <a className="smenu-link">
-                        <img
-                          alt="Menu Icon"
-                          src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_help.svg"
-                        />
-                        <span>Help</span>
-                      </a>
-                    </li>
-                  )}
+                  {token &&
+                    (Settings.whatsapplink || Settings.branchWhatsapplink) && (
+                      <li className="smenu-item ng-star-inserted">
+                        <a
+                          onClick={() => handleOpenModal(setShowHelpModal)}
+                          className="smenu-link"
+                        >
+                          <img
+                            alt="Menu Icon"
+                            src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_help.svg"
+                          />
+                          <span>Help</span>
+                        </a>
+                      </li>
+                    )}
                 </ul>
                 <ul className="smenu-wrap bottom">
                   {(Settings?.instagramLink ||

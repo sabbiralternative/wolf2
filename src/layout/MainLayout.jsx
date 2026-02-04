@@ -15,6 +15,7 @@ import EditStake from "../components/modals/EditStake/EditStake";
 import AddBankAccount from "../components/modals/AddBankAccount/AddBankAccount";
 import Referral from "../components/modals/Referral/Referral";
 import LoginWarning from "../components/modals/LoginWarning/LoginWarning";
+import Help from "../components/modals/Help/Help";
 
 const MainLayout = () => {
   const { pathname } = useLocation();
@@ -28,6 +29,7 @@ const MainLayout = () => {
     addBank,
     showReferralModal,
     showLoginWarning,
+    showHelpModal,
   } = useSelector((state) => state.global);
 
   const shouldHideHeader = removeHeaderPaths.some((path) =>
@@ -45,6 +47,7 @@ const MainLayout = () => {
       {addBank && <AddBankAccount />}
       {showReferralModal && <Referral />}
       {showLoginWarning && <LoginWarning />}
+      {showHelpModal && <Help />}
 
       <LeftSidebar>
         <Header />

@@ -44,3 +44,5 @@ export const LanguageKey = {
   WITHDRAW: "WITHDRAW",
   WITHDRAW_STATMENT: "WITHDRAW_STATMENT",
 };
+
+export const settingsAPI = "https://api7.live/api/exchange/diamond/settings";

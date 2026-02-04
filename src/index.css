@@ -634,3 +634,13 @@ html * {
   height: 0px !important;
   width: 0px !important;
 }
+
+.help-page-wrap button {
+  min-height: 40px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  font-family: open_regular;
+}

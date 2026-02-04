@@ -11,6 +11,7 @@ const DepositPaymentGateway = ({
   setDepositData,
   setMethodType,
   setPaymentId,
+  setMethodTitle,
 }) => {
   const dispatch = useDispatch();
   const { data: depositMethods } = useBankAccountQuery({
@@ -21,6 +22,7 @@ const DepositPaymentGateway = ({
   const handleVisibleBankMethod = async (method) => {
     setMethodType(method?.type);
     setPaymentId(method?.paymentId);
+    setMethodTitle(method?.title);
 
     if (
       method?.type === "upigateway" ||

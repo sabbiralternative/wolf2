@@ -12,7 +12,6 @@ const Slots = () => {
     return null;
   }
 
-  console.log(data);
   return <CasinoGames data={data} />;
 };
 

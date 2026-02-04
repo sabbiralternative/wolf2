@@ -4,8 +4,10 @@ import { setShowReferralModal } from "../../../redux/features/global/globalSlice
 import { handleCopyToClipBoard } from "../../../utils/handleCopyToClipBoard";
 import { FaRegCopy } from "react-icons/fa";
 import { useGetIndex } from "../../../hooks";
+import { useLogo } from "../../../context/ApiProvider";
 
 const Referral = () => {
+  const { logo } = useLogo();
   const { data } = useGetIndex({
     type: "get_referral_code",
   });
@@ -63,13 +65,14 @@ const Referral = () => {
                   <div className="ng-star-inserted">
                     <div className="referral-modal">
                       <div className="modal-header">
-                        <div className="img-wrap">
-                          <img
-                            alt="logo"
-                            src="https://ss.manage63.com/bmk-wl/wl/wolf365/img/logo.svg"
-                            className="ng-star-inserted"
-                          />
-                        </div>
+                        {/* <div className="img-wrap"> */}
+                        <img
+                          alt="logo"
+                          src={logo}
+                          style={{ height: "50px" }}
+                          className="ng-star-inserted"
+                        />
+                        {/* </div> */}
                         <button
                           onClick={close}
                           className="modal-close-btn mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base"

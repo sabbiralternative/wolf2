@@ -1,8 +1,31 @@
 import { GrCopy } from "react-icons/gr";
 import { handleCopyToClipBoard } from "../../../utils/handleCopyToClipBoard";
 import images from "../../../assets/images";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setShowDepositModal } from "../../../redux/features/global/globalSlice";
 
 const BankDetails = ({ data }) => {
+  const dispatch = useDispatch();
+  const [secondsLeft, setSecondsLeft] = useState(5 * 60);
+
+  useEffect(() => {
+    if (secondsLeft === 0) return;
+
+    const timer = setInterval(() => {
+      setSecondsLeft((prev) => prev - 1);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [secondsLeft]);
+
+  const minutes = String(Math.floor(secondsLeft / 60)).padStart(2, "0");
+  const seconds = String(secondsLeft % 60).padStart(2, "0");
+  useEffect(() => {
+    if (secondsLeft === 0) {
+      dispatch(setShowDepositModal(false));
+    }
+  }, [secondsLeft, dispatch]);
   return (
     <div className="payment-type-details bank-transfer ng-star-inserted">
       <div className="card-title">
@@ -22,7 +45,7 @@ const BankDetails = ({ data }) => {
             >
               access_time
             </div>{" "}
-            04:52
+            {minutes}:{seconds}
           </span>
         </div>
       </div>

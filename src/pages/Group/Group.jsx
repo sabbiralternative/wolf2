@@ -53,6 +53,14 @@ const Group = () => {
     navigate(`/event-details/${data[keys]?.eventTypeId}/${keys}`);
   };
 
+  const formatDate = (dateString) => {
+    const dateTime = moment(dateString, "DD/MM/YYYY HH:mm");
+    const now = moment();
+    if (dateTime.isBefore(now)) {
+      return `Started at ${dateTime.format("h:mma")} IST`;
+    }
+    return dateString;
+  };
   return (
     <div className="page-body">
       <div className="inplay-page-wrap ng-star-inserted">
@@ -91,9 +99,9 @@ const Group = () => {
                             key={index}
                             className="game-card w-icon-view ng-star-inserted"
                           >
-                            <h2 className="tournament-title">
+                            {/* <h2 className="tournament-title">
                               Vijay Hazare Trophy (static)
-                            </h2>
+                            </h2> */}
                             <div className="teams-wrap">
                               <div className="team-item">
                                 <div className="img-wrap">
@@ -132,7 +140,7 @@ const Group = () => {
                               </div>
                             </div>
                             <p className="schedule-time ng-star-inserted">
-                              Rain (static)
+                              {formatDate(data[keys]?.date)}
                             </p>
                           </div>
                         );

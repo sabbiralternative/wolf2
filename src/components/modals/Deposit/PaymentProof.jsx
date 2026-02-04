@@ -13,6 +13,7 @@ const DepositPaymentProof = ({
   paymentId,
   depositData,
   methodType,
+  methodTitle,
 }) => {
   const dispatch = useDispatch();
 
@@ -80,6 +81,7 @@ const DepositPaymentProof = ({
                 paymentId={paymentId}
                 amount={amount}
                 methodType={methodType}
+                methodTitle={methodTitle}
               />
             </div>
           </div>

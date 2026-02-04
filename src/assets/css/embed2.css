@@ -21180,3 +21180,100 @@ button.btn {
   padding: 5px;
 }
 /* Search  */
+
+/* Deposit screnshot */
+
+.deposit-system-modal .modal-body .payment-wrap .uploaded-img-wrap {
+  margin-top: 0;
+  padding: 10px;
+  border-radius: 10px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.deposit-system-modal .modal-body .payment-wrap .uploaded-img-wrap h2 {
+  font-size: 10px;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.deposit-system-modal
+  .modal-body
+  .payment-wrap
+  .uploaded-img-wrap
+  .uploaded-img-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--white-color);
+  border-radius: 10px;
+  padding: 3px 6px;
+  margin-bottom: 5px;
+  border: 1px solid var(--grey-50);
+}
+
+.deposit-system-modal
+  .modal-body
+  .payment-wrap
+  .uploaded-img-wrap
+  .uploaded-img-list
+  .left-text {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+}
+
+.deposit-system-modal
+  .modal-body
+  .payment-wrap
+  .uploaded-img-wrap
+  .uploaded-img-list
+  .img-wrap {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--grey-50);
+  padding: 0;
+}
+
+.deposit-system-modal
+  .modal-body
+  .payment-wrap
+  .uploaded-img-wrap
+  .uploaded-img-list
+  .img-wrap
+  img {
+  width: 100%;
+  display: block;
+  max-height: 100%;
+  border-radius: 50%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.deposit-system-modal
+  .modal-body
+  .payment-wrap
+  .uploaded-img-wrap
+  .uploaded-img-list
+  .left-text
+  p {
+  margin: 0;
+  font-size: 10px;
+}
+
+.deposit-system-modal
+  .modal-body
+  .payment-wrap
+  .uploaded-img-wrap
+  .uploaded-img-list
+  .remove-btn {
+  font-size: 10px;
+  cursor: pointer;
+  color: var(--red-color);
+}
+/* Deposit screnshot */

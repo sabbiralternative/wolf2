@@ -14,6 +14,7 @@ const Deposit = () => {
   const [depositData, setDepositData] = useState({});
   const [paymentId, setPaymentId] = useState(null);
   const [methodType, setMethodType] = useState(null);
+  const [methodTitle, setMethodTitle] = useState(null);
 
   useCloseModalClickOutside(ref, () => {
     dispatch(setShowDepositModal(false));
@@ -63,6 +64,7 @@ const Deposit = () => {
                 )}
                 {depositTab === "account" && (
                   <DepositPaymentGateway
+                    setMethodTitle={setMethodTitle}
                     amount={amount}
                     setDepositTab={setDepositTab}
                     setDepositData={setDepositData}
@@ -72,6 +74,7 @@ const Deposit = () => {
                 )}
                 {depositTab === "paymentProof" && (
                   <DepositPaymentProof
+                    methodTitle={methodTitle}
                     amount={amount}
                     setDepositTab={setDepositTab}
                     paymentId={paymentId}
