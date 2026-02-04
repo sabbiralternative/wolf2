@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Fragment, useEffect } from "react";
 import {
   setShowEditStakeModal,
+  setShowLoginWarning,
   setShowSidebar,
 } from "../../../redux/features/global/globalSlice";
 import { logout } from "../../../redux/features/auth/authSlice";
@@ -30,6 +31,14 @@ const LeftSidebar = ({ children }) => {
     dispatch(setShowSidebar(false));
   };
 
+  const handleNavigateByCheckLogin = (link) => {
+    if (token) {
+      navigate(link);
+      dispatch(setShowSidebar(false));
+    } else {
+      dispatch(setShowLoginWarning(true));
+    }
+  };
   const handleNavigate = (link) => {
     navigate(link);
     dispatch(setShowSidebar(false));
@@ -184,7 +193,7 @@ const LeftSidebar = ({ children }) => {
                   </li>
                   <li className="smenu-item ng-star-inserted">
                     <a
-                      onClick={() => handleNavigate("/banking")}
+                      onClick={() => handleNavigateByCheckLogin("/banking")}
                       className="smenu-link"
                     >
                       <img
@@ -196,7 +205,12 @@ const LeftSidebar = ({ children }) => {
                   </li>
 
                   <li className="smenu-item">
-                    <a className="smenu-link">
+                    <a
+                      onClick={() =>
+                        handleNavigateByCheckLogin("/account-statement")
+                      }
+                      className="smenu-link"
+                    >
                       <img
                         alt="Menu Icon"
                         src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav__ac_statement.svg"
@@ -205,7 +219,10 @@ const LeftSidebar = ({ children }) => {
                     </a>
                   </li>
                   <li className="smenu-item">
-                    <a className="smenu-link">
+                    <a
+                      onClick={() => handleNavigateByCheckLogin("/active-bets")}
+                      className="smenu-link"
+                    >
                       <img
                         alt="Menu Icon"
                         src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_activebets.svg"
@@ -229,7 +246,12 @@ const LeftSidebar = ({ children }) => {
                   )}
 
                   <li className="smenu-item">
-                    <a className="smenu-link">
+                    <a
+                      onClick={() =>
+                        handleNavigateByCheckLogin("/notification")
+                      }
+                      className="smenu-link"
+                    >
                       <img
                         alt="Menu Icon"
                         src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_notification.svg"

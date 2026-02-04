@@ -15,8 +15,8 @@ const LoggedIn = ({ setShowLanguage }) => {
       <div className="loggedIn ng-star-inserted">
         <div className="bal-cont">
           <div className="bal-amount show-bal ng-star-inserted">
-            <p>Bal</p>
             <p>{data?.availBalance}</p>
+            <p>Bal</p>
           </div>
           <div className="bal-amount exp-bal ng-star-inserted">
             <p className="ng-star-inserted">Exp</p>

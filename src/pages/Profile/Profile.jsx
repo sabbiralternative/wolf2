@@ -1,7 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import useBalance from "../../hooks/balance";
-import { setShowDepositModal } from "../../redux/features/global/globalSlice";
-import { Link } from "react-router-dom";
+import {
+  setShowDepositModal,
+  setShowLoginWarning,
+} from "../../redux/features/global/globalSlice";
+import { Link, useNavigate } from "react-router-dom";
 import { Fragment, useState } from "react";
 import ChangePassword from "../../components/modals/ChangePassword/ChangePassword";
 import Withdraw from "../../components/modals/Withdraw/Withdraw";
@@ -13,17 +16,22 @@ import { LanguageKey } from "../../const";
 import { Settings } from "../../api";
 
 const Profile = () => {
+  const navigate = useNavigate();
   const { valueByLanguage } = useLanguage();
   const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
   const [showWithdrawModal, setShowWithdrawModal] = useState(false);
 
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.auth);
+  const { user, token } = useSelector((state) => state.auth);
   const { data: balance } = useBalance();
 
   const handleNavigateSocialLink = (link) => {
     window.open(link, "_blank");
   };
+
+  const handleNavigateByCheckLogin = (link) =>
+    token ? navigate(link) : dispatch(setShowLoginWarning(true));
+
   return (
     <Fragment>
       {showChangePasswordModal && (
@@ -67,75 +75,89 @@ const Profile = () => {
             <Notification />
           </div>
         </div>
-        <div className="user-details-wrap">
-          <div className="user-details ng-star-inserted">
-            <div className="contact-info">
-              <p className="notranslate" />
-              <p className="notranslate ng-star-inserted">
-                <img alt="Flag" src={images.india} /> {user}
-              </p>
-            </div>
-            <div className="actions-wrap">
-              <button
-                onClick={() => setShowChangePasswordModal(true)}
-                className="chng-psw-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted"
-              >
-                <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                <span className="mdc-button__label">
-                  {languageValue(valueByLanguage, LanguageKey.CHANGE_PASSWORD)}
-                </span>
-                <span className="mat-mdc-focus-indicator" />
-                <span className="mat-mdc-button-touch-target" />
-                <span className="mat-ripple mat-mdc-button-ripple" />
-              </button>
-            </div>
-          </div>
-          <div className="user-bal-info ng-star-inserted">
-            <div className="card-wrapper">
-              <div className="bal-cont">
-                <div className="avl-bal show-bal">
-                  <span>
-                    {" "}
-                    {languageValue(valueByLanguage, LanguageKey.BALANCE)}
+        {token ? (
+          <div className="user-details-wrap">
+            <div className="user-details ng-star-inserted">
+              <div className="contact-info">
+                <p className="notranslate" />
+                <p className="notranslate ng-star-inserted">
+                  <img alt="Flag" src={images.india} /> {user}
+                </p>
+              </div>
+              <div className="actions-wrap">
+                <button
+                  onClick={() => setShowChangePasswordModal(true)}
+                  className="chng-psw-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted"
+                >
+                  <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
+                  <span className="mdc-button__label">
+                    {languageValue(
+                      valueByLanguage,
+                      LanguageKey.CHANGE_PASSWORD,
+                    )}
                   </span>
-                  <p>{balance?.availBalance}</p>
+                  <span className="mat-mdc-focus-indicator" />
+                  <span className="mat-mdc-button-touch-target" />
+                  <span className="mat-ripple mat-mdc-button-ripple" />
+                </button>
+              </div>
+            </div>
+            <div className="user-bal-info ng-star-inserted">
+              <div className="card-wrapper">
+                <div className="bal-cont">
+                  <div className="avl-bal show-bal">
+                    <span>
+                      {" "}
+                      {languageValue(valueByLanguage, LanguageKey.BALANCE)}
+                    </span>
+                    <p>{balance?.availBalance}</p>
+                  </div>
+                </div>
+                <div className="d-w-btn ng-star-inserted">
+                  <button
+                    onClick={() => dispatch(setShowDepositModal(true))}
+                    className="notranslate mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
+                  >
+                    <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
+                    <span className="mdc-button__label">
+                      {" "}
+                      {languageValue(valueByLanguage, LanguageKey.DEPOSIT)}
+                    </span>
+                    <span className="mat-mdc-focus-indicator" />
+                    <span className="mat-mdc-button-touch-target" />
+                    <span className="mat-ripple mat-mdc-button-ripple" />
+                  </button>
+                  <button
+                    onClick={() => setShowWithdrawModal(true)}
+                    className="notranslate mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
+                  >
+                    <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
+                    <span className="mdc-button__label">
+                      {" "}
+                      {languageValue(valueByLanguage, LanguageKey.WITHDRAW)}
+                    </span>
+                    <span className="mat-mdc-focus-indicator" />
+                    <span className="mat-mdc-button-touch-target" />
+                    <span className="mat-ripple mat-mdc-button-ripple" />
+                  </button>
                 </div>
               </div>
-              <div className="d-w-btn ng-star-inserted">
-                <button
-                  onClick={() => dispatch(setShowDepositModal(true))}
-                  className="notranslate mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
-                >
-                  <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                  <span className="mdc-button__label">
-                    {" "}
-                    {languageValue(valueByLanguage, LanguageKey.DEPOSIT)}
-                  </span>
-                  <span className="mat-mdc-focus-indicator" />
-                  <span className="mat-mdc-button-touch-target" />
-                  <span className="mat-ripple mat-mdc-button-ripple" />
-                </button>
-                <button
-                  onClick={() => setShowWithdrawModal(true)}
-                  className="notranslate mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
-                >
-                  <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                  <span className="mdc-button__label">
-                    {" "}
-                    {languageValue(valueByLanguage, LanguageKey.WITHDRAW)}
-                  </span>
-                  <span className="mat-mdc-focus-indicator" />
-                  <span className="mat-mdc-button-touch-target" />
-                  <span className="mat-ripple mat-mdc-button-ripple" />
-                </button>
-              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="user-details-wrap">
+            <div className="user-details guest-user ng-star-inserted">
+              <p>Guest User</p>
+            </div>
+          </div>
+        )}
         <div className="menu-items-wrap" style={{ marginBottom: "70px" }}>
           <ul className="smenu-wrap">
             <li className="smenu-item">
-              <a className="smenu-link">
+              <a
+                onClick={() => handleNavigateByCheckLogin("/active-bets")}
+                className="smenu-link"
+              >
                 <div className="label-wrap">
                   <img
                     alt="Menu Icon"
@@ -149,7 +171,10 @@ const Profile = () => {
               </a>
             </li>
             <li className="smenu-item">
-              <a className="smenu-link">
+              <a
+                onClick={() => handleNavigateByCheckLogin("/account-statement")}
+                className="smenu-link"
+              >
                 <div className="label-wrap">
                   <img
                     alt="Menu Icon"
@@ -160,7 +185,10 @@ const Profile = () => {
               </a>
             </li>
             <li className="smenu-item casino-hidden">
-              <a className="smenu-link">
+              <a
+                onClick={() => handleNavigateByCheckLogin("/casino-result")}
+                className="smenu-link"
+              >
                 <div className="label-wrap">
                   <img
                     alt="Menu Icon"
@@ -185,7 +213,10 @@ const Profile = () => {
               </Link>
             </li>
             <li className="smenu-item">
-              <Link to="/banking" className="smenu-link">
+              <a
+                onClick={() => handleNavigateByCheckLogin("/banking")}
+                className="smenu-link"
+              >
                 <div className="label-wrap">
                   <img
                     alt="Menu Icon"
@@ -193,10 +224,13 @@ const Profile = () => {
                   />
                   <span>Banking</span>
                 </div>
-              </Link>
+              </a>
             </li>
             <li className="smenu-item ng-star-inserted">
-              <a className="smenu-link">
+              <a
+                onClick={() => handleNavigateByCheckLogin("/bonus")}
+                className="smenu-link"
+              >
                 <div className="label-wrap">
                   <img
                     alt="Menu Icon"

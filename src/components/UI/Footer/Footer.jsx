@@ -6,7 +6,10 @@ import { useLanguage } from "../../../context/LanguageProvider";
 import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 import MyMarket from "../../modals/MyMarket/MyMarket";
-import { setShowReferralModal } from "../../../redux/features/global/globalSlice";
+import {
+  setShowLoginModal,
+  setShowReferralModal,
+} from "../../../redux/features/global/globalSlice";
 
 const Footer = () => {
   const [showMyMarket, setShowMyMarket] = useState(false);
@@ -19,7 +22,7 @@ const Footer = () => {
     <Fragment>
       {showMyMarket && <MyMarket setShowMyMarket={setShowMyMarket} />}
       <div className="page-footer">
-        {pathname === "/profile" && (
+        {token && pathname === "/profile" && (
           <div className="action-btns ng-star-inserted">
             <button
               onClick={() => {
@@ -30,6 +33,19 @@ const Footer = () => {
               className="btn secondary-btn w-100"
             >
               {languageValue(valueByLanguage, LanguageKey.LOGOUT)}
+            </button>
+          </div>
+        )}
+        {!token && (
+          <div className="action-btns ng-star-inserted">
+            <button
+              onClick={() => {
+                dispatch(dispatch(setShowLoginModal(true)));
+              }}
+              type="button"
+              className="btn secondary-btn w-100"
+            >
+              {languageValue(valueByLanguage, LanguageKey.LOGIN)}
             </button>
           </div>
         )}
