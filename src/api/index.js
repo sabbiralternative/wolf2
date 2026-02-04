@@ -1,5 +1,5 @@
 export const API = {
-  liveCasinoIFrame: "",
+  liveCasinoIframe: "",
   accessToken: "",
   notification: "",
   buttonValue: "",

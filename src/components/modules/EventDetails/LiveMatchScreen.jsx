@@ -1,32 +1,9 @@
-import { useParams } from "react-router-dom";
-import { useVideoMutation } from "../../../redux/features/events/events";
-import { Settings } from "../../../api";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 
-const LiveMatchScreen = ({ score }) => {
-  const [iFrame, setIFrame] = useState("");
-  const { eventId, eventTypeId } = useParams();
-  const [sportsVideo] = useVideoMutation();
-
-  const handleGetVideo = async () => {
-    const payload = {
-      eventTypeId: eventTypeId,
-      eventId: eventId,
-      type: "video",
-      casinoCurrency: Settings.casinoCurrency,
-    };
-    const res = await sportsVideo(payload).unwrap();
-    if (res?.success) {
-      setIFrame(res?.result?.url);
-    }
-  };
-
-  useEffect(() => {
-    handleGetVideo();
-  }, []);
+const LiveMatchScreen = ({ score, accessToken }) => {
   return (
     <Fragment>
-      {score && iFrame && score?.hasVideo && (
+      {score && score?.hasVideo && accessToken?.result?.url && (
         <div className="live-match-screen ng-star-inserted">
           {/* <div className="live-tv-btns">
             <p
@@ -53,7 +30,7 @@ const LiveMatchScreen = ({ score }) => {
             width="100%"
             id="liveStream"
             frameBorder={0}
-            src={iFrame}
+            src={accessToken?.result?.url}
             className="ng-star-inserted"
           />
         </div>

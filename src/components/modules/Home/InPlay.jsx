@@ -145,7 +145,7 @@ const InPlay = () => {
                                     alt=""
                                   />
                                 </span>
-                                {data?.[keys]?.inPlay === 1 && (
+                                {data?.[keys]?.isTv === 1 && (
                                   <MdOutlineSmartDisplay
                                     size={15}
                                     color="var(--green-color)"

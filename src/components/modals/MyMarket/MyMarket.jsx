@@ -115,6 +115,16 @@ const MyMarket = ({ setShowMyMarket }) => {
                       })}
                     </div>
                   </div>
+                  <div
+                    style={{
+                      height: "100%",
+                      minHeight: "100%",
+                      marginTop: "100px",
+                    }}
+                    className="no-data ng-star-inserted"
+                  >
+                    <p>No bets placed yet, Place your bet now!</p>
+                  </div>
                 </div>
               </div>
             </div>

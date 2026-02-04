@@ -13,6 +13,8 @@ import Fancy from "../../components/modules/EventDetails/Fancy";
 import BetSlip from "../../components/modals/BetSlip/BetSlip";
 import OpenBets from "../../components/modules/EventDetails/OpenBets";
 import { useCurrentBets } from "../../hooks/currentBets";
+import { useAccessTokenQuery } from "../../hooks/accessToken";
+import { Settings } from "../../api";
 
 const EventDetails = () => {
   const [eventTab, setEventTab] = useState("market");
@@ -20,6 +22,12 @@ const EventDetails = () => {
   const [showScore, setShowScore] = useState(true);
   const { eventTypeId, eventId } = useParams();
   const { data: currentBets } = useCurrentBets(eventId);
+  const { data: accessToken } = useAccessTokenQuery({
+    eventTypeId: eventTypeId,
+    eventId: eventId,
+    type: "video",
+    casinoCurrency: Settings.casinoCurrency,
+  });
   const [profit, setProfit] = useState(0);
   const dispatch = useDispatch();
   const { placeBetValues, price, stake } = useSelector((state) => state.event);
@@ -160,11 +168,12 @@ const EventDetails = () => {
             <TabHeader
               setShowLiveMatch={setShowLiveMatch}
               setShowScore={setShowScore}
-              showLiveMatch={showLiveMatch}
-              showScore={showScore}
               eventTab={eventTab}
               setEventTab={setEventTab}
               currentBets={currentBets}
+              accessToken={accessToken}
+              iscore={data?.iscore}
+              score={data?.score}
             />
             <div className="mat-mdc-tab-body-wrapper">
               <div
@@ -180,7 +189,12 @@ const EventDetails = () => {
                     style={{ transform: "none" }}
                   >
                     <div className="tab-body sports-tab ng-star-inserted">
-                      {showLiveMatch && <LiveMatchScreen score={data?.score} />}
+                      {showLiveMatch && (
+                        <LiveMatchScreen
+                          score={data?.score}
+                          accessToken={accessToken}
+                        />
+                      )}
 
                       {data?.score?.tracker && (
                         <div

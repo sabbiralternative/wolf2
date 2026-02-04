@@ -11,10 +11,11 @@ export const getSetApis = async (setNoticeLoaded, baseUrl) => {
   if (dataResponse?.result) {
     const { endpoint = {}, ...rest } = dataResponse.result;
     // Dynamically update API object
+
     Object.keys(endpoint).forEach((key) => {
       API[key] = endpoint[key];
     });
-
+    console.log(rest);
     Settings.whatsapplink = rest.whatsapplink;
     Settings.instagramLink = rest.instagramLink;
     Settings.telegramLink = rest.telegramLink;

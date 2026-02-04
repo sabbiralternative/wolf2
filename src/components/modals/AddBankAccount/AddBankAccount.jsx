@@ -383,7 +383,7 @@ const AddBankAccount = () => {
                                       });
                                     }}
                                     value={bankDetails.otp}
-                                    placeholder="Enter bank iFSC"
+                                    placeholder="Enter OTP"
                                     type="text"
                                     className="ifsc-input ng-untouched ng-pristine ng-invalid"
                                   />

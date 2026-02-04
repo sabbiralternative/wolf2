@@ -1,11 +1,12 @@
 const TabHeader = ({
   setShowLiveMatch,
   setShowScore,
-  showLiveMatch,
-  showScore,
   eventTab,
   setEventTab,
   currentBets,
+  accessToken,
+  iscore,
+  score,
 }) => {
   return (
     <div
@@ -71,7 +72,7 @@ const TabHeader = ({
                     className="ng-star-inserted"
                     style={{ fontSize: "10px" }}
                   >
-                    Open Bets ({currentBets?.length})
+                    Open Bets ({currentBets?.length || 0})
                   </span>
                 </span>
               </span>
@@ -97,7 +98,7 @@ const TabHeader = ({
                   <div className="livetv-tab ng-star-inserted">
                     <button
                       onClick={() => setShowLiveMatch((prev) => !prev)}
-                      className={`livetv-btn rounded mdc-button mdc-button--unelevated mat-mdc-unelevated-button  mat-unthemed mat-mdc-button-base ng-star-inserted  ${showLiveMatch ? "active" : ""}`}
+                      className={`livetv-btn rounded mdc-button mdc-button--unelevated mat-mdc-unelevated-button  mat-unthemed mat-mdc-button-base ng-star-inserted  ${accessToken?.result?.url && score?.hasVideo ? "active" : ""}`}
                     >
                       <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
                       <span className="material-icons">live_tv</span>
@@ -107,7 +108,7 @@ const TabHeader = ({
                     </button>
                     <button
                       onClick={() => setShowScore((prev) => !prev)}
-                      className={`livetv-btn rounded mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted ${showScore ? "active" : ""}`}
+                      className={`livetv-btn rounded mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted ${iscore ? "active" : ""}`}
                     >
                       <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
                       <span className="material-icons">sports_score</span>

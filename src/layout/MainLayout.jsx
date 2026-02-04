@@ -13,6 +13,7 @@ import DepositSuccessMessage from "../components/modals/Deposit/DepositSuccessMe
 import { removeHeaderPaths } from "../static/removeHeaderPaths";
 import EditStake from "../components/modals/EditStake/EditStake";
 import AddBankAccount from "../components/modals/AddBankAccount/AddBankAccount";
+import Referral from "../components/modals/Referral/Referral";
 
 const MainLayout = () => {
   const { pathname } = useLocation();
@@ -24,6 +25,7 @@ const MainLayout = () => {
     showDepositSuccessModal,
     showEditStakeModal,
     addBank,
+    showReferralModal,
   } = useSelector((state) => state.global);
 
   const shouldHideHeader = removeHeaderPaths.some((path) =>
@@ -39,6 +41,7 @@ const MainLayout = () => {
       {showDepositSuccessModal && <DepositSuccessMessage />}
       {showEditStakeModal && <EditStake />}
       {addBank && <AddBankAccount />}
+      {showReferralModal && <Referral />}
 
       <LeftSidebar>
         <Header />

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { API, Settings } from "../../api";
 import { AxiosSecure } from "../../lib/AxiosSecure";
+import Loader from "../../components/UI/Loader/Loader";
 
 const IFrame = () => {
   const [iFrame, setIFrame] = useState("");
@@ -20,8 +21,7 @@ const IFrame = () => {
         casinoCurrency: Settings.casinoCurrency,
       };
       try {
-        const res = await AxiosSecure.post(API.liveCasinoIFrame, payload);
-        const data = res?.data;
+        const { data } = await AxiosSecure.post(API.liveCasinoIframe, payload);
         setIFrame(data?.gameUrl);
         setLoading(false);
         // window.open(data?.gameUrl, "_blank");
@@ -35,12 +35,12 @@ const IFrame = () => {
   }, [id, token]);
 
   if (loading) {
-    return "Loading...";
+    return <Loader />;
   }
 
   return (
     <div
-      style={{ height: "calc(100vh - 70px)" }}
+      style={{ height: "100%", maxHeight: "100%" }}
       className="page-body ng-star-inserted"
     >
       <iframe height="100%" width="100%" frameBorder="0" src={iFrame}></iframe>

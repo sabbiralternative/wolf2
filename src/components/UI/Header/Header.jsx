@@ -206,11 +206,12 @@ const Header = () => {
                     {groupedData?.cricket > 0 && (
                       <div className="badge">{groupedData?.cricket}</div>
                     )}
-
-                    <div className="wifi-symbol">
-                      <div className="wifi-circle first" />
-                      <div className="wifi-circle second" />
-                    </div>
+                    {groupedData?.cricket > 0 && (
+                      <div className="wifi-symbol">
+                        <div className="wifi-circle first" />
+                        <div className="wifi-circle second" />
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div
@@ -228,10 +229,12 @@ const Header = () => {
                     {groupedData?.football > 0 && (
                       <div className="badge">{groupedData?.football}</div>
                     )}
-                    <div className="wifi-symbol">
-                      <div className="wifi-circle first" />
-                      <div className="wifi-circle second" />
-                    </div>
+                    {groupedData?.football > 0 && (
+                      <div className="wifi-symbol">
+                        <div className="wifi-circle first" />
+                        <div className="wifi-circle second" />
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div
@@ -249,10 +252,12 @@ const Header = () => {
                     {groupedData?.tennis > 0 && (
                       <div className="badge">{groupedData?.tennis}</div>
                     )}
-                    <div className="wifi-symbol">
-                      <div className="wifi-circle first" />
-                      <div className="wifi-circle second" />
-                    </div>
+                    {groupedData?.tennis > 0 && (
+                      <div className="wifi-symbol">
+                        <div className="wifi-circle first" />
+                        <div className="wifi-circle second" />
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div

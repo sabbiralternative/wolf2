@@ -13,7 +13,7 @@ import { Settings } from "../../../api";
 const LeftSidebar = ({ children }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.auth);
+  const { user, token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const { showSidebar } = useSelector((state) => state.global);
 
@@ -111,7 +111,7 @@ const LeftSidebar = ({ children }) => {
                     >
                       person
                     </div>
-                    {user}
+                    {token ? user : "Guest User"}
                   </p>
                   {/* <p className="notranslate user-number ng-star-inserted">
                     <img alt="Flag" src={images.flag} />
@@ -121,33 +121,35 @@ const LeftSidebar = ({ children }) => {
               </div>
               <div className="sidemenu-list">
                 <ul className="smenu-wrap top">
-                  <li className="smenu-item nav-bonus ng-star-inserted">
-                    <div className="smenu-link">
-                      <img
-                        alt="Menu Icon"
-                        src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_bonus.svg"
-                      />
-                      <span>Bonus</span>
-                      <span className="rules-text">Rules</span>
-                      <span className="rules-text statement">Statement</span>
-                    </div>
-                    <div>
-                      <div className="bonus-wrap">
-                        <div className="bonus-details">
-                          <div className="bonus-info">
-                            <p>Total Bonus: 0</p>
-                            <div className="claim-btn">
-                              <p>Claimable Bonus: 0</p>
-                              <button className="btn secondary-btn" disabled>
-                                Claim
-                              </button>
+                  {token && (
+                    <li className="smenu-item nav-bonus ng-star-inserted">
+                      <div className="smenu-link">
+                        <img
+                          alt="Menu Icon"
+                          src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_bonus.svg"
+                        />
+                        <span>Bonus</span>
+                        <span className="rules-text">Rules</span>
+                        <span className="rules-text statement">Statement</span>
+                      </div>
+                      <div>
+                        <div className="bonus-wrap">
+                          <div className="bonus-details">
+                            <div className="bonus-info">
+                              <p>Total Bonus: 0</p>
+                              <div className="claim-btn">
+                                <p>Claimable Bonus: 0</p>
+                                <button className="btn secondary-btn" disabled>
+                                  Claim
+                                </button>
+                              </div>
+                              <p className="n-msg">Min. Claimable Coins: 100</p>
                             </div>
-                            <p className="n-msg">Min. Claimable Coins: 100</p>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
+                    </li>
+                  )}
 
                   <li hidden className="smenu-item">
                     <a className="smenu-link">
@@ -211,18 +213,20 @@ const LeftSidebar = ({ children }) => {
                       <span>Active Bets</span>
                     </a>
                   </li>
-                  <li className="smenu-item ng-star-inserted" style={{}}>
-                    <a
-                      onClick={() => handleOpenModal(setShowEditStakeModal)}
-                      className="smenu-link"
-                    >
-                      <img
-                        alt="Menu Icon"
-                        src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_edit.svg"
-                      />
-                      <span>Edit Stakes</span>
-                    </a>
-                  </li>
+                  {token && (
+                    <li className="smenu-item ng-star-inserted" style={{}}>
+                      <a
+                        onClick={() => handleOpenModal(setShowEditStakeModal)}
+                        className="smenu-link"
+                      >
+                        <img
+                          alt="Menu Icon"
+                          src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_edit.svg"
+                        />
+                        <span>Edit Stakes</span>
+                      </a>
+                    </li>
+                  )}
 
                   <li className="smenu-item">
                     <a className="smenu-link">
@@ -233,19 +237,23 @@ const LeftSidebar = ({ children }) => {
                       <span>Notifications</span>
                     </a>
                   </li>
-
-                  <li className="smenu-item ng-star-inserted">
-                    <a className="smenu-link">
-                      <img
-                        alt="Menu Icon"
-                        src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_pg_upload.svg"
-                      />
-                      <span>Payment Gateway Unapproved Payment?</span>
-                    </a>
-                  </li>
+                  {token && (
+                    <li className="smenu-item ng-star-inserted">
+                      <a className="smenu-link">
+                        <img
+                          alt="Menu Icon"
+                          src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_pg_upload.svg"
+                        />
+                        <span>Payment Gateway Unapproved Payment?</span>
+                      </a>
+                    </li>
+                  )}
 
                   <li className="smenu-item" tabIndex={0}>
-                    <a className="smenu-link">
+                    <a
+                      onClick={() => handleNavigate("/rules")}
+                      className="smenu-link"
+                    >
                       <img
                         alt="Menu Icon"
                         src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_rules.svg"
@@ -253,15 +261,17 @@ const LeftSidebar = ({ children }) => {
                       <span>Rules</span>
                     </a>
                   </li>
-                  <li className="smenu-item ng-star-inserted">
-                    <a className="smenu-link">
-                      <img
-                        alt="Menu Icon"
-                        src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_help.svg"
-                      />
-                      <span>Help</span>
-                    </a>
-                  </li>
+                  {token && (
+                    <li className="smenu-item ng-star-inserted">
+                      <a className="smenu-link">
+                        <img
+                          alt="Menu Icon"
+                          src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_help.svg"
+                        />
+                        <span>Help</span>
+                      </a>
+                    </li>
+                  )}
                 </ul>
                 <ul className="smenu-wrap bottom">
                   {(Settings?.instagramLink ||
@@ -317,20 +327,21 @@ const LeftSidebar = ({ children }) => {
                       </div>
                     </li>
                   )}
-
-                  <li className="smenu-item">
-                    <div className="action-btn ng-star-inserted" style={{}}>
-                      <button
-                        onClick={() => {
-                          dispatch(logout());
-                          dispatch(setShowSidebar(false));
-                        }}
-                        className="btn secondary-btn notranslate"
-                      >
-                        Logout
-                      </button>
-                    </div>
-                  </li>
+                  {token && (
+                    <li className="smenu-item">
+                      <div className="action-btn ng-star-inserted" style={{}}>
+                        <button
+                          onClick={() => {
+                            dispatch(logout());
+                            dispatch(setShowSidebar(false));
+                          }}
+                          className="btn secondary-btn notranslate"
+                        >
+                          Logout
+                        </button>
+                      </div>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>

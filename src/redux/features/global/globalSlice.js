@@ -16,6 +16,7 @@ const initialState = {
   showDepositModal: false,
   showDepositSuccessModal: false,
   showEditStakeModal: false,
+  showReferralModal: false,
 };
 
 const stateSlice = createSlice({
@@ -67,6 +68,9 @@ const stateSlice = createSlice({
     setShowEditStakeModal: (state, action) => {
       state.showEditStakeModal = action.payload;
     },
+    setShowReferralModal: (state, action) => {
+      state.showReferralModal = action.payload;
+    },
   },
 });
 
@@ -86,6 +90,7 @@ export const {
   setShowDepositModal,
   setShowDepositSuccessModal,
   setShowEditStakeModal,
+  setShowReferralModal,
 } = stateSlice.actions;
 
 export default stateSlice.reducer;

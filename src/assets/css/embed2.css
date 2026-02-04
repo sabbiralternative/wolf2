@@ -21055,3 +21055,103 @@ withdraw end  */
   overflow: hidden;
 }
 /* My market */
+
+/* Reffer modal */
+
+.mat-mdc-dialog-container.mdc-dialog .modal-header {
+  position: relative;
+  padding: 10px 0;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-header .img-wrap {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.modal-body .referral-code {
+  background: var(--grey-00);
+  border-radius: 6px;
+  padding: 10px;
+  position: relative;
+  height: 45px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.modal-body .referral-code p {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.modal-body .referral-code button {
+  position: absolute;
+  right: 0;
+  width: 30px;
+  height: 45px;
+  top: 0;
+}
+
+button.btn.secondary-btn {
+  background: var(--primary-color-shade);
+  color: var(--primary-color-contrast);
+}
+
+button.btn {
+  font-size: 12px;
+  white-space: nowrap;
+  border: none;
+  min-height: 25px;
+  border-radius: 10px;
+  min-width: 75px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.modal-body .sharing {
+  margin-top: 15px;
+  padding: 10px 5px;
+  background: var(--grey-00);
+  border-radius: 10px;
+}
+
+.modal-body .sharing .icon-list {
+  display: flex;
+}
+
+.modal-body .sharing .icon-list .icon-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-body .sharing .icon-list .icon-item .icon-wrap {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-body .sharing .icon-list .icon-item p {
+  font-size: 10px !important;
+  text-align: center;
+}
+
+.modal-body h3 {
+  font-size: 18px;
+  font-family: open_bold;
+  margin: 0;
+}
+
+.modal-body p {
+  font-size: 12px;
+  margin: 0;
+}
+/* Reffer modal */
