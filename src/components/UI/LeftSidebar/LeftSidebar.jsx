@@ -75,10 +75,17 @@ const LeftSidebar = ({ children }) => {
             transition: "0.5s",
             boxShadow: `${showSidebar ? "" : "none"}`,
             height: "100vh",
+            overflowY: "initial",
           }}
         >
-          <div className="mat-drawer-inner-container ng-tns-c3816625663-0">
-            <div className="sidemenu-wrapper ng-tns-c3816625663-0">
+          <div
+            className="mat-drawer-inner-container ng-tns-c3816625663-0"
+            style={{ overflow: "initial" }}
+          >
+            <div
+              className="sidemenu-wrapper ng-tns-c3816625663-0"
+              style={{ height: "100%" }}
+            >
               <div className="sidemenu-header">
                 <div className="logo">
                   <div className="img-wrap">
@@ -129,8 +136,17 @@ const LeftSidebar = ({ children }) => {
                   </p> */}
                 </div>
               </div>
-              <div className="sidemenu-list">
-                <ul className="smenu-wrap top">
+              <div
+                className="sidemenu-list"
+                style={{
+                  justifyContent: "space-between",
+                  height: "calc(100vh - 110px)",
+                }}
+              >
+                <ul
+                  className="smenu-wrap top"
+                  style={{ maxHeight: "fit-content" }}
+                >
                   {token && (
                     <li className="smenu-item nav-bonus ng-star-inserted">
                       <div className="smenu-link">
@@ -300,7 +316,10 @@ const LeftSidebar = ({ children }) => {
                       </li>
                     )}
                 </ul>
-                <ul className="smenu-wrap bottom">
+                <ul
+                  className="smenu-wrap bottom"
+                  style={{ position: "static" }}
+                >
                   {(Settings?.instagramLink ||
                     Settings?.telegramLink ||
                     Settings?.whatsapplink ||

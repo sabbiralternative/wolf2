@@ -127,7 +127,10 @@ const Footer = () => {
                   <span className="mat-mdc-button-touch-target" />
                 </button>
 
-                <button className="passbook mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted">
+                <button
+                  onClick={() => handleNavigate("/passbook?tab=transaction")}
+                  className={`passbook mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted ${pathname === "/passbook" ? "active-link" : ""}`}
+                >
                   <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
                   <span className="mdc-button__label">
                     <span className="uIcons uIcons_passbook_2" />

@@ -53,7 +53,7 @@ const MainLayout = () => {
         <Header />
         <div
           style={{
-            paddingTop: shouldHideHeader ? "43px" : "160px",
+            paddingTop: shouldHideHeader ? "43px" : "151px",
             height: "100%",
           }}
         >

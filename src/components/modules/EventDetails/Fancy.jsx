@@ -184,7 +184,12 @@ const Fancy = ({ data }) => {
                     </button>
                   )}
                   {pnl?.pnl && ladderData?.length > 0 && (
-                    <Ladder ladderData={ladderData} marketName={marketName} />
+                    <Ladder
+                      ladderData={ladderData}
+                      marketName={marketName}
+                      setLadderData={setLadderData}
+                      setMarketName={setMarketName}
+                    />
                   )}
 
                   <div className="ladder-datawrap dropdown-content">

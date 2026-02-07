@@ -74,23 +74,23 @@ const EventDetails = () => {
           total = bookmaker * stake - stake;
         }
 
-        if (stake) {
-          const currentExposure = placeBetValues?.exposure?.map((exp) => {
-            return {
-              updatedExposure: stake
-                ? exp?.isBettingOnThisRunner
-                  ? formatNumber(exp?.exposure + total)
-                  : formatNumber(exp?.exposure + -1 * stake)
-                : null,
-              id: exp?.id,
-              isBettingOnThisRunner: exp?.isBettingOnThisRunner,
-              name: exp?.name,
-              exposure: exp?.exposure,
-            };
-          });
+        // if (stake) {
+        const currentExposure = placeBetValues?.exposure?.map((exp) => {
+          return {
+            updatedExposure: stake
+              ? exp?.isBettingOnThisRunner
+                ? formatNumber(exp?.exposure + total)
+                : formatNumber(exp?.exposure + -1 * stake)
+              : 0,
+            id: exp?.id,
+            isBettingOnThisRunner: exp?.isBettingOnThisRunner,
+            name: exp?.name,
+            exposure: exp?.exposure,
+          };
+        });
 
-          dispatch(setPredictOdd(currentExposure));
-        }
+        dispatch(setPredictOdd(currentExposure));
+        // }
       } else if (placeBetValues?.lay) {
         if (placeBetValues?.btype === "MATCH_ODDS") {
           total = -1 * (price * stake - stake);
@@ -100,22 +100,22 @@ const EventDetails = () => {
           total = -1 * (bookmaker * stake - stake);
         }
 
-        if (stake) {
-          const currentExposure = placeBetValues?.exposure?.map((exp) => {
-            return {
-              updatedExposure: stake
-                ? exp?.isBettingOnThisRunner
-                  ? formatNumber(exp?.exposure + total)
-                  : formatNumber(1 * exp?.exposure + 1 * stake)
-                : null,
-              id: exp?.id,
-              isBettingOnThisRunner: exp?.isBettingOnThisRunner,
-              name: exp?.name,
-              exposure: exp?.exposure,
-            };
-          });
-          dispatch(setPredictOdd(currentExposure));
-        }
+        // if (stake) {
+        const currentExposure = placeBetValues?.exposure?.map((exp) => {
+          return {
+            updatedExposure: stake
+              ? exp?.isBettingOnThisRunner
+                ? formatNumber(exp?.exposure + total)
+                : formatNumber(1 * exp?.exposure + 1 * stake)
+              : 0,
+            id: exp?.id,
+            isBettingOnThisRunner: exp?.isBettingOnThisRunner,
+            name: exp?.name,
+            exposure: exp?.exposure,
+          };
+        });
+        dispatch(setPredictOdd(currentExposure));
+        // }
       }
     }
   }, [price, stake, placeBetValues, dispatch]);

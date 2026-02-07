@@ -660,3 +660,8 @@ html * {
   font-size: 12px;
   opacity: 0.6;
 }
+
+.white-bg {
+  background: white;
+  color: black;
+}

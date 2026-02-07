@@ -191,6 +191,9 @@ const BetSlip = () => {
         (parseFloat(placeBetValues?.bottomValue) * parseFloat(stake)) /
         parseFloat(stake);
       setProfit(profit);
+    } else if (placeBetValues?.lay) {
+      const profit = (Number(price) - 1) * Number(stake);
+      setProfit(profit?.toFixed(2));
     }
   }, [price, stake, profit, placeBetValues, setProfit]);
 
@@ -214,14 +217,16 @@ const BetSlip = () => {
     }
   };
 
-  const selectedEvent = predictOdd?.find(
-    (odd) => odd?.id === placeBetValues?.selectionId,
-  );
+  // const selectedEvent = predictOdd?.find(
+  //   (odd) => odd?.id === placeBetValues?.selectionId,
+  // );
 
   const closeModal = () => {
-    dispatch(setPredictOdd([]));
-    dispatch(setPlaceBetValues(null));
-    dispatch(setStake(null));
+    if (!loading) {
+      dispatch(setPredictOdd([]));
+      dispatch(setPlaceBetValues(null));
+      dispatch(setStake(null));
+    }
   };
 
   useCloseModalClickOutside(ref, () => {
@@ -390,10 +395,10 @@ const BetSlip = () => {
                                 <span>Profit : {profit}</span>
                               ) : (
                                 <span>
-                                  Liability :{" "}
-                                  {placeBetValues?.btype === "FANCY"
+                                  Liability : {profit}
+                                  {/* {placeBetValues?.btype === "FANCY"
                                     ? profit
-                                    : selectedEvent?.exposure}
+                                    : selectedEvent?.exposure} */}
                                 </span>
                               )}
                             </h2>

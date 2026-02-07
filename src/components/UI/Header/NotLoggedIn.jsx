@@ -9,8 +9,12 @@ import images from "../../../assets/images";
 import { useLanguage } from "../../../context/LanguageProvider";
 import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import { useLocation, useNavigate } from "react-router-dom";
+import { IoDocumentText } from "react-icons/io5";
 
 const NotLoggedIn = ({ setShowLanguage }) => {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
   const { valueByLanguage } = useLanguage();
   const language = localStorage.getItem("language");
   const dispatch = useDispatch();
@@ -59,7 +63,7 @@ const NotLoggedIn = ({ setShowLanguage }) => {
         </button>
       )}
 
-      {Settings.language && (
+      {Settings.language && pathname !== "/passbook" && (
         <div
           onClick={() => setShowLanguage((prev) => !prev)}
           style={{
@@ -75,6 +79,24 @@ const NotLoggedIn = ({ setShowLanguage }) => {
         >
           <img style={{ height: "20px" }} src={images.globe} alt="" />
           <span> {language || "EN"}</span>
+        </div>
+      )}
+
+      {pathname === "/passbook" && (
+        <div
+          onClick={() => navigate("/profit-loss")}
+          style={{
+            position: "static",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "3px",
+            cursor: "pointer",
+          }}
+          className="notranslate selected-lang ng-star-inserted"
+        >
+          <IoDocumentText size={27} />
         </div>
       )}
     </div>

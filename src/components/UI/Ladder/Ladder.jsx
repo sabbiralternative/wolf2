@@ -1,8 +1,17 @@
-const Ladder = ({ marketName, ladderData }) => {
+import { useRef } from "react";
+import useCloseModalClickOutside from "../../../hooks/closeModal";
+
+const Ladder = ({ marketName, ladderData, setLadderData, setMarketName }) => {
+  const ref = useRef();
+  useCloseModalClickOutside(ref, () => {
+    setLadderData([]);
+    setMarketName("");
+  });
   return (
     <div
+      ref={ref}
       className="ladder-datawrap dropdown-content show"
-      style={{ bottom: "auto" }}
+      style={{ bottom: "auto", margin: "0px" }}
     >
       <p className="fancy-head"> {marketName}</p>
       <div className="ld-header">

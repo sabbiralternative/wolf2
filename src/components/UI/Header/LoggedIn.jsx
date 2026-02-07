@@ -4,8 +4,12 @@ import { useDispatch } from "react-redux";
 import { setShowDepositModal } from "../../../redux/features/global/globalSlice";
 import { Settings } from "../../../api";
 import images from "../../../assets/images";
+import { IoDocumentText } from "react-icons/io5";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const LoggedIn = ({ setShowLanguage }) => {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
   const language = localStorage.getItem("language");
   const dispatch = useDispatch();
   const { data } = useBalance();
@@ -67,7 +71,7 @@ const LoggedIn = ({ setShowLanguage }) => {
           <span className="mat-mdc-focus-indicator"></span>
           <span className="mat-mdc-button-touch-target"></span>
         </button>
-        {Settings.language && (
+        {Settings.language && pathname !== "/passbook" && (
           <div
             onClick={() => setShowLanguage((prev) => !prev)}
             style={{
@@ -83,6 +87,24 @@ const LoggedIn = ({ setShowLanguage }) => {
           >
             <img style={{ height: "20px" }} src={images.globe} alt="" />
             <span> {language || "EN"}</span>
+          </div>
+        )}
+
+        {pathname === "/passbook" && (
+          <div
+            onClick={() => navigate("/profit-loss")}
+            style={{
+              position: "static",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "3px",
+              cursor: "pointer",
+            }}
+            className="notranslate selected-lang ng-star-inserted"
+          >
+            <IoDocumentText size={27} />
           </div>
         )}
       </div>

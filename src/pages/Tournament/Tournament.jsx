@@ -33,26 +33,31 @@ const Tournament = () => {
                 key={item?.tournament_id}
                 className="market-card ng-star-inserted"
               >
-                <div className="img-wrap">
-                  <img
-                    alt="Overlay"
-                    className="overlay-img"
-                    src="https://ss.manage63.com/bmk-wl/commonAssets/frame.webp"
-                  />
-                  <img alt="" className="mkt-img" src={item?.event_icon} />
-                </div>
+                {item?.event_icon && (
+                  <div className="img-wrap">
+                    <img
+                      alt="Overlay"
+                      className="overlay-img"
+                      src="https://ss.manage63.com/bmk-wl/commonAssets/frame.webp"
+                    />
+                    <img alt="" className="mkt-img" src={item?.event_icon} />
+                  </div>
+                )}
+
                 <div className="event-title">
                   <h2>{item?.fixture_name}</h2>
                   <p className="ng-star-inserted">{item?.start_end_date}</p>
                 </div>
-                <div className="img-wrap ng-star-inserted">
-                  <img
-                    alt="Overlay"
-                    className="overlay-img"
-                    src="https://ss.manage63.com/bmk-wl/commonAssets/frame.webp"
-                  />
-                  <img alt="" className="mkt-img" src={item?.event_icon1} />
-                </div>
+                {item?.event_icon1 && (
+                  <div className="img-wrap ng-star-inserted">
+                    <img
+                      alt="Overlay"
+                      className="overlay-img"
+                      src="https://ss.manage63.com/bmk-wl/commonAssets/frame.webp"
+                    />
+                    <img alt="" className="mkt-img" src={item?.event_icon1} />
+                  </div>
+                )}
               </div>
             );
           })}
