@@ -15,6 +15,7 @@ import IndianCards from "../pages/IndianCards/IndianCards";
 import LiveCasino from "../pages/LiveCasino/LiveCasino";
 import Slots from "../pages/Slots/Slots";
 import CrashGames from "../pages/CrashGames/CarshGames";
+import InPlayPage from "../pages/InPlay/InPlay";
 
 export const router = createBrowserRouter(
   [
@@ -26,6 +27,10 @@ export const router = createBrowserRouter(
         {
           index: true,
           element: <Home />,
+        },
+        {
+          path: "/in-play",
+          element: <InPlayPage />,
         },
         {
           path: "/group/:name/:eventTypeId",

@@ -18,6 +18,10 @@ const Footer = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { pathname } = useLocation();
+
+  const handleNavigate = (link) => {
+    navigate(link);
+  };
   return (
     <Fragment>
       {showMyMarket && <MyMarket setShowMyMarket={setShowMyMarket} />}
@@ -53,7 +57,8 @@ const Footer = () => {
         <div>
           <div className="tab-navigation">
             <button
-              className="home mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base active-link"
+              onClick={() => handleNavigate("/")}
+              className={`home mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ${pathname === "/" ? "active-link" : ""} `}
               tabIndex={0}
             >
               <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
@@ -68,7 +73,8 @@ const Footer = () => {
               <span className="mat-mdc-button-touch-target" />
             </button>
             <button
-              className="market mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
+              onClick={() => handleNavigate("/in-play")}
+              className={`market mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ${pathname === "/in-play" ? "active-link" : ""}`}
               tabIndex={0}
             >
               <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
