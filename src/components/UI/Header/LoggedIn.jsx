@@ -13,7 +13,7 @@ const LoggedIn = ({ setShowLanguage }) => {
   return (
     <Fragment>
       <div className="loggedIn ng-star-inserted">
-        <div className="bal-cont">
+        {/* <div className="bal-cont">
           <div
             style={{ justifyContent: "space-between", paddingLeft: "0px" }}
             className="bal-amount show-bal ng-star-inserted"
@@ -27,6 +27,35 @@ const LoggedIn = ({ setShowLanguage }) => {
           >
             <p className="ng-star-inserted">Exp</p>
             <p className="ng-star-inserted">{data?.deductedExposure}</p>
+          </div>
+        </div> */}
+        <div
+          style={{
+            display: "flex",
+            fontSize: "10px",
+            gap: "0px 10px",
+            marginRight: "2px",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "end",
+            }}
+          >
+            <p style={{ color: "white" }}>{data?.availBalance}</p>
+            <p style={{ color: "white" }}>{data?.deductedExposure}</p>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "start",
+            }}
+          >
+            <p style={{ color: "white" }}>Bal</p>
+            <p style={{ color: "white" }}>Exp</p>
           </div>
         </div>
         <button

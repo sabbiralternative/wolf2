@@ -29,9 +29,10 @@ const Home = () => {
           style={{
             "--offset-top": "0px",
             "--offset-bottom": "0px",
+            height: "100%",
           }}
         >
-          <div className="pagetab-body">
+          <div className="pagetab-body" style={{ marginTop: "0px" }}>
             <div className="pagetab-content">
               {data?.banner?.length > 0 && (
                 <SliderImage bannerImage={data?.banner} />

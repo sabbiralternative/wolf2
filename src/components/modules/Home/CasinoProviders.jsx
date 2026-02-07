@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 
 const CasinoProviders = () => {
   return (
-    <div className="providers-section ng-star-inserted">
+    <div
+      className="providers-section ng-star-inserted"
+      style={{ marginTop: "5px" }}
+    >
       <div className="game-play-heading" tabIndex={0}>
         <h2>Casino Providers</h2>
         <Link to="/casino-providers" className="view-all-link">

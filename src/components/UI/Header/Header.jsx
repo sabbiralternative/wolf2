@@ -80,6 +80,7 @@ const Header = () => {
           zIndex: "9999",
           height: "100%",
           maxHeight: "fit-content",
+          boxShadow: "0 4px 10px #8080804d",
         }}
       >
         <div>
@@ -126,7 +127,11 @@ const Header = () => {
         </div>
         {!shouldHideHeader && (
           <div
-            style={{ position: "sticky", top: "0px", zIndex: 9999 }}
+            style={{
+              position: "sticky",
+              top: "0px",
+              zIndex: 9999,
+            }}
             className="ng-star-inserted"
           >
             <div className="pagetab-wrapper">

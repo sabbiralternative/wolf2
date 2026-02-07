@@ -16,6 +16,7 @@ import LiveCasino from "../pages/LiveCasino/LiveCasino";
 import Slots from "../pages/Slots/Slots";
 import CrashGames from "../pages/CrashGames/CarshGames";
 import InPlayPage from "../pages/InPlay/InPlay";
+import Offers from "../pages/Offers/Offers";
 
 export const router = createBrowserRouter(
   [
@@ -87,6 +88,10 @@ export const router = createBrowserRouter(
         {
           path: "/banking",
           element: <Banking />,
+        },
+        {
+          path: "/offers",
+          element: <Offers />,
         },
       ],
     },

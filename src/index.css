@@ -644,3 +644,19 @@ html * {
   column-gap: 10px;
   font-family: open_regular;
 }
+.page-body .offers-page-wrap {
+  overflow-y: auto;
+  height: 100%;
+}
+.no-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+.no-data p {
+  font-weight: 300;
+  font-size: 12px;
+  opacity: 0.6;
+}

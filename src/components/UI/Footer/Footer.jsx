@@ -87,7 +87,8 @@ const Footer = () => {
             </button>
             {!token ? (
               <button
-                className="offers mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted"
+                onClick={() => handleNavigate("/offers")}
+                className={`offers mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted ${pathname === "/offers" ? "active-link" : ""}`}
                 tabIndex={0}
               >
                 <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
