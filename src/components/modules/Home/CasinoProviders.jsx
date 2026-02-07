@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import { useGetIndex } from "../../../hooks";
 
 const CasinoProviders = () => {
+  const { data } = useGetIndex({
+    type: "wolf_casino_provider_homepage",
+  });
+
   return (
     <div
       className="providers-section ng-star-inserted"
@@ -22,127 +27,16 @@ const CasinoProviders = () => {
       </div>
       <div className="providers-list">
         <ul>
-          <li className="p-item ng-star-inserted">
-            <a className="provider-item">
-              <div className="p-logo">
-                <img
-                  alt="Evolution Gaming"
-                  src="https://ss.manage63.com/south247/livecasinolobbyimages/new-provider-icon-Evolution.png"
-                />
-              </div>
-              <p>Evolution Gaming</p>
-            </a>
-          </li>
-          <li className="p-item ng-star-inserted">
-            <a className="provider-item">
-              <div className="p-logo">
-                <img
-                  alt="JiLi Gaming"
-                  src="https://ss.manage63.com/south247/livecasinolobbyimages/jili.png"
-                />
-              </div>
-              <p>Jili Gaming</p>
-            </a>
-          </li>
-          <li className="p-item ng-star-inserted">
-            <a className="provider-item">
-              <div className="p-logo">
-                <img
-                  alt="Turbogames"
-                  src="https://ss.manage63.com/south247/livecasinolobbyimages/turbogames.png"
-                />
-              </div>
-              <p>Turbogames</p>
-            </a>
-          </li>
-          <li className="p-item ng-star-inserted">
-            <a className="provider-item">
-              <div className="p-logo">
-                <img
-                  alt="Ezugi"
-                  src="https://ss.manage63.com/south247/livecasinolobbyimages/Ezugi.png"
-                />
-              </div>
-              <p>Ezugi</p>
-            </a>
-          </li>
-          <li className="p-item ng-star-inserted">
-            <a className="provider-item">
-              <div className="p-logo">
-                <img
-                  alt="Smartsoft Gaming"
-                  src="https://ss.manage63.com/south247/livecasinolobbyimages/Smartsoft_Gaming.png"
-                />
-              </div>
-              <p>Smartsoft Gaming</p>
-            </a>
-          </li>
-          <li className="p-item ng-star-inserted">
-            <a className="provider-item">
-              <div className="p-logo">
-                <img
-                  alt="Playtech"
-                  src="https://ss.manage63.com/south247/livecasinolobbyimages/Playtech_Live.png"
-                />
-              </div>
-              <p>Playtech</p>
-            </a>
-          </li>
-          <li className="p-item ng-star-inserted">
-            <a className="provider-item">
-              <div className="p-logo">
-                <img
-                  alt="Vivo Gaming"
-                  src="https://ss.manage63.com/south247/livecasinolobbyimages/vivo.png"
-                />
-              </div>
-              <p>Vivo Gaming</p>
-            </a>
-          </li>
-          <li className="p-item ng-star-inserted">
-            <a className="provider-item">
-              <div className="p-logo">
-                <img
-                  alt="PGSoft"
-                  src="https://ss.manage63.com/south247/livecasinolobbyimages/new-pgsoft.png"
-                />
-              </div>
-              <p>Pgsoft</p>
-            </a>
-          </li>
-          <li className="p-item ng-star-inserted">
-            <a className="provider-item">
-              <div className="p-logo">
-                <img
-                  alt="SPRIBE"
-                  src="https://ss.manage63.com/south247/livecasinolobbyimages/Spribe.png"
-                />
-              </div>
-              <p>Spribe</p>
-            </a>
-          </li>
-          <li className="p-item ng-star-inserted">
-            <a className="provider-item">
-              <div className="p-logo">
-                <img
-                  alt="B Gaming"
-                  src="https://ss.manage63.com/south247/livecasinolobbyimages/new-provider-icon-BGaming.png"
-                />
-              </div>
-              <p>B Gaming</p>
-            </a>
-          </li>
-          <li className="p-item ng-star-inserted">
-            <a className="provider-item">
-              <div className="p-logo">
-                <img
-                  alt="Betsoft"
-                  src="https://ss.manage63.com/south247/livecasinolobbyimages/Betsoft.png"
-                />
-              </div>
-              <p>Betsoft</p>
-            </a>
-          </li>
+          {data?.result?.data?.map((item) => (
+            <li key={item?.product} className="p-item ng-star-inserted">
+              <a className="provider-item">
+                <div className="p-logo">
+                  <img alt="Evolution Gaming" src={item?.img} />
+                </div>
+                <p>{item?.product}</p>
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
