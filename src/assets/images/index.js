@@ -27,8 +27,10 @@ import bowlingIcon from "../img/bowling-icon.svg";
 import india from "../img/India.svg";
 import ladder from "../img/ladder.svg";
 import info from "../img/info-icon-svgrepo-com.svg";
+import frame from "../img/frame.webp";
 
 export default {
+  frame,
   info,
   ladder,
   battingIcon,

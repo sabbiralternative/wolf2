@@ -2,15 +2,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { setShowLoginModal } from "../../redux/features/global/globalSlice";
 import { useLotusHomeLobby } from "../../hooks/lotusHomeLobby";
-import { IoIosArrowBack } from "react-icons/io";
 
 const GameProvider = () => {
-  const { game_name } = useParams();
+  const { game_name, game_id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { token } = useSelector((state) => state.auth);
   const { data } = useLotusHomeLobby({
     provider: game_name,
+  });
+  const { data: allProviders } = useLotusHomeLobby({
+    theme: "wolf",
   });
 
   if (!data) {
@@ -25,27 +27,20 @@ const GameProvider = () => {
     }
   };
 
+  const clickedProvider = allProviders?.casinoProviders?.find(
+    (item) => item?.game_name === game_name && item?.game_id === game_id,
+  );
+
   return (
     <div className="page-body">
       <div className="providers-section ng-star-inserted">
         <div className="providers-list">
-          <ul className="sRowScroll">
-            <li className="p-item lobby-item">
-              <div
-                style={{
-                  minWidth: "300px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0px 20px",
-                }}
-              >
-                <a onClick={() => navigate(-1)}>
-                  <IoIosArrowBack size={20} color="var(--highlight-color)" />
-                </a>
-                <p>Casino / {game_name}</p>
-              </div>
-            </li>
-          </ul>
+          <div className="provider-title ng-star-inserted">
+            <div className="p-logo">
+              <img alt={game_name} src={clickedProvider?.icon} />
+            </div>
+            <p>{game_name}</p>
+          </div>
         </div>
       </div>
       <div

@@ -17,6 +17,7 @@ const CasinoProviders = () => {
       dispatch(setShowLoginModal(true));
     }
   };
+
   return (
     <div
       className="providers-section ng-star-inserted"
@@ -46,8 +47,8 @@ const CasinoProviders = () => {
                 }
                 className="provider-item"
               >
-                <div className="p-logo" style={{ width: "35px" }}>
-                  <img alt="Evolution Gaming" src={item?.url_thumb} />
+                <div className="p-logo">
+                  <img alt="Evolution Gaming" src={item?.icon} />
                 </div>
                 <p>{item?.game_name}</p>
               </a>

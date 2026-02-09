@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLotusHomeLobby } from "../../hooks/lotusHomeLobby";
 import { useNavigate } from "react-router-dom";
 import { setShowLoginModal } from "../../redux/features/global/globalSlice";
+import images from "../../assets/images";
 
 const CasinoProviders = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const CasinoProviders = () => {
         className="ion-content md content-ltr hydrated"
         style={{ "--offset-top": "0px", "--offset-bottom": "0px" }}
       >
-        <div className="pagetab-body">
+        <div className="pagetab-body" style={{ padding: "15px 0px" }}>
           <div className="pagetab-content">
             <div className="game-play-heading">
               <h2>Casino Providers</h2>
@@ -43,9 +44,9 @@ const CasinoProviders = () => {
                         <img
                           alt="Overlay"
                           className="overlay-img"
-                          src="https://ss.manage63.com/bmk-wl/commonAssets/frame.webp"
+                          src={images.frame}
                         />
-                        <img alt={item?.game_name} src={item?.url_thumb} />
+                        <img alt={item?.game_name} src={item?.icon} />
                       </div>
                       <p>{item?.game_name}</p>
                     </a>
