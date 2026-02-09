@@ -21307,7 +21307,7 @@ button.btn {
 .page-body .passbook-page-wrap .passbook-tabs-group .mat-tab-header {
   background: var(--primary-color-shade);
   position: sticky;
-  top: 44px;
+  top: 36px;
   z-index: 1000;
   text-transform: uppercase;
   font-size: 10px;

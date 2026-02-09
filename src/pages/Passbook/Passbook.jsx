@@ -2,7 +2,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Notification from "../../components/UI/Notification/Notification";
 import { passbookTabs } from "../../static/passbook-tab";
 import DepositWithdrawReport from "../../components/modules/Passbook/DepositWithdrawReport";
-import LatestEvent from "../../components/UI/Header/LatestEvent";
 
 const Passbook = () => {
   const navigate = useNavigate();
@@ -45,7 +44,6 @@ const Passbook = () => {
               </div>
               <Notification />
             </div>{" "}
-            <LatestEvent />
           </div>
           <div
             className="mat-mdc-tab-group passbook-tabs-group mat-primary mat-mdc-tab-group-stretch-tabs"
