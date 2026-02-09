@@ -1,11 +1,22 @@
-import { Link } from "react-router-dom";
-import { useGetIndex } from "../../../hooks";
+import { Link, useNavigate } from "react-router-dom";
+import { useLotusHomeLobby } from "../../../hooks/lotusHomeLobby";
+import { useDispatch, useSelector } from "react-redux";
+import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 
 const CasinoProviders = () => {
-  const { data } = useGetIndex({
-    type: "wolf_casino_provider_homepage",
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { token } = useSelector((state) => state.auth);
+  const { data } = useLotusHomeLobby({
+    theme: "wolf",
   });
-
+  const handleNavigateToIFrame = (code, name) => {
+    if (token) {
+      navigate(`/casino/${name.replace(/ /g, "")}/${code}`);
+    } else {
+      dispatch(setShowLoginModal(true));
+    }
+  };
   return (
     <div
       className="providers-section ng-star-inserted"
@@ -27,13 +38,18 @@ const CasinoProviders = () => {
       </div>
       <div className="providers-list">
         <ul>
-          {data?.result?.data?.map((item) => (
+          {data?.casinoProviders?.slice(0, 10)?.map((item) => (
             <li key={item?.product} className="p-item ng-star-inserted">
-              <a className="provider-item">
-                <div className="p-logo">
-                  <img alt="Evolution Gaming" src={item?.img} />
+              <a
+                onClick={() =>
+                  handleNavigateToIFrame(item?.game_id, item?.game_name)
+                }
+                className="provider-item"
+              >
+                <div className="p-logo" style={{ width: "35px" }}>
+                  <img alt="Evolution Gaming" src={item?.url_thumb} />
                 </div>
-                <p>{item?.product}</p>
+                <p>{item?.game_name}</p>
               </a>
             </li>
           ))}

@@ -1,10 +1,22 @@
-import { useGetIndex } from "../../hooks";
+import { useDispatch, useSelector } from "react-redux";
+import { useLotusHomeLobby } from "../../hooks/lotusHomeLobby";
+import { useNavigate } from "react-router-dom";
+import { setShowLoginModal } from "../../redux/features/global/globalSlice";
 
 const CasinoProviders = () => {
-  const { data } = useGetIndex({
-    type: "wolf_casino_provider",
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { token } = useSelector((state) => state.auth);
+  const { data } = useLotusHomeLobby({
+    theme: "wolf",
   });
-
+  const handleNavigateToIFrame = (code, name) => {
+    if (token) {
+      navigate(`/casino/${name.replace(/ /g, "")}/${code}`);
+    } else {
+      dispatch(setShowLoginModal(true));
+    }
+  };
   return (
     <div className="page-body">
       <div
@@ -19,18 +31,23 @@ const CasinoProviders = () => {
             </div>
             <div className="providers-list ng-star-inserted">
               <ul>
-                {data?.result?.data?.map((item) => (
+                {data?.casinoProviders?.map((item) => (
                   <li key={item?.product} className="p-item ng-star-inserted">
-                    <a className="provider-item">
+                    <a
+                      onClick={() =>
+                        handleNavigateToIFrame(item?.game_id, item?.game_name)
+                      }
+                      className="provider-item"
+                    >
                       <div className="p-logo">
                         <img
                           alt="Overlay"
                           className="overlay-img"
                           src="https://ss.manage63.com/bmk-wl/commonAssets/frame.webp"
                         />
-                        <img alt={item?.product} src={item?.img} />
+                        <img alt={item?.game_name} src={item?.url_thumb} />
                       </div>
-                      <p>{item?.product}</p>
+                      <p>{item?.game_name}</p>
                     </a>
                   </li>
                 ))}

@@ -16,22 +16,30 @@ const Tab = ({ type, groupedData }) => {
       Object.entries(groupedData.inPlay).length === 0 &&
       Object.entries(groupedData.today).length > 0
     ) {
-      navigate("/group/cricket/4?type=today");
+      navigate(`/group/${name}/${eventTypeId}?type=today`);
     }
 
     if (
       Object.entries(groupedData.inPlay).length === 0 &&
       Object.entries(groupedData.today).length === 0
     ) {
-      navigate("/group/cricket/4?type=upcoming");
+      navigate(`/group/${name}/${eventTypeId}?type=upcoming`);
     }
-  }, [groupedData, navigate]);
+
+    if (
+      Object.entries(groupedData.inPlay).length === 0 &&
+      Object.entries(groupedData.today).length === 0 &&
+      Object.entries(groupedData.upcoming).length > 0
+    ) {
+      navigate(`/group/${name}/${eventTypeId}?type=upcoming`);
+    }
+  }, [groupedData, navigate, eventTypeId, name]);
 
   return (
     <div
       className="mat-mdc-tab-header"
       style={{
-        top: "12px",
+        top: "0px",
         background: "var(--primary-color)",
       }}
     >
