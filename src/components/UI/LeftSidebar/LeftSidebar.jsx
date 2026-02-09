@@ -11,8 +11,11 @@ import ModalWrapper from "../../modals/ModalWrapper/ModalWrapper";
 import { useLocation, useNavigate } from "react-router-dom";
 import SocialLinks from "../../modules/Home/SocialLinks";
 import { Settings } from "../../../api";
+import { useLogo } from "../../../context/ApiProvider";
 
 const LeftSidebar = ({ children }) => {
+  const { logo } = useLogo();
+
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { user, token } = useSelector((state) => state.auth);
@@ -91,7 +94,7 @@ const LeftSidebar = ({ children }) => {
                   <div className="img-wrap">
                     <img
                       alt="logo"
-                      src="https://ss.manage63.com/bmk-wl/wl/wolf365/img/logo.svg"
+                      src={logo}
                       className="ng-star-inserted"
                       style={{}}
                     />
