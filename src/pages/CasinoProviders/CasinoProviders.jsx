@@ -12,7 +12,7 @@ const CasinoProviders = () => {
   });
   const handleNavigateToIFrame = (code, name) => {
     if (token) {
-      navigate(`/casino/${name.replace(/ /g, "")}/${code}`);
+      navigate(`/game-provider/${name}/${code}`);
     } else {
       dispatch(setShowLoginModal(true));
     }

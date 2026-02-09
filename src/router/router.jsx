@@ -20,6 +20,7 @@ import Offers from "../pages/Offers/Offers";
 import Notification from "../pages/Notification/Notification";
 import Passbook from "../pages/Passbook/Passbook";
 import ProfitLoss from "../pages/ProfitLoss/ProfitLoss";
+import GameProvider from "../pages/GameProvider/GameProvider";
 
 export const router = createBrowserRouter(
   [
@@ -107,6 +108,10 @@ export const router = createBrowserRouter(
         {
           path: "/profit-loss",
           element: <ProfitLoss />,
+        },
+        {
+          path: "/game-provider/:game_name/:game_id",
+          element: <GameProvider />,
         },
       ],
     },
