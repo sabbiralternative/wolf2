@@ -10,6 +10,7 @@ const CasinoProviders = () => {
   const { token } = useSelector((state) => state.auth);
   const { data } = useLotusHomeLobby({
     theme: "wolf",
+    home: false,
   });
   const handleNavigateToIFrame = (code, name) => {
     if (token) {
