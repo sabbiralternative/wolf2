@@ -222,7 +222,7 @@ const MatchOdds = ({ data, order }) => {
   return (
     <Fragment>
       {data?.length > 0 &&
-        data?.map((game) => {
+        data?.map((game, i) => {
           const teamProfitForGame = teamProfit?.find(
             (profit) =>
               profit?.gameId === game?.id && profit?.isOnePositiveExposure,
@@ -231,7 +231,7 @@ const MatchOdds = ({ data, order }) => {
             (profit) => profit?.gameId === game?.id && profit?.speedCashOut,
           );
           return (
-            <div key={game?.id} className={`f-order-${order} ng-star-inserted`}>
+            <div key={i} className={`f-order-${order} ng-star-inserted`}>
               <div className="ng-star-inserted">
                 <div className="ng-star-inserted">
                   <div className="bookmaker-card card-outer" id="YBJVTEX">

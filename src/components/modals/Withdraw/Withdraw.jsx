@@ -138,6 +138,12 @@ const Withdraw = ({ setShowWithdrawModal }) => {
                                 Preferred Bank
                                 <div>
                                   <select
+                                    style={{
+                                      padding: "4px 8px",
+                                      borderRadius: "10px",
+                                      border: "1px solid #000",
+                                      fontSize: "10px",
+                                    }}
                                     onChange={(e) => setBankId(e.target.value)}
                                     name=""
                                     id=""
