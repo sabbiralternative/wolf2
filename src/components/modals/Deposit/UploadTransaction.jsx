@@ -121,6 +121,15 @@ const UploadTransaction = ({ paymentId, amount, methodType, methodTitle }) => {
     const value = e.target.value;
     setUtr(value);
   };
+
+  const handlePasteClick = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      setUtr(text);
+    } catch (err) {
+      console.error("Clipboard permission denied", err);
+    }
+  };
   return (
     <div className="upload-screenshot-wrap ng-star-inserted">
       <div className="screenshot-wrapper">
@@ -249,7 +258,10 @@ const UploadTransaction = ({ paymentId, amount, methodType, methodTitle }) => {
               className="ng-untouched ng-pristine ng-valid"
               value={utr !== null ? utr : null}
             />
-            <span className="paste-icon ng-star-inserted">
+            <span
+              onClick={handlePasteClick}
+              className="paste-icon ng-star-inserted"
+            >
               <GrCopy style={{ marginRight: "5px" }} /> Paste
             </span>
           </div>

@@ -86,7 +86,11 @@ const DepositReport = () => {
       )}
       {data?.result?.map((item, index) => {
         return (
-          <div key={index} className="transaction-item ng-star-inserted">
+          <div
+            onClick={() => handleToggleVisible(index + 1)}
+            key={index}
+            className="transaction-item ng-star-inserted"
+          >
             <div className="wrapper">
               <ul>
                 <li>
@@ -106,7 +110,6 @@ const DepositReport = () => {
               </ul>
               {accordion === index + 1 ? (
                 <div
-                  onClick={() => handleToggleVisible(index + 1)}
                   role="img"
                   className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color ng-star-inserted"
                   aria-hidden="true"
@@ -117,7 +120,6 @@ const DepositReport = () => {
                 </div>
               ) : (
                 <div
-                  onClick={() => handleToggleVisible(index + 1)}
                   role="img"
                   className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color ng-star-inserted"
                   aria-hidden="true"

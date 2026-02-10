@@ -1,5 +1,4 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import Notification from "../../components/UI/Notification/Notification";
 import { passbookTabs } from "../../static/passbook-tab";
 import DepositWithdrawReport from "../../components/modules/Passbook/DepositWithdrawReport";
 
@@ -13,38 +12,6 @@ const Passbook = () => {
     <div className="page-body">
       <div className="pagetab-content">
         <div className="passbook-page-wrap">
-          <div className="ng-star-inserted">
-            <div className="forSearchBar-internal">
-              <div className="ng-star-inserted">
-                <div className="search-wrapper">
-                  <div className="search-field">
-                    <div
-                      role="img"
-                      className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
-                      aria-hidden="true"
-                      data-mat-icon-type="font"
-                    >
-                      search
-                    </div>
-                    <input
-                      type="text"
-                      placeholder="Search Matches / Casino Games"
-                      className="ng-untouched ng-pristine ng-valid"
-                    />
-                  </div>
-                  <div
-                    role="img"
-                    className="mat-icon notranslate material-icons search-btn mat-ligature-font mat-icon-no-color"
-                    aria-hidden="true"
-                    data-mat-icon-type="font"
-                  >
-                    search
-                  </div>
-                </div>
-              </div>
-              <Notification />
-            </div>{" "}
-          </div>
           <div
             className="mat-mdc-tab-group passbook-tabs-group mat-primary mat-mdc-tab-group-stretch-tabs"
             style={{ "--mat-tab-animation-duration": "0ms" }}
