@@ -190,7 +190,7 @@ const ProfitLoss = () => {
             <div className="header-wrap">
               <ul className="tbl-head">
                 <li>Date</li>
-                <li>Member Commission</li>
+
                 <li>Member Win</li>
                 <li>Balance</li>
                 <li style={{ background: "var(--grey-50)" }}>Remark</li>
@@ -202,13 +202,8 @@ const ProfitLoss = () => {
                   <ul key={index} className="ng-star-inserted">
                     <li>
                       <span>{item?.settledTime}</span>
-                      <span>01:47:33</span>
                     </li>
-                    <li
-                      className={`${item?.memberComm > 0 ? "success-text" : "danger-text"}`}
-                    >
-                      {item?.memberComm}
-                    </li>
+
                     <li
                       className={`${item?.memberWin > 0 ? "success-text" : "danger-text"}`}
                     >
