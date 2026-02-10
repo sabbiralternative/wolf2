@@ -54,13 +54,29 @@ const Group = () => {
   };
 
   const formatDate = (dateString) => {
-    const dateTime = moment(dateString, "DD/MM/YYYY HH:mm");
+    const matchTime = moment(dateString, "DD/MM/YYYY HH:mm");
     const now = moment();
-    if (dateTime.isBefore(now)) {
-      return `Started at ${dateTime.format("h:mma")} IST`;
+
+    // already started
+    if (matchTime.isBefore(now)) {
+      return `Started at ${matchTime.format("h:mma")} IST`;
     }
+
+    const diffMinutes = matchTime.diff(now, "minutes");
+
+    // starts within next 60 minutes
+    if (diffMinutes <= 60) {
+      return `Starts in ${diffMinutes} mins`;
+    }
+
+    // starts later today
+    if (matchTime.isSame(now, "day")) {
+      return `Starts at ${matchTime.format("h:mma")} IST`;
+    }
+
     return dateString;
   };
+
   return (
     <div className="page-body">
       <div className="inplay-page-wrap ng-star-inserted">
