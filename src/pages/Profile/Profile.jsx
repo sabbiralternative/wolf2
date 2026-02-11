@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import useBalance from "../../hooks/balance";
 import {
+  setShowChangePasswordModal,
   setShowDepositModal,
   setShowLoginWarning,
 } from "../../redux/features/global/globalSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { Fragment, useState } from "react";
-import ChangePassword from "../../components/modals/ChangePassword/ChangePassword";
 import Withdraw from "../../components/modals/Withdraw/Withdraw";
 import images from "../../assets/images";
 import Notification from "../../components/UI/Notification/Notification";
@@ -18,11 +18,11 @@ import { Settings } from "../../api";
 const Profile = () => {
   const navigate = useNavigate();
   const { valueByLanguage } = useLanguage();
-  const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
   const [showWithdrawModal, setShowWithdrawModal] = useState(false);
 
   const dispatch = useDispatch();
   const { user, token } = useSelector((state) => state.auth);
+
   const { data: balance } = useBalance();
 
   const handleNavigateSocialLink = (link) => {
@@ -34,11 +34,6 @@ const Profile = () => {
 
   return (
     <Fragment>
-      {showChangePasswordModal && (
-        <ChangePassword
-          setShowChangePasswordModal={setShowChangePasswordModal}
-        />
-      )}
       {showWithdrawModal && (
         <Withdraw setShowWithdrawModal={setShowWithdrawModal} />
       )}
@@ -86,7 +81,7 @@ const Profile = () => {
               </div>
               <div className="actions-wrap">
                 <button
-                  onClick={() => setShowChangePasswordModal(true)}
+                  onClick={() => dispatch(setShowChangePasswordModal(true))}
                   className="chng-psw-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted"
                 >
                   <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />

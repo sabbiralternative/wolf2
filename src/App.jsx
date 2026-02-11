@@ -5,7 +5,10 @@ import { Settings } from "./api";
 import { useDispatch, useSelector } from "react-redux";
 import disableDevtool from "disable-devtool";
 import { logout } from "./redux/features/auth/authSlice";
-import { setWindowWidth } from "./redux/features/global/globalSlice";
+import {
+  setShowChangePasswordModal,
+  setWindowWidth,
+} from "./redux/features/global/globalSlice";
 import { useSettingsMutation } from "./hooks/settings";
 
 function App() {
@@ -47,9 +50,9 @@ function App() {
   useEffect(() => {
     const changePassword = localStorage.getItem("changePassword");
     if (changePassword) {
-      navigate("/change-password");
+      dispatch(setShowChangePasswordModal(true));
     }
-  }, [location.pathname, navigate]);
+  }, [location.pathname, navigate, dispatch]);
 
   useEffect(() => {
     if (Settings?.pixel) {

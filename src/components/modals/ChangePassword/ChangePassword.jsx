@@ -3,8 +3,11 @@ import { useChangePasswordMutation } from "../../../redux/features/auth/authApi"
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
+import { useDispatch } from "react-redux";
+import { setShowChangePasswordModal } from "../../../redux/features/global/globalSlice";
 
-const ChangePassword = ({ setShowChangePasswordModal }) => {
+const ChangePassword = () => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [showNewPass, setShowNewPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
@@ -12,7 +15,7 @@ const ChangePassword = ({ setShowChangePasswordModal }) => {
   const { register, handleSubmit } = useForm();
 
   const closeModal = () => {
-    setShowChangePasswordModal(false);
+    dispatch(setShowChangePasswordModal(false));
   };
 
   const onSubmit = async ({ password, newPassword, newPasswordConfirm }) => {
@@ -65,7 +68,7 @@ const ChangePassword = ({ setShowChangePasswordModal }) => {
           >
             <div className="mdc-dialog__container">
               <div className="mat-mdc-dialog-surface mdc-dialog__surface">
-                <ModalWrapper setModal={setShowChangePasswordModal}>
+                <ModalWrapper setModal={setShowChangePasswordModal} redux>
                   <div className="ng-star-inserted">
                     <div className="change-password-modal">
                       <div className="modal-header">

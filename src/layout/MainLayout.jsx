@@ -16,6 +16,7 @@ import AddBankAccount from "../components/modals/AddBankAccount/AddBankAccount";
 import Referral from "../components/modals/Referral/Referral";
 import LoginWarning from "../components/modals/LoginWarning/LoginWarning";
 import Help from "../components/modals/Help/Help";
+import ChangePassword from "../components/modals/ChangePassword/ChangePassword";
 
 const MainLayout = () => {
   const { pathname } = useLocation();
@@ -30,6 +31,7 @@ const MainLayout = () => {
     showReferralModal,
     showLoginWarning,
     showHelpModal,
+    showChangePasswordModal,
   } = useSelector((state) => state.global);
 
   const shouldHideHeader = removeHeaderPaths.some((path) =>
@@ -48,6 +50,7 @@ const MainLayout = () => {
       {showReferralModal && <Referral />}
       {showLoginWarning && <LoginWarning />}
       {showHelpModal && <Help />}
+      {showChangePasswordModal && <ChangePassword />}
 
       <LeftSidebar>
         <Header />

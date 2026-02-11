@@ -1,6 +1,5 @@
 import { HiArrowNarrowDown } from "react-icons/hi";
 import { GrAndroid } from "react-icons/gr";
-import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { useLoginMutation } from "../../../redux/features/auth/authApi";
@@ -8,6 +7,7 @@ import { useLogo } from "../../../context/ApiProvider";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
 import {
   setShowBanner,
+  setShowChangePasswordModal,
   setShowForgotPasswordModal,
   setShowLoginModal,
 } from "../../../redux/features/global/globalSlice";
@@ -17,7 +17,6 @@ import { setUser } from "../../../redux/features/auth/authSlice";
 import toast from "react-hot-toast";
 const Login = () => {
   const closePopupForForever = localStorage.getItem("closePopupForForever");
-  const navigate = useNavigate();
   const { logo } = useLogo();
   const dispatch = useDispatch();
   const [handleLogin] = useLoginMutation();
@@ -56,7 +55,7 @@ const Login = () => {
       if (result?.result?.changePassword) {
         dispatch(setShowLoginModal(false));
         localStorage.setItem("changePassword", true);
-        navigate("/change-password");
+        dispatch(setShowChangePasswordModal(true));
       }
       if (!result?.result?.changePassword && token && user) {
         dispatch(setShowLoginModal(false));

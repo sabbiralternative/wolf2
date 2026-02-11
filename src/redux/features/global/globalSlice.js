@@ -4,6 +4,7 @@ const initialState = {
   group: 0,
   addBank: false,
   showLoginModal: false,
+  showChangePasswordModal: false,
   showRegisterModal: false,
   showForgotPasswordModal: false,
   selectedCategory: "ALL",
@@ -33,6 +34,9 @@ const stateSlice = createSlice({
     },
     setShowLoginModal: (state, action) => {
       state.showLoginModal = action.payload;
+    },
+    setShowChangePasswordModal: (state, action) => {
+      state.showChangePasswordModal = action.payload;
     },
     setShowRegisterModal: (state, action) => {
       state.showRegisterModal = action.payload;
@@ -101,6 +105,7 @@ export const {
   setShowReferralModal,
   setShowLoginWarning,
   setShowHelpModal,
+  setShowChangePasswordModal,
 } = stateSlice.actions;
 
 export default stateSlice.reducer;
