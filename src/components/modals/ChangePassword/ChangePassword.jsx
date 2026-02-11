@@ -147,7 +147,6 @@ const ChangePassword = () => {
                                 autoComplete="new-password"
                                 placeholder="Confirm New password"
                                 className="mat-mdc-input-element otp-field ng-pristine ng-invalid cdk-text-field-autofill-monitored ng-touched"
-                                maxLength={6}
                                 id="mat-input-0"
                                 required
                                 aria-required="true"
