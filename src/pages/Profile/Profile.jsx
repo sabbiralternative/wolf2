@@ -172,7 +172,7 @@ const Profile = () => {
             </li>
             <li className="smenu-item">
               <a
-                onClick={() => handleNavigateByCheckLogin("/account-statement")}
+                onClick={() => handleNavigateByCheckLogin("/profit-loss")}
                 className="smenu-link"
               >
                 <div className="label-wrap">
@@ -181,6 +181,22 @@ const Profile = () => {
                     src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav__ac_statement.svg"
                   />
                   <span>Account Statement</span>
+                </div>
+              </a>
+            </li>
+            <li className="smenu-item">
+              <a
+                onClick={() =>
+                  handleNavigateByCheckLogin("/passbook?tab=transaction")
+                }
+                className="smenu-link"
+              >
+                <div className="label-wrap">
+                  <img
+                    alt="Menu Icon"
+                    src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav__ac_statement.svg"
+                  />
+                  <span>Deposit/Withdraw Report</span>
                 </div>
               </a>
             </li>
@@ -226,7 +242,7 @@ const Profile = () => {
                 </div>
               </a>
             </li>
-            <li className="smenu-item ng-star-inserted">
+            {/* <li className="smenu-item ng-star-inserted">
               <a
                 onClick={() => handleNavigateByCheckLogin("/bonus")}
                 className="smenu-link"
@@ -239,7 +255,7 @@ const Profile = () => {
                   <span>Bonus</span>
                 </div>
               </a>
-            </li>
+            </li> */}
           </ul>
           {(Settings?.instagramLink ||
             Settings?.telegramLink ||

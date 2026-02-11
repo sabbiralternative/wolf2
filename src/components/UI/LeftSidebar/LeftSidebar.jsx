@@ -226,9 +226,7 @@ const LeftSidebar = ({ children }) => {
 
                   <li className="smenu-item">
                     <a
-                      onClick={() =>
-                        handleNavigateByCheckLogin("/account-statement")
-                      }
+                      onClick={() => handleNavigateByCheckLogin("/profit-loss")}
                       className="smenu-link"
                     >
                       <img
@@ -236,6 +234,20 @@ const LeftSidebar = ({ children }) => {
                         src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav__ac_statement.svg"
                       />
                       <span>Account Statement</span>
+                    </a>
+                  </li>
+                  <li className="smenu-item">
+                    <a
+                      onClick={() =>
+                        handleNavigateByCheckLogin("/passbook?tab=transaction")
+                      }
+                      className="smenu-link"
+                    >
+                      <img
+                        alt="Menu Icon"
+                        src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav__ac_statement.svg"
+                      />
+                      <span>Deposit/Withdraw Report</span>
                     </a>
                   </li>
                   <li className="smenu-item">
