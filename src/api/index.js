@@ -67,7 +67,7 @@ export const Settings = {
   paymentIntent: "",
   otp: "",
   casino: "",
-  site: "",
+  siteTitle: "",
   forceLogin: "",
   registration: "",
   demoLogin: "",

@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { getSetApis } from "../api/config";
-import { API, Settings } from "../api";
+import { Settings } from "../api";
 import notice from "../../notice.json";
 
 export const ApiContext = createContext(null);
@@ -21,37 +21,7 @@ const ApiProvider = ({ children }) => {
 
   useEffect(() => {
     if (noticeLoaded) {
-      /* Dynamically append  theme css  */
-      if (Settings.build === "production") {
-        const logo = `${API.assets}/${Settings.siteUrl}/logo.${Settings.logoFormat}`;
-        setLogo(logo);
-      } else {
-        setLogo(`/src/assets/img/logo.${Settings.logoFormat}`);
-      }
-
-      const link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.type = "text/css";
-
-      if (Settings.build === "production") {
-        link.href = `${API.assets}/${Settings.siteUrl}/theme.css`;
-        document.head.appendChild(link);
-      } else {
-        link.href = `/src/assets/css/theme.css`;
-        document.head.appendChild(link);
-      }
-      /* Dynamically append site logo  */
-      const FavIconLink = document.createElement("link");
-      FavIconLink.rel = "icon";
-      FavIconLink.type = "image/png";
-      FavIconLink.href = `${API.assets}/${Settings.siteUrl}/favicon.png`;
-      document.head.appendChild(FavIconLink);
-
-      document.title = Settings.site;
-
-      return () => {
-        document.head.removeChild(link);
-      };
+      document.title = Settings.siteTitle;
     }
   }, [noticeLoaded]);
 
@@ -59,7 +29,7 @@ const ApiProvider = ({ children }) => {
     return;
   }
 
-  const stateInfo = { logo };
+  const stateInfo = { logo, setLogo };
   return (
     <ApiContext.Provider value={stateInfo}>{children}</ApiContext.Provider>
   );
