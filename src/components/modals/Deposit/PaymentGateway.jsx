@@ -130,23 +130,25 @@ const DepositPaymentGateway = ({
                         <h2>{method?.title}</h2>
                       </div>
                       <div className="img-wrap">
-                        <img
-                          alt="icon"
-                          className="pay-icon"
-                          src={`/src/assets/img/${method?.type}.png`}
-                        />
+                        {
+                          <img
+                            alt="icon"
+                            className="pay-icon"
+                            src={`/assets/${method?.type}.png`}
+                          />
+                        }
                       </div>
                     </div>
                   );
                 })}
           </div>
         </div>
-        <div className="modal-footer ng-star-inserted">
+        {/* <div className="modal-footer ng-star-inserted">
           <p className="ng-star-inserted">
             Payment Gateway Unapproved Payments?{" "}
             <span className="link-text">Click here</span>
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   );
