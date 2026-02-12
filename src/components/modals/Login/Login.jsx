@@ -114,7 +114,7 @@ const Login = () => {
 
   const handleDownload = (e) => {
     e.preventDefault();
-    const fileUrl = Settings.apkLink;
+    const fileUrl = Settings.apk_link;
     const link = document.createElement("a");
     link.href = fileUrl;
     link.setAttribute("download", "site.apk");

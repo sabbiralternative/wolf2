@@ -62,6 +62,8 @@ export const API = {
 };
 
 export const Settings = {
+  apk_link: "",
+  maintenance_message: "",
   paymentIntent: "",
   otp: "",
   casino: "",
@@ -79,7 +81,7 @@ export const Settings = {
   logoFormat: "",
   logoHeight: "",
   logoWidth: "",
-  apkLink: "",
+
   betFairCashOut: "",
   registrationWhatsapp: "",
   build: "",

@@ -10,6 +10,7 @@ import {
   setWindowWidth,
 } from "./redux/features/global/globalSlice";
 import { useSettingsMutation } from "./hooks/settings";
+import MaintenanceMessage from "./components/UI/MaintenanceMessage/MaintenanceMessage";
 
 function App() {
   const { token } = useSelector((state) => state.auth);
@@ -98,6 +99,10 @@ function App() {
   useEffect(() => {
     mutate();
   }, [token, mutate]);
+
+  if (Settings.maintenance_message) {
+    return <MaintenanceMessage />;
+  }
 
   return <MainLayout />;
 }
