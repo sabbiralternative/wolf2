@@ -1,6 +1,5 @@
 import { GrCopy } from "react-icons/gr";
 import { handleCopyToClipBoard } from "../../../utils/handleCopyToClipBoard";
-import images from "../../../assets/images";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setShowDepositModal } from "../../../redux/features/global/globalSlice";
@@ -32,9 +31,9 @@ const UPIDetails = ({ data }) => {
       <div className="card-title">
         <h4>
           <div className="img-wrap bank-img">
-            <img src={images.bankTransfer} />
+            <img style={{ height: "30px" }} src="/assets/upi.png" />
           </div>{" "}
-          Bank Details
+          UPI
         </h4>
         <div className="timerWrap">
           <span className="timer">
@@ -66,11 +65,11 @@ const UPIDetails = ({ data }) => {
       </div>
       <ul>
         <li>
-          <label>Bank Name</label>
+          <label>Display Name</label>
           <p>
-            {data?.bankName}
+            {data?.upiAccountName}
             <a
-              onClick={() => handleCopyToClipBoard(data?.bankName)}
+              onClick={() => handleCopyToClipBoard(data?.upiAccountName)}
               style={{ marginLeft: "4px" }}
             >
               <GrCopy /> <span style={{ marginLeft: "4px" }}>Copy</span>
@@ -78,35 +77,11 @@ const UPIDetails = ({ data }) => {
           </p>
         </li>
         <li>
-          <label>Account Holder Name</label>
+          <label>UPI Details</label>
           <p>
-            {data?.accountName}
+            {data?.upiId}
             <a
-              onClick={() => handleCopyToClipBoard(data?.accountName)}
-              style={{ marginLeft: "4px" }}
-            >
-              <GrCopy /> <span style={{ marginLeft: "4px" }}>Copy</span>
-            </a>
-          </p>
-        </li>
-        <li>
-          <label>Account Number</label>
-          <p>
-            {data?.accountNumber}
-            <a
-              onClick={() => handleCopyToClipBoard(data?.accountNumber)}
-              style={{ marginLeft: "4px" }}
-            >
-              <GrCopy /> <span style={{ marginLeft: "4px" }}>Copy</span>
-            </a>
-          </p>
-        </li>
-        <li>
-          <label>IFSC Code</label>
-          <p>
-            {data?.ifsc}
-            <a
-              onClick={() => handleCopyToClipBoard(data?.ifsc)}
+              onClick={() => handleCopyToClipBoard(data?.upiId)}
               style={{ marginLeft: "4px" }}
             >
               <GrCopy /> <span style={{ marginLeft: "4px" }}>Copy</span>
