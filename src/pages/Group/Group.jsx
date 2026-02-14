@@ -2,11 +2,12 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Tab from "../../components/modules/Group/Tab";
 import { useGroupQuery } from "../../redux/features/events/events";
 import moment from "moment";
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import Upcoming from "../../components/modules/Group/Upcoming";
 import InPlayToday from "../../components/modules/Group/InPlayToday";
 
 const Group = () => {
+  const ref = useRef();
   const navigate = useNavigate();
   const { eventTypeId } = useParams();
   const location = useLocation();
@@ -79,6 +80,14 @@ const Group = () => {
     return `Starts at ${matchTime.format("h:mma")} IST`;
   };
 
+  useEffect(() => {
+    const container = ref.current?.parentElement;
+    container?.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [type, location.pathname]);
+
   return (
     <div className="page-body">
       <div className="inplay-page-wrap ng-star-inserted">
@@ -105,7 +114,11 @@ const Group = () => {
                 >
                   <h2 className="title" />
                 </div>
-                <div className="matches-wrap ng-star-inserted" style={{}}>
+                <div
+                  ref={ref}
+                  className="matches-wrap ng-star-inserted"
+                  style={{}}
+                >
                   {data &&
                   Object.values(data).length > 0 &&
                   type === "upcoming" &&
