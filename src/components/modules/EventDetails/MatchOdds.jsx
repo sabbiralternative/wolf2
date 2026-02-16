@@ -240,7 +240,7 @@ const MatchOdds = ({ data, order }) => {
                         {game?.name?.toUpperCase()}
                       </h2>
                       <div className="btn-wrap">
-                        {Settings.betFairCashOut &&
+                        {Settings.cashout &&
                           game?.runners?.length !== 3 &&
                           game?.status === "OPEN" &&
                           game?.name !== "toss" &&

@@ -51,7 +51,7 @@ const NotLoggedIn = ({ setShowLanguage }) => {
         <span className="mat-mdc-focus-indicator" />
         <span className="mat-mdc-button-touch-target" />
       </button>
-      {Settings.registrationWhatsapp && Settings?.whatsapplink && (
+      {Settings.registration_whatsapp && Settings?.whatsapplink && (
         <button
           onClick={openWhatsapp}
           className="btn dark-outlined-btn demo-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"

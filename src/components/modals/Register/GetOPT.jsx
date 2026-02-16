@@ -1,11 +1,11 @@
-import { Fragment, useRef } from "react";
+import { useRef } from "react";
 import { useLogo } from "../../../context/ApiProvider";
 import { useDispatch } from "react-redux";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
 import { AxiosSecure } from "../../../lib/AxiosSecure";
 import { API, Settings } from "../../../api";
 import toast from "react-hot-toast";
-import getOtpOnWhatsapp from "../../../utils/getOtpOnWhatsapp";
+// import getOtpOnWhatsapp from "../../../utils/getOtpOnWhatsapp";
 import { setShowRegisterModal } from "../../../redux/features/global/globalSlice";
 
 const GetOPT = ({ setOrder, setShowForgotPassword, mobile, setMobile }) => {
@@ -37,9 +37,9 @@ const GetOPT = ({ setOrder, setShowForgotPassword, mobile, setMobile }) => {
     }
   };
 
-  const handleGetOtpOnWhatsapp = async () => {
-    await getOtpOnWhatsapp(mobile, setOrder, setShowForgotPassword);
-  };
+  // const handleGetOtpOnWhatsapp = async () => {
+  //   await getOtpOnWhatsapp(mobile, setOrder, setShowForgotPassword);
+  // };
 
   const handleMobileNo = (e) => {
     if (e.target.value.length <= 10) {
@@ -175,7 +175,7 @@ const GetOPT = ({ setOrder, setShowForgotPassword, mobile, setMobile }) => {
                                     : "Proceed"}
                                 </button>
                               </div>
-                              {Settings.otpless && (
+                              {/* {Settings.otpless && (
                                 <Fragment>
                                   <p className="separator ng-star-inserted">
                                     OR
@@ -192,7 +192,7 @@ const GetOPT = ({ setOrder, setShowForgotPassword, mobile, setMobile }) => {
                                     </button>
                                   </div>
                                 </Fragment>
-                              )}
+                              )} */}
                             </div>
                           </div>
                         </form>

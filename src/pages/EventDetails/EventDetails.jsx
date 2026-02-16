@@ -26,7 +26,7 @@ const EventDetails = () => {
     eventTypeId: eventTypeId,
     eventId: eventId,
     type: "video",
-    casinoCurrency: Settings.casinoCurrency,
+    casino_currency: Settings.casino_currency,
   });
   const [profit, setProfit] = useState(0);
   const dispatch = useDispatch();
