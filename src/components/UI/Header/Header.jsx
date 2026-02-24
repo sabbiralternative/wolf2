@@ -1,4 +1,4 @@
-import { Fragment, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLogo } from "../../../context/ApiProvider";
 import { useGroupQuery } from "../../../redux/features/events/events";
@@ -6,6 +6,9 @@ import NotLoggedIn from "./NotLoggedIn";
 import { useDispatch, useSelector } from "react-redux";
 import LoggedIn from "./LoggedIn";
 import {
+  setClosePopUpForForever,
+  setShowAPKModal,
+  setShowAppPopUp,
   setShowLoginModal,
   setShowSidebar,
 } from "../../../redux/features/global/globalSlice";
@@ -14,12 +17,20 @@ import LatestEvent from "./LatestEvent";
 import { removeHeaderPaths } from "../../../static/removeHeaderPaths";
 import Language from "../../modals/Language/Language";
 import Search from "./Search";
+import { Settings } from "../../../api";
+import AppPopup from "./AppPopUp";
+import DownloadAPK from "../../modals/DownloadAPK/DownloadAPK";
+import Notification from "./Notification";
 
 const Header = () => {
+  const location = useLocation();
   const [showLanguage, setShowLanguage] = useState(false);
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
+  const { showAppPopUp, windowWidth, showAPKModal } = useSelector(
+    (state) => state?.global,
+  );
   const { data } = useGroupQuery(
     { sportsType: Number(0) },
     {
@@ -63,6 +74,38 @@ const Header = () => {
     pathname.startsWith(path),
   );
 
+  useEffect(() => {
+    const closePopupForForever = localStorage.getItem("closePopupForForever");
+    dispatch(setClosePopUpForForever(closePopupForForever ? true : false));
+    const apk_modal_shown = sessionStorage.getItem("apk_modal_shown");
+    if (location?.state?.pathname === "/apk" || location.pathname === "/apk") {
+      sessionStorage.setItem("apk_modal_shown", true);
+      localStorage.setItem("closePopupForForever", true);
+      dispatch(setClosePopUpForForever(true));
+      localStorage.removeItem("installPromptExpiryTime");
+    } else {
+      if (!apk_modal_shown) {
+        dispatch(setShowAPKModal(true));
+      }
+      if (!closePopupForForever) {
+        const expiryTime = localStorage.getItem("installPromptExpiryTime");
+        const currentTime = new Date().getTime();
+
+        if ((!expiryTime || currentTime > expiryTime) && Settings.apk_link) {
+          localStorage.removeItem("installPromptExpiryTime");
+
+          dispatch(setShowAppPopUp(true));
+        }
+      }
+    }
+  }, [
+    dispatch,
+    windowWidth,
+    showAppPopUp,
+    location?.state?.pathname,
+    location.pathname,
+  ]);
+
   return (
     <Fragment>
       {showLanguage && <Language setShowLanguage={setShowLanguage} />}
@@ -83,6 +126,11 @@ const Header = () => {
           boxShadow: "0 4px 10px #8080804d",
         }}
       >
+        {Settings.apk_link && showAPKModal && <DownloadAPK />}
+        <Notification />
+        {Settings.apk_link && showAppPopUp && windowWidth < 1040 && (
+          <AppPopup />
+        )}
         <div>
           <div className="header-wrapper top-header">
             <div className="logo">

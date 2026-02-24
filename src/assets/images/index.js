@@ -28,8 +28,10 @@ import india from "../img/India.svg";
 import ladder from "../img/ladder.svg";
 import info from "../img/info-icon-svgrepo-com.svg";
 import frame from "../img/frame.webp";
+import install_android from "../img/header_image.png";
 
 export default {
+  install_android,
   frame,
   info,
   ladder,

@@ -12,6 +12,8 @@ const initialState = {
   showNotification: false,
   showBanner: false,
   showAppPopUp: false,
+  showAPKModal: false,
+  closePopupForForever: false,
   showSidebar: false,
   windowWidth: window.innerWidth,
   showDepositModal: false,
@@ -83,6 +85,13 @@ const stateSlice = createSlice({
     setShowHelpModal: (state, action) => {
       state.showHelpModal = action.payload;
     },
+    setShowAPKModal: (state, action) => {
+      state.showAPKModal = action.payload;
+    },
+
+    setClosePopUpForForever: (state, action) => {
+      state.closePopupForForever = action.payload;
+    },
   },
 });
 
@@ -106,6 +115,8 @@ export const {
   setShowLoginWarning,
   setShowHelpModal,
   setShowChangePasswordModal,
+  setClosePopUpForForever,
+  setShowAPKModal,
 } = stateSlice.actions;
 
 export default stateSlice.reducer;
