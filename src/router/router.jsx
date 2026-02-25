@@ -22,6 +22,7 @@ import Passbook from "../pages/Passbook/Passbook";
 import ProfitLoss from "../pages/ProfitLoss/ProfitLoss";
 import GameProvider from "../pages/GameProvider/GameProvider";
 import ActiveBets from "../pages/ActiveBets/ActiveBets";
+import APK from "../pages/APK/APK";
 
 export const router = createBrowserRouter(
   [
@@ -117,6 +118,10 @@ export const router = createBrowserRouter(
         {
           path: "/active-bets",
           element: <ActiveBets />,
+        },
+        {
+          path: "/apk",
+          element: <APK />,
         },
       ],
     },
