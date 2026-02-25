@@ -43,7 +43,7 @@ const LiveCasino = () => {
             return (
               <li
                 style={{ height: "190px", width: "130px" }}
-                onClick={() => handleNavigate(item?.id, item?.game_name)}
+                onClick={() => handleNavigate(item?.game_id, item?.game_name)}
                 key={item?.id}
                 className="ng-star-inserted"
               >
