@@ -18,7 +18,7 @@ const IFrame = () => {
         gameId: id?.toString(),
         isHome: false,
         mobileOnly: true,
-        casino_currency: Settings.casino_currency,
+        casinoCurrency: Settings.casino_currency,
       };
       try {
         const { data } = await AxiosSecure.post(API.liveCasinoIframe, payload);
