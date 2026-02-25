@@ -108,6 +108,7 @@ const Header = () => {
 
   return (
     <Fragment>
+      {Settings.apk_link && showAPKModal && <DownloadAPK />}
       {showLanguage && <Language setShowLanguage={setShowLanguage} />}
       <div
         className="page-header page-body not-loggedIn"
@@ -126,7 +127,6 @@ const Header = () => {
           boxShadow: "0 4px 10px #8080804d",
         }}
       >
-        {Settings.apk_link && showAPKModal && <DownloadAPK />}
         <Notification />
         {Settings.apk_link && showAppPopUp && windowWidth < 1040 && (
           <AppPopup />
