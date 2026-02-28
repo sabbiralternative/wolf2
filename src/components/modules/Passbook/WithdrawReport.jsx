@@ -3,8 +3,11 @@ import { useAccountStatement } from "../../../hooks/accountStatement";
 import { Settings } from "../../../api";
 import images from "../../../assets/images";
 import ImagePreview from "../../modals/ImagePreview/ImagePreview";
+import { useBankAccountMutation } from "../../../redux/features/deposit/deposit.api";
+import toast from "react-hot-toast";
 
 const WithdrawReport = () => {
+  const [deleteWithdraw] = useBankAccountMutation();
   const fromDate = new Date(new Date().setDate(new Date().getDate() - 7))
     .toISOString()
     .split("T")[0];
@@ -20,7 +23,7 @@ const WithdrawReport = () => {
   const [image, setImage] = useState("");
   const [accordion, setAccordion] = useState("");
 
-  const { data } = useAccountStatement(payload);
+  const { data, refetch } = useAccountStatement(payload);
   const withdrawTab = [
     'If you face any issue with your withdraw, click the "Report Issue" button next to your withdraw details to let us know.',
     "यदि आपको अपने निकासी (Withdrawal) में कोई समस्या आती है, तो हमें बताने के लिए अपनी निकासी विवरण के पास दिए गए  Report Issue बटन पर क्लिक करें",
@@ -49,6 +52,21 @@ const WithdrawReport = () => {
       setAccordion("");
     } else {
       setAccordion(index);
+    }
+  };
+
+  const handleDeleteWithdraw = async (withdraw_id) => {
+    const payload = {
+      type: "withdrawDelete",
+      withdraw_id,
+    };
+    const res = await deleteWithdraw(payload).unwrap();
+
+    if (res?.success) {
+      refetch();
+      toast.success(res?.result?.message);
+    } else {
+      toast.error(res?.error?.errorMessage);
     }
   };
 
@@ -99,11 +117,47 @@ const WithdrawReport = () => {
                   </p>
                   <p className="amount">
                     <span className="coins">{item?.amount}</span>
+
                     <span
                       className={`${item?.status?.charAt(0).toUpperCase() + item?.status?.slice(1).toLowerCase()} status ng-star-inserted`}
                     >
                       {item?.status}
                     </span>
+
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignContent: "center",
+                        justifyContent: "end",
+                      }}
+                    >
+                      {item.status === "PENDING" &&
+                        item?.reject_request === 0 && (
+                          <button
+                            style={{
+                              backgroundColor: "rgb(255 131 46)",
+                              borderRadius: "4px",
+                              border: "none",
+                              fontSize: "12px",
+                              padding: "5px 8px",
+                              color: "white",
+                              height: "fit-content",
+                              marginTop: "auto",
+                            }}
+                            onClick={() =>
+                              handleDeleteWithdraw(item?.withdraw_id)
+                            }
+                          >
+                            Delete Withdraw
+                          </button>
+                        )}
+
+                      {item.status === "PENDING" &&
+                        item?.reject_request === 1 && (
+                          <p>Withdraw delete request sent.</p>
+                        )}
+                    </div>
                   </p>
                 </li>
               </ul>
