@@ -66,11 +66,11 @@ const USDTDetails = ({ data }) => {
       </div>
       <ul>
         <li>
-          <label>Bank Name</label>
+          <label>Wallet Address </label>
           <p>
-            {data?.bankName}
+            {data?.token}
             <a
-              onClick={() => handleCopyToClipBoard(data?.bankName)}
+              onClick={() => handleCopyToClipBoard(data?.token)}
               style={{ marginLeft: "4px" }}
             >
               <GrCopy /> <span style={{ marginLeft: "4px" }}>Copy</span>
@@ -78,35 +78,24 @@ const USDTDetails = ({ data }) => {
           </p>
         </li>
         <li>
-          <label>Account Holder Name</label>
+          <label>Amount</label>
           <p>
-            {data?.accountName}
+            USDT {data?.depositAmount}
             <a
-              onClick={() => handleCopyToClipBoard(data?.accountName)}
+              onClick={() => handleCopyToClipBoard(data?.depositAmount)}
               style={{ marginLeft: "4px" }}
             >
               <GrCopy /> <span style={{ marginLeft: "4px" }}>Copy</span>
             </a>
           </p>
         </li>
+
         <li>
-          <label>Account Number</label>
+          <label>Display Name</label>
           <p>
-            {data?.accountNumber}
+            {data?.qrDisplayName}
             <a
-              onClick={() => handleCopyToClipBoard(data?.accountNumber)}
-              style={{ marginLeft: "4px" }}
-            >
-              <GrCopy /> <span style={{ marginLeft: "4px" }}>Copy</span>
-            </a>
-          </p>
-        </li>
-        <li>
-          <label>IFSC Code</label>
-          <p>
-            {data?.ifsc}
-            <a
-              onClick={() => handleCopyToClipBoard(data?.ifsc)}
+              onClick={() => handleCopyToClipBoard(data?.qrDisplayName)}
               style={{ marginLeft: "4px" }}
             >
               <GrCopy /> <span style={{ marginLeft: "4px" }}>Copy</span>
@@ -114,6 +103,16 @@ const USDTDetails = ({ data }) => {
           </p>
         </li>
       </ul>
+      <img
+        style={{
+          height: "100%",
+          maxHeight: "250px",
+          width: "100%",
+          objectFit: "contain",
+        }}
+        src={data?.qrCodeLink}
+        alt="qrCodeLink"
+      />
     </div>
   );
 };
