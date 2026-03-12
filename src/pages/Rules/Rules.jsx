@@ -363,6 +363,26 @@ const Rules = () => {
             entertained what so ever
           </p>
           <p>7.3) No written proof or mails shall be provided for the same</p>
+          <p>7.4) Casino Maximum Win Limit (100× Cap)</p>
+          <p>
+            {" "}
+            To manage risk and ensure fair play, a maximum win cap applies to
+            all casino games. The maximum payout per game round is capped at
+            100× the original stake placed for that round. If a game round
+            generates winnings exceeding 100× the stake, only 100× the stake
+            amount will be credited to the user’s balance. <br />
+            Any winnings above the 100× cap will be automatically
+            removed/adjusted by the system.
+          </p>
+          <p>
+            {" "}
+            Example: Stake: ₹100 <br /> Game Result: 250× win (₹25,000) <br />{" "}
+            Maximum allowed win: 100× (₹10,000) <br /> Amount credited: ₹10,000
+          </p>
+          <p>
+            Remaining ₹15,000 will be voided. <br /> This rule applies to all
+            casino games unless otherwise stated.
+          </p>
         </div>
       </div>
     </div>
