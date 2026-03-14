@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { useBankAccountQuery } from "../../hooks/bankAccount";
 import { useDispatch, useSelector } from "react-redux";
-import { setAddBank } from "../../redux/features/global/globalSlice";
+import {
+  setAddBank,
+  setAddUSDTAccount,
+} from "../../redux/features/global/globalSlice";
 import images from "../../assets/images";
 import DeleteBank from "../../components/modals/DeleteBank/DeleteBank";
 import Notification from "../../components/UI/Notification/Notification";
@@ -203,17 +206,34 @@ const Banking = () => {
                     </p>
                   </div>
                   <div
-                    onClick={() => dispatch(setAddBank(true))}
-                    className="action-btn ng-star-inserted"
-                    style={{}}
+                    style={{ display: "flex", width: "100%", gap: "0px 10px" }}
                   >
-                    <button
-                      type="button"
-                      className="btn secondary-btn ng-star-inserted"
+                    <div
+                      onClick={() => dispatch(setAddBank(true))}
+                      className="action-btn ng-star-inserted"
+                      style={{ width: "100%" }}
                     >
-                      Add New Bank
-                    </button>
+                      <button
+                        type="button"
+                        className="btn secondary-btn ng-star-inserted"
+                      >
+                        Add New Bank
+                      </button>
+                    </div>
+                    <div
+                      onClick={() => dispatch(setAddUSDTAccount(true))}
+                      className="action-btn ng-star-inserted"
+                      style={{ width: "100%" }}
+                    >
+                      <button
+                        type="button"
+                        className="btn secondary-btn ng-star-inserted"
+                      >
+                        Add USDT Account
+                      </button>
+                    </div>
                   </div>
+
                   <div className="title-bar ng-star-inserted" style={{}}>
                     <h2 className="title">Bank Details</h2>
                   </div>

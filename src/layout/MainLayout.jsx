@@ -17,6 +17,7 @@ import Referral from "../components/modals/Referral/Referral";
 import LoginWarning from "../components/modals/LoginWarning/LoginWarning";
 import Help from "../components/modals/Help/Help";
 import ChangePassword from "../components/modals/ChangePassword/ChangePassword";
+import AddUSDTAccount from "../components/modals/AddUSDTAccount/AddUSDTAccount";
 
 const MainLayout = () => {
   const { pathname } = useLocation();
@@ -28,6 +29,7 @@ const MainLayout = () => {
     showDepositSuccessModal,
     showEditStakeModal,
     addBank,
+    addUSDTAccount,
     showReferralModal,
     showLoginWarning,
     showHelpModal,
@@ -47,6 +49,7 @@ const MainLayout = () => {
       {showDepositSuccessModal && <DepositSuccessMessage />}
       {showEditStakeModal && <EditStake />}
       {addBank && <AddBankAccount />}
+      {addUSDTAccount && <AddUSDTAccount />}
       {showReferralModal && <Referral />}
       {showLoginWarning && <LoginWarning />}
       {showHelpModal && <Help />}

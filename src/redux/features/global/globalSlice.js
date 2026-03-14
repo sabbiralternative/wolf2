@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   group: 0,
   addBank: false,
+  addUSDTAccount: false,
   showLoginModal: false,
   showChangePasswordModal: false,
   showRegisterModal: false,
@@ -33,6 +34,9 @@ const stateSlice = createSlice({
     },
     setAddBank: (state, action) => {
       state.addBank = action.payload;
+    },
+    setAddUSDTAccount: (state, action) => {
+      state.addUSDTAccount = action.payload;
     },
     setShowLoginModal: (state, action) => {
       state.showLoginModal = action.payload;
@@ -117,6 +121,7 @@ export const {
   setShowChangePasswordModal,
   setClosePopUpForForever,
   setShowAPKModal,
+  setAddUSDTAccount,
 } = stateSlice.actions;
 
 export default stateSlice.reducer;
