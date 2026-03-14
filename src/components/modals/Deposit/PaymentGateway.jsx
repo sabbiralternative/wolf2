@@ -27,7 +27,8 @@ const DepositPaymentGateway = ({
     if (
       method?.type === "upigateway" ||
       method?.type === "toitgateway" ||
-      method?.type === "i100gateway"
+      method?.type === "i100gateway" ||
+      method?.type === "upiclick"
     ) {
       let pgPayload = {
         paymentId: method?.paymentId,
