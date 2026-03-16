@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { getSetApis } from "../api/config";
-import { Settings } from "../api";
 
 export const ApiContext = createContext(null);
 
@@ -14,12 +13,6 @@ const ApiProvider = ({ children }) => {
         getSetApis(setNoticeLoaded);
       };
       fetchAPI();
-    }
-  }, [noticeLoaded]);
-
-  useEffect(() => {
-    if (noticeLoaded) {
-      document.title = Settings.site_name;
     }
   }, [noticeLoaded]);
 
