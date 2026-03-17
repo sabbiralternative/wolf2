@@ -22,7 +22,6 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import handleRandomToken from "../../utils/handleRandomToken";
 import handleEncryptData from "../../utils/handleEncryptData";
 import { Settings } from "../../api";
-import { getSiteURL } from "../../utils/getSiteURL";
 
 const baseQuery = async (args, api, extraOptions) => {
   const { method, body } = args;
@@ -35,10 +34,10 @@ const baseQuery = async (args, api, extraOptions) => {
       ...body,
       token: generatedToken,
     };
-    const { siteURL } = getSiteURL();
-
-    if (siteURL) {
-      payload.site = siteURL;
+    if (!body?.site) {
+      if (Settings.site) {
+        payload.site = Settings.site;
+      }
     }
     if (Settings.language) {
       payload.language = localStorage.getItem("language") || "english";
