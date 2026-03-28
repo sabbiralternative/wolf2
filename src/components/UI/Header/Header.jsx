@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLogo } from "../../../context/ApiProvider";
 import { useGroupQuery } from "../../../redux/features/events/events";
@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import LoggedIn from "./LoggedIn";
 import {
   setClosePopUpForForever,
+  setHeaderHeight,
   setShowAPKModal,
   setShowAppPopUp,
   setShowLoginModal,
@@ -23,6 +24,7 @@ import DownloadAPK from "../../modals/DownloadAPK/DownloadAPK";
 import Notification from "./Notification";
 
 const Header = () => {
+  const headerRef = useRef(null);
   const location = useLocation();
   const [showLanguage, setShowLanguage] = useState(false);
   const { pathname } = useLocation();
@@ -106,11 +108,24 @@ const Header = () => {
     location.pathname,
   ]);
 
+  useEffect(() => {
+    const handleHeaderHeight = () => {
+      if (headerRef.current) {
+        const height = headerRef.current.getBoundingClientRect().height;
+        dispatch(setHeaderHeight(height));
+      }
+    };
+    handleHeaderHeight();
+    window.addEventListener("resize", handleHeaderHeight);
+    return () => window.removeEventListener("resize", handleHeaderHeight);
+  }, [headerRef, dispatch, showAppPopUp]);
+
   return (
     <Fragment>
       {Settings.apk_link && showAPKModal && <DownloadAPK />}
       {showLanguage && <Language setShowLanguage={setShowLanguage} />}
       <div
+        ref={headerRef}
         className="page-header page-body not-loggedIn"
         style={{
           minHeight: "42px",

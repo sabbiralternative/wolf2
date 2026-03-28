@@ -23,6 +23,7 @@ const initialState = {
   showReferralModal: false,
   showLoginWarning: false,
   showHelpModal: false,
+  headerHeight: 0,
 };
 
 const stateSlice = createSlice({
@@ -96,6 +97,9 @@ const stateSlice = createSlice({
     setClosePopUpForForever: (state, action) => {
       state.closePopupForForever = action.payload;
     },
+    setHeaderHeight: (state, action) => {
+      state.headerHeight = action.payload;
+    },
   },
 });
 
@@ -122,6 +126,7 @@ export const {
   setClosePopUpForForever,
   setShowAPKModal,
   setAddUSDTAccount,
+  setHeaderHeight,
 } = stateSlice.actions;
 
 export default stateSlice.reducer;

@@ -10,7 +10,6 @@ import LeftSidebar from "../components/UI/LeftSidebar/LeftSidebar";
 
 import Deposit from "../components/modals/Deposit/Deposit";
 import DepositSuccessMessage from "../components/modals/Deposit/DepositSuccessMessage";
-import { removeHeaderPaths } from "../static/removeHeaderPaths";
 import EditStake from "../components/modals/EditStake/EditStake";
 import AddBankAccount from "../components/modals/AddBankAccount/AddBankAccount";
 import Referral from "../components/modals/Referral/Referral";
@@ -34,11 +33,8 @@ const MainLayout = () => {
     showLoginWarning,
     showHelpModal,
     showChangePasswordModal,
+    headerHeight,
   } = useSelector((state) => state.global);
-
-  const shouldHideHeader = removeHeaderPaths.some((path) =>
-    pathname.startsWith(path),
-  );
 
   return (
     <Fragment>
@@ -59,7 +55,7 @@ const MainLayout = () => {
         <Header />
         <div
           style={{
-            paddingTop: shouldHideHeader ? "43px" : "160px",
+            paddingTop: `${headerHeight + 5}px`,
             height: "100%",
           }}
         >
