@@ -264,7 +264,7 @@ const MatchOdds = ({ data, order }) => {
                                 {" "}
                                 Cashout{" "}
                                 {teamProfitForGame?.profit &&
-                                  `(${teamProfitForGame.profit.toFixed(2)})`}
+                                  `(${teamProfitForGame.profit.toFixed(0)})`}
                               </span>
                               <span className="mat-mdc-focus-indicator"></span>
                               <span className="mat-mdc-button-touch-target"></span>
