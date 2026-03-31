@@ -1,6 +1,6 @@
 import { HiArrowNarrowDown } from "react-icons/hi";
 import { GrAndroid } from "react-icons/gr";
-import { useRef } from "react";
+import { Fragment, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { useLoginMutation } from "../../../redux/features/auth/authApi";
 import { useLogo } from "../../../context/ApiProvider";
@@ -261,25 +261,36 @@ const Login = () => {
                                   Login
                                 </button>
                               </div>
-                              <p className="separator ng-star-inserted">OR</p>
+                              {(Settings.demo_login || Settings.apk_link) && (
+                                <Fragment>
+                                  <p className="separator ng-star-inserted">
+                                    OR
+                                  </p>
 
-                              <div className="extra-btns">
-                                <button
-                                  onClick={loginWithDemo}
-                                  type="button"
-                                  className="btn secondary-btn ng-star-inserted"
-                                >
-                                  Login with Demo ID
-                                </button>
-                                <button
-                                  onClick={handleDownload}
-                                  type="button"
-                                  className="btn secondary-btn ng-star-inserted"
-                                >
-                                  <GrAndroid /> Download .apk
-                                  <HiArrowNarrowDown />
-                                </button>
-                              </div>
+                                  <div className="extra-btns">
+                                    {Settings.demo_login && (
+                                      <button
+                                        onClick={loginWithDemo}
+                                        type="button"
+                                        className="btn secondary-btn ng-star-inserted"
+                                      >
+                                        Login with Demo ID
+                                      </button>
+                                    )}
+
+                                    {Settings.apk_link && (
+                                      <button
+                                        onClick={handleDownload}
+                                        type="button"
+                                        className="btn secondary-btn ng-star-inserted"
+                                      >
+                                        <GrAndroid /> Download .apk
+                                        <HiArrowNarrowDown />
+                                      </button>
+                                    )}
+                                  </div>
+                                </Fragment>
+                              )}
                             </div>
                           </div>
                         </form>

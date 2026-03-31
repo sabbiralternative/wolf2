@@ -109,32 +109,36 @@ const Profile = () => {
                   </div>
                 </div>
                 <div className="d-w-btn ng-star-inserted">
-                  <button
-                    onClick={() => dispatch(setShowDepositModal(true))}
-                    className="notranslate mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
-                  >
-                    <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                    <span className="mdc-button__label">
-                      {" "}
-                      {languageValue(valueByLanguage, LanguageKey.DEPOSIT)}
-                    </span>
-                    <span className="mat-mdc-focus-indicator" />
-                    <span className="mat-mdc-button-touch-target" />
-                    <span className="mat-ripple mat-mdc-button-ripple" />
-                  </button>
-                  <button
-                    onClick={() => setShowWithdrawModal(true)}
-                    className="notranslate mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
-                  >
-                    <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                    <span className="mdc-button__label">
-                      {" "}
-                      {languageValue(valueByLanguage, LanguageKey.WITHDRAW)}
-                    </span>
-                    <span className="mat-mdc-focus-indicator" />
-                    <span className="mat-mdc-button-touch-target" />
-                    <span className="mat-ripple mat-mdc-button-ripple" />
-                  </button>
+                  {Settings.deposit && (
+                    <button
+                      onClick={() => dispatch(setShowDepositModal(true))}
+                      className="notranslate mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
+                    >
+                      <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
+                      <span className="mdc-button__label">
+                        {" "}
+                        {languageValue(valueByLanguage, LanguageKey.DEPOSIT)}
+                      </span>
+                      <span className="mat-mdc-focus-indicator" />
+                      <span className="mat-mdc-button-touch-target" />
+                      <span className="mat-ripple mat-mdc-button-ripple" />
+                    </button>
+                  )}
+                  {Settings.withdraw && (
+                    <button
+                      onClick={() => setShowWithdrawModal(true)}
+                      className="notranslate mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
+                    >
+                      <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
+                      <span className="mdc-button__label">
+                        {" "}
+                        {languageValue(valueByLanguage, LanguageKey.WITHDRAW)}
+                      </span>
+                      <span className="mat-mdc-focus-indicator" />
+                      <span className="mat-mdc-button-touch-target" />
+                      <span className="mat-ripple mat-mdc-button-ripple" />
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

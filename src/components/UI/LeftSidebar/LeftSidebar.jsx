@@ -12,6 +12,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import SocialLinks from "../../modules/Home/SocialLinks";
 import { Settings } from "../../../api";
 import { useLogo } from "../../../context/ApiProvider";
+import images from "../../../assets/images";
 
 const LeftSidebar = ({ children }) => {
   const { logo } = useLogo();
@@ -353,10 +354,7 @@ const LeftSidebar = ({ children }) => {
                             }
                             className="ng-star-inserted"
                           >
-                            <img
-                              alt=""
-                              src="https://ss.manage63.com/bmk-wl/commonAssets/icon_dark_facebook.svg"
-                            />
+                            <img alt="" src={images.whatsApp2} />
                           </a>
                         )}
                         {Settings?.instagramLink && (

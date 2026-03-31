@@ -10,6 +10,7 @@ import {
   setShowLoginModal,
   setShowReferralModal,
 } from "../../../redux/features/global/globalSlice";
+import { Settings } from "../../../api";
 
 const Footer = () => {
   const [showMyMarket, setShowMyMarket] = useState(false);
@@ -113,19 +114,20 @@ const Footer = () => {
                   <span className="mat-mdc-focus-indicator" />
                   <span className="mat-mdc-button-touch-target" />
                 </button>
-
-                <button
-                  onClick={() => dispatch(setShowReferralModal(true))}
-                  className="refer mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted"
-                >
-                  <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                  <span className="mdc-button__label">
-                    <span className="uIcons uIcons_referral" />
-                    <p className="notranslate">Referral</p>
-                  </span>
-                  <span className="mat-mdc-focus-indicator" />
-                  <span className="mat-mdc-button-touch-target" />
-                </button>
+                {Settings.referral && (
+                  <button
+                    onClick={() => dispatch(setShowReferralModal(true))}
+                    className="refer mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted"
+                  >
+                    <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
+                    <span className="mdc-button__label">
+                      <span className="uIcons uIcons_referral" />
+                      <p className="notranslate">Referral</p>
+                    </span>
+                    <span className="mat-mdc-focus-indicator" />
+                    <span className="mat-mdc-button-touch-target" />
+                  </button>
+                )}
 
                 <button
                   onClick={() => handleNavigate("/passbook?tab=transaction")}

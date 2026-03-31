@@ -62,15 +62,18 @@ const LoggedIn = ({ setShowLanguage }) => {
             <p style={{ color: "white" }}>Exp</p>
           </div>
         </div>
-        <button
-          onClick={() => dispatch(setShowDepositModal(true))}
-          className="btn deposit-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted"
-        >
-          <span className="mat-mdc-button-persistent-ripple mdc-button__ripple"></span>
-          <span className="mdc-button__label"> Deposit </span>
-          <span className="mat-mdc-focus-indicator"></span>
-          <span className="mat-mdc-button-touch-target"></span>
-        </button>
+        {Settings.deposit && (
+          <button
+            onClick={() => dispatch(setShowDepositModal(true))}
+            className="btn deposit-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted"
+          >
+            <span className="mat-mdc-button-persistent-ripple mdc-button__ripple"></span>
+            <span className="mdc-button__label"> Deposit </span>
+            <span className="mat-mdc-focus-indicator"></span>
+            <span className="mat-mdc-button-touch-target"></span>
+          </button>
+        )}
+
         {Settings.language && pathname !== "/passbook" && (
           <div
             onClick={() => setShowLanguage((prev) => !prev)}
