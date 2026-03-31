@@ -39,18 +39,21 @@ const NotLoggedIn = ({ setShowLanguage }) => {
         <span className="mat-mdc-focus-indicator" />
         <span className="mat-mdc-button-touch-target" />
       </button>
-      <button
-        onClick={() => dispatch(setShowRegisterModal(true))}
-        className="btn dark-outlined-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
-      >
-        <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-        <span className="mdc-button__label">
-          {" "}
-          {languageValue(valueByLanguage, LanguageKey.REGISTER)}
-        </span>
-        <span className="mat-mdc-focus-indicator" />
-        <span className="mat-mdc-button-touch-target" />
-      </button>
+      {Settings.registration && (
+        <button
+          onClick={() => dispatch(setShowRegisterModal(true))}
+          className="btn dark-outlined-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
+        >
+          <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
+          <span className="mdc-button__label">
+            {" "}
+            {languageValue(valueByLanguage, LanguageKey.REGISTER)}
+          </span>
+          <span className="mat-mdc-focus-indicator" />
+          <span className="mat-mdc-button-touch-target" />
+        </button>
+      )}
+
       {Settings.registration_whatsapp && Settings?.whatsapplink && (
         <button
           onClick={openWhatsapp}
