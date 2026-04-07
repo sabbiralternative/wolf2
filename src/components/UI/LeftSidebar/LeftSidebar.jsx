@@ -263,6 +263,32 @@ const LeftSidebar = ({ children }) => {
                       <span>Active Bets</span>
                     </a>
                   </li>
+                  <li className="smenu-item">
+                    <a
+                      onClick={() => handleNavigateByCheckLogin("/promotions")}
+                      className="smenu-link"
+                    >
+                      <img
+                        alt="Menu Icon"
+                        src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_activebets.svg"
+                      />
+                      <span> Promos & Bonus</span>
+                    </a>
+                  </li>
+                  <li className="smenu-item">
+                    <a
+                      onClick={() =>
+                        handleNavigateByCheckLogin("/lossback-bonus")
+                      }
+                      className="smenu-link"
+                    >
+                      <img
+                        alt="Menu Icon"
+                        src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_activebets.svg"
+                      />
+                      <span>Lossback Bonus</span>
+                    </a>
+                  </li>
                   {token && (
                     <li className="smenu-item ng-star-inserted" style={{}}>
                       <a

@@ -23,6 +23,8 @@ import ProfitLoss from "../pages/ProfitLoss/ProfitLoss";
 import GameProvider from "../pages/GameProvider/GameProvider";
 import ActiveBets from "../pages/ActiveBets/ActiveBets";
 import APK from "../pages/APK/APK";
+import Promotions from "../pages/Promotions/Promotions";
+import LossBackClaims from "../pages/LossBackClaims/LossBackClaims";
 
 export const router = createBrowserRouter(
   [
@@ -122,6 +124,14 @@ export const router = createBrowserRouter(
         {
           path: "/apk",
           element: <APK />,
+        },
+        {
+          path: "/promotions",
+          element: <Promotions />,
+        },
+        {
+          path: "/lossback-bonus",
+          element: <LossBackClaims />,
         },
       ],
     },
