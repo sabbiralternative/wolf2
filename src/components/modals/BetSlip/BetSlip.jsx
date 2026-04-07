@@ -16,6 +16,7 @@ import { v4 as uuidv4 } from "uuid";
 import { AxiosJSEncrypt } from "../../../lib/AxiosJSEncrypt";
 import toast from "react-hot-toast";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
+import { isBetDelay, isDelay } from "../../../utils/isBetDelay";
 
 const BetSlip = () => {
   const ref = useRef();
@@ -118,22 +119,15 @@ const BetSlip = () => {
         ...payload,
 
         nounce: uuidv4(),
-        isbetDelay:
-          placeBetValues?.btype === "FANCY" &&
-          placeBetValues?.eventTypeId === "4"
-            ? false
-            : Settings.bet_delay,
+        isbetDelay: isBetDelay(placeBetValues),
         apk: closePopupForForever ? true : false,
       },
     ];
     setLoading(true);
     let delay = 0;
-    if (
-      placeBetValues?.btype !== "FANCY" &&
-      placeBetValues?.eventTypeId !== "4"
-    ) {
+    if (isDelay(placeBetValues)) {
       if (
-        (eventTypeId == 4 || eventTypeId == 2) &&
+        eventTypeId == 4 &&
         placeBetValues?.btype === "MATCH_ODDS" &&
         price > 3 &&
         placeBetValues?.name?.length === 2
@@ -141,7 +135,7 @@ const BetSlip = () => {
         delay = 9000;
       }
       if (
-        (eventTypeId == 4 || eventTypeId == 2) &&
+        eventTypeId == 4 &&
         placeBetValues?.btype === "MATCH_ODDS" &&
         price > 7 &&
         placeBetValues?.name?.length === 3
