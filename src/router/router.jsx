@@ -25,6 +25,7 @@ import ActiveBets from "../pages/ActiveBets/ActiveBets";
 import APK from "../pages/APK/APK";
 import Promotions from "../pages/Promotions/Promotions";
 import LossBackClaims from "../pages/LossBackClaims/LossBackClaims";
+import BonusStatement from "../pages/BonusStatement/BonusStatement";
 
 export const router = createBrowserRouter(
   [
@@ -132,6 +133,10 @@ export const router = createBrowserRouter(
         {
           path: "/lossback-bonus",
           element: <LossBackClaims />,
+        },
+        {
+          path: "/bonus-statement",
+          element: <BonusStatement />,
         },
       ],
     },
