@@ -13,6 +13,7 @@ import { Settings } from "../../../api";
 import toast from "react-hot-toast";
 import { setUser } from "../../../redux/features/auth/authSlice";
 const RegisterFields = ({ mobile, order }) => {
+  const affnook_token = localStorage.getItem("affnook_token");
   const referralCode = localStorage.getItem("referralCode");
   const [handleRegister] = useRegisterMutation();
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ const RegisterFields = ({ mobile, order }) => {
       referralCode: referralCode || data?.referralCode,
       orderId: order.orderId,
       orderMethod: order.otpMethod,
+      affnook_token: affnook_token || null,
     };
 
     const result = await handleRegister(registerData).unwrap();
