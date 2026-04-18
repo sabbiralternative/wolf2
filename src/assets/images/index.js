@@ -29,8 +29,12 @@ import ladder from "../img/ladder.svg";
 import info from "../img/info-icon-svgrepo-com.svg";
 import frame from "../img/frame.webp";
 import install_android from "../img/header_image.png";
+import telegram from "../img/telegram.png";
+import whatsAppSVG from "../img/whatsapp-icon.svg";
 
 export default {
+  whatsAppSVG,
+  telegram,
   install_android,
   frame,
   info,
