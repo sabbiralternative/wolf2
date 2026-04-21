@@ -49,6 +49,7 @@ const AddBankAccount = () => {
       accountNumber: bankDetails.accountNumber,
       upiId: bankDetails.upiId,
       type: "addBankAccount",
+      nonce: crypto.randomUUID(),
     };
     if (mobile) {
       bankData.mobile = mobile;
