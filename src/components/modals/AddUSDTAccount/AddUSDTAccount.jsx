@@ -120,21 +120,21 @@ const AddUSDTAccount = () => {
     }
   }, [timer]);
 
-  const getOtpOnWhatsapp = async () => {
-    const otpData = {
-      mobile: mobile,
-      type: "otpsend",
-    };
+  // const getOtpOnWhatsapp = async () => {
+  //   const otpData = {
+  //     mobile: mobile,
+  //     type: "otpsend",
+  //   };
 
-    const res = await AxiosSecure.post(API.otpless, otpData);
-    const data = res.data;
+  //   const res = await AxiosSecure.post(API.otpless, otpData);
+  //   const data = res.data;
 
-    if (data?.success) {
-      toast.success(data?.result?.message);
-    } else {
-      toast.error(data?.error?.errorMessage);
-    }
-  };
+  //   if (data?.success) {
+  //     toast.success(data?.result?.message);
+  //   } else {
+  //     toast.error(data?.error?.errorMessage);
+  //   }
+  // };
   return (
     <div className="cdk-overlay-container">
       <div className="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing" />
@@ -321,9 +321,9 @@ const AddUSDTAccount = () => {
                                             fontSize: "10px",
                                           }}
                                         >
-                                          Get OTP Whatsapp
+                                          Get OTP Message
                                         </button>
-                                        <button
+                                        {/* <button
                                           type="button"
                                           onClick={getOtpOnWhatsapp}
                                           style={{
@@ -338,7 +338,7 @@ const AddUSDTAccount = () => {
                                           }}
                                         >
                                           Get OTP Whatsapp
-                                        </button>
+                                        </button> */}
                                       </Fragment>
                                     )}
                                   </div>
