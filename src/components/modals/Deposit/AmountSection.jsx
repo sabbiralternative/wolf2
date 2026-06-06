@@ -80,7 +80,11 @@ const AmountSection = ({ amount, setAmount, setDepositTab }) => {
             <div className="form-wrap">
               <label>Deposit Coins</label>
               <input
-                onChange={(e) => setAmount(e.target.value)}
+                onChange={(e) =>
+                  setAmount(
+                    e.target.value <= 10000000 ? e.target.value : 10000000,
+                  )
+                }
                 placeholder="Enter Coins"
                 type="number"
                 className="mat-mdc-input-element cdk-text-field-autofill-monitored ng-touched ng-dirty ng-invalid"
