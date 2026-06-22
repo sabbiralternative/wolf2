@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../components/UI/Footer/Footer";
 import Header from "../components/UI/Header/Header";
@@ -17,8 +17,10 @@ import LoginWarning from "../components/modals/LoginWarning/LoginWarning";
 import Help from "../components/modals/Help/Help";
 import ChangePassword from "../components/modals/ChangePassword/ChangePassword";
 import AddUSDTAccount from "../components/modals/AddUSDTAccount/AddUSDTAccount";
+import { useLanguage } from "../context/LanguageProvider";
 
 const MainLayout = () => {
+  const { setLanguage } = useLanguage();
   const { pathname } = useLocation();
   const {
     showLoginModal,
@@ -35,6 +37,10 @@ const MainLayout = () => {
     showChangePasswordModal,
     headerHeight,
   } = useSelector((state) => state.global);
+
+  useEffect(() => {
+    setLanguage(localStorage.getItem("language") || "english");
+  }, [setLanguage]);
 
   return (
     <Fragment>

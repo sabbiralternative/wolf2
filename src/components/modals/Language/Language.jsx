@@ -15,7 +15,7 @@ const Language = ({ setShowLanguage }) => {
     setShowLanguage(false);
   });
 
-  const languages = data?.[0]?.CRICKET;
+  const languages = data?.CRICKET;
 
   const handleSetLanguage = (language) => {
     localStorage.setItem("language", language);
