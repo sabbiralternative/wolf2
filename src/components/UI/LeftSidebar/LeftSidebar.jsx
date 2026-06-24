@@ -13,10 +13,13 @@ import SocialLinks from "../../modules/Home/SocialLinks";
 import { Settings } from "../../../api";
 import { useLogo } from "../../../context/ApiProvider";
 import images from "../../../assets/images";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const LeftSidebar = ({ children }) => {
   const { logo } = useLogo();
-
+  const { valueByLanguage } = useLanguage();
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { user, token } = useSelector((state) => state.auth);
@@ -274,7 +277,13 @@ const LeftSidebar = ({ children }) => {
                         alt="Menu Icon"
                         src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_activebets.svg"
                       />
-                      <span>Bonus Statement</span>
+                      <span>
+                        {" "}
+                        {languageValue(
+                          valueByLanguage,
+                          LanguageKey.BONUS_STATEMENT,
+                        )}
+                      </span>
                     </a>
                   </li>
                   <li className="smenu-item">

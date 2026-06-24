@@ -11,7 +11,11 @@ import { useForm } from "react-hook-form";
 import { Settings } from "../../../api";
 
 import toast from "react-hot-toast";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 const ForgotFields = ({ mobile, order }) => {
+  const { valueByLanguage } = useLanguage();
   const [handleForgotPassword] = useForgotPasswordMutation();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
@@ -172,7 +176,10 @@ const ForgotFields = ({ mobile, order }) => {
                                   type="submit"
                                   className="btn secondary-btn ng-star-inserted"
                                 >
-                                  Change Password
+                                  {languageValue(
+                                    valueByLanguage,
+                                    LanguageKey.CHANGE_PASSWORD,
+                                  )}
                                 </button>
                               </div>
                             </div>

@@ -15,7 +15,11 @@ import { useForm } from "react-hook-form";
 import { Settings } from "../../../api";
 import { setUser } from "../../../redux/features/auth/authSlice";
 import toast from "react-hot-toast";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 const Login = () => {
+  const { valueByLanguage } = useLanguage();
   const closePopupForForever = localStorage.getItem("closePopupForForever");
   const { logo } = useLogo();
   const dispatch = useDispatch();
@@ -183,7 +187,13 @@ const Login = () => {
                           />
                         </div>
                         <div className="welcome-text">
-                          <h2 className="notranslate">Login </h2>
+                          <h2 className="notranslate">
+                            {" "}
+                            {languageValue(
+                              valueByLanguage,
+                              LanguageKey.LOGIN,
+                            )}{" "}
+                          </h2>
                         </div>
                         <button
                           onClick={closeLoginModal}
@@ -260,7 +270,10 @@ const Login = () => {
                                   type="submit"
                                   className="btn secondary-btn ng-star-inserted"
                                 >
-                                  Login
+                                  {languageValue(
+                                    valueByLanguage,
+                                    LanguageKey.LOGIN,
+                                  )}
                                 </button>
                               </div>
                               {(Settings.demo_login || Settings.apk_link) && (

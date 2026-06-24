@@ -12,7 +12,11 @@ import { Settings } from "../../../api";
 
 import toast from "react-hot-toast";
 import { setUser } from "../../../redux/features/auth/authSlice";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 const RegisterFields = ({ mobile, order }) => {
+  const { valueByLanguage } = useLanguage();
   const affnook_token = localStorage.getItem("affnook_token");
   const referralCode = localStorage.getItem("referralCode");
   const [handleRegister] = useRegisterMutation();
@@ -214,7 +218,10 @@ const RegisterFields = ({ mobile, order }) => {
                                   type="submit"
                                   className="btn secondary-btn ng-star-inserted"
                                 >
-                                  Register
+                                  {languageValue(
+                                    valueByLanguage,
+                                    LanguageKey.REGISTER,
+                                  )}
                                 </button>
                               </div>
                             </div>

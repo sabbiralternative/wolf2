@@ -3,7 +3,6 @@ import {
   setShowLoginModal,
   setShowRegisterModal,
 } from "../../../redux/features/global/globalSlice";
-
 import { Settings } from "../../../api";
 import images from "../../../assets/images";
 import { useLanguage } from "../../../context/LanguageProvider";

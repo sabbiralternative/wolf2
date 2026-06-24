@@ -22,8 +22,12 @@ import { Settings } from "../../../api";
 import AppPopup from "./AppPopUp";
 import DownloadAPK from "../../modals/DownloadAPK/DownloadAPK";
 import Notification from "./Notification";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const Header = () => {
+  const { valueByLanguage } = useLanguage();
   const headerRef = useRef(null);
   const location = useLocation();
   const [showLanguage, setShowLanguage] = useState(false);
@@ -241,7 +245,10 @@ const Header = () => {
                       src="https://cdnimg.manage63.com/games_icon/ball.svg"
                     />
                   </div>
-                  <div className="tab-label ng-star-inserted">Cricket</div>
+                  <div className="tab-label ng-star-inserted">
+                    {" "}
+                    {languageValue(valueByLanguage, LanguageKey.CRICKET)}
+                  </div>
                   <div className="badgeWrapper ng-star-inserted">
                     {groupedData?.cricket > 0 && (
                       <div className="badge">{groupedData?.cricket}</div>
@@ -264,7 +271,10 @@ const Header = () => {
                       src="https://cdnimg.manage63.com/games_icon/soccer.svg"
                     />
                   </div>
-                  <div className="tab-label ng-star-inserted">Soccer</div>
+                  <div className="tab-label ng-star-inserted">
+                    {" "}
+                    {languageValue(valueByLanguage, LanguageKey.FOOTBALL)}
+                  </div>
                   <div className="badgeWrapper ng-star-inserted">
                     {groupedData?.football > 0 && (
                       <div className="badge">{groupedData?.football}</div>
@@ -287,7 +297,10 @@ const Header = () => {
                       src="https://cdnimg.manage63.com/games_icon/tennis.svg"
                     />
                   </div>
-                  <div className="tab-label ng-star-inserted">Tennis</div>
+                  <div className="tab-label ng-star-inserted">
+                    {" "}
+                    {languageValue(valueByLanguage, LanguageKey.TENNIS)}
+                  </div>
                   <div className="badgeWrapper ng-star-inserted">
                     {groupedData?.tennis > 0 && (
                       <div className="badge">{groupedData?.tennis}</div>
@@ -320,7 +333,10 @@ const Header = () => {
                       />
                     </svg>
                   </div>
-                  <div className="tab-label ng-star-inserted">Kabaddi</div>
+                  <div className="tab-label ng-star-inserted">
+                    {" "}
+                    {languageValue(valueByLanguage, LanguageKey.KABADDI)}
+                  </div>
                   <div className="badgeWrapper ng-star-inserted">
                     {groupedData?.kabaddi > 0 && (
                       <div className="badge">{groupedData?.kabaddi}</div>
@@ -364,7 +380,10 @@ const Header = () => {
                       src="https://ss.manage63.com/bmk-wl/commonAssets/horse-icon.svg"
                     />
                   </div>
-                  <div className="tab-label">Horse</div>
+                  <div className="tab-label">
+                    {" "}
+                    {languageValue(valueByLanguage, LanguageKey.HORSE)}
+                  </div>
                 </div>
                 <div
                   className="pagetab-item"
@@ -377,7 +396,10 @@ const Header = () => {
                       src="https://ss.manage63.com/bmk-wl/commonAssets/greyhound-icon.svg"
                     />
                   </div>
-                  <div className="tab-label">Greyhound</div>
+                  <div className="tab-label">
+                    {" "}
+                    {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}
+                  </div>
                 </div>
                 <div
                   onClick={() => navigate("/crash-games")}

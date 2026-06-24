@@ -6,8 +6,12 @@ import { Settings } from "../../../api";
 import images from "../../../assets/images";
 import { IoDocumentText } from "react-icons/io5";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const LoggedIn = ({ setShowLanguage }) => {
+  const { valueByLanguage } = useLanguage();
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const language = localStorage.getItem("language");
@@ -68,7 +72,10 @@ const LoggedIn = ({ setShowLanguage }) => {
             className="btn deposit-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted"
           >
             <span className="mat-mdc-button-persistent-ripple mdc-button__ripple"></span>
-            <span className="mdc-button__label"> Deposit </span>
+            <span className="mdc-button__label">
+              {" "}
+              {languageValue(valueByLanguage, LanguageKey.DEPOSIT)}{" "}
+            </span>
             <span className="mat-mdc-focus-indicator"></span>
             <span className="mat-mdc-button-touch-target"></span>
           </button>
