@@ -132,13 +132,20 @@ const DepositPaymentGateway = ({
                         <h2>{method?.title}</h2>
                       </div>
                       <div className="img-wrap">
-                        {
+                        {method?.gateway !== 1 && (
                           <img
                             alt="icon"
                             className="pay-icon"
                             src={`/assets/${method?.type}.png`}
                           />
-                        }
+                        )}
+                        {method?.gateway === 1 && (
+                          <img
+                            alt="icon"
+                            className="pay-icon"
+                            src={`/assets/upi.png`}
+                          />
+                        )}
                       </div>
                     </div>
                   );
