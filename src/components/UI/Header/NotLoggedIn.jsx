@@ -18,11 +18,11 @@ const NotLoggedIn = ({ setShowLanguage }) => {
   const language = localStorage.getItem("language");
   const dispatch = useDispatch();
 
-  const openWhatsapp = () => {
-    if (Settings?.whatsapplink) {
-      window.open(Settings?.whatsapplink, "_blank");
-    }
-  };
+  // const openWhatsapp = () => {
+  //   if (Settings?.whatsapplink) {
+  //     window.open(Settings?.whatsapplink, "_blank");
+  //   }
+  // };
 
   return (
     <div className="not-loggedIn ng-star-inserted">
@@ -53,7 +53,7 @@ const NotLoggedIn = ({ setShowLanguage }) => {
         </button>
       )}
 
-      {Settings.registration_whatsapp && Settings?.whatsapplink && (
+      {/* {Settings.registration_whatsapp && Settings?.whatsapplink && (
         <button
           onClick={openWhatsapp}
           className="btn dark-outlined-btn demo-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
@@ -63,7 +63,7 @@ const NotLoggedIn = ({ setShowLanguage }) => {
           <span className="mat-mdc-focus-indicator" />
           <span className="mat-mdc-button-touch-target" />
         </button>
-      )}
+      )} */}
 
       {Settings.language && pathname !== "/passbook" && (
         <div
