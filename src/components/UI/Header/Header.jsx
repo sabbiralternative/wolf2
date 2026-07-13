@@ -25,6 +25,7 @@ import Notification from "./Notification";
 import { useLanguage } from "../../../context/LanguageProvider";
 import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import { eventNameList } from "../../../static/event-name-list";
 
 const Header = () => {
   const { valueByLanguage } = useLanguage();
@@ -401,6 +402,36 @@ const Header = () => {
                     {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}
                   </div>
                 </div>
+                {eventNameList.map((item) => {
+                  return (
+                    <div
+                      key={item.id}
+                      onClick={() =>
+                        navigate(`/group/${item.name}/${item.id}?type=inPla`)
+                      }
+                      className={`pagetab-item ng-star-inserted ${pathname === `/group/${item.name}/${item.id}` ? "active-link" : ""}`}
+                    >
+                      <div className="icon-wrap ng-star-inserted">
+                        <img alt="Tab Icon" src={item.image} />
+                      </div>
+                      <div className="tab-label ng-star-inserted">
+                        {item.name}
+                      </div>
+                      <div className="badgeWrapper ng-star-inserted">
+                        {/* {groupedData?.politics > 0 && (
+                      <div className="badge">{groupedData?.politics}</div>
+                    )}
+                    {groupedData?.politics > 0 && (
+                      <div className="wifi-symbol">
+                        <div className="wifi-circle first" />
+                        <div className="wifi-circle second" />
+                      </div>
+                    )} */}
+                      </div>
+                    </div>
+                  );
+                })}
+
                 <div
                   onClick={() => navigate("/crash-games")}
                   className={`pagetab-item ng-star-inserted ${pathname === "/crash-games" ? "active-link" : ""}`}
