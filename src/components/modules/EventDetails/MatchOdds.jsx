@@ -11,7 +11,7 @@ import isOddSuspended from "../../../utils/isOddSuspended";
 import { Settings } from "../../../api";
 import { handleCashOutPlaceBet } from "../../../utils/handleCashoutPlaceBet";
 
-const MatchOdds = ({ data, order }) => {
+const MatchOdds = ({ data }) => {
   const [speedCashOut, setSpeedCashOut] = useState(null);
   const { eventId } = useParams();
   const [teamProfit, setTeamProfit] = useState([]);
@@ -231,7 +231,7 @@ const MatchOdds = ({ data, order }) => {
             (profit) => profit?.gameId === game?.id && profit?.speedCashOut,
           );
           return (
-            <div key={i} className={`f-order-${order} ng-star-inserted`}>
+            <div key={i} className={` ng-star-inserted`}>
               <div className="ng-star-inserted">
                 <div className="ng-star-inserted">
                   <div className="bookmaker-card card-outer" id="YBJVTEX">
