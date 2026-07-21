@@ -1,10 +1,12 @@
 import { useSelector } from "react-redux";
 import { Settings } from "../../../api";
 import images from "../../../assets/images";
+import { useState } from "react";
+import MiniGames from "../../modals/MiniGames/MiniGames";
 
 const SocialLinks = () => {
   const { token } = useSelector((state) => state.auth);
-
+  const [showMiniGamesModal, setShowMiniGamesModal] = useState(false);
   const navigateWhatsApp = () => {
     if (token && Settings?.branchWhatsapplink) {
       window.open(Settings?.branchWhatsapplink, "_blank");
@@ -50,6 +52,23 @@ const SocialLinks = () => {
             <img alt="WhatsApp" src={images.whatsAppSVG} />
           </div>
         </div>
+      )}
+
+      <div
+        onClick={() => setShowMiniGamesModal(true)}
+        className="btn-item ng-star-inserted"
+        style={{ cursor: "pointer" }}
+      >
+        <div className="btn-wrap whatsapp">
+          <img
+            // style={{ width: "100px" }}
+            alt="WhatsApp"
+            src="/assets/uv_games-CkYT1PYz.gif"
+          />
+        </div>
+      </div>
+      {showMiniGamesModal && (
+        <MiniGames setShowMiniGamesModal={setShowMiniGamesModal} />
       )}
     </div>
   );

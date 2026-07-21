@@ -15,7 +15,7 @@ const NotLoggedIn = ({ setShowLanguage }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { valueByLanguage } = useLanguage();
-  const language = localStorage.getItem("language");
+  // const language = localStorage.getItem("language");
   const dispatch = useDispatch();
 
   // const openWhatsapp = () => {
@@ -80,7 +80,7 @@ const NotLoggedIn = ({ setShowLanguage }) => {
           className="notranslate selected-lang ng-star-inserted"
         >
           <img style={{ height: "20px" }} src={images.globe} alt="" />
-          <span> {language || "EN"}</span>
+          {/* <span> {language || "EN"}</span> */}
         </div>
       )}
 
