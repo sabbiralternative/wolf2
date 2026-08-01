@@ -16,8 +16,10 @@ import { useCurrentBets } from "../../hooks/currentBets";
 import { useAccessTokenQuery } from "../../hooks/accessToken";
 import { Settings } from "../../api";
 import Premium from "../../components/modules/EventDetails/Premium";
+import ToggleButtons from "../../components/modules/EventDetails/ToggleButtons";
 
 const EventDetails = () => {
+  const [fancyPremiumTab, setFancyPremiumTab] = useState("");
   const [eventTab, setEventTab] = useState("market");
   const [showLiveMatch, setShowLiveMatch] = useState(true);
   const [showScore, setShowScore] = useState(true);
@@ -148,6 +150,13 @@ const EventDetails = () => {
       game?.name === "tied match",
   );
 
+  const fancy = data?.result?.filter(
+    (normal) =>
+      normal.btype === "FANCY" &&
+      normal.tabGroupName === "Normal" &&
+      normal?.visible == true,
+  );
+
   return (
     <div
       className="page-body"
@@ -229,14 +238,26 @@ const EventDetails = () => {
                         {bookmaker?.length > 0 && (
                           <Bookmaker data={bookmaker} />
                         )}
-                        {data?.result?.length > 0 && (
-                          <Fancy data={data?.result} />
+                        {data && (
+                          <ToggleButtons
+                            data={data}
+                            fancy={fancy}
+                            setFancyPremiumTab={setFancyPremiumTab}
+                            fancyPremiumTab={fancyPremiumTab}
+                          />
                         )}
+
+                        {data?.result?.length > 0 &&
+                          fancyPremiumTab === "fancy" && (
+                            <Fancy data={data?.result} />
+                          )}
+                        {data?.premium &&
+                          data?.premium?.eventId &&
+                          fancyPremiumTab === "premium" && (
+                            <Premium premium={data?.premium} />
+                          )}
                         {tiedMatch?.length > 0 && (
                           <MatchOdds data={tiedMatch} />
-                        )}
-                        {data?.premium && data?.premium?.eventId && (
-                          <Premium premium={data?.premium} />
                         )}
                       </div>
                     </div>
