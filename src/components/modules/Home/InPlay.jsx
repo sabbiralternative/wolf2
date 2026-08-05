@@ -8,8 +8,11 @@ import { GoClock } from "react-icons/go";
 import { useLanguage } from "../../../context/LanguageProvider";
 import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import { filterLiveVirtual } from "../../../utils/filter-live-virtual";
+import LiveVirtual from "./LiveVirtual";
 
 const InPlay = () => {
+  const [liveVirtual, setLiveVirtual] = useState([]);
   const { valueByLanguage } = useLanguage();
   const { group } = useSelector((state) => state.global);
   const { data } = useGroupQuery(
@@ -50,15 +53,16 @@ const InPlay = () => {
   return (
     <div>
       {categories?.map((category) => {
-        const filteredData = Object.entries(data)
-          .filter(
-            ([, value]) =>
-              value.eventTypeId === category && value.visible === true,
-          )
-          .reduce((obj, [key, value]) => {
-            obj[key] = value;
-            return obj;
-          }, {});
+        // const filteredData = Object.entries(data)
+        //   .filter(
+        //     ([, value]) =>
+        //       value.eventTypeId === category && value.visible === true,
+        //   )
+        //   .reduce((obj, [key, value]) => {
+        //     obj[key] = value;
+        //     return obj;
+        //   }, {});
+        const groupedData = filterLiveVirtual(liveVirtual, category, data);
         return (
           <div
             key={category}
@@ -67,7 +71,11 @@ const InPlay = () => {
             <div className="game-play-heading" tabIndex={0}>
               <h2>{eventName[category]}</h2>
               <a className="view-all-link ng-star-inserted">
-                All
+                <LiveVirtual
+                  setLiveVirtual={setLiveVirtual}
+                  category={category}
+                />
+                <span style={{ marginLeft: "5px" }}> All</span>
                 <span
                   role="img"
                   className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
@@ -93,26 +101,19 @@ const InPlay = () => {
                 </div>
                 <div className="table-body">
                   {data &&
-                    Object.values(data).length > 0 &&
-                    Object.keys(filteredData)
-                      .sort((keyA, keyB) => data[keyA].sort - data[keyB].sort)
-                      .map((keys, index) => {
-                        if (!data?.[keys]?.visible) {
-                          return null;
-                        }
+                    groupedData?.map(([keys], index) => {
+                      return (
+                        <div
+                          onClick={() => navigateGameList(keys)}
+                          key={index}
+                          className="table-item ng-star-inserted"
+                        >
+                          <div className="teamlist-info">
+                            <ScoreInfo data={data} keys={keys} />
 
-                        return (
-                          <div
-                            onClick={() => navigateGameList(keys)}
-                            key={index}
-                            className="table-item ng-star-inserted"
-                          >
-                            <div className="teamlist-info">
-                              <ScoreInfo data={data} keys={keys} />
-
-                              <h3 className="team-title">
-                                <p className="ng-star-inserted">
-                                  {/* <span
+                            <h3 className="team-title">
+                              <p className="ng-star-inserted">
+                                {/* <span
                                             role="img"
                                             className="mat-icon notranslate material-icons favorite mat-ligature-font mat-icon-no-color ng-star-inserted"
                                             aria-hidden="true"
@@ -120,80 +121,80 @@ const InPlay = () => {
                                           >
                                             star
                                           </span> */}
-                                  <span className="team-name">
-                                    {data[keys]?.player1}
-                                  </span>
-                                </p>
-                                <p className="ng-star-inserted">
-                                  <span className="team-name">
-                                    {data[keys]?.player2}
-                                  </span>
-                                  {/* <img
+                                <span className="team-name">
+                                  {data[keys]?.player1}
+                                </span>
+                              </p>
+                              <p className="ng-star-inserted">
+                                <span className="team-name">
+                                  {data[keys]?.player2}
+                                </span>
+                                {/* <img
                                     alt="Playing"
                                     src="https://ss.manage63.com/bmk-wl/commonAssets/batting-icon.svg"
                                     className="ng-star-inserted"
                                   /> */}
-                                </p>
-                              </h3>
-                              <div className="inplay-wrap">
-                                <span
-                                  className="fancy-icon"
-                                  style={{ display: "none" }}
-                                >
-                                  <img
-                                    src="../../../assets/img/f-icon.svg"
-                                    alt=""
-                                  />
-                                </span>
-                                {data?.[keys]?.isTv === 1 && (
-                                  <MdOutlineSmartDisplay
-                                    size={15}
-                                    color="var(--green-color)"
-                                  />
-                                )}
-                              </div>
-                            </div>
-                            <div className="flex-row-right rt-wrap">
-                              <div className="count-v-wrap ng-star-inserted">
-                                <button className="count-value back-count mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base">
-                                  <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                                  <span className="mdc-button__label">
-                                    <h4>
-                                      {" "}
-                                      {data?.[keys]?.[0]?.ex?.availableToBack[0]
-                                        ?.price || "-"}
-                                    </h4>
-                                    <p>
-                                      {" "}
-                                      {data?.[keys]?.[0]?.ex
-                                        ?.availableToBack?.[0]?.size || "-"}
-                                    </p>{" "}
-                                  </span>
-                                  <span className="mat-mdc-focus-indicator" />
-                                  <span className="mat-mdc-button-touch-target" />
-                                </button>
-                                <button className="count-value lay-count mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base">
-                                  <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                                  <span className="mdc-button__label">
-                                    <h4>
-                                      {" "}
-                                      {data?.[keys]?.[0]?.ex
-                                        ?.availableToLay?.[0]?.price || "-"}
-                                    </h4>
-                                    <p>
-                                      {" "}
-                                      {data?.[keys]?.[0]?.ex
-                                        ?.availableToLay?.[0]?.size || "-"}
-                                    </p>{" "}
-                                  </span>
-                                  <span className="mat-mdc-focus-indicator" />
-                                  <span className="mat-mdc-button-touch-target" />
-                                </button>
-                              </div>
+                              </p>
+                            </h3>
+                            <div className="inplay-wrap">
+                              <span
+                                className="fancy-icon"
+                                style={{ display: "none" }}
+                              >
+                                <img
+                                  src="../../../assets/img/f-icon.svg"
+                                  alt=""
+                                />
+                              </span>
+                              {data?.[keys]?.isTv === 1 && (
+                                <MdOutlineSmartDisplay
+                                  size={15}
+                                  color="var(--green-color)"
+                                />
+                              )}
                             </div>
                           </div>
-                        );
-                      })}
+                          <div className="flex-row-right rt-wrap">
+                            <div className="count-v-wrap ng-star-inserted">
+                              <button className="count-value back-count mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base">
+                                <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
+                                <span className="mdc-button__label">
+                                  <h4>
+                                    {" "}
+                                    {data?.[keys]?.[0]?.ex?.availableToBack[0]
+                                      ?.price || "-"}
+                                  </h4>
+                                  <p>
+                                    {" "}
+                                    {data?.[keys]?.[0]?.ex?.availableToBack?.[0]
+                                      ?.size || "-"}
+                                  </p>{" "}
+                                </span>
+                                <span className="mat-mdc-focus-indicator" />
+                                <span className="mat-mdc-button-touch-target" />
+                              </button>
+                              <button className="count-value lay-count mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base">
+                                <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
+                                <span className="mdc-button__label">
+                                  <h4>
+                                    {" "}
+                                    {data?.[keys]?.[0]?.ex?.availableToLay?.[0]
+                                      ?.price || "-"}
+                                  </h4>
+                                  <p>
+                                    {" "}
+                                    {data?.[keys]?.[0]?.ex?.availableToLay?.[0]
+                                      ?.size || "-"}
+                                  </p>{" "}
+                                </span>
+                                <span className="mat-mdc-focus-indicator" />
+                                <span className="mat-mdc-button-touch-target" />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
                 </div>
               </div>
             </div>
