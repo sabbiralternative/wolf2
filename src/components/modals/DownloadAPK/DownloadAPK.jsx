@@ -1,4 +1,4 @@
-import { GrAndroid } from "react-icons/gr";
+import { GrAndroid, GrClose } from "react-icons/gr";
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
@@ -43,6 +43,7 @@ const DownloadAPK = () => {
           style={{
             width: "100%",
             minHeight: "395px",
+            // maxHeight: "600px",
             maxWidth: "500px",
             position: "static",
             marginBottom: "0px",
@@ -62,39 +63,69 @@ const DownloadAPK = () => {
             style={{ "-mat-dialog-transition-duration": "150ms" }}
           >
             <div className="mdc-dialog__container">
-              <div className="mat-mdc-dialog-surface mdc-dialog__surface">
+              <div
+                className="mat-mdc-dialog-surface mdc-dialog__surface"
+                style={{ borderRadius: "12px" }}
+              >
                 <div ref={modalRef} className="ng-star-inserted">
                   <div className="change-password-modal">
-                    <div className="modal-header">
-                      <h2>Download APK</h2>
-                      <button
-                        onClick={closeModal}
-                        className="modal-close-btn mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base"
-                        type="button"
-                      >
-                        <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                        <div
-                          role="img"
-                          className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
-                          aria-hidden="true"
-                          data-mat-icon-type="font"
+                    {!Settings?.apk_banner && (
+                      <div className="modal-header">
+                        <h2>Download APK</h2>
+                        <button
+                          onClick={closeModal}
+                          className="modal-close-btn mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base"
+                          type="button"
                         >
-                          close{" "}
-                        </div>
-                        <span className="mdc-button__label" />
-                        <span className="mat-mdc-focus-indicator" />
-                        <span className="mat-mdc-button-touch-target" />
-                        <span className="mat-ripple mat-mdc-button-ripple" />
-                      </button>
-                    </div>
+                          <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
+                          <div
+                            role="img"
+                            className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+                            aria-hidden="true"
+                            data-mat-icon-type="font"
+                          >
+                            close{" "}
+                          </div>
+                          <span className="mdc-button__label" />
+                          <span className="mat-mdc-focus-indicator" />
+                          <span className="mat-mdc-button-touch-target" />
+                          <span className="mat-ripple mat-mdc-button-ripple" />
+                        </button>
+                      </div>
+                    )}
+
                     <div className="ng-pristine ng-invalid ng-touched">
                       {Settings?.apk_banner ? (
-                        <img
-                          onClick={handleDownload}
-                          style={{ borderRadius: "12px" }}
-                          src={Settings.apk_banner}
-                          alt="apk_banner"
-                        />
+                        <div style={{ position: "relative", height: "100%" }}>
+                          <img
+                            onClick={handleDownload}
+                            style={{
+                              borderRadius: "12px",
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "contain",
+                            }}
+                            src={Settings.apk_banner}
+                            alt="apk_banner"
+                          />
+                          <button
+                            style={{
+                              position: "absolute",
+                              top: "5px",
+                              right: "5px",
+                              background: "white",
+                              borderRadius: "50%",
+                              width: "30px",
+                              height: "30px",
+                              minWidth: "30px",
+                            }}
+                            onClick={closeModal}
+                            className="modal-close-btn mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base"
+                            type="button"
+                          >
+                            <GrClose />
+                          </button>
+                        </div>
                       ) : (
                         <div className="promo-card">
                           <header className="promo-header">
