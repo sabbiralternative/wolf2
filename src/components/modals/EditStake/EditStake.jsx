@@ -3,8 +3,11 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { setShowEditStakeModal } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const EditStake = () => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const [editButtonValue] = useEditButtonValuesMutation();
   const stakes = JSON.parse(localStorage.getItem("buttonValue"));
@@ -74,7 +77,7 @@ const EditStake = () => {
                 <div className="ng-star-inserted">
                   <div className="editstake-modal">
                     <div className="modal-header">
-                      <h2>Edit Stake</h2>
+                      <h2>{getLanguage(LanguageKey.EDIT_STAKE)}</h2>
                       <div className="action-btns">
                         <button
                           onClick={closeModal}
@@ -107,7 +110,10 @@ const EditStake = () => {
                         <div className="editvalue-wrap">
                           <p className="input-msg">
                             {" "}
-                            Please fill all required fields (*){" "}
+                            {getLanguage(
+                              LanguageKey.PLEASE_FILL_IN_ALL_REQUIRED_FIELDS,
+                            )}{" "}
+                            (*){" "}
                           </p>
                           <div className="amt-chip-grid">
                             {stakes?.map((_, idx) => {
@@ -130,7 +136,9 @@ const EditStake = () => {
                               type="button"
                             >
                               <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                              <span className="mdc-button__label">Cancel</span>
+                              <span className="mdc-button__label">
+                                {getLanguage(LanguageKey.CANCEL)}
+                              </span>
                               <span className="mat-mdc-focus-indicator" />
                               <span className="mat-mdc-button-touch-target" />
                               <span className="mat-ripple mat-mdc-button-ripple" />
@@ -140,7 +148,9 @@ const EditStake = () => {
                               className="save-btn mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
                             >
                               <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                              <span className="mdc-button__label">Save</span>
+                              <span className="mdc-button__label">
+                                {getLanguage(LanguageKey.SAVE)}
+                              </span>
                               <span className="mat-mdc-focus-indicator" />
                               <span className="mat-mdc-button-touch-target" />
                             </button>

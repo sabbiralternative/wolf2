@@ -2,8 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useSlotWolfQuery } from "../../../hooks/slotWolf";
 import { useNavigate } from "react-router-dom";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const Casino = () => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const { data } = useSlotWolfQuery({
     gameList: "All",
@@ -24,9 +27,9 @@ const Casino = () => {
   return (
     <div className="casino-section go-casino game-play mt-2 mb-3 ng-star-inserted">
       <div className="game-play-heading">
-        <h2>Go Casino</h2>
+        <h2>{getLanguage(LanguageKey.GO_CASINO)}</h2>
         <a className="view-all-link ng-star-inserted">
-          All
+          {getLanguage(LanguageKey.ALL)}
           <span
             role="img"
             className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"

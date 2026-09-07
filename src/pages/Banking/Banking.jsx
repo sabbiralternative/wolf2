@@ -8,8 +8,11 @@ import {
 import images from "../../assets/images";
 import DeleteBank from "../../components/modals/DeleteBank/DeleteBank";
 import Notification from "../../components/UI/Notification/Notification";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const Banking = () => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const [deleteBankId, setDeleteBankId] = useState(null);
@@ -145,7 +148,7 @@ const Banking = () => {
                       <div className="mat-ripple mat-mdc-tab-ripple" />
                       <span className="mdc-tab__content">
                         <span className="mdc-tab__text-label">
-                          Active Banks
+                          {getLanguage(LanguageKey.ACTIVE_BANKS)}
                         </span>
                       </span>
                       <span className="mdc-tab-indicator">
@@ -167,7 +170,9 @@ const Banking = () => {
                       <span className="mdc-tab__ripple" />
                       <div className="mat-ripple mat-mdc-tab-ripple" />
                       <span className="mdc-tab__content">
-                        <span className="mdc-tab__text-label">Deleted</span>
+                        <span className="mdc-tab__text-label">
+                          {getLanguage(LanguageKey.DELETED)}
+                        </span>
                       </span>
                       <span className="mdc-tab-indicator">
                         <span className="mdc-tab-indicator__content mdc-tab-indicator__content--underline" />
@@ -217,7 +222,7 @@ const Banking = () => {
                         type="button"
                         className="btn secondary-btn ng-star-inserted"
                       >
-                        Add New Bank
+                        {getLanguage(LanguageKey.ADD_NEW_BANK)}
                       </button>
                     </div>
                     <div
@@ -229,13 +234,15 @@ const Banking = () => {
                         type="button"
                         className="btn secondary-btn ng-star-inserted"
                       >
-                        Add USDT Account
+                        {getLanguage(LanguageKey.ADD_USDT_ACCOUNT)}
                       </button>
                     </div>
                   </div>
 
                   <div className="title-bar ng-star-inserted" style={{}}>
-                    <h2 className="title">Bank Details</h2>
+                    <h2 className="title">
+                      {getLanguage(LanguageKey.BANK_DETAILS)}
+                    </h2>
                   </div>
                   <div className="banks-list-wrap ng-star-inserted" style={{}}>
                     {bankAccount?.map((account) => {
@@ -282,7 +289,7 @@ const Banking = () => {
                                     {account?.bankName}
                                     {account?.isDefault === 1 && (
                                       <span className="preffered ng-star-inserted">
-                                        Default
+                                        {getLanguage(LanguageKey.DEFAULT)}
                                       </span>
                                     )}
                                   </h2>
@@ -319,19 +326,33 @@ const Banking = () => {
                                 <div className="banks-details ng-tns-c1859850774-54">
                                   <ul>
                                     <li>
-                                      <label>Account holder name</label>
+                                      <label>
+                                        {getLanguage(
+                                          LanguageKey.ACCOUNT_HOLDER_NAME,
+                                        )}
+                                      </label>
                                       <p>{account?.bankAccountName}</p>
                                     </li>
                                     <li>
-                                      <label>Account number</label>
+                                      <label>
+                                        {getLanguage(
+                                          LanguageKey.ACCOUNT_NUMBER,
+                                        )}
+                                      </label>
                                       <p>{account?.accountNumber}</p>
                                     </li>
                                     <li>
-                                      <label>IFSC Code</label>
+                                      <label>
+                                        {getLanguage(LanguageKey.IFSC_CODE)}
+                                      </label>
                                       <p>{account?.ifsc}</p>
                                     </li>
                                     <li>
-                                      <label>Account added on</label>
+                                      <label>
+                                        {getLanguage(
+                                          LanguageKey.ACCOUNT_ADDED_ON,
+                                        )}
+                                      </label>
                                       <p>{account?.dateAdded}</p>
                                     </li>
                                   </ul>

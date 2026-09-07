@@ -7,8 +7,11 @@ import toast from "react-hot-toast";
 import { API, Settings } from "../../../api";
 import { AxiosSecure } from "../../../lib/AxiosSecure";
 import { jwtDecode } from "jwt-decode";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const AddBankAccount = () => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
 
   const closeModal = () => {
@@ -185,7 +188,7 @@ const AddBankAccount = () => {
                   <div className="ng-star-inserted">
                     <div className="add-bank-modal">
                       <div className="modal-header">
-                        <h2>Add new bank account</h2>
+                        <h2>{getLanguage(LanguageKey.ADD_NEW_BANK)}</h2>
                         <button
                           onClick={closeModal}
                           className="modal-close-btn mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base"
@@ -214,7 +217,9 @@ const AddBankAccount = () => {
                         <div className="modal-body">
                           <div className="form-wrap">
                             <div className="input-wrap ng-star-inserted">
-                              <label>Account holder name*</label>
+                              <label>
+                                {getLanguage(LanguageKey.ACCOUNT_HOLDER_NAME)}*
+                              </label>
                               <input
                                 onChange={(e) => {
                                   setBankDetails({
@@ -231,7 +236,9 @@ const AddBankAccount = () => {
                               />
                             </div>
                             <div className="input-wrap ng-star-inserted">
-                              <label>Account number*</label>
+                              <label>
+                                {getLanguage(LanguageKey.ACCOUNT_NUMBER)}*
+                              </label>
                               <input
                                 onChange={(e) => {
                                   setBankDetails({
@@ -248,7 +255,12 @@ const AddBankAccount = () => {
                               />
                             </div>
                             <div className="input-wrap ng-star-inserted">
-                              <label>Confirm Account number*</label>
+                              <label>
+                                {getLanguage(
+                                  LanguageKey.CONFIRM_ACCOUNT_NUMBER,
+                                )}
+                                *
+                              </label>
                               <input
                                 onChange={(e) => {
                                   setBankDetails({
@@ -265,7 +277,9 @@ const AddBankAccount = () => {
                               />
                             </div>
                             <div className="input-wrap ng-star-inserted">
-                              <label>IFSC code*</label>
+                              <label>
+                                {getLanguage(LanguageKey.IFSC_CODE)}*
+                              </label>
 
                               <input
                                 onChange={(e) => {
@@ -283,7 +297,9 @@ const AddBankAccount = () => {
                             </div>
                             {mobile && Settings.otp && (
                               <div className="input-wrap ng-star-inserted">
-                                <label>Mobile*</label>
+                                <label>
+                                  {getLanguage(LanguageKey.MOBILE_NUMBER)}*
+                                </label>
                                 <div
                                   style={{
                                     width: "100%",
@@ -322,7 +338,8 @@ const AddBankAccount = () => {
                                           fontSize: "10px",
                                         }}
                                       >
-                                        Retry in {timer}
+                                        {getLanguage(LanguageKey.RETRY_IN)}{" "}
+                                        {timer}
                                       </div>
                                     ) : (
                                       <Fragment>
@@ -340,7 +357,9 @@ const AddBankAccount = () => {
                                             fontSize: "10px",
                                           }}
                                         >
-                                          Get OTP Message
+                                          {getLanguage(
+                                            LanguageKey.GET_OTP_ON_MESSAGE,
+                                          )}
                                         </button>
                                         {/* <button
                                           type="button"
@@ -366,7 +385,7 @@ const AddBankAccount = () => {
                             )}
                             {mobile && Settings.otp && (
                               <div className="input-wrap ng-star-inserted">
-                                <label>OTP*</label>
+                                <label>{getLanguage(LanguageKey.OTP)}*</label>
                                 <div
                                   style={{
                                     width: "100%",
@@ -402,7 +421,10 @@ const AddBankAccount = () => {
                             disabled={!isFormValid}
                           >
                             <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                            <span className="mdc-button__label"> Submit </span>
+                            <span className="mdc-button__label">
+                              {" "}
+                              {getLanguage(LanguageKey.SUBMIT)}{" "}
+                            </span>
                             <span className="mat-mdc-focus-indicator" />
                             <span className="mat-mdc-button-touch-target" />
                           </button>

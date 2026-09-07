@@ -5,8 +5,11 @@ import { handleCopyToClipBoard } from "../../../utils/handleCopyToClipBoard";
 import { FaRegCopy } from "react-icons/fa";
 import { useGetIndex } from "../../../hooks";
 import { useLogo } from "../../../context/ApiProvider";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const Referral = () => {
+  const { getLanguage } = useLanguage();
   const { logo } = useLogo();
   const { data } = useGetIndex({
     type: "get_referral_code",
@@ -94,10 +97,11 @@ const Referral = () => {
                         </button>
                       </div>
                       <div className="modal-body">
-                        <h3>Refer and earn</h3>
+                        <h3>{getLanguage(LanguageKey.REFER_AND_EARN)}</h3>
                         <p>
-                          Be our brand hero, refer your friend using your refer
-                          code
+                          {getLanguage(
+                            LanguageKey.BE_OUR_BRAND_HERO_REFER_YOUR_FRIEND_USING_YOUR_REFER_CODE,
+                          )}
                         </p>
                         <div className="referral-code">
                           <p
@@ -112,7 +116,7 @@ const Referral = () => {
                               handleCopyToClipBoard(data?.result?.link)
                             }
                           >
-                            Copy
+                            {getLanguage(LanguageKey.COPY)}
                           </button>
                         </div>
                         <div className="sharing">
@@ -127,7 +131,7 @@ const Referral = () => {
                                   src="https://ss.manage63.com/bmk-wl/commonAssets/whatsapp-icon.svg"
                                 />
                               </div>
-                              <p>WhatsApp</p>
+                              <p>{getLanguage(LanguageKey.WHATSAPP)}</p>
                             </div>
                             <div
                               onClick={handleNavigateToTelegram}
@@ -150,7 +154,7 @@ const Referral = () => {
                               <div className="icon-wrap more">
                                 <FaRegCopy />
                               </div>
-                              <p>Copy Text</p>
+                              <p>{getLanguage(LanguageKey.COPY)}</p>
                             </div>
                           </div>
                         </div>

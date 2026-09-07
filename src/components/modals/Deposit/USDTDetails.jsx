@@ -4,8 +4,11 @@ import images from "../../../assets/images";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setShowDepositModal } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const USDTDetails = ({ data }) => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const [secondsLeft, setSecondsLeft] = useState(5 * 60);
 
@@ -34,7 +37,7 @@ const USDTDetails = ({ data }) => {
           <div className="img-wrap bank-img">
             <img src={images.bankTransfer} />
           </div>{" "}
-          Bank Details
+          {getLanguage(LanguageKey.BANK_DETAILS)}
         </h4>
         <div className="timerWrap">
           <span className="timer">
@@ -66,19 +69,22 @@ const USDTDetails = ({ data }) => {
       </div>
       <ul>
         <li>
-          <label>Wallet Address </label>
+          <label>{getLanguage(LanguageKey.WALLET_ADDRESS)}</label>
           <p>
             {data?.token}
             <a
               onClick={() => handleCopyToClipBoard(data?.token)}
               style={{ marginLeft: "4px" }}
             >
-              <GrCopy /> <span style={{ marginLeft: "4px" }}>Copy</span>
+              <GrCopy />{" "}
+              <span style={{ marginLeft: "4px" }}>
+                {getLanguage(LanguageKey.COPY)}
+              </span>
             </a>
           </p>
         </li>
         <li>
-          <label>Amount</label>
+          <label>{getLanguage(LanguageKey.AMOUNT)}</label>
           <p>
             USDT {data?.depositAmount}
             <a
@@ -91,14 +97,17 @@ const USDTDetails = ({ data }) => {
         </li>
 
         <li>
-          <label>Display Name</label>
+          <label>{getLanguage(LanguageKey.DISPLAY_NAME)}</label>
           <p>
             {data?.qrDisplayName}
             <a
               onClick={() => handleCopyToClipBoard(data?.qrDisplayName)}
               style={{ marginLeft: "4px" }}
             >
-              <GrCopy /> <span style={{ marginLeft: "4px" }}>Copy</span>
+              <GrCopy />{" "}
+              <span style={{ marginLeft: "4px" }}>
+                {getLanguage(LanguageKey.COPY)}
+              </span>
             </a>
           </p>
         </li>

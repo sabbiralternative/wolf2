@@ -4,6 +4,8 @@ import { AxiosSecure } from "../../../lib/AxiosSecure";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { setShowDepositModal } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const DepositPaymentGateway = ({
   amount,
@@ -13,6 +15,7 @@ const DepositPaymentGateway = ({
   setPaymentId,
   setMethodTitle,
 }) => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const { data: depositMethods } = useBankAccountQuery({
     type: "depositMethods",
@@ -91,7 +94,8 @@ const DepositPaymentGateway = ({
           </button>
           <h2>
             {" "}
-            Deposit <span className="amount"> ₹{amount}</span>
+            {getLanguage(LanguageKey.DEPOSIT)}{" "}
+            <span className="amount"> ₹{amount}</span>
           </h2>
           <button
             onClick={() => {

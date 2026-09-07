@@ -6,8 +6,11 @@ import {
   setShowLoginModal,
   setShowLoginWarning,
 } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const LoginWarning = () => {
+  const { getLanguage } = useLanguage();
   const ref = useRef();
   const dispatch = useDispatch();
 
@@ -58,7 +61,7 @@ const LoginWarning = () => {
           id="swal2-html-container"
           style={{ display: "block" }}
         >
-          Please login/signup to continue
+          {getLanguage(LanguageKey.PLEASE_LOGIN_TO_CONTINUE)}
         </div>
         <input
           id="swal2-input"
@@ -107,7 +110,7 @@ const LoginWarning = () => {
                 "0 0 0 3px rgba(112, 102, 224, 0.5)",
             }}
           >
-            OK
+            {getLanguage(LanguageKey.OK)}
           </button>
           <button
             type="button"

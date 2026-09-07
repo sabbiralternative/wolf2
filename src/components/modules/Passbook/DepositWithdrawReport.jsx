@@ -1,8 +1,11 @@
 import { useState } from "react";
 import DepositReport from "./DepositReport";
 import WithdrawReport from "./WithdrawReport";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const DepositWithdrawReport = () => {
+  const { getLanguage } = useLanguage();
   const [activeTab, setActiveTab] = useState("deposit");
 
   return (
@@ -23,13 +26,13 @@ const DepositWithdrawReport = () => {
           onClick={() => setActiveTab("deposit")}
           className={`btn  ${activeTab === "deposit" ? "secondary-btn" : "white-bg"}`}
         >
-          Deposit
+          {getLanguage(LanguageKey.DEPOSIT)}
         </button>
         <button
           onClick={() => setActiveTab("withdraw")}
           className={`btn  ${activeTab === "withdraw" ? "secondary-btn" : "white-bg"}`}
         >
-          Withdraw
+          {getLanguage(LanguageKey.WITHDRAW)}
         </button>
       </div>
 

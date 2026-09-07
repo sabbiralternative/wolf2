@@ -5,8 +5,11 @@ import images from "../../../assets/images";
 import ImagePreview from "../../modals/ImagePreview/ImagePreview";
 import { useBankAccountMutation } from "../../../redux/features/deposit/deposit.api";
 import toast from "react-hot-toast";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const WithdrawReport = () => {
+  const { getLanguage } = useLanguage();
   const [deleteWithdraw] = useBankAccountMutation();
   const fromDate = new Date(new Date().setDate(new Date().getDate() - 7))
     .toISOString()
@@ -112,7 +115,7 @@ const WithdrawReport = () => {
               <ul>
                 <li>
                   <p className="txn-type">
-                    Withdraw
+                    {getLanguage(LanguageKey.WITHDRAW)}
                     <span>{item?.date}</span>
                   </p>
                   <p className="amount">
@@ -149,13 +152,18 @@ const WithdrawReport = () => {
                               handleDeleteWithdraw(item?.withdraw_id)
                             }
                           >
-                            Cancel Withdraw
+                            {getLanguage(LanguageKey.CANCEL_WITHDRAWAL)}
                           </button>
                         )}
 
                       {item.status === "PENDING" &&
                         item?.reject_request === 1 && (
-                          <p>Withdraw delete request sent.</p>
+                          <p>
+                            {getLanguage(
+                              LanguageKey.WITHDRAW_DELETE_REQUEST_SENT,
+                            )}
+                            .
+                          </p>
                         )}
                     </div>
                   </p>
@@ -187,11 +195,11 @@ const WithdrawReport = () => {
               <div className="txn-detail ng-star-inserted" style={{}}>
                 <div className="txn-detail-header">
                   <p className="ng-star-inserted">
-                    <span>Coins</span>
+                    <span>{getLanguage(LanguageKey.COINS)}</span>
                     <span>{item?.amount}</span>
                   </p>
                   <p className="ng-star-inserted">
-                    <span>Modified on</span>
+                    <span>{getLanguage(LanguageKey.MODIFIED_ON)}</span>
                     <span>{item?.date_modified}</span>
                   </p>
                 </div>

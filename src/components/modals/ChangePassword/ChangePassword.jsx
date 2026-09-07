@@ -5,8 +5,11 @@ import toast from "react-hot-toast";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 import { useDispatch } from "react-redux";
 import { setShowChangePasswordModal } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const ChangePassword = () => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [showNewPass, setShowNewPass] = useState(false);
@@ -73,7 +76,7 @@ const ChangePassword = () => {
                   <div className="ng-star-inserted">
                     <div className="change-password-modal">
                       <div className="modal-header">
-                        <h2>Change Password</h2>
+                        <h2>{getLanguage(LanguageKey.CHANGE_PASSWORD)}</h2>
                         <button
                           onClick={closeModal}
                           className="modal-close-btn mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base"
@@ -101,7 +104,9 @@ const ChangePassword = () => {
                         <div className="modal-body">
                           <div className="form-wrap">
                             <div className="input-wrap">
-                              <label>Old Password*</label>
+                              <label>
+                                {getLanguage(LanguageKey.OLD_PASSWORD)}*
+                              </label>
                               <input
                                 {...register("password", { required: true })}
                                 placeholder="Enter Old Password"
@@ -119,7 +124,9 @@ const ChangePassword = () => {
                               </div>
                             </div>
                             <div className="input-wrap">
-                              <label>New Password*</label>
+                              <label>
+                                {getLanguage(LanguageKey.NEW_PASSWORD)}*
+                              </label>
                               <input
                                 {...register("newPassword", {
                                   required: true,
@@ -139,7 +146,9 @@ const ChangePassword = () => {
                               </div>
                             </div>
                             <div className="input-wrap">
-                              <label>Confirm New Password</label>
+                              <label>
+                                {getLanguage(LanguageKey.CONFIRM_PASSWORD)}
+                              </label>
                               <input
                                 {...register("newPasswordConfirm", {
                                   required: true,
@@ -174,7 +183,7 @@ const ChangePassword = () => {
                             <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
                             <span className="mdc-button__label">
                               {" "}
-                              Change Password
+                              {getLanguage(LanguageKey.CHANGE_PASSWORD)}
                             </span>
                             <span className="mat-mdc-focus-indicator" />
                             <span className="mat-mdc-button-touch-target" />

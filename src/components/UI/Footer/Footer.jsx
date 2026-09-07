@@ -2,8 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { logout } from "../../../redux/features/auth/authSlice";
 import { Fragment, useState } from "react";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 import MyMarket from "../../modals/MyMarket/MyMarket";
 import {
@@ -11,10 +9,11 @@ import {
   setShowReferralModal,
 } from "../../../redux/features/global/globalSlice";
 import { Settings } from "../../../api";
+import useLanguage from "../../../hooks/use-language";
 
 const Footer = () => {
   const [showMyMarket, setShowMyMarket] = useState(false);
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -37,7 +36,7 @@ const Footer = () => {
               type="button"
               className="btn secondary-btn w-100"
             >
-              {languageValue(valueByLanguage, LanguageKey.LOGOUT)}
+              {getLanguage(LanguageKey.LOGOUT)}
             </button>
           </div>
         )}
@@ -50,7 +49,7 @@ const Footer = () => {
               type="button"
               className="btn secondary-btn w-100"
             >
-              {languageValue(valueByLanguage, LanguageKey.LOGIN)}
+              {getLanguage(LanguageKey.LOGIN)}
             </button>
           </div>
         )}
@@ -67,7 +66,7 @@ const Footer = () => {
                 <span className="uIcons uIcons_home_2" />
                 <p className="notranslate">
                   {" "}
-                  {languageValue(valueByLanguage, LanguageKey.HOME)}
+                  {getLanguage(LanguageKey.HOME)}
                 </p>{" "}
               </span>
               <span className="mat-mdc-focus-indicator" />
@@ -81,7 +80,9 @@ const Footer = () => {
               <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
               <span className="mdc-button__label">
                 <span className="uIcons uIcons_inplay" />
-                <p className="notranslate">Inplay</p>{" "}
+                <p className="notranslate">
+                  {getLanguage(LanguageKey.IN_PLAY)}
+                </p>{" "}
               </span>
               <span className="mat-mdc-focus-indicator" />
               <span className="mat-mdc-button-touch-target" />
@@ -95,7 +96,9 @@ const Footer = () => {
                 <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
                 <span className="mdc-button__label">
                   <span className="uIcons uIcons_offers_1" />
-                  <p className="notranslate">Offers</p>{" "}
+                  <p className="notranslate">
+                    {getLanguage(LanguageKey.OFFERS)}
+                  </p>{" "}
                 </span>
                 <span className="mat-mdc-focus-indicator" />
                 <span className="mat-mdc-button-touch-target" />
@@ -109,7 +112,9 @@ const Footer = () => {
                   <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
                   <span className="mdc-button__label">
                     <span className="uIcons uIcons_my_market" />
-                    <p className="notranslate">My Markets</p>
+                    <p className="notranslate">
+                      {getLanguage(LanguageKey.MY_MARKETS)}
+                    </p>
                   </span>
                   <span className="mat-mdc-focus-indicator" />
                   <span className="mat-mdc-button-touch-target" />
@@ -122,7 +127,9 @@ const Footer = () => {
                     <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
                     <span className="mdc-button__label">
                       <span className="uIcons uIcons_referral" />
-                      <p className="notranslate">Referral</p>
+                      <p className="notranslate">
+                        {getLanguage(LanguageKey.REFERRAL)}
+                      </p>
                     </span>
                     <span className="mat-mdc-focus-indicator" />
                     <span className="mat-mdc-button-touch-target" />
@@ -136,7 +143,9 @@ const Footer = () => {
                   <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
                   <span className="mdc-button__label">
                     <span className="uIcons uIcons_passbook_2" />
-                    <p className="notranslate">Passbook</p>
+                    <p className="notranslate">
+                      {getLanguage(LanguageKey.PASSBOOK)}
+                    </p>
                   </span>
                   <span className="mat-mdc-focus-indicator" />
                   <span className="mat-mdc-button-touch-target" />

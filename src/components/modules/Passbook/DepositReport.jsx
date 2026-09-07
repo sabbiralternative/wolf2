@@ -3,8 +3,11 @@ import { useAccountStatement } from "../../../hooks/accountStatement";
 import { Settings } from "../../../api";
 import images from "../../../assets/images";
 import ImagePreview from "../../modals/ImagePreview/ImagePreview";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const DepositReport = () => {
+  const { getLanguage } = useLanguage();
   const fromDate = new Date(new Date().setDate(new Date().getDate() - 7))
     .toISOString()
     .split("T")[0];
@@ -95,7 +98,7 @@ const DepositReport = () => {
               <ul>
                 <li>
                   <p className="txn-type">
-                    Deposit
+                    {getLanguage(LanguageKey.DEPOSIT)}
                     <span>{item?.date}</span>
                   </p>
                   <p className="amount">
@@ -134,11 +137,11 @@ const DepositReport = () => {
               <div className="txn-detail ng-star-inserted" style={{}}>
                 <div className="txn-detail-header">
                   <p className="ng-star-inserted">
-                    <span>Coins</span>
+                    <span>{getLanguage(LanguageKey.COINS)}</span>
                     <span>{item?.amount}</span>
                   </p>
                   <p className="ng-star-inserted">
-                    <span>Modified on</span>
+                    <span>{getLanguage(LanguageKey.MODIFIED_ON)}</span>
                     <span>{item?.date_modified}</span>
                   </p>
                 </div>

@@ -12,11 +12,10 @@ import { Settings } from "../../../api";
 
 import toast from "react-hot-toast";
 import { setUser } from "../../../redux/features/auth/authSlice";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
 const RegisterFields = ({ mobile, order }) => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const affnook_token = localStorage.getItem("affnook_token");
   const referralCode = localStorage.getItem("referralCode");
   const [handleRegister] = useRegisterMutation();
@@ -133,7 +132,9 @@ const RegisterFields = ({ mobile, order }) => {
                         </div>
                         <div className="welcome-text">
                           <h2 className="notranslate">
-                            Enter verification code{" "}
+                            {getLanguage(
+                              LanguageKey.ENTER_VERIFICATION_CODE,
+                            )}{" "}
                           </h2>
                         </div>
                         <button
@@ -166,7 +167,8 @@ const RegisterFields = ({ mobile, order }) => {
                           <div className="login-form">
                             <div className="form-item">
                               <p className="form-label">
-                                We have sent code to {mobile}
+                                {getLanguage(LanguageKey.WE_HAVE_SENT_CODE_TO)}{" "}
+                                {mobile}
                               </p>
                               <div className="input-container">
                                 <input
@@ -177,7 +179,9 @@ const RegisterFields = ({ mobile, order }) => {
                               </div>
                             </div>
                             <div className="form-item">
-                              <p className="form-label">Password</p>
+                              <p className="form-label">
+                                {getLanguage(LanguageKey.PASSWORD)}
+                              </p>
                               <div className="input-container">
                                 <input
                                   {...register("password", { required: true })}
@@ -187,7 +191,9 @@ const RegisterFields = ({ mobile, order }) => {
                               </div>
                             </div>
                             <div className="form-item">
-                              <p className="form-label">Confirm Password</p>
+                              <p className="form-label">
+                                {getLanguage(LanguageKey.CONFIRM_PASSWORD)}
+                              </p>
                               <div className="input-container">
                                 <input
                                   {...register("confirmPassword", {
@@ -200,7 +206,8 @@ const RegisterFields = ({ mobile, order }) => {
                             </div>
                             <div className="form-item">
                               <p className="form-label">
-                                Referral Code (Optional)
+                                {getLanguage(LanguageKey.REFERRAL_CODE)} (
+                                {getLanguage(LanguageKey.OPTIONAL)})
                               </p>
                               <div className="input-container">
                                 <input
@@ -218,10 +225,7 @@ const RegisterFields = ({ mobile, order }) => {
                                   type="submit"
                                   className="btn secondary-btn ng-star-inserted"
                                 >
-                                  {languageValue(
-                                    valueByLanguage,
-                                    LanguageKey.REGISTER,
-                                  )}
+                                  {getLanguage(LanguageKey.REGISTER)}
                                 </button>
                               </div>
                             </div>

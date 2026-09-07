@@ -2,8 +2,11 @@ import { useMac88Query } from "../../../hooks/mac88";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const CardGames = () => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const { data } = useMac88Query({
     gameList: "All",
@@ -24,9 +27,9 @@ const CardGames = () => {
   return (
     <div className="casino-section go-casino game-play mt-2 mb-3 ng-star-inserted">
       <div className="game-play-heading">
-        <h2>Card Games</h2>
+        <h2>{getLanguage(LanguageKey.CARD_GAMES)}</h2>
         <a className="view-all-link ng-star-inserted">
-          All
+          {getLanguage(LanguageKey.ALL)}
           <span
             role="img"
             className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"

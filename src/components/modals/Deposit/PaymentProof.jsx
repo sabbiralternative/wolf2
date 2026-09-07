@@ -6,6 +6,8 @@ import UPIDetails from "./UPIDetails";
 import QRDetails from "./QRDetails";
 import USDTDetails from "./USDTDetails";
 import PGDetails from "./PGDetails";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const DepositPaymentProof = ({
   amount,
@@ -15,6 +17,7 @@ const DepositPaymentProof = ({
   methodType,
   methodTitle,
 }) => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
 
   return (
@@ -42,7 +45,8 @@ const DepositPaymentProof = ({
           </button>
           <h2>
             {" "}
-            Deposit <span className="amount"> ₹{amount}</span>
+            {getLanguage(LanguageKey.DEPOSIT)}{" "}
+            <span className="amount"> ₹{amount}</span>
           </h2>
           <button
             onClick={() => {

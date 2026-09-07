@@ -3,8 +3,11 @@ import { useBankAccountQuery } from "../../../hooks/bankAccount";
 import { useDepositBreakdownQuery } from "../../../hooks/depositBreakdown";
 import toast from "react-hot-toast";
 import { setShowDepositModal } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const AmountSection = ({ amount, setAmount, setDepositTab }) => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const { data: bankAccount } = useBankAccountQuery({
     type: "availableCoins",
@@ -42,7 +45,7 @@ const AmountSection = ({ amount, setAmount, setDepositTab }) => {
     <div className="ng-star-inserted">
       <div className="transaction-modal ng-star-inserted">
         <div className="modal-header">
-          <h2>Deposit</h2>
+          <h2>{getLanguage(LanguageKey.DEPOSIT)}</h2>
           <button
             onClick={() => dispatch(setShowDepositModal(false))}
             className="modal-close-btn mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base"
@@ -70,7 +73,9 @@ const AmountSection = ({ amount, setAmount, setDepositTab }) => {
           <div className="modal-body">
             <div className="card-wrap">
               <div className="avl-bal show-bal">
-                <span className="mat-label">Available Balance</span>
+                <span className="mat-label">
+                  {getLanguage(LanguageKey.AVAILABLE_BALANCE)}
+                </span>
                 <p className="ng-star-inserted">
                   {" "}
                   {bankAccount?.availableBalance}
@@ -78,7 +83,7 @@ const AmountSection = ({ amount, setAmount, setDepositTab }) => {
               </div>
             </div>
             <div className="form-wrap">
-              <label>Deposit Coins</label>
+              <label>{getLanguage(LanguageKey.DEPOSIT_COINS)}</label>
               <input
                 onChange={(e) =>
                   setAmount(
@@ -93,8 +98,9 @@ const AmountSection = ({ amount, setAmount, setDepositTab }) => {
                 aria-required="true"
               />
               <p className="note-message ng-star-inserted">
-                Minimum deposit amount is {depositBreakdown?.minimumDeposit}{" "}
-                coins
+                {getLanguage(LanguageKey.MINIMUM_DEPOSIT_AMOUNT)}{" "}
+                {depositBreakdown?.minimumDeposit}{" "}
+                {getLanguage(LanguageKey.COINS)}
               </p>
             </div>
           </div>
@@ -104,7 +110,9 @@ const AmountSection = ({ amount, setAmount, setDepositTab }) => {
               className="btn secondary-btn mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base"
             >
               <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-              <span className="mdc-button__label">Make Payment</span>
+              <span className="mdc-button__label">
+                {getLanguage(LanguageKey.MAKE_PAYMENTS)}
+              </span>
               <span className="mat-mdc-focus-indicator" />
               <span className="mat-mdc-button-touch-target" />
             </button>

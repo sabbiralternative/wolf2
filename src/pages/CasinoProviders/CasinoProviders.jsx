@@ -3,8 +3,11 @@ import { useLotusHomeLobby } from "../../hooks/lotusHomeLobby";
 import { useNavigate } from "react-router-dom";
 import { setShowLoginModal } from "../../redux/features/global/globalSlice";
 import images from "../../assets/images";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const CasinoProviders = () => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { token } = useSelector((state) => state.auth);
@@ -29,7 +32,7 @@ const CasinoProviders = () => {
         <div className="pagetab-body" style={{ padding: "15px 0px" }}>
           <div className="pagetab-content">
             <div className="game-play-heading">
-              <h2>Casino Providers</h2>
+              <h2>{getLanguage(LanguageKey.CASINO_PROVIDERS)}</h2>
             </div>
             <div className="providers-list ng-star-inserted">
               <ul>

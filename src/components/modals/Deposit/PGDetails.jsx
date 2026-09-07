@@ -1,8 +1,11 @@
 import { GrCopy } from "react-icons/gr";
 import { handleCopyToClipBoard } from "../../../utils/handleCopyToClipBoard";
 import images from "../../../assets/images";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const PGDetails = ({ data }) => {
+  const { getLanguage } = useLanguage();
   return (
     <div className="payment-type-details bank-transfer ng-star-inserted">
       <div className="card-title">
@@ -10,7 +13,7 @@ const PGDetails = ({ data }) => {
           <div className="img-wrap bank-img">
             <img src={images.bankTransfer} />
           </div>{" "}
-          Bank Details
+          {getLanguage(LanguageKey.BANK_DETAILS)}
         </h4>
         <div className="timerWrap">
           <span className="timer">
@@ -42,50 +45,62 @@ const PGDetails = ({ data }) => {
       </div>
       <ul>
         <li>
-          <label>Bank Name</label>
+          <label>{getLanguage(LanguageKey.BANK_NAME)}</label>
           <p>
             {data?.bankName}
             <a
               onClick={() => handleCopyToClipBoard(data?.bankName)}
               style={{ marginLeft: "4px" }}
             >
-              <GrCopy /> <span style={{ marginLeft: "4px" }}>Copy</span>
+              <GrCopy />{" "}
+              <span style={{ marginLeft: "4px" }}>
+                {getLanguage(LanguageKey.COPY)}
+              </span>
             </a>
           </p>
         </li>
         <li>
-          <label>Account Holder Name</label>
+          <label>{getLanguage(LanguageKey.ACCOUNT_HOLDER_NAME)}</label>
           <p>
             {data?.accountName}
             <a
               onClick={() => handleCopyToClipBoard(data?.accountName)}
               style={{ marginLeft: "4px" }}
             >
-              <GrCopy /> <span style={{ marginLeft: "4px" }}>Copy</span>
+              <GrCopy />{" "}
+              <span style={{ marginLeft: "4px" }}>
+                {getLanguage(LanguageKey.COPY)}
+              </span>
             </a>
           </p>
         </li>
         <li>
-          <label>Account Number</label>
+          <label>{getLanguage(LanguageKey.ACCOUNT_NUMBER)}</label>
           <p>
             {data?.accountNumber}
             <a
               onClick={() => handleCopyToClipBoard(data?.accountNumber)}
               style={{ marginLeft: "4px" }}
             >
-              <GrCopy /> <span style={{ marginLeft: "4px" }}>Copy</span>
+              <GrCopy />{" "}
+              <span style={{ marginLeft: "4px" }}>
+                {getLanguage(LanguageKey.COPY)}
+              </span>
             </a>
           </p>
         </li>
         <li>
-          <label>IFSC Code</label>
+          <label>{getLanguage(LanguageKey.IFSC_CODE)}</label>
           <p>
             {data?.ifsc}
             <a
               onClick={() => handleCopyToClipBoard(data?.ifsc)}
               style={{ marginLeft: "4px" }}
             >
-              <GrCopy /> <span style={{ marginLeft: "4px" }}>Copy</span>
+              <GrCopy />{" "}
+              <span style={{ marginLeft: "4px" }}>
+                {getLanguage(LanguageKey.COPY)}
+              </span>
             </a>
           </p>
         </li>

@@ -1,7 +1,10 @@
+import { LanguageKey } from "../../../const";
 import { useSingleProfitLoss } from "../../../hooks/settledBets";
+import useLanguage from "../../../hooks/use-language";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 
 const SingleProfitLoss = ({ setMarketId, marketId }) => {
+  const { getLanguage } = useLanguage();
   const { data } = useSingleProfitLoss(marketId);
 
   const closeModal = () => {
@@ -92,9 +95,9 @@ const SingleProfitLoss = ({ setMarketId, marketId }) => {
                         <div className="txn-tbl">
                           <div className="header-wrap">
                             <ul className="tbl-head">
-                              <li>Selection</li>
-                              <li>Rate</li>
-                              <li>Amount</li>
+                              <li>{getLanguage(LanguageKey.SELECTION)}</li>
+                              <li>{getLanguage(LanguageKey.RATE)}</li>
+                              <li>{getLanguage(LanguageKey.AMOUNT)}</li>
                               <li>W/L</li>
                             </ul>
                           </div>

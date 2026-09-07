@@ -3,8 +3,11 @@ import images from "../../../assets/images";
 import { useBankAccountMutation } from "../../../hooks/bankAccount";
 import toast from "react-hot-toast";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const DeleteBank = ({ setDeleteBankId, deleteBankId, refetchBankAccounts }) => {
+  const { getLanguage } = useLanguage();
   const closeModal = () => {
     setDeleteBankId(null);
   };
@@ -61,7 +64,7 @@ const DeleteBank = ({ setDeleteBankId, deleteBankId, refetchBankAccounts }) => {
         <div className="swal2-icon swal2-icon-show" style={{ display: "flex" }}>
           <div className="swal2-icon-content">
             <img src={images.warning} />
-            <p>Delete</p>
+            <p>{getLanguage(LanguageKey.DELETE)}</p>
           </div>
         </div>
         <img className="swal2-image" style={{ display: "none" }} />
@@ -75,7 +78,10 @@ const DeleteBank = ({ setDeleteBankId, deleteBankId, refetchBankAccounts }) => {
           id="swal2-html-container"
           style={{ display: "block" }}
         >
-          Are you sure you want to delete this?
+          {getLanguage(
+            LanguageKey.ARE_YOU_SURE_YOU_WANT_TO_REMOVE_THIS_ACCOUNT,
+          )}
+          ?
         </div>
         <input
           id="swal2-input"
@@ -121,7 +127,7 @@ const DeleteBank = ({ setDeleteBankId, deleteBankId, refetchBankAccounts }) => {
                 "0 0 0 3px rgba(112, 102, 224, 0.5)",
             }}
           >
-            Yes, Delete
+            {getLanguage(LanguageKey.YES)}, {getLanguage(LanguageKey.DELETE)}
           </button>
           <button
             type="button"
@@ -146,7 +152,7 @@ const DeleteBank = ({ setDeleteBankId, deleteBankId, refetchBankAccounts }) => {
                 "0 0 0 3px rgba(110, 120, 129, 0.5)",
             }}
           >
-            Cancel
+            {getLanguage(LanguageKey.CANCEL)}
           </button>
         </div>
         <div className="swal2-footer" style={{ display: "none" }} />

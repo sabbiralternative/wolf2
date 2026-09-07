@@ -1,3 +1,6 @@
+import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
+
 const TabHeader = ({
   setShowLiveMatch,
   setShowScore,
@@ -8,6 +11,7 @@ const TabHeader = ({
   iscore,
   score,
 }) => {
+  const { getLanguage } = useLanguage();
   return (
     <div
       className="mat-mdc-tab-header mat-tab-header"
@@ -44,7 +48,7 @@ const TabHeader = ({
                   className="mdc-tab__text-label"
                   style={{ fontSize: "10px" }}
                 >
-                  Market
+                  {getLanguage(LanguageKey.MARKET)}
                 </span>
               </span>
               <span className="mdc-tab-indicator">
@@ -72,7 +76,8 @@ const TabHeader = ({
                     className="ng-star-inserted"
                     style={{ fontSize: "10px" }}
                   >
-                    Open Bets ({currentBets?.length || 0})
+                    {getLanguage(LanguageKey.OPEN_BETS)} (
+                    {currentBets?.length || 0})
                   </span>
                 </span>
               </span>
@@ -101,7 +106,9 @@ const TabHeader = ({
                       className={`livetv-btn rounded mdc-button mdc-button--unelevated mat-mdc-unelevated-button  mat-unthemed mat-mdc-button-base ng-star-inserted  ${accessToken?.result?.url && score?.hasVideo ? "active" : ""}`}
                     >
                       <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                      <span className="material-icons">live_tv</span>
+                      <span className="material-icons">
+                        {getLanguage(LanguageKey.LIVE_STREAM)}
+                      </span>
                       <span className="mdc-button__label" />
                       <span className="mat-mdc-focus-indicator" />
                       <span className="mat-mdc-button-touch-target" />

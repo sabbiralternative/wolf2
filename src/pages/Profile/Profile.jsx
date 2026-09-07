@@ -10,14 +10,13 @@ import { Fragment, useState } from "react";
 import Withdraw from "../../components/modals/Withdraw/Withdraw";
 import images from "../../assets/images";
 import Notification from "../../components/UI/Notification/Notification";
-import { useLanguage } from "../../context/LanguageProvider";
-import { languageValue } from "../../utils/language";
 import { LanguageKey } from "../../const";
 import { Settings } from "../../api";
+import useLanguage from "../../hooks/use-language";
 
 const Profile = () => {
   const navigate = useNavigate();
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const [showWithdrawModal, setShowWithdrawModal] = useState(false);
 
   const dispatch = useDispatch();
@@ -86,10 +85,7 @@ const Profile = () => {
                 >
                   <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
                   <span className="mdc-button__label">
-                    {languageValue(
-                      valueByLanguage,
-                      LanguageKey.CHANGE_PASSWORD,
-                    )}
+                    {getLanguage(LanguageKey.CHANGE_PASSWORD)}
                   </span>
                   <span className="mat-mdc-focus-indicator" />
                   <span className="mat-mdc-button-touch-target" />
@@ -101,10 +97,7 @@ const Profile = () => {
               <div className="card-wrapper">
                 <div className="bal-cont">
                   <div className="avl-bal show-bal">
-                    <span>
-                      {" "}
-                      {languageValue(valueByLanguage, LanguageKey.BALANCE)}
-                    </span>
+                    <span> {getLanguage(LanguageKey.BALANCE)}</span>
                     <p>{balance?.availBalance}</p>
                   </div>
                 </div>
@@ -117,7 +110,7 @@ const Profile = () => {
                       <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
                       <span className="mdc-button__label">
                         {" "}
-                        {languageValue(valueByLanguage, LanguageKey.DEPOSIT)}
+                        {getLanguage(LanguageKey.DEPOSIT)}
                       </span>
                       <span className="mat-mdc-focus-indicator" />
                       <span className="mat-mdc-button-touch-target" />
@@ -132,7 +125,7 @@ const Profile = () => {
                       <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
                       <span className="mdc-button__label">
                         {" "}
-                        {languageValue(valueByLanguage, LanguageKey.WITHDRAW)}
+                        {getLanguage(LanguageKey.WITHDRAW)}
                       </span>
                       <span className="mat-mdc-focus-indicator" />
                       <span className="mat-mdc-button-touch-target" />
@@ -146,7 +139,7 @@ const Profile = () => {
         ) : (
           <div className="user-details-wrap">
             <div className="user-details guest-user ng-star-inserted">
-              <p>Guest User</p>
+              <p>{getLanguage(LanguageKey.GUEST_USER)}</p>
             </div>
           </div>
         )}
@@ -162,10 +155,7 @@ const Profile = () => {
                     alt="Menu Icon"
                     src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_activebets.svg"
                   />
-                  <span>
-                    {" "}
-                    {languageValue(valueByLanguage, LanguageKey.ACTIVE_BETS)}
-                  </span>
+                  <span> {getLanguage(LanguageKey.ACTIVE_BETS)}</span>
                 </div>
               </a>
             </li>
@@ -179,7 +169,7 @@ const Profile = () => {
                     alt="Menu Icon"
                     src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav__ac_statement.svg"
                   />
-                  <span>Account Statement</span>
+                  <span>{getLanguage(LanguageKey.ACCOUNT_STATEMENT)}</span>
                 </div>
               </a>
             </li>
@@ -195,7 +185,9 @@ const Profile = () => {
                     alt="Menu Icon"
                     src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav__ac_statement.svg"
                   />
-                  <span>Deposit/Withdraw Report</span>
+                  <span>
+                    {getLanguage(LanguageKey.DEPOSIT_WITHDRAW_REPORT)}
+                  </span>
                 </div>
               </a>
             </li>
@@ -209,7 +201,7 @@ const Profile = () => {
                     alt="Menu Icon"
                     src="https://ss.manage63.com/bmk-wl/commonAssets/dice.svg"
                   />
-                  <span>Casino Result</span>
+                  <span>{getLanguage(LanguageKey.CASINO_RESULT)}</span>
                 </div>
               </a>
             </li>
@@ -220,10 +212,7 @@ const Profile = () => {
                     alt="Menu Icon"
                     src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_rules.svg"
                   />
-                  <span>
-                    {" "}
-                    {languageValue(valueByLanguage, LanguageKey.RULES)}
-                  </span>
+                  <span> {getLanguage(LanguageKey.RULES)}</span>
                 </div>
               </Link>
             </li>
@@ -237,7 +226,7 @@ const Profile = () => {
                     alt="Menu Icon"
                     src="https://ss.manage63.com/bmk-wl/commonAssets/sidenav_bank.svg"
                   />
-                  <span>Banking</span>
+                  <span>{getLanguage(LanguageKey.BANKING)}</span>
                 </div>
               </a>
             </li>
@@ -261,7 +250,7 @@ const Profile = () => {
             Settings?.whatsapplink ||
             Settings?.branchWhatsapplink) && (
             <div className="social-links-wrap ng-star-inserted">
-              <label>Join us Now</label>
+              <label>{getLanguage(LanguageKey.JOIN_US)}</label>
               <div className="social-links">
                 {(Settings?.whatsapplink || Settings?.branchWhatsapplink) && (
                   <a

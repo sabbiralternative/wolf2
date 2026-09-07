@@ -2,8 +2,11 @@ import { useRef } from "react";
 import { useMyMarketQuery } from "../../../hooks/myMarket";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
 import { useNavigate } from "react-router-dom";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const MyMarket = ({ setShowMyMarket }) => {
+  const { getLanguage } = useLanguage();
   const navigate = useNavigate();
   const ref = useRef();
   const { data } = useMyMarketQuery();
@@ -57,7 +60,10 @@ const MyMarket = ({ setShowMyMarket }) => {
               <div className="mat-mdc-dialog-surface mdc-dialog__surface">
                 <div className="ng-star-inserted" style={{ height: "100%" }}>
                   <div className="modal-header">
-                    <h2>My Markets (Active Bets)</h2>
+                    <h2>
+                      {getLanguage(LanguageKey.MY_MARKETS)} (
+                      {getLanguage(LanguageKey.ACTIVE_BETS)})
+                    </h2>
                     <button
                       onClick={closeModal}
                       className="modal-close-btn mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base"
@@ -124,7 +130,12 @@ const MyMarket = ({ setShowMyMarket }) => {
                       }}
                       className="no-data ng-star-inserted"
                     >
-                      <p>No bets placed yet, Place your bet now!</p>
+                      <p>
+                        {getLanguage(
+                          LanguageKey.NO_BET_PLACED_YET_PLACE_YOUR_BET_NOW,
+                        )}
+                        !
+                      </p>
                     </div>
                   )}
                 </div>

@@ -7,8 +7,11 @@ import toast from "react-hot-toast";
 import { API, Settings } from "../../../api";
 import { AxiosSecure } from "../../../lib/AxiosSecure";
 import { jwtDecode } from "jwt-decode";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const AddUSDTAccount = () => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
 
   const closeModal = () => {
@@ -172,7 +175,7 @@ const AddUSDTAccount = () => {
                   <div className="ng-star-inserted">
                     <div className="add-bank-modal">
                       <div className="modal-header">
-                        <h2>Add New USDT Account</h2>
+                        <h2>{getLanguage(LanguageKey.ADD_NEW_USDT_ACCOUNT)}</h2>
                         <button
                           onClick={closeModal}
                           className="modal-close-btn mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base"
@@ -201,7 +204,9 @@ const AddUSDTAccount = () => {
                         <div className="modal-body">
                           <div className="form-wrap">
                             <div className="input-wrap ng-star-inserted">
-                              <label>USDT Type*</label>
+                              <label>
+                                {getLanguage(LanguageKey.USDT_TYPE)}*
+                              </label>
                               <div style={{ display: "flex", gap: "0px 20px" }}>
                                 <div
                                   style={{
@@ -246,7 +251,9 @@ const AddUSDTAccount = () => {
                               </div>
                             </div>
                             <div className="input-wrap ng-star-inserted">
-                              <label>Wallet Address*</label>
+                              <label>
+                                {getLanguage(LanguageKey.WALLET_ADDRESS)}*
+                              </label>
                               <input
                                 onChange={(e) => {
                                   setUsdtDetails({
@@ -264,7 +271,9 @@ const AddUSDTAccount = () => {
 
                             {mobile && Settings.otp && (
                               <div className="input-wrap ng-star-inserted">
-                                <label>Mobile*</label>
+                                <label>
+                                  {getLanguage(LanguageKey.MOBILE_NUMBER)}*
+                                </label>
                                 <div
                                   style={{
                                     width: "100%",
@@ -303,7 +312,8 @@ const AddUSDTAccount = () => {
                                           fontSize: "10px",
                                         }}
                                       >
-                                        Retry in {timer}
+                                        {getLanguage(LanguageKey.RETRY_IN)}{" "}
+                                        {timer}
                                       </div>
                                     ) : (
                                       <Fragment>
@@ -321,7 +331,9 @@ const AddUSDTAccount = () => {
                                             fontSize: "10px",
                                           }}
                                         >
-                                          Get OTP Message
+                                          {getLanguage(
+                                            LanguageKey.GET_OTP_ON_MESSAGE,
+                                          )}
                                         </button>
                                         {/* <button
                                           type="button"
@@ -347,7 +359,7 @@ const AddUSDTAccount = () => {
                             )}
                             {mobile && Settings.otp && (
                               <div className="input-wrap ng-star-inserted">
-                                <label>OTP*</label>
+                                <label>{getLanguage(LanguageKey.OTP)}*</label>
                                 <div
                                   style={{
                                     width: "100%",
@@ -383,7 +395,10 @@ const AddUSDTAccount = () => {
                             disabled={!isFormValid}
                           >
                             <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                            <span className="mdc-button__label"> Submit </span>
+                            <span className="mdc-button__label">
+                              {" "}
+                              {getLanguage(LanguageKey.SUBMIT)}{" "}
+                            </span>
                             <span className="mat-mdc-focus-indicator" />
                             <span className="mat-mdc-button-touch-target" />
                           </button>

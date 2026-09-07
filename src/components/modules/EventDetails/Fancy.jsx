@@ -11,8 +11,11 @@ import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import images from "../../../assets/images";
 import Ladder from "../../UI/Ladder/Ladder";
 import isOddSuspended from "../../../utils/isOddSuspended";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const Fancy = ({ data }) => {
+  const { getLanguage } = useLanguage();
   const fancyData = data?.filter(
     (fancy) =>
       fancy.btype === "FANCY" &&
@@ -141,7 +144,11 @@ const Fancy = ({ data }) => {
             <h2 className="card-heading">Fancy</h2>
           </div>
           <div className="fancybody-header">
-            <h3 className="card-title"> Min: 100 | Max: Upto 3L</h3>
+            <h3 className="card-title">
+              {" "}
+              {getLanguage(LanguageKey.MIN)}: 100 |{" "}
+              {getLanguage(LanguageKey.MAX)}: Upto 3L
+            </h3>
             <div className="fb-stitle">
               <h3 className="lay-bg">No</h3>
               <h3 className="back-bg">Yes</h3>
@@ -211,7 +218,7 @@ const Fancy = ({ data }) => {
                     </div> */}
                     {isOddSuspended(game) && (
                       <div className="suspended-wrap ng-star-inserted">
-                        <h4>Suspended</h4>
+                        <h4>{getLanguage(LanguageKey.SUSPENDED)}</h4>
                       </div>
                     )}
 

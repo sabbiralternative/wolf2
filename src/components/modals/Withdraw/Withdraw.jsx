@@ -6,8 +6,11 @@ import {
 } from "../../../hooks/bankAccount";
 import toast from "react-hot-toast";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const Withdraw = ({ setShowWithdrawModal }) => {
+  const { getLanguage } = useLanguage();
   const [amount, setAmount] = useState();
   const { data } = useWithdrawBreakdown();
   const { data: bankAccounts } = useBankAccountQuery({
@@ -85,7 +88,7 @@ const Withdraw = ({ setShowWithdrawModal }) => {
                   <div className="ng-star-inserted">
                     <div className="transaction-modal ng-star-inserted">
                       <div className="modal-header">
-                        <h2>Withdraw</h2>
+                        <h2>{getLanguage(LanguageKey.WITHDRAW)}</h2>
                         <button
                           onClick={closeModal}
                           className="modal-close-btn mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base"
@@ -114,12 +117,16 @@ const Withdraw = ({ setShowWithdrawModal }) => {
                         <div className="modal-body">
                           <div className="card-wrap">
                             <div className="avl-bal show-bal">
-                              <div>Available Balance</div>
+                              <div>
+                                {getLanguage(LanguageKey.AVAILABLE_BALANCE)}
+                              </div>
                               <p>{data?.mainWallet}</p>
                             </div>
                           </div>
                           <div className="form-wrap">
-                            <label>Withdraw Coins</label>
+                            <label>
+                              {getLanguage(LanguageKey.WITHDRAW_COINS)}
+                            </label>
                             <input
                               onChange={(e) => setAmount(e.target.value)}
                               placeholder="Enter Coins"
@@ -127,15 +134,16 @@ const Withdraw = ({ setShowWithdrawModal }) => {
                               className="ng-pristine ng-invalid ng-touched"
                             />
                             <p className="note-message ng-star-inserted">
-                              Minimum withdrawal amount is{" "}
-                              {data?.minimumWithdraw} coins
+                              {getLanguage(LanguageKey.MINIMUM_WITHDRAW_AMOUNT)}{" "}
+                              {data?.minimumWithdraw}{" "}
+                              {getLanguage(LanguageKey.COINS)}
                             </p>
                           </div>
                           <div className="withdraw-bankDetails ng-star-inserted">
                             <div className="bankDetails-list">
                               <div className="pref-head">
                                 {" "}
-                                Preferred Bank
+                                {getLanguage(LanguageKey.PREFERRED_BANK)}
                                 <div>
                                   <select
                                     style={{
@@ -149,7 +157,9 @@ const Withdraw = ({ setShowWithdrawModal }) => {
                                     id=""
                                   >
                                     <option value="">
-                                      Select Bank Account
+                                      {getLanguage(
+                                        LanguageKey.SELECT_BANK_ACCOUNT,
+                                      )}
                                     </option>
                                     {bankAccounts?.map((item, index) => {
                                       return (
@@ -167,19 +177,29 @@ const Withdraw = ({ setShowWithdrawModal }) => {
                               {bankData && (
                                 <ul className="bankinfo-list">
                                   <li>
-                                    <label>Account Holder</label>
+                                    <label>
+                                      {getLanguage(
+                                        LanguageKey.ACCOUNT_HOLDER_NAME,
+                                      )}
+                                    </label>
                                     <p>{bankData?.bankAccountName}</p>
                                   </li>
                                   <li>
-                                    <label>Account number</label>
+                                    <label>
+                                      {getLanguage(LanguageKey.ACCOUNT_NUMBER)}
+                                    </label>
                                     <p>{bankData?.accountNumber}</p>
                                   </li>
                                   <li>
-                                    <label>IFSC</label>
+                                    <label>
+                                      {getLanguage(LanguageKey.IFSC_CODE)}
+                                    </label>
                                     <p>{bankData?.ifsc}</p>
                                   </li>
                                   <li>
-                                    <label>Bank Name</label>
+                                    <label>
+                                      {getLanguage(LanguageKey.BANK_NAME)}
+                                    </label>
                                     <p>{bankData?.bankName}</p>
                                   </li>
                                 </ul>
@@ -201,7 +221,7 @@ const Withdraw = ({ setShowWithdrawModal }) => {
                             <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
                             <span className="mdc-button__label">
                               {" "}
-                              Withdraw Coins
+                              {getLanguage(LanguageKey.WITHDRAW_COINS)}
                             </span>
                             <span className="mat-mdc-focus-indicator" />
                             <span className="mat-mdc-button-touch-target" />

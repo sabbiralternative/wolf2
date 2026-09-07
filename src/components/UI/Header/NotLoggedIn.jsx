@@ -5,16 +5,15 @@ import {
 } from "../../../redux/features/global/globalSlice";
 import { Settings } from "../../../api";
 import images from "../../../assets/images";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 import { useLocation, useNavigate } from "react-router-dom";
 import { IoDocumentText } from "react-icons/io5";
+import useLanguage from "../../../hooks/use-language";
 
 const NotLoggedIn = ({ setShowLanguage }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   // const language = localStorage.getItem("language");
   const dispatch = useDispatch();
 
@@ -33,7 +32,7 @@ const NotLoggedIn = ({ setShowLanguage }) => {
         <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
         <span className="mdc-button__label">
           {" "}
-          {languageValue(valueByLanguage, LanguageKey.LOGIN)}
+          {getLanguage(LanguageKey.LOGIN)}
         </span>
         <span className="mat-mdc-focus-indicator" />
         <span className="mat-mdc-button-touch-target" />
@@ -46,7 +45,7 @@ const NotLoggedIn = ({ setShowLanguage }) => {
           <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
           <span className="mdc-button__label">
             {" "}
-            {languageValue(valueByLanguage, LanguageKey.REGISTER)}
+            {getLanguage(LanguageKey.REGISTER)}
           </span>
           <span className="mat-mdc-focus-indicator" />
           <span className="mat-mdc-button-touch-target" />

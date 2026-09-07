@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const Tab = ({ type, groupedData }) => {
+  const { getLanguage } = useLanguage();
   const { name, eventTypeId } = useParams();
   const navigate = useNavigate();
 
@@ -81,7 +84,7 @@ const Tab = ({ type, groupedData }) => {
                     className="mdc-tab__text-label"
                     style={{ color: "white", fontSize: "10px" }}
                   >
-                    Inplay{" "}
+                    {getLanguage(LanguageKey.IN_PLAY)}{" "}
                     <span className="badge inplay-badge ng-star-inserted">
                       {Object.entries(groupedData.inPlay).length}
                     </span>
@@ -121,7 +124,7 @@ const Tab = ({ type, groupedData }) => {
                     className="mdc-tab__text-label"
                     style={{ color: "white", fontSize: "10px" }}
                   >
-                    Today{" "}
+                    {getLanguage(LanguageKey.TODAY)}{" "}
                     <span className="badge inplay-badge ng-star-inserted">
                       {" "}
                       {Object.entries(groupedData.today).length}
@@ -163,7 +166,7 @@ const Tab = ({ type, groupedData }) => {
                     className="mdc-tab__text-label"
                     style={{ color: "white", fontSize: "10px" }}
                   >
-                    Upcoming{" "}
+                    {getLanguage(LanguageKey.UP_COMING)}{" "}
                     <span className="badge inplay-badge ng-star-inserted">
                       {" "}
                       {Object.entries(groupedData.upcoming).length}

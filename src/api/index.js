@@ -62,6 +62,8 @@ export const API = {
 };
 
 export const Settings = {
+  metaKeywords: "",
+  metaDescription: "",
   apk_banner: "",
   site: "",
   apk_link: "",

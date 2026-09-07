@@ -7,8 +7,11 @@ import { API, Settings } from "../../../api";
 import toast from "react-hot-toast";
 // import getOtpOnWhatsapp from "../../../utils/getOtpOnWhatsapp";
 import { setShowForgotPasswordModal } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const GetOPT = ({ setOrder, setShowForgotPassword, mobile, setMobile }) => {
+  const { getLanguage } = useLanguage();
   const { logo } = useLogo();
   const dispatch = useDispatch();
   const ref = useRef();
@@ -132,7 +135,9 @@ const GetOPT = ({ setOrder, setShowForgotPassword, mobile, setMobile }) => {
                         >
                           <div className="login-form">
                             <div className="form-item">
-                              <p className="form-label">Mobile Number</p>
+                              <p className="form-label">
+                                {getLanguage(LanguageKey.MOBILE_NUMBER)}
+                              </p>
                               <div
                                 style={{
                                   display: "flex",
@@ -171,8 +176,10 @@ const GetOPT = ({ setOrder, setShowForgotPassword, mobile, setMobile }) => {
                                   className="btn secondary-btn ng-star-inserted"
                                 >
                                   {Settings.otp
-                                    ? " Get OTP On Message"
-                                    : "Proceed"}
+                                    ? getLanguage(
+                                        LanguageKey.GET_OTP_ON_MESSAGE,
+                                      )
+                                    : getLanguage(LanguageKey.PROCEED)}
                                 </button>
                               </div>
                               {/* {Settings.otpless && (

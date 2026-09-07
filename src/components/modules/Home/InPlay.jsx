@@ -5,15 +5,14 @@ import { useNavigate } from "react-router-dom";
 import ScoreInfo from "./ScoreInfo";
 import { MdOutlineSmartDisplay } from "react-icons/md";
 import { GoClock } from "react-icons/go";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 import { filterLiveVirtual } from "../../../utils/filter-live-virtual";
 import LiveVirtual from "./LiveVirtual";
+import useLanguage from "../../../hooks/use-language";
 
 const InPlay = () => {
   const [liveVirtual, setLiveVirtual] = useState([]);
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const { group } = useSelector((state) => state.global);
   const { data } = useGroupQuery(
     { sportsType: group },
@@ -24,10 +23,10 @@ const InPlay = () => {
 
   const [categories, setCategories] = useState([]);
   const eventName = {
-    1: languageValue(valueByLanguage, LanguageKey.FOOTBALL),
-    2: languageValue(valueByLanguage, LanguageKey.TENNIS),
-    4: languageValue(valueByLanguage, LanguageKey.CRICKET),
-    5: languageValue(valueByLanguage, LanguageKey.KABADDI),
+    1: getLanguage(LanguageKey.FOOTBALL),
+    2: getLanguage(LanguageKey.TENNIS),
+    4: getLanguage(LanguageKey.CRICKET),
+    5: getLanguage(LanguageKey.KABADDI),
   };
   const navigate = useNavigate();
   const navigateGameList = (keys) => {
@@ -75,7 +74,10 @@ const InPlay = () => {
                   setLiveVirtual={setLiveVirtual}
                   category={category}
                 />
-                <span style={{ marginLeft: "5px" }}> All</span>
+                <span style={{ marginLeft: "5px" }}>
+                  {" "}
+                  {getLanguage(LanguageKey.ALL)}
+                </span>
                 <span
                   role="img"
                   className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"

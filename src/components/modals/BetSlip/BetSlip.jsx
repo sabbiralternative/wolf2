@@ -17,8 +17,11 @@ import { AxiosJSEncrypt } from "../../../lib/AxiosJSEncrypt";
 import toast from "react-hot-toast";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
 import { isBetDelay, isDelay } from "../../../utils/isBetDelay";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const BetSlip = () => {
+  const { getLanguage } = useLanguage();
   const ref = useRef();
   const closePopupForForever = localStorage.getItem("closePopupForForever");
   const { pathname } = useLocation();
@@ -289,7 +292,11 @@ const BetSlip = () => {
                       <div className="modal-header">
                         <h2 />
                         <h2 />
-                        <h2> Place Bet | {placeBetValues?.marketName}</h2>
+                        <h2>
+                          {" "}
+                          {getLanguage(LanguageKey.PLACE_BET)} |{" "}
+                          {placeBetValues?.marketName}
+                        </h2>
                         <div onClick={closeModal} className="action-btns">
                           <div className="change-position">
                             <button className="positon-icon mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base ng-star-inserted">
@@ -343,7 +350,7 @@ const BetSlip = () => {
                           </div>
                           <div className="bet-action-grid">
                             <div className="bet-action-item">
-                              <label>ODDs</label>
+                              <label>{getLanguage(LanguageKey.ODDS)}</label>
                               <input
                                 readOnly={placeBetValues?.isWeak}
                                 type="number"
@@ -356,7 +363,7 @@ const BetSlip = () => {
                               />
                             </div>
                             <div className="bet-action-item">
-                              <label>Stake</label>
+                              <label>{getLanguage(LanguageKey.STAKE)}</label>
                               <input
                                 onChange={(e) => {
                                   dispatch(setStake(e.target.value));
@@ -395,10 +402,13 @@ const BetSlip = () => {
                           <div className="range-text-row">
                             <h2 style={{ textTransform: "none !important" }}>
                               {placeBetValues?.back ? (
-                                <span>Profit : {profit}</span>
+                                <span>
+                                  {getLanguage(LanguageKey.PROFIT)} : {profit}
+                                </span>
                               ) : (
                                 <span>
-                                  Liability : {profit}
+                                  {getLanguage(LanguageKey.LIABILITY)} :{" "}
+                                  {profit}
                                   {/* {placeBetValues?.btype === "FANCY"
                                     ? profit
                                     : selectedEvent?.exposure} */}
@@ -412,7 +422,9 @@ const BetSlip = () => {
                               className="slip-btn notranslate mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base"
                             >
                               <span className="mat-mdc-button-persistent-ripple mdc-button__ripple" />
-                              <span className="mdc-button__label">Submit </span>
+                              <span className="mdc-button__label">
+                                {getLanguage(LanguageKey.SUBMIT)}{" "}
+                              </span>
                               <span className="mat-mdc-focus-indicator" />
                               <span className="mat-mdc-button-touch-target" />
                             </button>

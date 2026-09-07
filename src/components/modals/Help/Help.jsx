@@ -2,8 +2,11 @@ import { useDispatch } from "react-redux";
 import { Settings } from "../../../api";
 import { setShowHelpModal } from "../../../redux/features/global/globalSlice";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const Help = () => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const navigateWhatsApp = () => {
     window.open(Settings.branchWhatsapplink || Settings.whatsapplink);
@@ -45,7 +48,12 @@ const Help = () => {
                   <div className="ng-star-inserted">
                     <div className="help-modal">
                       <div className="modal-header">
-                        <h2>Need Help! Feel free to contact.</h2>
+                        <h2>
+                          {getLanguage(
+                            LanguageKey.NEED_HELP_FEEL_FREE_TO_CONTACT,
+                          )}
+                          .
+                        </h2>
                         <button
                           onClick={() => dispatch(setShowHelpModal(false))}
                           className="modal-close-btn mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base"
@@ -74,7 +82,7 @@ const Help = () => {
                             className="btn secondary-btn ng-star-inserted"
                           >
                             {" "}
-                            Chat with us on{" "}
+                            {getLanguage(LanguageKey.CHAT_WITH_US)}{" "}
                             <img
                               alt="WhatsApp Icon"
                               src="https://ss.manage63.com/bmk-wl/commonAssets/whatsapp-icon.svg"

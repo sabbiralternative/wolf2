@@ -15,11 +15,10 @@ import { useForm } from "react-hook-form";
 import { Settings } from "../../../api";
 import { setUser } from "../../../redux/features/auth/authSlice";
 import toast from "react-hot-toast";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
 const Login = () => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const closePopupForForever = localStorage.getItem("closePopupForForever");
   const { logo } = useLogo();
   const dispatch = useDispatch();
@@ -189,10 +188,7 @@ const Login = () => {
                         <div className="welcome-text">
                           <h2 className="notranslate">
                             {" "}
-                            {languageValue(
-                              valueByLanguage,
-                              LanguageKey.LOGIN,
-                            )}{" "}
+                            {getLanguage(LanguageKey.LOGIN)}{" "}
                           </h2>
                         </div>
                         <button
@@ -225,7 +221,8 @@ const Login = () => {
                           <div className="login-form">
                             <div className="form-item">
                               <p className="form-label">
-                                User Id / Mobile Number
+                                {getLanguage(LanguageKey.USER_ID)}/
+                                {getLanguage(LanguageKey.MOBILE_NUMBER)}
                               </p>
                               <div className="input-container">
                                 <input
@@ -236,7 +233,9 @@ const Login = () => {
                               </div>
                             </div>
                             <div className="form-item">
-                              <p className="form-label">Password</p>
+                              <p className="form-label">
+                                {getLanguage(LanguageKey.PASSWORD)}
+                              </p>
                               <div
                                 className="input-container"
                                 style={{ marginBottom: "0px" }}
@@ -260,7 +259,7 @@ const Login = () => {
                                   cursor: "pointer",
                                 }}
                               >
-                                Forgot Password?
+                                {getLanguage(LanguageKey.FORGOT_PASSWORD)}?
                               </p>
                             </div>
 
@@ -270,16 +269,13 @@ const Login = () => {
                                   type="submit"
                                   className="btn secondary-btn ng-star-inserted"
                                 >
-                                  {languageValue(
-                                    valueByLanguage,
-                                    LanguageKey.LOGIN,
-                                  )}
+                                  {getLanguage(LanguageKey.LOGIN)}
                                 </button>
                               </div>
                               {(Settings.demo_login || Settings.apk_link) && (
                                 <Fragment>
                                   <p className="separator ng-star-inserted">
-                                    OR
+                                    {getLanguage(LanguageKey.OR)}
                                   </p>
 
                                   <div className="extra-btns">
@@ -289,7 +285,7 @@ const Login = () => {
                                         type="button"
                                         className="btn secondary-btn ng-star-inserted"
                                       >
-                                        Login with Demo ID
+                                        {getLanguage(LanguageKey.DEMO_LOGIN)}
                                       </button>
                                     )}
 
@@ -299,7 +295,8 @@ const Login = () => {
                                         type="button"
                                         className="btn secondary-btn ng-star-inserted"
                                       >
-                                        <GrAndroid /> Download .apk
+                                        <GrAndroid />{" "}
+                                        {getLanguage(LanguageKey.DOWNLOAD_APK)}
                                         <HiArrowNarrowDown />
                                       </button>
                                     )}

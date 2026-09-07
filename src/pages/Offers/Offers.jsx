@@ -1,4 +1,8 @@
+import { LanguageKey } from "../../const";
+import useLanguage from "../../hooks/use-language";
+
 const Offers = () => {
+  const { getLanguage } = useLanguage();
   return (
     <div className="page-body">
       <div className="ion-content-wrapper">
@@ -18,7 +22,7 @@ const Offers = () => {
             <div className="pagetab-content" style={{ height: "100%" }}>
               <div className="offers-page-wrap">
                 <div className="no-data ng-star-inserted">
-                  <p>No Offers Found!</p>
+                  <p>{getLanguage(LanguageKey.NO_OFFERS_FOUND)}!</p>
                 </div>
               </div>
             </div>

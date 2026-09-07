@@ -2,8 +2,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useLotusHomeLobby } from "../../../hooks/lotusHomeLobby";
 import { useDispatch, useSelector } from "react-redux";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const CasinoProviders = () => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { token } = useSelector((state) => state.auth);
@@ -25,9 +28,9 @@ const CasinoProviders = () => {
       style={{ marginTop: "5px" }}
     >
       <div className="game-play-heading" tabIndex={0}>
-        <h2>Casino Providers</h2>
+        <h2>{getLanguage(LanguageKey.CASINO_PROVIDERS)}</h2>
         <Link to="/casino-providers" className="view-all-link">
-          All
+          {getLanguage(LanguageKey.ALL)}
           <span
             role="img"
             className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"

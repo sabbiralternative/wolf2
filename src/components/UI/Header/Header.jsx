@@ -22,13 +22,12 @@ import { Settings } from "../../../api";
 import AppPopup from "./AppPopUp";
 import DownloadAPK from "../../modals/DownloadAPK/DownloadAPK";
 import Notification from "./Notification";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 import { eventNameList } from "../../../static/event-name-list";
+import useLanguage from "../../../hooks/use-language";
 
 const Header = () => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const headerRef = useRef(null);
   const location = useLocation();
   const [showLanguage, setShowLanguage] = useState(false);
@@ -221,7 +220,9 @@ const Header = () => {
                         className="blink-it"
                       />
                     </div>
-                    <div className="tab-label">JetX</div>
+                    <div className="tab-label">
+                      {getLanguage(LanguageKey.JETX)}
+                    </div>
                   </div>
                 </div>
                 <div
@@ -234,7 +235,9 @@ const Header = () => {
                       src="https://cdnimg.manage63.com/cricflags/trophy.svg"
                     />
                   </div>
-                  <div className="tab-label ng-star-inserted">Tournaments</div>
+                  <div className="tab-label ng-star-inserted">
+                    {getLanguage(LanguageKey.TOURNAMENTS)}
+                  </div>
                 </div>
                 <div
                   onClick={() => navigate("/group/cricket/4?type=inPlay")}
@@ -248,7 +251,7 @@ const Header = () => {
                   </div>
                   <div className="tab-label ng-star-inserted">
                     {" "}
-                    {languageValue(valueByLanguage, LanguageKey.CRICKET)}
+                    {getLanguage(LanguageKey.CRICKET)}
                   </div>
                   <div className="badgeWrapper ng-star-inserted">
                     {groupedData?.cricket > 0 && (
@@ -274,7 +277,7 @@ const Header = () => {
                   </div>
                   <div className="tab-label ng-star-inserted">
                     {" "}
-                    {languageValue(valueByLanguage, LanguageKey.FOOTBALL)}
+                    {getLanguage(LanguageKey.FOOTBALL)}
                   </div>
                   <div className="badgeWrapper ng-star-inserted">
                     {groupedData?.football > 0 && (
@@ -300,7 +303,7 @@ const Header = () => {
                   </div>
                   <div className="tab-label ng-star-inserted">
                     {" "}
-                    {languageValue(valueByLanguage, LanguageKey.TENNIS)}
+                    {getLanguage(LanguageKey.TENNIS)}
                   </div>
                   <div className="badgeWrapper ng-star-inserted">
                     {groupedData?.tennis > 0 && (
@@ -336,7 +339,7 @@ const Header = () => {
                   </div>
                   <div className="tab-label ng-star-inserted">
                     {" "}
-                    {languageValue(valueByLanguage, LanguageKey.KABADDI)}
+                    {getLanguage(LanguageKey.KABADDI)}
                   </div>
                   <div className="badgeWrapper ng-star-inserted">
                     {groupedData?.kabaddi > 0 && (
@@ -357,7 +360,9 @@ const Header = () => {
                   <div className="icon-wrap ng-star-inserted">
                     <img alt="Tab Icon" src="/assets/poll.svg" />
                   </div>
-                  <div className="tab-label ng-star-inserted">Politics</div>
+                  <div className="tab-label ng-star-inserted">
+                    {getLanguage(LanguageKey.POLITICS)}
+                  </div>
                   <div className="badgeWrapper ng-star-inserted">
                     {groupedData?.politics > 0 && (
                       <div className="badge">{groupedData?.politics}</div>
@@ -383,7 +388,7 @@ const Header = () => {
                   </div>
                   <div className="tab-label">
                     {" "}
-                    {languageValue(valueByLanguage, LanguageKey.HORSE)}
+                    {getLanguage(LanguageKey.HORSE)}
                   </div>
                 </div>
                 <div
@@ -399,7 +404,7 @@ const Header = () => {
                   </div>
                   <div className="tab-label">
                     {" "}
-                    {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}
+                    {getLanguage(LanguageKey.GREYHOUND)}
                   </div>
                 </div>
                 {eventNameList.map((item) => {
@@ -415,7 +420,7 @@ const Header = () => {
                         <img alt="Tab Icon" src={item.image} />
                       </div>
                       <div className="tab-label ng-star-inserted">
-                        {item.name}
+                        {getLanguage(item.name)}
                       </div>
                       <div className="badgeWrapper ng-star-inserted">
                         {/* {groupedData?.politics > 0 && (
@@ -442,7 +447,9 @@ const Header = () => {
                       src="https://ss.manage63.com/bmk-wl/commonAssets/go-crash-icon.svg"
                     />
                   </div>
-                  <div className="tab-label">Go Crash</div>
+                  <div className="tab-label">
+                    {getLanguage(LanguageKey.GO_CRASH)}
+                  </div>
                 </div>
                 <div
                   onClick={() => navigate("/instant-games")}
@@ -454,7 +461,9 @@ const Header = () => {
                       src="https://ss.manage63.com/bmk-wl/commonAssets/instant_game.svg"
                     />
                   </div>
-                  <div className="tab-label">Instant Games</div>
+                  <div className="tab-label">
+                    {getLanguage(LanguageKey.INSTANT_GAMES)}
+                  </div>
                 </div>
                 <div
                   onClick={() => navigate("/game-shows")}
@@ -466,7 +475,9 @@ const Header = () => {
                       src="https://ss.manage63.com/bmk-wl/commonAssets/gaming_show.svg"
                     />
                   </div>
-                  <div className="tab-label">Game Shows</div>
+                  <div className="tab-label">
+                    {getLanguage(LanguageKey.GAME_SHOWS)}
+                  </div>
                 </div>
                 <div
                   onClick={() => navigate("/indian-cards")}
@@ -478,7 +489,9 @@ const Header = () => {
                       src="https://ss.manage63.com/bmk-wl/commonAssets/go-casino-icon.svg"
                     />
                   </div>
-                  <div className="tab-label">Indian Cards</div>
+                  <div className="tab-label">
+                    {getLanguage(LanguageKey.INDIAN_CARDS)}
+                  </div>
                 </div>
                 <div
                   onClick={() => navigate("/live-casino")}
@@ -490,7 +503,9 @@ const Header = () => {
                       src="https://ss.manage63.com/bmk-wl/commonAssets/chips-header-icon.svg"
                     />
                   </div>
-                  <div className="tab-label">Live Casino</div>
+                  <div className="tab-label">
+                    {getLanguage(LanguageKey.LIVE_CASINO)}
+                  </div>
                 </div>
                 <div
                   onClick={() => navigate("/slots")}
@@ -502,7 +517,9 @@ const Header = () => {
                       src="https://ss.manage63.com/bmk-wl/commonAssets/casino-icon.svg"
                     />
                   </div>
-                  <div className="tab-label">Slots</div>
+                  <div className="tab-label">
+                    {getLanguage(LanguageKey.SLOTS)}
+                  </div>
                 </div>
               </div>
             </div>

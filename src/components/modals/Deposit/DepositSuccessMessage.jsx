@@ -3,8 +3,11 @@ import { setShowDepositSuccessModal } from "../../../redux/features/global/globa
 import { useRef } from "react";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
 import images from "../../../assets/images";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const DepositSuccessMessage = () => {
+  const { getLanguage } = useLanguage();
   const ref = useRef();
   const dispatch = useDispatch();
 
@@ -40,7 +43,7 @@ const DepositSuccessMessage = () => {
         <div className="swal2-icon swal2-icon-show" style={{ display: "flex" }}>
           <div className="swal2-icon-content">
             <img src={images.warning} />
-            <p>Success</p>
+            <p>{getLanguage(LanguageKey.SUCCESS)}</p>
           </div>
         </div>
         <img className="swal2-image" style={{ display: "none" }} />
@@ -54,7 +57,7 @@ const DepositSuccessMessage = () => {
           id="swal2-html-container"
           style={{ display: "block" }}
         >
-          Deposit Submitted
+          {getLanguage(LanguageKey.DEPOSIT_SUBMITTED)}
         </div>
         <input
           id="swal2-input"
@@ -100,7 +103,7 @@ const DepositSuccessMessage = () => {
                 "0 0 0 3px rgba(112, 102, 224, 0.5)",
             }}
           >
-            OK
+            {getLanguage(LanguageKey.OK)}
           </button>
           <button
             type="button"

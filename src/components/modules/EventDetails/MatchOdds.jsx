@@ -10,9 +10,12 @@ import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import isOddSuspended from "../../../utils/isOddSuspended";
 import { Settings } from "../../../api";
 import { handleCashOutPlaceBet } from "../../../utils/handleCashoutPlaceBet";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const MatchOdds = ({ data }) => {
-  const [speedCashOut, setSpeedCashOut] = useState(null);
+  const { getLanguage } = useLanguage();
+  // const [speedCashOut, setSpeedCashOut] = useState(null);
   const { eventId } = useParams();
   const [teamProfit, setTeamProfit] = useState([]);
   const dispatch = useDispatch();
@@ -262,7 +265,7 @@ const MatchOdds = ({ data }) => {
                               <span className="mat-mdc-button-persistent-ripple mdc-button_ripple"></span>
                               <span className="mdc-button_label">
                                 {" "}
-                                Cashout{" "}
+                                {getLanguage(LanguageKey.CASHOUT)}{" "}
                                 {teamProfitForGame?.profit &&
                                   `(${teamProfitForGame.profit.toFixed(0)})`}
                               </span>
@@ -276,7 +279,9 @@ const MatchOdds = ({ data }) => {
                     <div className="card-header">
                       <h3 className="card-title">
                         {" "}
-                        Min: {game?.minLiabilityPerBet} | Max:{" "}
+                        {getLanguage(LanguageKey.MIN)}:{" "}
+                        {game?.minLiabilityPerBet} |{" "}
+                        {getLanguage(LanguageKey.MAX)}:{" "}
                         {game?.maxLiabilityPerBet}{" "}
                       </h3>
                       <div className="lay-back-wrap">

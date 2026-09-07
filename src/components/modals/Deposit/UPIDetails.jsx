@@ -3,8 +3,11 @@ import { handleCopyToClipBoard } from "../../../utils/handleCopyToClipBoard";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setShowDepositModal } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const UPIDetails = ({ data }) => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const [secondsLeft, setSecondsLeft] = useState(5 * 60);
 
@@ -65,26 +68,32 @@ const UPIDetails = ({ data }) => {
       </div>
       <ul>
         <li>
-          <label>Display Name</label>
+          <label>{getLanguage(LanguageKey.DISPLAY_NAME)}</label>
           <p>
             {data?.upiAccountName}
             <a
               onClick={() => handleCopyToClipBoard(data?.upiAccountName)}
               style={{ marginLeft: "4px" }}
             >
-              <GrCopy /> <span style={{ marginLeft: "4px" }}>Copy</span>
+              <GrCopy />{" "}
+              <span style={{ marginLeft: "4px" }}>
+                {getLanguage(LanguageKey.COPY)}
+              </span>
             </a>
           </p>
         </li>
         <li>
-          <label>UPI Details</label>
+          <label>{getLanguage(LanguageKey.UPI_DETAILS)}</label>
           <p>
             {data?.upiId}
             <a
               onClick={() => handleCopyToClipBoard(data?.upiId)}
               style={{ marginLeft: "4px" }}
             >
-              <GrCopy /> <span style={{ marginLeft: "4px" }}>Copy</span>
+              <GrCopy />{" "}
+              <span style={{ marginLeft: "4px" }}>
+                {getLanguage(LanguageKey.COPY)}
+              </span>
             </a>
           </p>
         </li>

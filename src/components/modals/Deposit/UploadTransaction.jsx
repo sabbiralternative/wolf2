@@ -12,8 +12,11 @@ import {
   setShowDepositSuccessModal,
 } from "../../../redux/features/global/globalSlice";
 import { GrCopy } from "react-icons/gr";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const UploadTransaction = ({ paymentId, amount, methodType, methodTitle }) => {
+  const { getLanguage } = useLanguage();
   const [imageUploadMessage, setImageUploadMessage] = useState(null);
   const { mutate: getUTR } = useUTR();
   const { refetch } = useAccountStatement();
@@ -174,7 +177,12 @@ const UploadTransaction = ({ paymentId, amount, methodType, methodTitle }) => {
                         id="filepond--drop-label-e1yxutkfw"
                       >
                         <div className="material-icons">add_circle</div>
-                        <span> Click here to upload payment screenshot</span>
+                        <span>
+                          {" "}
+                          {getLanguage(
+                            LanguageKey.CLICK_HERE_TO_UPLOAD_PAYMENT_SCREENSHOT,
+                          )}
+                        </span>
                       </label>
                     </div>
                   </div>
@@ -200,7 +208,7 @@ const UploadTransaction = ({ paymentId, amount, methodType, methodTitle }) => {
                   className="uploaded-img-wrap ng-star-inserted"
                   style={{ padding: "0px" }}
                 >
-                  <h2>Added Screenshots/UTR</h2>
+                  <h2>{getLanguage(LanguageKey.ADDED_SCREENSHOTS_UTR)}</h2>
                   <div className="uploaded-img-list ng-star-inserted">
                     <div className="left-text ng-star-inserted">
                       <div className="img-wrap">
@@ -217,7 +225,7 @@ const UploadTransaction = ({ paymentId, amount, methodType, methodTitle }) => {
                       className="remove-btn"
                     >
                       {" "}
-                      Remove{" "}
+                      {getLanguage(LanguageKey.REMOVE)}{" "}
                     </a>
                   </div>
                 </div>
@@ -243,7 +251,7 @@ const UploadTransaction = ({ paymentId, amount, methodType, methodTitle }) => {
                 >
                   bolt
                 </div>
-                Instant
+                {getLanguage(LanguageKey.INSTANT)}
               </span>
             </label>
             <input
@@ -262,7 +270,8 @@ const UploadTransaction = ({ paymentId, amount, methodType, methodTitle }) => {
               onClick={handlePasteClick}
               className="paste-icon ng-star-inserted"
             >
-              <GrCopy style={{ marginRight: "5px" }} /> Paste
+              <GrCopy style={{ marginRight: "5px" }} />{" "}
+              {getLanguage(LanguageKey.PASTE)}
             </span>
           </div>
         </div>
@@ -274,7 +283,7 @@ const UploadTransaction = ({ paymentId, amount, methodType, methodTitle }) => {
             onClick={handleDepositSubmit}
             className="btn secondary-btn ng-star-inserted"
           >
-            Submit{" "}
+            {getLanguage(LanguageKey.SUBMIT)}{" "}
           </button>
         </div>
       </div>

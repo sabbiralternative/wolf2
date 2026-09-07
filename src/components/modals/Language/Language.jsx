@@ -2,12 +2,13 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { useLanguage } from "../../../context/LanguageProvider";
 import { useGetLanguage } from "../../../hooks/language";
 import useCloseModalClickOutside from "../../../hooks/closeModal";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const Language = ({ setShowLanguage }) => {
-  const { setLanguage } = useLanguage();
+  const { setLanguage, getLanguage } = useLanguage();
   const { data } = useGetLanguage();
 
   const loginRef = useRef();
@@ -69,7 +70,8 @@ const Language = ({ setShowLanguage }) => {
                   fontSize: "11px",
                 }}
               >
-                <MdKeyboardArrowRight /> <span>Select Language</span>
+                <MdKeyboardArrowRight />{" "}
+                <span>{getLanguage(LanguageKey.SELECT_LANGUAGE)}</span>
               </h1>
               <div
                 style={{

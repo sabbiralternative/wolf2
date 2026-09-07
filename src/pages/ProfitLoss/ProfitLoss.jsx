@@ -3,8 +3,11 @@ import { useAccountStatement } from "../../hooks/accountStatement";
 import SingleProfitLoss from "../../components/modals/SingleProfitLoss/SingleProfitLoss";
 import { fromDate, toDate } from "../../utils/default-date";
 import moment from "moment";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const ProfitLoss = () => {
+  const { getLanguage } = useLanguage();
   const [marketId, setMarketId] = useState(null);
   const [from, setFrom] = useState(fromDate);
   const [to, setTo] = useState(toDate);
@@ -40,7 +43,7 @@ const ProfitLoss = () => {
         <div className="txn-filter ng-star-inserted">
           <div className="date_time">
             <div className="dt_col">
-              <label htmlFor="from">From</label>
+              <label htmlFor="from">{getLanguage(LanguageKey.FROM_DATE)}</label>
               <div className="input-wrap">
                 <input
                   onChange={(e) => setFrom(e.target.value)}
@@ -56,7 +59,7 @@ const ProfitLoss = () => {
               </div>
             </div>
             <div className="dt_col">
-              <label htmlFor="to">To</label>
+              <label htmlFor="to">{getLanguage(LanguageKey.TO_DATE)}</label>
               <div className="input-wrap">
                 <input
                   onChange={(e) => setTo(e.target.value)}
@@ -189,11 +192,13 @@ const ProfitLoss = () => {
           <div className="txn-tbl ng-star-inserted">
             <div className="header-wrap">
               <ul className="tbl-head">
-                <li>Date</li>
+                <li>{getLanguage(LanguageKey.DATE)}</li>
 
-                <li>Member Win</li>
-                <li>Balance</li>
-                <li style={{ background: "var(--grey-50)" }}>Remark</li>
+                <li>{getLanguage(LanguageKey.MEMBER_WIN)}</li>
+                <li>{getLanguage(LanguageKey.BALANCE)}</li>
+                <li style={{ background: "var(--grey-50)" }}>
+                  {getLanguage(LanguageKey.REMARK)}
+                </li>
               </ul>
             </div>
             <div className="body-wrap">

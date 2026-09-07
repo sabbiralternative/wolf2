@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { useCurrentBets } from "../../hooks/currentBets";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const ActiveBets = () => {
+  const { getLanguage } = useLanguage();
   const [activeEventName, setActiveEventName] = useState(null);
   const { data } = useCurrentBets();
 
@@ -100,16 +103,20 @@ const ActiveBets = () => {
                               <div className="bet-statement ng-star-inserted">
                                 <div className="top-filter">
                                   <div className="title">
-                                    <h3>Bet History</h3>
+                                    <h3>
+                                      {getLanguage(LanguageKey.BET_HISTORY)}
+                                    </h3>
                                   </div>
                                 </div>
                                 <div className="betslip-card ng-star-inserted">
                                   <div className="betslip-data-wrap ng-star-inserted">
                                     <div className="betslip-title">
-                                      <h3>Event</h3>
+                                      <h3>{getLanguage(LanguageKey.EVENT)}</h3>
                                       <div className="odds-stake-wrap">
-                                        <h3>Odds</h3>
-                                        <h3>Stake</h3>
+                                        <h3>{getLanguage(LanguageKey.ODDS)}</h3>
+                                        <h3>
+                                          {getLanguage(LanguageKey.STAKE)}
+                                        </h3>
                                       </div>
                                     </div>
                                     {data?.length > 0 &&
@@ -246,7 +253,10 @@ const ActiveBets = () => {
                                           marginTop: "50px",
                                         }}
                                       >
-                                        No bets placed yet, Place your bet now!
+                                        {getLanguage(
+                                          LanguageKey.NO_BET_PLACED_YET_PLACE_YOUR_BET_NOW,
+                                        )}
+                                        !
                                       </div>
                                     )}
                                   </div>

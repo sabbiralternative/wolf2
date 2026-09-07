@@ -11,11 +11,10 @@ import { useForm } from "react-hook-form";
 import { Settings } from "../../../api";
 
 import toast from "react-hot-toast";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
 const ForgotFields = ({ mobile, order }) => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const [handleForgotPassword] = useForgotPasswordMutation();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
@@ -104,7 +103,9 @@ const ForgotFields = ({ mobile, order }) => {
                         </div>
                         <div className="welcome-text">
                           <h2 className="notranslate">
-                            Enter verification code{" "}
+                            {getLanguage(
+                              LanguageKey.ENTER_VERIFICATION_CODE,
+                            )}{" "}
                           </h2>
                         </div>
                         <button
@@ -137,7 +138,8 @@ const ForgotFields = ({ mobile, order }) => {
                           <div className="login-form">
                             <div className="form-item">
                               <p className="form-label">
-                                We have sent code to {mobile}
+                                {getLanguage(LanguageKey.WE_HAVE_SENT_CODE_TO)}{" "}
+                                {mobile}
                               </p>
                               <div className="input-container">
                                 <input
@@ -148,7 +150,9 @@ const ForgotFields = ({ mobile, order }) => {
                               </div>
                             </div>
                             <div className="form-item">
-                              <p className="form-label">Password</p>
+                              <p className="form-label">
+                                {getLanguage(LanguageKey.PASSWORD)}
+                              </p>
                               <div className="input-container">
                                 <input
                                   {...register("password", { required: true })}
@@ -158,7 +162,9 @@ const ForgotFields = ({ mobile, order }) => {
                               </div>
                             </div>
                             <div className="form-item">
-                              <p className="form-label">Confirm Password</p>
+                              <p className="form-label">
+                                {getLanguage(LanguageKey.CONFIRM_PASSWORD)}
+                              </p>
                               <div className="input-container">
                                 <input
                                   {...register("confirmPassword", {
@@ -176,10 +182,7 @@ const ForgotFields = ({ mobile, order }) => {
                                   type="submit"
                                   className="btn secondary-btn ng-star-inserted"
                                 >
-                                  {languageValue(
-                                    valueByLanguage,
-                                    LanguageKey.CHANGE_PASSWORD,
-                                  )}
+                                  {getLanguage(LanguageKey.CHANGE_PASSWORD)}
                                 </button>
                               </div>
                             </div>

@@ -17,7 +17,8 @@ import LoginWarning from "../components/modals/LoginWarning/LoginWarning";
 import Help from "../components/modals/Help/Help";
 import ChangePassword from "../components/modals/ChangePassword/ChangePassword";
 import AddUSDTAccount from "../components/modals/AddUSDTAccount/AddUSDTAccount";
-import { useLanguage } from "../context/LanguageProvider";
+import { Settings } from "../api";
+import useLanguage from "../hooks/use-language";
 
 const MainLayout = () => {
   const { setLanguage } = useLanguage();
@@ -44,6 +45,8 @@ const MainLayout = () => {
 
   return (
     <Fragment>
+      <meta name="description" content={Settings.metaDescription} />
+      <meta name="keywords" content={Settings.metaKeywords} />
       {showLoginModal && <Login />}
       {showForgotPasswordModal && <ForgotPassword />}
       {showRegisterModal && <Register />}

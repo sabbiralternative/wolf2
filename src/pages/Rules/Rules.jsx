@@ -1,9 +1,13 @@
+import { LanguageKey } from "../../const";
+import useLanguage from "../../hooks/use-language";
+
 const Rules = () => {
+  const { getLanguage } = useLanguage();
   return (
     <div className="page-body">
       <div className="rules-page-wrap">
         <div className="title-bar">
-          <h2>Rules</h2>
+          <h2>{getLanguage(LanguageKey.RULES)}</h2>
         </div>
         <div className="content-setting">
           <p>

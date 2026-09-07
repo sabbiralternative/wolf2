@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useGetIndex } from "../../hooks";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const Tournament = () => {
+  const { getLanguage } = useLanguage();
   const navigate = useNavigate();
   const { data } = useGetIndex({
     type: "wolf_tournaments",
@@ -24,7 +27,7 @@ const Tournament = () => {
       <div className="special-market ng-star-inserted">
         <div className="market-wrap ng-star-inserted">
           <div className="title-bar">
-            <h2 className="title">Series Winner</h2>
+            <h2 className="title">{getLanguage(LanguageKey.SERIES_WINNER)}</h2>
           </div>
           {data?.data?.map((item) => {
             return (

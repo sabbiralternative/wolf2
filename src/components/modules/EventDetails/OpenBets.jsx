@@ -1,4 +1,8 @@
+import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
+
 const OpenBets = ({ currentBets }) => {
+  const { getLanguage } = useLanguage();
   return (
     <div className="mat-mdc-tab-body-wrapper" style={{}}>
       <div
@@ -36,10 +40,10 @@ const OpenBets = ({ currentBets }) => {
                     <div className="card-body">
                       <div className="betslip-data-wrap">
                         <div className="betslip-title">
-                          <h3>Matched Bets</h3>
+                          <h3>{getLanguage(LanguageKey.MATCHED_BETS)}</h3>
                           <div className="odds-stake-wrap">
-                            <h3>Odds</h3>
-                            <h3>Stake</h3>
+                            <h3>{getLanguage(LanguageKey.ODDS)}</h3>
+                            <h3>{getLanguage(LanguageKey.STAKE)}</h3>
                           </div>
                         </div>
                         <div className="betslip-databody lfBets">

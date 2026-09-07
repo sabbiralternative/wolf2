@@ -5,8 +5,11 @@ import useCloseModalClickOutside from "../../../hooks/closeModal";
 import { setShowAPKModal } from "../../../redux/features/global/globalSlice";
 import { Settings } from "../../../api";
 import images from "../../../assets/images";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const DownloadAPK = () => {
+  const { getLanguage } = useLanguage();
   const dispatch = useDispatch();
   const modalRef = useRef();
   useCloseModalClickOutside(modalRef, () => {
@@ -71,7 +74,7 @@ const DownloadAPK = () => {
                   <div className="change-password-modal">
                     {!Settings?.apk_banner && (
                       <div className="modal-header">
-                        <h2>Download APK</h2>
+                        <h2>{getLanguage(LanguageKey.DOWNLOAD_APK)}</h2>
                         <button
                           onClick={closeModal}
                           className="modal-close-btn mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base"
@@ -135,7 +138,9 @@ const DownloadAPK = () => {
                                 alt="install_android"
                               />
                               <h1 className="main-title">
-                                Download APK for Premium Gaming Experience
+                                {getLanguage(
+                                  LanguageKey.DOWNLOAD_APK_FOR_PREMIUM_GAMING_EXPERIENCE,
+                                )}
                               </h1>
                             </div>
                           </header>
@@ -181,7 +186,12 @@ const DownloadAPK = () => {
                               className="download-button"
                             >
                               <GrAndroid className="android-icon" />
-                              <span>Download Official App Now ↓</span>
+                              <span>
+                                {getLanguage(
+                                  LanguageKey.DOWNLOAD_OFFICIAL_APP_NOW,
+                                )}{" "}
+                                ↓
+                              </span>
                             </a>
                           </main>
                         </div>

@@ -1,7 +1,10 @@
 import { Fragment } from "react";
 import { formatDate } from "../../../utils/formateDate";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const ScoreInfo = ({ data, keys }) => {
+  const { getLanguage } = useLanguage();
   return (
     <Fragment>
       {data?.[keys]?.eventTypeId == 4 && (
@@ -24,7 +27,7 @@ const ScoreInfo = ({ data, keys }) => {
                   !data?.[keys]?.score2?.line3 && (
                     <span style={{ display: "block" }}>Live</span>
                   )} */}
-                In-play
+                {getLanguage(LanguageKey.IN_PLAY)}
               </span>
               <p className="stumps-wrap ng-star-inserted" />
             </div>
@@ -69,7 +72,7 @@ const ScoreInfo = ({ data, keys }) => {
                       )}
                   </div>
                 </div> */}
-                In-play
+                {getLanguage(LanguageKey.IN_PLAY)}
               </span>
               <p className="stumps-wrap ng-star-inserted" />
             </div>
@@ -93,7 +96,7 @@ const ScoreInfo = ({ data, keys }) => {
             <div className="match-time">
               <span className="inplay ng-star-inserted">
                 {" "}
-                In-play
+                {getLanguage(LanguageKey.IN_PLAY)}
                 {/* <span style={{ display: "flex", gap: "5px" }}>
                   {" "}
                   <span> {data[keys]?.score?.totalSet1}</span>
