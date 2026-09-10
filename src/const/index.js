@@ -515,6 +515,9 @@ export const LanguageKey = {
   INDIAN_CARDS: "INDIAN_CARDS",
   ACTIVE_BANKS: "ACTIVE_BANKS",
   NO_OFFERS_FOUND: "NO_OFFERS_FOUND",
+  BY_USERNAME: "BY_USERNAME",
+  BY_PHONE: "BY_PHONE",
+  NEXT: "NEXT",
 };
 
 export const settingsAPI = "https://api7.live/api/exchange/diamond/settings";

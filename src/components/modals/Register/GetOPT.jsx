@@ -9,8 +9,18 @@ import toast from "react-hot-toast";
 import { setShowRegisterModal } from "../../../redux/features/global/globalSlice";
 import useLanguage from "../../../hooks/use-language";
 import { LanguageKey } from "../../../const";
+import { FaRegUser, FaMobileAlt } from "react-icons/fa";
 
-const GetOPT = ({ setOrder, setShowForgotPassword, mobile, setMobile }) => {
+const GetOPT = ({
+  setOrder,
+  setShowForgotPassword,
+  mobile,
+  setMobile,
+  tab,
+  setTab,
+  setUsername,
+  username,
+}) => {
   const { getLanguage } = useLanguage();
   const { logo } = useLogo();
   const dispatch = useDispatch();
@@ -134,53 +144,172 @@ const GetOPT = ({ setOrder, setShowForgotPassword, mobile, setMobile }) => {
                           className="ng-untouched ng-pristine ng-invalid"
                         >
                           <div className="login-form">
-                            <div className="form-item">
-                              <p className="form-label">
-                                {getLanguage(LanguageKey.MOBILE_NUMBER)}
-                              </p>
-                              <div
-                                style={{
-                                  display: "flex",
-                                  alignItems: "center",
-                                  gap: "5px",
-                                }}
-                              >
-                                {" "}
+                            {Settings.registration_mobile &&
+                              Settings.registration_username && (
                                 <div
                                   style={{
-                                    width: "100px",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
+                                    width: "100%",
+                                    background:
+                                      "color-mix(in srgb, var(--highlight-color) 30%, transparent)",
+                                    marginBottom: "12px",
                                   }}
-                                  className="input-container"
                                 >
-                                  +91
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "row",
+                                      alignItems: "center",
+                                      justifyContent: "flex-start",
+                                      position: "relative",
+                                      width: "100%",
+                                    }}
+                                  >
+                                    <div
+                                      onClick={() => setTab("mobile")}
+                                      style={{
+                                        cursor: "pointer",
+                                        display: "flex",
+                                        flexDirection: "row",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        padding: "5px",
+                                        width: "100%",
+                                        gap: "6px",
+                                        color: "white",
+                                        background:
+                                          tab === "mobile"
+                                            ? "var(--highlight-color)"
+                                            : undefined,
+                                      }}
+                                    >
+                                      <FaMobileAlt />
+
+                                      <span>
+                                        {getLanguage(LanguageKey.BY_PHONE)}
+                                      </span>
+                                    </div>
+
+                                    <div
+                                      onClick={() => setTab("username")}
+                                      style={{
+                                        cursor: "pointer",
+                                        display: "flex",
+                                        flexDirection: "row",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        padding: "5px",
+                                        width: "100%",
+                                        gap: "6px",
+                                        color: "white",
+                                        background:
+                                          tab === "username"
+                                            ? "var(--highlight-color)"
+                                            : undefined,
+                                      }}
+                                    >
+                                      <FaRegUser />
+
+                                      <span>
+                                        {getLanguage(LanguageKey.BY_USERNAME)}
+                                      </span>
+                                    </div>
+                                  </div>
                                 </div>
-                                <div className="input-container">
-                                  <input
-                                    onChange={(e) => handleMobileNo(e)}
-                                    value={mobile}
-                                    type="number"
-                                    placeholder="Enter Mobile number"
-                                  />
+                              )}
+                            {tab === "mobile" &&
+                              Settings.registration_mobile && (
+                                <div className="form-item">
+                                  <p className="form-label">
+                                    {getLanguage(LanguageKey.MOBILE_NUMBER)}
+                                  </p>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                      gap: "5px",
+                                    }}
+                                  >
+                                    {" "}
+                                    <div
+                                      style={{
+                                        width: "100px",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                      }}
+                                      className="input-container"
+                                    >
+                                      +91
+                                    </div>
+                                    <div className="input-container">
+                                      <input
+                                        onChange={(e) => handleMobileNo(e)}
+                                        value={mobile}
+                                        type="number"
+                                        placeholder="Enter Mobile number"
+                                      />
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
-                            </div>
+                              )}
+                            {tab === "username" &&
+                              Settings.registration_username && (
+                                <div className="form-item">
+                                  <p className="form-label">
+                                    {getLanguage(LanguageKey.USERNAME)}
+                                  </p>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                      gap: "5px",
+                                    }}
+                                  >
+                                    {" "}
+                                    <div className="input-container">
+                                      <input
+                                        onChange={(e) =>
+                                          setUsername(e.target.value)
+                                        }
+                                        type="text"
+                                        placeholder="Enter Username"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
 
                             <div className="form-btn">
                               <div className="otpBTNs">
-                                <button
-                                  disabled={Settings.otp && mobile?.length < 10}
-                                  type="submit"
-                                  className="btn secondary-btn ng-star-inserted"
-                                >
-                                  {Settings.otp
-                                    ? getLanguage(
-                                        LanguageKey.GET_OTP_ON_MESSAGE,
-                                      )
-                                    : getLanguage(LanguageKey.PROCEED)}
-                                </button>
+                                {tab === "mobile" &&
+                                  Settings.registration_mobile && (
+                                    <button
+                                      disabled={
+                                        Settings.otp && mobile?.length < 10
+                                      }
+                                      type="submit"
+                                      className="btn secondary-btn ng-star-inserted"
+                                    >
+                                      {Settings.otp
+                                        ? getLanguage(
+                                            LanguageKey.GET_OTP_ON_MESSAGE,
+                                          )
+                                        : getLanguage(LanguageKey.PROCEED)}
+                                    </button>
+                                  )}
+                                {tab === "username" &&
+                                  Settings.registration_username && (
+                                    <button
+                                      onClick={() =>
+                                        setShowForgotPassword(true)
+                                      }
+                                      disabled={!username}
+                                      type="button"
+                                      className="btn secondary-btn ng-star-inserted"
+                                    >
+                                      {getLanguage(LanguageKey.NEXT)}
+                                    </button>
+                                  )}
                               </div>
                               {/* {Settings.otpless && (
                                 <Fragment>

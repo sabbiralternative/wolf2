@@ -14,7 +14,7 @@ import toast from "react-hot-toast";
 import { setUser } from "../../../redux/features/auth/authSlice";
 import { LanguageKey } from "../../../const";
 import useLanguage from "../../../hooks/use-language";
-const RegisterFields = ({ mobile, order }) => {
+const RegisterFields = ({ mobile, order, tab, setUsername, username }) => {
   const { getLanguage } = useLanguage();
   const affnook_token = localStorage.getItem("affnook_token");
   const referralCode = localStorage.getItem("referralCode");
@@ -29,7 +29,7 @@ const RegisterFields = ({ mobile, order }) => {
 
   const onSubmit = async (data) => {
     const registerData = {
-      username: "",
+      username: username,
       password: data?.password,
       confirmPassword: data?.confirmPassword,
       mobile: mobile,
@@ -39,6 +39,8 @@ const RegisterFields = ({ mobile, order }) => {
       orderId: order.orderId,
       orderMethod: order.otpMethod,
       affnook_token: affnook_token || null,
+      registration_mobile: Settings.registration_mobile,
+      registration_username: Settings.registration_username,
     };
 
     const result = await handleRegister(registerData).unwrap();
@@ -165,19 +167,42 @@ const RegisterFields = ({ mobile, order }) => {
                           className="ng-untouched ng-pristine ng-invalid"
                         >
                           <div className="login-form">
-                            <div className="form-item">
-                              <p className="form-label">
-                                {getLanguage(LanguageKey.WE_HAVE_SENT_CODE_TO)}{" "}
-                                {mobile}
-                              </p>
-                              <div className="input-container">
-                                <input
-                                  {...register("otp", { required: true })}
-                                  type="text"
-                                  placeholder="Enter OTP"
-                                />
-                              </div>
-                            </div>
+                            {tab === "mobile" &&
+                              Settings.registration_mobile && (
+                                <div className="form-item">
+                                  <p className="form-label">
+                                    {getLanguage(
+                                      LanguageKey.WE_HAVE_SENT_CODE_TO,
+                                    )}{" "}
+                                    {mobile}
+                                  </p>
+                                  <div className="input-container">
+                                    <input
+                                      {...register("otp", { required: true })}
+                                      type="text"
+                                      placeholder="Enter OTP"
+                                    />
+                                  </div>
+                                </div>
+                              )}
+                            {tab === "username" &&
+                              Settings.registration_username && (
+                                <div className="form-item">
+                                  <p className="form-label">
+                                    {getLanguage(LanguageKey.USERNAME)}
+                                  </p>
+                                  <div className="input-container">
+                                    <input
+                                      value={username}
+                                      onChange={(e) =>
+                                        setUsername(e.target.value)
+                                      }
+                                      type="text"
+                                      placeholder="Enter Username"
+                                    />
+                                  </div>
+                                </div>
+                              )}
                             <div className="form-item">
                               <p className="form-label">
                                 {getLanguage(LanguageKey.PASSWORD)}
