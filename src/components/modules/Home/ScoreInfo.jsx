@@ -1,10 +1,10 @@
 import { Fragment } from "react";
 import { formatDate } from "../../../utils/formateDate";
-import useLanguage from "../../../hooks/use-language";
-import { LanguageKey } from "../../../const";
+// import useLanguage from "../../../hooks/use-language";
+// import { LanguageKey } from "../../../const";
 
 const ScoreInfo = ({ data, keys }) => {
-  const { getLanguage } = useLanguage();
+  // const { getLanguage } = useLanguage();
   return (
     <Fragment>
       {data?.[keys]?.eventTypeId == 4 && (
@@ -66,6 +66,7 @@ const ScoreInfo = ({ data, keys }) => {
                       display: "flex",
                       flexDirection: "column",
                       gap: "5px",
+                      color: "black",
                     }}
                   >
                     <span>{data[keys]?.score?.total_1}</span>
@@ -105,11 +106,11 @@ const ScoreInfo = ({ data, keys }) => {
                 style={{ height: "100%", flexDirection: "column" }}
               >
                 {" "}
-                {getLanguage(LanguageKey.IN_PLAY)}
+                {/* {getLanguage(LanguageKey.IN_PLAY)} */}
                 <span style={{ display: "flex", gap: "5px" }}>
                   {" "}
                   <span> {data[keys]?.score?.totalSet1}</span>
-                  <span>
+                  <span style={{ color: "black" }}>
                     {" "}
                     {data?.[keys]?.score?.set1
                       .map((item) => Number(item))
@@ -119,7 +120,7 @@ const ScoreInfo = ({ data, keys }) => {
                 </span>
                 <span style={{ display: "flex", gap: "5px" }}>
                   <span> {data[keys]?.score?.totalSet2}</span>
-                  <span>
+                  <span style={{ color: "black" }}>
                     {" "}
                     {data?.[keys]?.score?.set2
                       .map((item) => Number(item))

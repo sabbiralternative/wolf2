@@ -518,6 +518,7 @@ export const LanguageKey = {
   BY_USERNAME: "BY_USERNAME",
   BY_PHONE: "BY_PHONE",
   NEXT: "NEXT",
+  SHOW_LESS: "SHOW_LESS",
 };
 
 export const settingsAPI = "https://api7.live/api/exchange/diamond/settings";

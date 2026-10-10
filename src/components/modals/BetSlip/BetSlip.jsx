@@ -19,6 +19,11 @@ import useCloseModalClickOutside from "../../../hooks/closeModal";
 import { isBetDelay, isDelay } from "../../../utils/isBetDelay";
 import useLanguage from "../../../hooks/use-language";
 import { LanguageKey } from "../../../const";
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import {
+  handleDecreasePrice,
+  handleIncreasePrice,
+} from "../../../utils/editBetSlipPrice";
 
 const BetSlip = () => {
   const { getLanguage } = useLanguage();
@@ -349,7 +354,10 @@ const BetSlip = () => {
                             </h2>
                           </div>
                           <div className="bet-action-grid">
-                            <div className="bet-action-item">
+                            <div
+                              className="bet-action-item"
+                              style={{ position: "relative" }}
+                            >
                               <label>{getLanguage(LanguageKey.ODDS)}</label>
                               <input
                                 readOnly={placeBetValues?.isWeak}
@@ -361,6 +369,44 @@ const BetSlip = () => {
                                 }}
                                 className="rate-inp"
                               />
+                              {!placeBetValues?.isWeak && (
+                                <div
+                                  style={{
+                                    position: "absolute",
+                                    top: 25,
+                                    right: 5,
+                                    display: "flex",
+                                    flexDirection: "column",
+                                  }}
+                                >
+                                  <MdKeyboardArrowUp
+                                    onClick={() => {
+                                      handleIncreasePrice(
+                                        price,
+                                        placeBetValues,
+                                        dispatch,
+                                        setPrice,
+                                      );
+                                      setIsCashOut(false);
+                                    }}
+                                    style={{ cursor: "pointer" }}
+                                    size={15}
+                                  />
+                                  <MdKeyboardArrowDown
+                                    onClick={() => {
+                                      handleDecreasePrice(
+                                        price,
+                                        placeBetValues,
+                                        dispatch,
+                                        setPrice,
+                                      );
+                                      setIsCashOut(false);
+                                    }}
+                                    style={{ cursor: "pointer" }}
+                                    size={15}
+                                  />
+                                </div>
+                              )}
                             </div>
                             <div className="bet-action-item">
                               <label>{getLanguage(LanguageKey.STAKE)}</label>

@@ -1072,3 +1072,36 @@ html * {
   }
 }
 /* Horse banner */
+/* grid  */
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+@media (min-width: 640px) {
+  .sm\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+@media (min-width: 768px) {
+  .md\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\:grid-cols-6 {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+}
+@media (min-width: 1280px) {
+  .xl\:grid-cols-7 {
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  }
+}
+
+/* @media (min-width: 1536px) {
+  .\32xl\:grid-cols-8 {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+} */
+.grid-flow-col {
+  grid-auto-flow: column !important;
+}

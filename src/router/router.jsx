@@ -19,13 +19,13 @@ import InPlayPage from "../pages/InPlay/InPlay";
 import Offers from "../pages/Offers/Offers";
 import Notification from "../pages/Notification/Notification";
 import Passbook from "../pages/Passbook/Passbook";
-import ProfitLoss from "../pages/ProfitLoss/ProfitLoss";
 import GameProvider from "../pages/GameProvider/GameProvider";
 import ActiveBets from "../pages/ActiveBets/ActiveBets";
 import APK from "../pages/APK/APK";
 import Promotions from "../pages/Promotions/Promotions";
 import LossBackClaims from "../pages/LossBackClaims/LossBackClaims";
 import BonusStatement from "../pages/BonusStatement/BonusStatement";
+import BettingProfitLoss from "../pages/BettingProfitLoss/BettingProfitLoss";
 
 export const router = createBrowserRouter(
   [
@@ -112,7 +112,8 @@ export const router = createBrowserRouter(
         },
         {
           path: "/profit-loss",
-          element: <ProfitLoss />,
+          element: <BettingProfitLoss />,
+          // element: <ProfitLoss />,
         },
         {
           path: "/game-provider/:game_name/:game_id",

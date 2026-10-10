@@ -31,7 +31,7 @@ import frame from "../img/frame.webp";
 import install_android from "../img/header_image.png";
 import telegram from "../img/telegram.png";
 import whatsAppSVG from "../img/whatsapp-icon.svg";
-import aviator from "../img/aviator.jpeg";
+import aviator from "../img/aviator.png";
 
 export default {
   aviator,

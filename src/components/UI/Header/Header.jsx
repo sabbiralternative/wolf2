@@ -214,10 +214,14 @@ const Header = () => {
                   className="pagetab-item highLightedGame"
                 >
                   <div className="highlighted-game ng-star-inserted">
-                    <div className="icon-wrap jetx-icon">
+                    <div
+                      className="icon-wrap jetx-icon"
+                      style={{ background: "transparent" }}
+                    >
                       <img
                         src={images.aviator}
                         alt="JetX"
+                        style={{ width: "100%", height: "100%" }}
                         className="blink-it"
                       />
                     </div>

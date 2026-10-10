@@ -74,17 +74,27 @@ const InPlay = () => {
                   setLiveVirtual={setLiveVirtual}
                   category={category}
                 />
-                <span style={{ marginLeft: "5px" }}>
-                  {" "}
-                  {getLanguage(LanguageKey.ALL)}
-                </span>
                 <span
-                  role="img"
-                  className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
-                  aria-hidden="true"
-                  data-mat-icon-type="font"
+                  style={{ display: "flex", alignItems: "center" }}
+                  onClick={() =>
+                    navigate(
+                      `/group/${eventName[category]?.toLowerCase()}/${category}?type=inPlay`,
+                    )
+                  }
                 >
-                  chevron_right
+                  {" "}
+                  <span style={{ marginLeft: "5px" }}>
+                    {" "}
+                    {getLanguage(LanguageKey.ALL)}
+                  </span>
+                  <span
+                    role="img"
+                    className="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+                    aria-hidden="true"
+                    data-mat-icon-type="font"
+                  >
+                    chevron_right
+                  </span>
                 </span>
               </a>
             </div>
