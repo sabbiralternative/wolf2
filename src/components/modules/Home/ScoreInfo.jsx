@@ -11,9 +11,12 @@ const ScoreInfo = ({ data, keys }) => {
         <Fragment>
           {data[keys]?.inPlay == 1 && data[keys]?.score2 ? (
             <div className="match-time">
-              <span className="inplay ng-star-inserted">
+              <span
+                className="inplay ng-star-inserted"
+                style={{ height: "100%", flexDirection: "column" }}
+              >
                 {" "}
-                {/* <span style={{ display: "block" }}>
+                <span style={{ display: "block" }}>
                   {data?.[keys]?.score2?.line1}
                 </span>
                 <span style={{ display: "block" }}>
@@ -26,8 +29,8 @@ const ScoreInfo = ({ data, keys }) => {
                   !data?.[keys]?.score2?.line2 &&
                   !data?.[keys]?.score2?.line3 && (
                     <span style={{ display: "block" }}>Live</span>
-                  )} */}
-                {getLanguage(LanguageKey.IN_PLAY)}
+                  )}
+                {/* {getLanguage(LanguageKey.IN_PLAY)} */}
               </span>
               <p className="stumps-wrap ng-star-inserted" />
             </div>
@@ -49,9 +52,12 @@ const ScoreInfo = ({ data, keys }) => {
         <Fragment>
           {data[keys]?.inPlay == 1 && data[keys]?.score ? (
             <div className="match-time">
-              <span className="inplay ng-star-inserted">
+              <span
+                className="inplay ng-star-inserted"
+                style={{ height: "100%", flexDirection: "column" }}
+              >
                 {" "}
-                {/* <div
+                <div
                   style={{ display: "flex", alignItems: "center", gap: "5px" }}
                 >
                   <span>{data[keys]?.timeStatus}</span>
@@ -71,8 +77,8 @@ const ScoreInfo = ({ data, keys }) => {
                         <span style={{ display: "block" }}>Live</span>
                       )}
                   </div>
-                </div> */}
-                {getLanguage(LanguageKey.IN_PLAY)}
+                </div>
+                {/* {getLanguage(LanguageKey.IN_PLAY)} */}
               </span>
               <p className="stumps-wrap ng-star-inserted" />
             </div>
@@ -94,10 +100,13 @@ const ScoreInfo = ({ data, keys }) => {
         <Fragment>
           {data[keys]?.inPlay == 1 && data[keys]?.score ? (
             <div className="match-time">
-              <span className="inplay ng-star-inserted">
+              <span
+                className="inplay ng-star-inserted"
+                style={{ height: "100%", flexDirection: "column" }}
+              >
                 {" "}
                 {getLanguage(LanguageKey.IN_PLAY)}
-                {/* <span style={{ display: "flex", gap: "5px" }}>
+                <span style={{ display: "flex", gap: "5px" }}>
                   {" "}
                   <span> {data[keys]?.score?.totalSet1}</span>
                   <span>
@@ -123,7 +132,7 @@ const ScoreInfo = ({ data, keys }) => {
                   !data[keys]?.score?.totalSet2 &&
                   !data?.[keys]?.score?.set2 && (
                     <span style={{ display: "block" }}>Live</span>
-                  )} */}
+                  )}
               </span>
               <p className="stumps-wrap ng-star-inserted" />
             </div>

@@ -25,6 +25,7 @@ import Notification from "./Notification";
 import { LanguageKey } from "../../../const";
 import { eventNameList } from "../../../static/event-name-list";
 import useLanguage from "../../../hooks/use-language";
+import images from "../../../assets/images";
 
 const Header = () => {
   const { getLanguage } = useLanguage();
@@ -122,7 +123,7 @@ const Header = () => {
     handleHeaderHeight();
     window.addEventListener("resize", handleHeaderHeight);
     return () => window.removeEventListener("resize", handleHeaderHeight);
-  }, [headerRef, dispatch, showAppPopUp]);
+  }, [headerRef, dispatch, showAppPopUp, location.pathname]);
 
   return (
     <Fragment>
@@ -209,19 +210,19 @@ const Header = () => {
               </div>
               <div className="pagetab-header">
                 <div
-                  onClick={() => handleNavigateToIFrame(204109, "jetx")}
+                  onClick={() => handleNavigateToIFrame(201206, "aviator")}
                   className="pagetab-item highLightedGame"
                 >
                   <div className="highlighted-game ng-star-inserted">
                     <div className="icon-wrap jetx-icon">
                       <img
-                        src="https://ss.manage63.com/bmk-wl/commonAssets/jetx.png"
+                        src={images.aviator}
                         alt="JetX"
                         className="blink-it"
                       />
                     </div>
                     <div className="tab-label">
-                      {getLanguage(LanguageKey.JETX)}
+                      {getLanguage(LanguageKey.AVIATOR)}
                     </div>
                   </div>
                 </div>
