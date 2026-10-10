@@ -242,7 +242,7 @@ const Login = () => {
                               >
                                 <input
                                   {...register("password", { required: true })}
-                                  type="text"
+                                  type="password"
                                   placeholder="Enter Password"
                                 />
                               </div>

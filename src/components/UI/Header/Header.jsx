@@ -209,13 +209,13 @@ const Header = () => {
                 <LatestEvent />
               </div>
               <div className="pagetab-header">
-                <div
+                {/* <div
                   onClick={() => handleNavigateToIFrame(201206, "aviator")}
-                  className="pagetab-item highLightedGame"
+                  className="pagetab-item highLightedGame----"
                 >
-                  <div className="highlighted-game ng-star-inserted">
+                  <div className="highlighted-game---- ng-star-inserted">
                     <div
-                      className="icon-wrap jetx-icon"
+                      className="icon-wrap jetx-icon---"
                       style={{ background: "transparent" }}
                     >
                       <img
@@ -228,6 +228,21 @@ const Header = () => {
                     <div className="tab-label">
                       {getLanguage(LanguageKey.AVIATOR)}
                     </div>
+                  </div>
+                </div> */}
+                <div
+                  onClick={() => handleNavigateToIFrame(201206, "aviator")}
+                  className={`pagetab-item ng-star-inserted `}
+                >
+                  <div className="icon-wrap ng-star-inserted">
+                    <img
+                      src={images.aviator}
+                      alt="JetX"
+                      style={{ width: "100%", height: "100%" }}
+                    />
+                  </div>
+                  <div className="tab-label ng-star-inserted">
+                    {getLanguage(LanguageKey.AVIATOR)}
                   </div>
                 </div>
                 <div

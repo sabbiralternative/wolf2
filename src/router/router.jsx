@@ -26,6 +26,7 @@ import Promotions from "../pages/Promotions/Promotions";
 import LossBackClaims from "../pages/LossBackClaims/LossBackClaims";
 import BonusStatement from "../pages/BonusStatement/BonusStatement";
 import BettingProfitLoss from "../pages/BettingProfitLoss/BettingProfitLoss";
+import SingleProfitLoss from "../pages/BettingProfitLoss/SingleProfitLoss";
 
 export const router = createBrowserRouter(
   [
@@ -114,6 +115,10 @@ export const router = createBrowserRouter(
           path: "/profit-loss",
           element: <BettingProfitLoss />,
           // element: <ProfitLoss />,
+        },
+        {
+          path: "/betting-profit-loss/:marketId",
+          element: <SingleProfitLoss />,
         },
         {
           path: "/game-provider/:game_name/:game_id",

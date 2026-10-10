@@ -110,9 +110,9 @@ const BettingProfitLoss = () => {
                             textShadow: "1px 1px #000000",
                             color:
                               totalPnl > 0
-                                ? "#00FF00"
+                                ? "#198754"
                                 : totalPnl < 0
-                                  ? "#FF4C4C"
+                                  ? "#DC3545"
                                   : "#FFFFFF",
                           }}
                         >
@@ -183,9 +183,9 @@ const BettingProfitLoss = () => {
                                   fontWeight: "600",
                                   color:
                                     item?.memberWin > 0
-                                      ? "#00FF00"
+                                      ? "#198754"
                                       : item?.memberWin < 0
-                                        ? "#FF0000"
+                                        ? "#DC3545"
                                         : "#000",
                                 }}
                               >
