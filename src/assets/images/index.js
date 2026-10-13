@@ -32,8 +32,10 @@ import install_android from "../img/header_image.png";
 import telegram from "../img/telegram.png";
 import whatsAppSVG from "../img/whatsapp-icon.svg";
 import aviator from "../img/aviator.png";
+import aviator_studio from "../img/aviator_studio.png";
 
 export default {
+  aviator_studio,
   aviator,
   whatsAppSVG,
   telegram,

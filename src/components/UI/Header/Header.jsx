@@ -236,7 +236,7 @@ const Header = () => {
                 >
                   <div className="icon-wrap ng-star-inserted">
                     <img
-                      src={images.aviator}
+                      src={images.aviator_studio}
                       alt="JetX"
                       style={{ width: "100%", height: "100%" }}
                     />
